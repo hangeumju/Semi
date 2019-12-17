@@ -1,0 +1,59 @@
+
+-------------------------------------------------------
+-- 세미프로젝트 DB
+-------------------------------------------------------
+
+-- host table 생성
+drop table host;
+
+Create table host(
+host_no number primary key,
+host_id varchar2(20) not null unique,
+host_pw varchar2(16) not null,
+host_name varchar2(21) not null,
+host_phone varchar2(11) not null unique,
+host_email_id varchar2(20) not null,
+host_emaill_domain varchar2(15) check (host_emaill_domain in ('@naver.com', '@nate.com', '@gmail.com', '@daum.net', '@hanmail.net' )),
+host_Interest varchar2(21) check (host_Interest in ('액티비티', '배움', '건강/뷰티', '모임', '여행')),
+host_post varchar2(6),
+host_basic_addr varchar2(255),
+host_extra_addr varchar2(255),
+host_bank_name varchar(30) not null,
+host_bank_account varchar2(25) not null,
+host_joindate date DEFAULT sysdate,
+host_lastlogin date
+);
+
+-- 시퀀시 생성 
+drop sequence host_no_seq;
+create sequence host_no_seq;
+
+
+------------------------------------------------------------------------------
+
+-- users table 생성
+drop table users;
+
+create table users(
+User_no number primary key,
+User_id varchar2(20) not null unique,
+User_pw varchar2(16) not null,
+User_name varchar2(21) not null,
+User_phone varchar2(11) not null unique,
+User_email_id varchar2(20) not null,
+User_emaill_domain varchar2(15) not null 
+check(User_emaill_domain in(
+'@naver.com', '@nate.com', '@gmail.com', '@daum.net', '@hanmail.net')),
+User_point number default 0,
+User_Interest varchar2(21) 
+check(User_Interest in ('액티비티', '배움', '건강/뷰티', '모임', '여행')),
+User_birth varchar2(8),
+User_join_date date default sysdate,
+User_last_login date default null
+);
+
+-- 시퀀시 생성 
+drop sequence Users_no_seq;
+create sequence Users_no_seq;
+
+------------------------------------------------------------------------------
