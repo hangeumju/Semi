@@ -8,7 +8,7 @@ public class Host_Regist_Dao {
 	
 	public Connection getConnection() throws Exception {
 		Class.forName("oracle.jdbc.OracleDriver");
-		Connection con = DriverManager.getConnection("jdbc:oracle:thin:www.sysout.co.kr:1521:xe", "kh22", "kh22");
+		Connection con = DriverManager.getConnection("jdbc:oracle:thin:@www.sysout.co.kr:1521:xe", "kh22", "kh22");
 
 
 		return con;
