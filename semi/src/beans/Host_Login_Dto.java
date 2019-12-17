@@ -18,7 +18,7 @@ public class Host_Login_Dto {
 	private String host_lastlogin;
 	
 	
-	
+	//Host_login Page	
 	public Host_Login_Dto() {
 		super();
 	}

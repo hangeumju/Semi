@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import beans.Host_Login_Dao;
 @WebServlet (urlPatterns = "/login/host_login.do")
+//Host_login Page
 public class Host_Login_Servlet extends HttpServlet{
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

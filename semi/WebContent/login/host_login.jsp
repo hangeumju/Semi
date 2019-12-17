@@ -4,6 +4,7 @@
 <form action="host_login.do" method="post">
 <div align="center">
 <h2>Host Login</h2>
+<!-- 호스트 로그인 -->
 <table border="1">
 <!-- ID 입력창 -->
 <tr>

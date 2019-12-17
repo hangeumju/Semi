@@ -13,7 +13,7 @@ public class Host_Login_Dao {
 	      "jdbc:oracle:thin:@www.sysout.co.kr:1521:xe", "kh22","kh22");
 	      
 	}
-
+//Host_login Page
 	public boolean host_login(String host_id, String host_pw) throws Exception {
 		Connection con = getConnecion();
 		String sql ="select*from host where host_id=? and host_pw=?";
@@ -25,7 +25,6 @@ public class Host_Login_Dao {
 		boolean result = rs.next();
 
 		con.close();
-
 		return result;
 	}
 
