@@ -31,6 +31,10 @@
 	//3. 원하는 위치에 출력한다. 	
 	String id = (String) session.getAttribute("user_id");
 	Users_Get_Dto UGdto = new Users_Get_Dto();
+	
+	//나중에 사용할지도 몰라서??..남겨뒀어요
+// 	Users_Get_Dao UGdao = new Users_Get_Dao();
+// 	Users_Get_Dto UGdto = UGdao.users_get(id);
 %>
 
 <jsp:include page="/template/header.jsp"></jsp:include>
@@ -49,7 +53,7 @@
 					<li>이용후기</li>
 					<li><a href="users_check.jsp?go=/info/users_change_info.jsp">정보수정</a></li>
 					<li><a href="users_check.jsp?go=/info/users_exit.do">회원탈퇴</a></li>
-					<li>포인트내역</li>
+					<li><a href="<%=request.getContextPath() %>/info/users_point.jsp">포인트내역</a></li>
 				</ul>
 			</div>
 
