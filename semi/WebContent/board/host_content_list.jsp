@@ -13,7 +13,7 @@ String host_id = (String)request.getSession().getAttribute("host_id");
 
 
 
-	<form action="host_regist.do" method="post">
+	<form action="host_content_list.do" method="post">
 	<article class="w-40">
 	
 	<!-- host_id 는 hidden 으로 넘김 -->
@@ -49,7 +49,7 @@ String host_id = (String)request.getSession().getAttribute("host_id");
 		<div>
 			<p> 모집위치 </p>		
 			    <input class="block-item input-item" type="text" id="address-input" placeholder="주소 입력" onblur="loadMap();">
-   				<div  id="map" style="width:500px;height:400px;"></div>
+   				<div  id="map" style="display:none; width:100%;height:400px;"></div>
 		</div>
 				
 		<div class="row-left">			

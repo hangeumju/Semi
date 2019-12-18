@@ -1,5 +1,6 @@
 package servlet;
 
+import java.io.File;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -7,6 +8,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+
 
 import beans.Host_ContentProduce_Dao;
 import beans.Host_ContentProduce_Dto;
@@ -18,6 +23,7 @@ public class Host_content_Produce_Servlet extends HttpServlet{
 		try {
 			req.setCharacterEncoding("utf-8");
 			
+//			
 			//콘텐츠 생성 다오 및 디티오 받기
 			Host_ContentProduce_Dao HCdao = new Host_ContentProduce_Dao();
 			Host_ContentProduce_Dto HCdto = new Host_ContentProduce_Dto();
@@ -38,6 +44,8 @@ public class Host_content_Produce_Servlet extends HttpServlet{
 			
 			//파일다오를 통해 입력받은 컨텐츠를 생성한다
 			HCdao.host_contentproduce(HCdto);
+			
+			
 			
 			//아직 보내는 곳은 미정입니다
 			resp.sendRedirect("#");
