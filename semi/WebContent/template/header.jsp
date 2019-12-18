@@ -131,7 +131,7 @@ function closeLoginModal(){
 			    <button onclick="openLoginModal();">로그인</button>
 			    <div class="modal" onclick="closeLoginModal();">
 			        <div class="modal-view">
-			            aaaaaaa
+
 			        </div>
     </div>	
 			</div>
