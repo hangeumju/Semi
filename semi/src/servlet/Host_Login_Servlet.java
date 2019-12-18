@@ -19,8 +19,8 @@ public class Host_Login_Servlet extends HttpServlet{
 			String id = req.getParameter("host_id");
 			String pw = req.getParameter("host_pw");
 			
-			Host_Login_Dao hldao = new Host_Login_Dao();
-			boolean result = hldao.host_login(id,pw);
+			Host_Login_Dao HLdao = new Host_Login_Dao();
+			boolean result = HLdao.host_login(id,pw);
 			
 			if(result) {
 				resp.sendRedirect("http://www.naver.com");
