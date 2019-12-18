@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 
 <jsp:include page="/template/header.jsp"></jsp:include>
+
 <body test>
     <main>
         <header>
@@ -12,10 +13,11 @@
                 <input type="text" placeholder="검색창">
             </div>
             <div class="menu">
-                <a href="#">회원가입</a>
+                <a href="">회원가입</a>
                 <a href="#">로그인</a>
             </div>
         </header>
+
 
         <section onload="loadSlider()" >
 	        <!-- 이미지 슬라이더 영역 -->
@@ -52,6 +54,8 @@
 	
 	    </div>
 	    <!-- 이미지 슬라이더 영역 종료 -->
+	    
+	    <!--  -->
             <article>
                 <div class="row-empty"></div>
                 <div class="row-empty"></div>
@@ -61,11 +65,12 @@
                 <div id=a>
                     <h4><a href="#">전체보기</a></h4>
                 </div>
-            
+          
             <div class="gallary">
                 <div class="gallary-item">
                     <div class="gallary-image">
-                        <img src="http://placeimg.com/480/480/animals">
+                <a href="https://ko.wikipedia.org/wiki/%EB%A1%9C%EB%A0%98_%EC%9E%85%EC%88%A8" > 
+                    <img src="http://placeimg.com/480/480/animals">  
                     </div>
                     <div class="gallary-text">
                         <h4>Lorem Ipsum</h4>
@@ -74,8 +79,11 @@
                         </p>
                     </div>
                 </div>
+                </a>
+
                 <div class="gallary-item">
                     <div class="gallary-image">
+	                <a href="https://ko.wikipedia.org/wiki/%EB%A1%9C%EB%A0%98_%EC%9E%85%EC%88%A8" >
                         <img src="http://placeimg.com/480/480/nature">
                     </div>
                     <div class="gallary-text">
@@ -84,9 +92,12 @@
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                         </p>
                     </div>
+                </a>
                 </div>
+
                 <div class="gallary-item">
                     <div class="gallary-image">
+                    <a href="https://ko.wikipedia.org/wiki/%EB%A1%9C%EB%A0%98_%EC%9E%85%EC%88%A8" >    
                         <img src="http://placeimg.com/480/480/people">
                     </div>
                     <div class="gallary-text">
@@ -96,8 +107,11 @@
                         </p>
                     </div>
                 </div>
+                </a>
+                                
                 <div class="gallary-item">
                     <div class="gallary-image">
+                    <a href="https://ko.wikipedia.org/wiki/%EB%A1%9C%EB%A0%98_%EC%9E%85%EC%88%A8" >    
                         <img src="http://placeimg.com/480/480/tech">
                     </div>
                     <div class="gallary-text">
@@ -107,8 +121,11 @@
                         </p>
                     </div>
                 </div>
+                </a>
+                
                 <div class="gallary-item">
                     <div class="gallary-image">
+                    <a href="https://ko.wikipedia.org/wiki/%EB%A1%9C%EB%A0%98_%EC%9E%85%EC%88%A8" >
                         <img src="http://placeimg.com/480/480/tech">
                     </div>
                     <div class="gallary-text">
@@ -118,7 +135,9 @@
                         </p>
                     </div>
                 </div>
+                </a>
             </div>
+                      
             </article>
         </section>
         
