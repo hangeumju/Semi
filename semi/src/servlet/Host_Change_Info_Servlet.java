@@ -41,7 +41,7 @@ public class Host_Change_Info_Servlet extends HttpServlet{
 			Host_Change_Info_Dao HCIdao = new Host_Change_Info_Dao();
 			HCIdao.host_change_info(HCIdto);
 			
-			resp.sendRedirect("host_info");
+			resp.sendRedirect("host_info.jsp");
 			
 		}
 		catch(Exception e){
