@@ -23,6 +23,9 @@ public class Host_Change_PW_Dao {
 		con.close();
 		
 	}
+	
+	//임시 비밀번호 발급 (host_change_temporary_pw)
+	
 }
 
 
