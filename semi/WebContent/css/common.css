@@ -183,7 +183,7 @@ table.table.table-hover > tbody > tr:hover {
 .gallary > .gallary-item img {
     width: 100%;
 }
-
+/* 
 @media screen and (max-width:720px) {
     .gallary > .gallary-item {
         width: 50%;
@@ -194,8 +194,8 @@ table.table.table-hover > tbody > tr:hover {
     .gallary > .gallary-item {
         width: 100%;
     }
-}
-
+} 
+ */
 
 
 .menu {
