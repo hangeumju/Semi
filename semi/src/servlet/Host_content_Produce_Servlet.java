@@ -32,8 +32,8 @@ public class Host_content_Produce_Servlet extends HttpServlet{
 			HCdto.setHost_content_date(req.getParameter("host_content_date"));
 			HCdto.setHost_content_location(req.getParameter("host_content_location"));
 			HCdto.setHost_content_ect_info(req.getParameter("host_content_ect_info"));
-			HCdto.setHost_content_original_file(req.getParameter("host_content_original_file"));
-			HCdto.setHost_content_edit_file(req.getParameter("host_content_edit_file"));
+			HCdto.setHost_content_original_file(req.getParameter("host_content_file"));
+			HCdto.setHost_content_edit_file(req.getParameter("host_content_file"));
 			HCdto.setHost_content_qa(req.getParameter("host_content_qa"));
 			
 			//파일다오를 통해 입력받은 컨텐츠를 생성한다
