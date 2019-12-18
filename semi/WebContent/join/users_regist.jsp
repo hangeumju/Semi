@@ -1,11 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>일반 회원가입</title>
-</head>
+<jsp:include page="/template/header.jsp"></jsp:include>
 <body>
 <form action="users_regist.do" method="post">
 <!-- css 디자인 설정함 -->
@@ -68,6 +63,4 @@
 	
 	</article>
 	</form>
-	</body>
-
-</html>
+<jsp:include page="/template/footer.jsp"></jsp:include>
