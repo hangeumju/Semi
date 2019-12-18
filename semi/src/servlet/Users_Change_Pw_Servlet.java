@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import beans.Users_Change_Pw_Dao;
 
-@WebServlet(urlPatterns = "/info2/users_change_pw.do")
+@WebServlet(urlPatterns = "/info/users_change_pw.do")
 public class Users_Change_Pw_Servlet extends HttpServlet {
 	
 	@Override
