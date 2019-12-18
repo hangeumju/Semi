@@ -12,7 +12,6 @@
 <form action="host_change_info.do" method="post">
 <article class="w-40">
 <div class="row">
-
 <h2>Host <%=HCIdto.getHost_name() %> 님의 정보를 수정하시나요?</h2>
 		<!-- 전화번호 수정 -->
 		<div class="row-left">

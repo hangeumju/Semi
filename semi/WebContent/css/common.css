@@ -198,7 +198,7 @@ table.table.table-hover > tbody > tr:hover {
 
 
 
-.menu {
+/* .menu {
     background-color: black;
 }
 
@@ -231,7 +231,7 @@ table.table.table-hover > tbody > tr:hover {
 
 .menu a {
     text-decoration: none;
-    /*밑줄 제거*/
+    밑줄 제거
 }
 
 .menu a:hover {
@@ -254,7 +254,7 @@ table.table.table-hover > tbody > tr:hover {
 
 .menu > #hamburg:checked ~ .menu-item {
     display: block;
-}
+} */
 
 /*
 @media screen and (max-width:720px) {
@@ -262,9 +262,11 @@ table.table.table-hover > tbody > tr:hover {
         display: block;
         width: 100%;
     }
+
     .menu > .menu-item {
         display: none;
     }
+
     .menu > .right-menu {
         float: left;
     }
@@ -310,155 +312,216 @@ section,
 footer {
     padding: 2rem;
 }
-
- /*
-            내부 영역 스타일
+/*--------------------------------------------------------------------------------------*/
+/*
+            내부영역 스타일
             - section 내부에 화면을 배치할 때 필요한 구성요소들을 미리 디자인
             - 영역(article) - 폭을 숫자로 지정할 수 있도록 구성
         */
-        .w-100{width: 100%;}
-        .w-90{width: 90%;}
-        .w-80{width: 80%;}
-        .w-70{width: 70%;}
-        .w-60{width: 60%;}
-        .w-50{width: 50%;}
-        .w-40{width: 40%;}
-        .w-30{width: 30%;}
-        .w-20{width: 20%;}
-        .w-10{width: 10%;}
-        
-        article{
-            margin: auto;
-        }
-        
-        /*
-        	row의 방향 설정
-        	- 기본값 : center
-        	- 왼쪽 : row-left
-        	- 오른쪽 : row-right
-        */                
-        .row, .row-left, .row-right, .row-multi{
-            margin: 10px 0px;
-         }
-         .row{
-         	text-align:center;
-         }
-         .row-left{
-         	text-align:left;
-         }
-         .row-right{
-         	text-align:right;
-         }
-       
-       /*
-       	- .block-item 이라는 클래스가 부여되면 block처리 (width:100%)
-       */ 
-       	.block-item {
-            width: 100%;
-        }
-        
-        /* 여백 주기 */
-        .row-empty{
-            height: 20px;
-        }
 
-/*
-      	- .block-item 이라는 클래스가 부여되면 block처리 (width:100%)
- */ 
-       	.block-item {
-            width: 100%;
-        }
-        
-/* 여백 주기 */
-        .row-empty{
-            height: 20px;
-        }
-        
-        /*
-        	입력창과 버튼 스타일
-        	- input, select, textarea : .input-item
-        	- button, input[type=button], input[type=submit] : btn
-        */       
-        .input-item{
-        	font-size:1.5rem;        	
-        	padding:0.5rem;        	
-        }
-        
-        .btn{
-        	font-size:1.5rem;        	
-        	padding:0.5rem;
-        	background-color:#2DB400;
-        	color:white;        
-        	boder:none;     
-        }
-        
-        .btn:hover{
-        background-color:#3EC511;
-        color:white;  
-        }
+.w-100 {
+    width: 100%;
+}
 
-/*
-	게시판 페이지 네비게이터 스타일
-	- 현재 페이지는 .active 표시를 해야함
-*/
+.w-90 {
+    width: 90%;
+}
 
- .page-navigator{
-            list-style: none;
-            padding:0;
-            margin:0;
-             display: inline-block;
-        }
-        .page-navigator::after{
-            content: "";
-            display: block;
-            clear: both;
-        }
-        .page-navigator > li{
-            float:left;
-            background-color: #B1DB4E;
-            color: white;
-            padding: 1rem;            
-        }
-        .page-navigator > li.active{
-            background-color: black;
-        }
-        .page-navigator > li > a{
-            color: white;
-            text-decoration: none;
-        }
-        .page-navigator > li > a:hover{
-            color: #daf83e;
-        }
-        
-        /*
-        	다단 스타일(.row-multi)
-        	- 2단 : .row-multi.com-2
-        	- 3단 : .row-multi.com-3
-        	- 4단 : .row-multi.com-4
-        	- 5단 : .row-multi.com-5
-        */
-       
-        .row-multi::after{
-            content: "";
-            display: block;
-            clear: both;
-        }
-        
-        .row-multi > *{
-            float: left;
-        }
-        
-        .row-multi.col-2 > * { width:50%; }
-        .row-multi.col-3 > * { width:33.3333%; }
-        .row-multi.col-4 > * { width:25%; }
-        .row-multi.col-5 > * { width:20%; }
+.w-80 {
+    width: 80%;
+}
 
-/*
-	Title 스타일 : 제목에는 그라데이션 추가
-*/
-	.title{
-	background: rgb(24,222,137);
-	background: linear-gradient(156deg, rgba(24,222,137,1) 0%, rgba(156,242,0,1) 44%, rgba(178,255,223,1) 100%);
-	color:white;
-	text-align:left;
-	}
+.w-70 {
+    width: 70%;
+}
+
+.w-60 {
+    width: 60%;
+}
+
+.w-50 {
+    width: 50%;
+}
+
+.w-40 {
+    width: 40%;
+}
+
+.w-30 {
+    width: 30%;
+}
+
+.w-20 {
+    width: 20%;
+}
+
+.w-10 {
+    width: 10%;
+}
+
+article {
+    margin: auto;
+}
+
+.row {
+    margin: 10px 0px;
+    text-align: center;
+}
+
+.row > * {
+    width: 100%;
+}
+
+.row-empty {
+    height: 20px;
+}
+/*--------------------------------------------------------------------------------------------------*/
+/* 검색창 */
+
+form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  /* position: absolute;
+  top: 50px;
+  width: 100%; */
+}
+
+fieldset {
+  position: relative;
+}
+
+.fa-search{
+  position: relative;
+  top: 0px;
+  font-size: 20px !important;
+}
+
+.url{
+  margin: 20px 50px;
+  padding-left: 50px;
+  -webkit-box-flex: 5;
+      -ms-flex-positive: 5;
+          flex-grow: 5;
+}
+
+.enter{
+  margin: 20px 20px;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+label {
+  position: absolute;
+  top: -5px;
+  letter-spacing: 10px;
+  font-size: 20px;
+  color: RGBA(55, 73, 87, 0.8);
+  -webkit-transform-origin: left;
+      -ms-transform-origin: left;
+          transform-origin: left;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+input:focus ~ label,
+input:valid ~ label {
+  top: 0;
+  letter-spacing: 5px;
+  -webkit-transform: translate(0, -30px) scale(0.7, 0.7);
+      -ms-transform: translate(0, -30px) scale(0.7, 0.7);
+          transform: translate(0, -30px) scale(0.7, 0.7);
+
+}
+
+input {
+  font-family: system-ui, Helvetica, Arial, sans-serif;
+  font-size: 20px !important;
+  width: 100%;
+  border: none;
+  margin-top: 0;
+  background-color: transparent;
+}
+
+input:focus {
+  outline: none;
+}
+
+.after {
+  width: 500px;
+  height: 2px;
+  background: -webkit-gradient(linear, left top, right top, color-stop(50%, RGBA(254, 253, 255, 1.00)), color-stop(50%, transparent));
+  background: -webkit-linear-gradient(left, RGBA(254, 253, 255, 1.00) 50%, transparent 50%);
+  background: -o-linear-gradient(left, RGBA(254, 253, 255, 1.00) 50%, transparent 50%);
+  background: linear-gradient(to right, RGBA(254, 253, 255, 1.00) 50%, transparent 50%);
+  background-color: RGBA(55, 73, 87, 0.8);
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+input:focus ~ .after {
+  background-position: 0 0;
+}
+
+button {
+  position: relative;
+  width: 200px;
+  height: 34px;
+  font-size: 20px;
+  font-family: system-ui, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  margin-top: 20px;
+  padding: 2px 10px;
+  color: rgba(255, 255, 255, 0.6);
+  background: white;
+  border: none;
+  border-radius: 15px;
+  background: -webkit-gradient(linear, left top, right top, color-stop(50%, white), color-stop(50%, transparent));
+  background: -webkit-linear-gradient(left, white 50%, transparent 50%);
+  background: -o-linear-gradient(left, white 50%, transparent 50%);
+  background: linear-gradient(to right, white 50%, transparent 50%);
+  background-color: RGBA(55, 73, 87, 0.8);
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+button:before {
+  position: absolute;
+  font-family: system-ui, FontAwesome, Helvetica, Arial, sans-serif;;
+  font-size: 20px;
+  content: "\f00c";
+  letter-spacing: 3px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  top: 2px;
+  bottom: 2px;
+  left: 2px;
+  right: 2px;
+  display: block;
+  border-radius: 15px;
+  /*color: white;*/
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+button:active,
+button:focus,
+button:hover {
+  outline: none;
+  background-position: 0 0;
+  color: white;
+}
+
+

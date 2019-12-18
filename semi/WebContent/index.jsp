@@ -2,20 +2,7 @@
     pageEncoding="UTF-8"%>
 
 <jsp:include page="/template/header.jsp"></jsp:include>
-<body test>
-    <main>
-        <header>
-            <div>
-                <img src="http://placehold.it/100x30?text=logo">
-            </div>
-            <div>
-                <input type="text" placeholder="검색창">
-            </div>
-            <div class="menu">
-                <a href="#">회원가입</a>
-                <a href="#">로그인</a>
-            </div>
-        </header>
+
 
         <section onload="loadSlider()" >
 	        <!-- 이미지 슬라이더 영역 -->
@@ -52,6 +39,8 @@
 	
 	    </div>
 	    <!-- 이미지 슬라이더 영역 종료 -->
+	    
+	    <!--  -->
             <article>
                 <div class="row-empty"></div>
                 <div class="row-empty"></div>
