@@ -1,6 +1,6 @@
 package beans;
 
-public class Users_Login_Dto {
+public class Users_Change_Info_Dto {
 	private int user_no;
 	private String user_id;
 	private String user_pw;
@@ -16,7 +16,7 @@ public class Users_Login_Dto {
 	
 	@Override
 	public String toString() {
-		return "Users_Login_Dto [user_no=" + user_no + ", user_id=" + user_id + ", user_pw=" + user_pw + ", user_name="
+		return "Users_Chagne_Pw_Dto [user_no=" + user_no + ", user_id=" + user_id + ", user_pw=" + user_pw + ", user_name="
 				+ user_name + ", user_phone=" + user_phone + ", user_email_id=" + user_email_id + ",  user_email_domain=" + user_email_domain + ", user_point=" + user_point
 				+ ", user_interest=" + user_interest + ", user_birth=" + user_birth + ", user_join_date="
 				+ user_join_date + ", user_last_login=" + user_last_login + "]";
@@ -142,12 +142,12 @@ public class Users_Login_Dto {
 	}
 
 
-	public Users_Login_Dto() {
+	public Users_Change_Info_Dto() {
 		super();
 	}
 
 
-	public Users_Login_Dto(int user_no, String user_id, String user_pw, String user_name, String user_phone,
+	public Users_Change_Info_Dto(int user_no, String user_id, String user_pw, String user_name, String user_phone,
 			String user_email_id, String user_email_domain, int user_point, String user_interest, String user_birth, String user_join_date,
 			String user_last_login) {
 		super();
@@ -171,3 +171,6 @@ public class Users_Login_Dto {
 	
 
 }
+
+
+

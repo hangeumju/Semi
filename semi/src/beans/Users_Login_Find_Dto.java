@@ -7,7 +7,7 @@ public class Users_Login_Find_Dto {
 		private String user_pw;
 		private String user_name;
 		private String user_phone;
-		private String user_email;
+		private String user_email_id;
 		private String user_email_domain;
 		private int user_point;
 		private String user_interest;
@@ -18,7 +18,7 @@ public class Users_Login_Find_Dto {
 		@Override
 		public String toString() {
 			return "Users_Login_Dto [user_no=" + user_no + ", user_id=" + user_id + ", user_pw=" + user_pw + ", user_name="
-					+ user_name + ", user_phone=" + user_phone + ", user_email=" + user_email + ",  user_email_domain=" + user_email_domain + ", user_point=" + user_point
+					+ user_name + ", user_phone=" + user_phone + ", user_email_id=" + user_email_id + ",  user_email_domain=" + user_email_domain + ", user_point=" + user_point
 					+ ", user_interest=" + user_interest + ", user_birth=" + user_birth + ", user_join_date="
 					+ user_join_date + ", user_last_login=" + user_last_login + "]";
 		}
@@ -74,17 +74,17 @@ public class Users_Login_Find_Dto {
 		}
 
 
-		public String getUser_email() {
-			return user_email;
+		public String getUser_email_id() {
+			return user_email_id;
 		}
 
 
-		public void setUser_email(String user_email) {
-			this.user_email = user_email;
+		public void setUser_email_id(String user_email_id) {
+			this.user_email_id = user_email_id;
 		}
 		
 		public String getUser_email_domain() {
-			return user_email;
+			return user_email_domain;
 		}
 
 
@@ -149,7 +149,7 @@ public class Users_Login_Find_Dto {
 
 
 		public Users_Login_Find_Dto(int user_no, String user_id, String user_pw, String user_name, String user_phone,
-				String user_email, String user_email_domain, int user_point, String user_interest, String user_birth, String user_join_date,
+				String user_email_id, String user_email_domain, int user_point, String user_interest, String user_birth, String user_join_date,
 				String user_last_login) {
 			super();
 			this.user_no = user_no;
@@ -157,7 +157,7 @@ public class Users_Login_Find_Dto {
 			this.user_pw = user_pw;
 			this.user_name = user_name;
 			this.user_phone = user_phone;
-			this.user_email = user_email;
+			this.user_email_id = user_email_id;
 			this.user_email_domain = user_email_domain;
 			this.user_point = user_point;
 			this.user_interest = user_interest;
