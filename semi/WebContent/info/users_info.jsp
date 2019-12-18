@@ -36,6 +36,7 @@
 <jsp:include page="/template/header.jsp"></jsp:include>
 
 <body>
+
 	<link rel="stylesheet" type="text/css"
 		href="<%=request.getContextPath()%>/css/common.css">
 	<div class="row">
@@ -87,6 +88,19 @@
 					</p>
 				</div>
 			</div>
+
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/common.css">
+<div class="row">
+<div class="float-wrap">
+       	<div class="float-item">
+       		<ul class="custom-list float-item"">
+		       <li>이용내역</li>
+		       <li>이용후기</li>
+		       <li><a href ="users_check.jsp?go=/info/users_change_info.jsp" >정보수정</a></li> 
+		       <li>회원탈퇴</li>
+		       <li>포인트내역</li>
+		   </ul>
+
 		</div>
 	</div>
 	<jsp:include page="/template/footer.jsp"></jsp:include>

@@ -71,7 +71,7 @@ public class Users_Login_Dao {
 			ULdto.setUser_pw(rs.getString("user_pw"));
 			ULdto.setUser_name(rs.getString("user_name"));
 			ULdto.setUser_phone(rs.getString("user_phone"));
-			ULdto.setUser_email(rs.getString("user_email"));
+			ULdto.setUser_email_id(rs.getString("user_email_id"));
 			ULdto.setUser_email_domain(rs.getString("user_email_domain"));
 			ULdto.setUser_point(rs.getInt("user_point"));
 			ULdto.setUser_interest(rs.getString("user_interest"));
