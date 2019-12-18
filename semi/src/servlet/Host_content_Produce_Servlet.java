@@ -13,10 +13,10 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 
-import beans.Host_ContentProduce_Dao;
-import beans.Host_ContentProduce_Dto;
+import beans.Host_Content_Dao;
+import beans.Host_Content_Dto;
 
-@WebServlet(urlPatterns = "/board/host_content_list.do")
+@WebServlet(urlPatterns = "/board/host_content_produce.do")
 public class Host_content_Produce_Servlet extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -25,8 +25,8 @@ public class Host_content_Produce_Servlet extends HttpServlet{
 			
 //			
 			//콘텐츠 생성 다오 및 디티오 받기
-			Host_ContentProduce_Dao HCdao = new Host_ContentProduce_Dao();
-			Host_ContentProduce_Dto HCdto = new Host_ContentProduce_Dto();
+			Host_Content_Dao HCdao = new Host_Content_Dao();
+			Host_Content_Dto HCdto = new Host_Content_Dto();
 			
 			///board/host_content_list.jsp 에서 보내는 변수를 받는다
 			HCdto.setHost_id(req.getParameter("host_id"));
