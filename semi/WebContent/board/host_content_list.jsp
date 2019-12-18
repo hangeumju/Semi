@@ -1,13 +1,16 @@
+<%@page import="java.util.List"%>
+<%@page import="beans.Host_Content_Dto"%>
+<%@page import="beans.Host_Content_Dao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
 
 <%
 // 컨텐츠 불러오기
-/* 	Host_Content_Dao HCdao = new Host_Content_Dao();
+	Host_Content_Dao HCdao = new Host_Content_Dao();
 	Host_Content_Dto HCdto = new Host_Content_Dto();
-	List<Host_Content_Dto> list = dao.getList(HCdto);
- */
+	List<Host_Content_Dto> list = HCdao.getList();
+
 %>
 	<!-- 갤러리 4단 나누기 -->
 
@@ -81,7 +84,7 @@
 
 
   <div class="gallary">
-	<%--  <% for (int i = 0; i < list.length; i++) {%> --%>
+ 	<% for (Host_Content_Dto dto : list) {%> 
 	
 
         <div class="gallary-item">
@@ -89,14 +92,14 @@
                 <img src="http://placeimg.com/480/480/animals">                
             </div>            
             <div class="gallary-text">
-                <h4>Lorem Ipsum</h4>
+                <h4><%=dto.getHost_content_name() %></h4>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    <%=dto.getHost_content_cost() %>
                 </p>
             </div>
         </div>    
         
-	<%-- <% } %>  --%>
+	<% } %>  
      </div>               
 
 

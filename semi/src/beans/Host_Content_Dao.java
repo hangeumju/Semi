@@ -47,21 +47,21 @@ public class Host_Content_Dao {
 	//전체 컨텐츠 리스트를 불러오는 다오입니다
 	//매개변수 : 카테고리
 	//반환값 : 카테고리에 해당하는 컨텐츠 리스트
-	public List<Host_Content_Dto> getList(Host_Content_Dto HCdto) throws Exception{
+	public List<Host_Content_Dto> getList() throws Exception{
 		
 		Connection con = getConnection();
 		
-		String sql = "select * from host_content where host_content_category = ?";
+		String sql = "select * from host_content";
 		
 		PreparedStatement ps = con.prepareStatement(sql);
 		
-		ps.setString(1, HCdto.getHost_content_category());
+		
 		ResultSet rs = ps.executeQuery();
 		
 		List<Host_Content_Dto> list = new ArrayList<>();
 		
 		while(rs.next()) {
-			
+			Host_Content_Dto HCdto = new Host_Content_Dto();
 			HCdto.setHost_content_name(rs.getString("Host_content_name"));
 			HCdto.setHost_content_cost(rs.getInt("Host_content_cost"));
 			HCdto.setHost_content_edit_file(rs.getString("host_content_edit_file"));
