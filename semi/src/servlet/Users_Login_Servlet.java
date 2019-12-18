@@ -24,8 +24,8 @@ public class Users_Login_Servlet extends HttpServlet {
 			String user_pw = req.getParameter("user_pw");
 			
 			//처리
-			Users_Login_Dao dao = new Users_Login_Dao();
-			boolean result = dao.login(user_id,user_pw);
+			Users_Login_Dao ULdao = new Users_Login_Dao();
+			boolean result = ULdao.login(user_id,user_pw);
 			
 			//출력
 			if(result) { //로그인 성공시
