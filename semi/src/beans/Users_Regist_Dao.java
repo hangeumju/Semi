@@ -36,5 +36,5 @@ public class Users_Regist_Dao {
 		
 		con.close();
 	}
-	
+		
 }

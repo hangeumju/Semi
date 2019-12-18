@@ -48,12 +48,6 @@
 				<h1>이름</h1>
 				<p><%=HIdto.getHost_name()%></p>
 			</div>
-			
-				<div>
-				<h1>비밀번호 변경</h1>
-				<p><%=HIdto.getHost_pw()%></p>
-			</div>
-			
 			<div>
 				<h1>휴대전화</h1>
 				<p><%=HIdto.getHost_phone()%></p>
@@ -78,9 +72,9 @@
 			</div>
 			</div>
 			</div>
-<h4><a href="#">비밀번호 변경</a></h4>
-<h4><a href="/info/host_change_info.jsp">회원정보 수정</a></h4>
-<h4><a href="#">회원 탈퇴</a></h4>
+<h4><a href="host_check_pw.jsp?host_check=/info/host_change_pw.jsp">비밀번호 변경</a></h4>
+<h4><a href="host_check_pw.jsp?host_check=//info/host_change_info.jsp">회원정보 수정</a></h4>
+<h4><a href="host_check_pw.jsp?host_check=/">회원 탈퇴</a></h4>
    </article>
    </form>
 <jsp:include page="/template/footer.jsp"></jsp:include>
