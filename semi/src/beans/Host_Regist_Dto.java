@@ -141,5 +141,34 @@ public class Host_Regist_Dto {
 		this.host_lastlogin = host_lastlogin;
 	}
 	
+	//호스트 메일 병합
+	public String getHost_totalmail() {
+		if(host_email_id != null && host_email_domain != null){
+		return getHost_email_id()+""+getHost_email_domain();
+		}
+		else {
+			return"";
+		}
+		
+	}
+
+//호스트 주소 병합
+public String getHost_address() {
+	if(host_post != null && host_basic_addr  != null && host_extra_addr != null){
+	return"["+getHost_post()+"]"+""+getHost_basic_addr()+""+getHost_extra_addr();
+	}
+	else {
+		return"";
+	}
 	
+}
+	//호스트 은행계좌 병합
+	public String getHost_bankaccount() {
+		if(host_bank_name != null && host_bank_account != null){
+		return"["+getHost_bank_name()+"]"+""+getHost_bank_account();
+		}
+		else {
+			return"";
+		}
+}
 }
