@@ -83,6 +83,7 @@
   <div class="gallary">
 	<%--  <% for (int i = 0; i < list.length; i++) {%> --%>
 	
+
         <div class="gallary-item">
             <div class="gallary-image">
                 <img src="http://placeimg.com/480/480/animals">                
@@ -96,7 +97,8 @@
         </div>    
         
 	<%-- <% } %>  --%>
-     </div>                
+     </div>               
+
 
 	
 </article> 

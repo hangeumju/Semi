@@ -21,7 +21,6 @@
 <!-- ID찾기 버튼 -->
 <div class="row-left">
 <a href="<%=request.getContextPath()%>/login/users_login_find.jsp">ID 찾기</a><br>
-<a href="#">PW 찾기</a><br>
 <a href="<%=request.getContextPath()%>/join/users_regist.jsp">Join us</a></div>
 <!-- error 전송될 경우 메세지 출력 -->
 <div>

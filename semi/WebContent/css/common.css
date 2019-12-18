@@ -262,11 +262,9 @@ table.table.table-hover > tbody > tr:hover {
         display: block;
         width: 100%;
     }
-
     .menu > .menu-item {
         display: none;
     }
-
     .menu > .right-menu {
         float: left;
     }
