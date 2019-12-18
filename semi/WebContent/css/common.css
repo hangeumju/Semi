@@ -1,0 +1,377 @@
+@charset "UTF-8";
+
+/*
+    전체스타일
+*/
+
+* {
+    box-sizing: border-box;
+    font-family: binggrae;
+}
+
+/*
+    웹 폰트 설정
+    1. 폰트를 등록한다(@font-face)
+    2. 등록된 폰트를 설정한다(font-family)
+*/
+
+@font-face {
+    font-family: binggrae;
+    src: url("../font/Binggrae.ttf");
+}
+
+@font-face {
+    font-family: maple;
+    src: url("../font/Maplestory Light.ttf");
+}
+
+@font-face {
+    font-family: melona;
+    src: url("../font/BinggraeMelona.ttf");
+}
+
+/*
+    테이블 스타일
+    <기본>
+    - table : 기본 테이블 스타일
+    <옵션>
+    - table-hover : 마우스가 올라간 줄에 하이라이트 적용
+    - table-stripe : 2줄마다 한 줄씩 하이라이트 적용
+*/
+
+table.table {
+    width: 100%;
+    border: 1px solid black;
+    /*테두리 병합*/
+    border-collapse: collapse;
+}
+
+table.table > thead > tr > td,
+table.table > thead > tr > th,
+table.table > tbody > tr > td,
+table.table > tbody > tr > th {
+    border: 1px solid black;
+    padding: 0.5rem;
+}
+
+/*확장 디자인 : stripe*/
+table.table.table-stripe > tbody > tr:nth-child(2n) {
+    background-color: aqua;
+}
+
+/*확장 디자인 : hover*/
+table.table.table-hover > tbody > tr:hover {
+    background-color: aqua;
+}
+
+/*
+    모달화면 디자인
+    - 초기에는 미표시 상태로 구현되어 있음
+    - .modal에 display:block으로 변경하면 표시됨
+    - 모달창의 투명도는 50%
+    - 모달화면의 크기는 300x400(조정가능)
+*/
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    display: none;
+}
+
+.modal > .modal-view {
+    position: fixed;
+    width: 300px;
+    height: 400px;
+    background-color: white;
+    top: 50%;
+    left: 50%;
+    margin-left: -150px;
+    margin-top: -200px;
+}
+
+/*
+    사이드 메뉴 스타일
+    - 리스트 형태로 계층 구조를 구현한 사이드 메뉴 스타일
+    - hover 상황에서 하위 메뉴가 펼쳐짐
+    - 기본 폭 150px
+*/
+.custom-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+
+    width: 150px;
+}
+
+.custom-list > li {
+    background-color: black;
+    color: white;
+    padding: 15px;
+    cursor: pointer;
+}
+
+.custom-list li:hover {
+    background-color: gray;
+    color: black;
+}
+
+/* 2차 이상의 메뉴 스타일 */
+.custom-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    position: absolute;
+    margin-left: 135px;
+    margin-top: -36px;
+
+    /* 2차 이상의 메뉴는 처음에 숨김 처리 */
+    display: none;
+}
+
+.custom-list ul > li {
+    background-color: black;
+    color: white;
+    padding: 15px;
+    width: 150px;
+}
+
+/*
+    메뉴를 표시하는 방법
+    1. :hover
+    2. :checked
+*/
+
+.custom-list li:hover > ul {
+    display: block;
+}
+
+/*
+    overflow 설정(넘침 설정)
+    - 숨김처리 + 줄바꿈금지 + 말줄임표 설정
+*/
+
+.custom-list li {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/*반응형 갤러리 */
+* {
+    box-sizing: border-box;
+}
+
+.gallary::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.gallary > .gallary-item {
+    float: left;
+    width: 20%;
+    padding: 10px;
+}
+
+.gallary > .gallary-item img {
+    width: 100%;
+}
+
+@media screen and (max-width:720px) {
+    .gallary > .gallary-item {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width:540px) {
+    .gallary > .gallary-item {
+        width: 100%;
+    }
+}
+
+
+
+.menu {
+    background-color: black;
+}
+
+.menu.menu-fixed {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+}
+
+.menu > .menu-item {
+    color: white;
+    padding: 1rem;
+}
+
+.menu > .left-menu {
+    float: left;
+
+}
+
+.menu > .right-menu {
+    float: right;
+}
+
+.menu::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.menu a {
+    text-decoration: none;
+    /*밑줄 제거*/
+}
+
+.menu a:hover {
+    color: gray;
+}
+
+.menu > label {
+    font-size: 2rem;
+    color: white;
+    padding: 5px;
+    padding-left: 15px;
+    cursor: pointer;
+
+    display: none;
+}
+
+.menu > #hamburg {
+    display: none;
+}
+
+.menu > #hamburg:checked ~ .menu-item {
+    display: block;
+}
+
+/*
+@media screen and (max-width:720px) {
+    .menu > label {
+        display: block;
+        width: 100%;
+    }
+
+    .menu > .menu-item {
+        display: none;
+    }
+
+    .menu > .right-menu {
+        float: left;
+    }
+}
+*/
+
+/*
+body {
+    height: 50000px;
+}
+*/
+
+/*개발용 설정 : 영역에 점선이 출력되도록 처리*/
+
+body[test] main,
+body[test] header,
+body[test] nav,
+body[test] section,
+body[test] footer,
+body[test] article,
+body[test] aside,
+body[test] div,
+body[test] span,
+body[test] label,
+body[test] p {
+    border: 1px dotted black;
+}
+
+/*
+            화면 레이아웃
+            - 전체 화면은 1000px로 한다
+            - 홈페이지는 브라우저 가운데 위치한다
+            - 영역별 내부 여백은 글자 2개 높이만큼으로 한다
+        */
+
+main {
+    width: 1200px;
+    margin: auto;
+}
+
+header,
+section,
+footer {
+    padding: 2rem;
+}
+
+/*
+            내부영역 스타일
+            - section 내부에 화면을 배치할 때 필요한 구성요소들을 미리 디자인
+            - 영역(article) - 폭을 숫자로 지정할 수 있도록 구성
+        */
+
+.w-100 {
+    width: 100%;
+}
+
+.w-90 {
+    width: 90%;
+}
+
+.w-80 {
+    width: 80%;
+}
+
+.w-70 {
+    width: 70%;
+}
+
+.w-60 {
+    width: 60%;
+}
+
+.w-50 {
+    width: 50%;
+}
+
+.w-40 {
+    width: 40%;
+}
+
+.w-30 {
+    width: 30%;
+}
+
+.w-20 {
+    width: 20%;
+}
+
+.w-10 {
+    width: 10%;
+}
+
+article {
+    margin: auto;
+}
+
+.row {
+    margin: 10px 0px;
+    text-align: center;
+}
+
+.row > * {
+    width: 100%;
+}
+
+.row-empty {
+    height: 20px;
+}
