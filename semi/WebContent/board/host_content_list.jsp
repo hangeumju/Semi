@@ -5,7 +5,6 @@
 <%
 //host_id 는 hidden 으로 넘김
 String host_id = (String)request.getSession().getAttribute("host_id");
-
 %>
 
 
@@ -13,7 +12,7 @@ String host_id = (String)request.getSession().getAttribute("host_id");
 
 
 
-	<form action="host_regist.do" method="post">
+	<form action="host_content_list.do" method="post">
 	<article class="w-40">
 	
 	<!-- host_id 는 hidden 으로 넘김 -->
@@ -55,12 +54,9 @@ String host_id = (String)request.getSession().getAttribute("host_id");
 		<div class="row-left">			
 			<textarea class="block-item input-item" rows="10"  name="host_content_ect_info"> 컨탠츠 추가 내용을 작성해주세요 </textarea>
 		</div>
-		
-		
-		
-		
-		
-		
+		<div>
+			<input type="file" name="host_content_file" accept=".jpg, png, .gif" value="첨부파일">
+		</div>	
 		
 		<div class="row-right">
 			<input class="block-item input-item" type="submit" value= "컨텐츠 등록하기" >	
