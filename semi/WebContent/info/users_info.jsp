@@ -1,18 +1,20 @@
+<%@page import="beans.Users_Regist_Dao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-    <%
+<%
  	//회원 정보를 불러오는 코드
  	//1. session에서 id에 들어있는 데이터를 꺼낸다
  	//2. id를 주고dao를 이용하여 회원정보(Dto)를 꺼낸다
  	//3. 원하는 위치에 출력한다.
  	
  	String id = (String)session.getAttribute("user_id");
+ 	 Users_Regist_Dao URdao = new Users_Regist_Dao();
  	 
  %>    
+ 
 <style>
-        .float-wrap{
-            
+        .float-wrap{            
         }
         
         /* .float-wrap 이 끝나는 영역을 가상으로 생성하고 clear(가상선택자) */
@@ -24,9 +26,7 @@
         
         .float-wrap > .float-item{
             border: 1px dotted black;
-            float: left;
-           
-            
+            float: left;    
         }
        
     </style>    
