@@ -65,7 +65,8 @@
             <div class="gallary">
                 <div class="gallary-item">
                     <div class="gallary-image">
-                        <img src="http://placeimg.com/480/480/animals">
+                    	<a href = "#">
+                        <img src="http://placeimg.com/480/480/animals"></a>
                     </div>
                     <div class="gallary-text">
                         <h4>Lorem Ipsum</h4>
