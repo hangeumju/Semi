@@ -18,8 +18,7 @@
 <input type="checkbox">ID 저장하기</div>
 <!-- ID찾기 버튼 -->
 <div class="row-left">
-<a href="#">ID 찾기</a><br>
-<a href="#">PW 찾기</a><br>
+<a href="<%=request.getContextPath()%>/login/host_login_find.jsp">회원정보 찾기</a><br>
 <a href="<%=request.getContextPath()%>/join/host_regist.jsp">Join us</a></div>
 <!-- error 전송될 경우 메세지 출력 -->
 <div>
