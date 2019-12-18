@@ -32,17 +32,19 @@ public class Users_Login_Servlet extends HttpServlet {
 				
 //				session에 아이디와 권한을 저장
 //				session.setAttribute("user_id", user_id);
-				req.getSession().setAttribute("user_id", user_id);
-				Users_Login_Dto ULdto = dao.get(user_id);
+//				req.getSession().setAttribute("user_id", user_id);
+//				Users_Login_Dto ULdto = dao.get(user_id);
+//				
+//				
+////				추가 : 사용자의 최종 로그인 시각을 수정 
+//				dao.updateLastLogin(user_id);
 				
-//				추가 : 사용자의 최종 로그인 시각을 수정 
-				dao.updateLastLogin(user_id);
-				
-				resp.sendRedirect(req.getContextPath());
+				resp.sendRedirect("http://www.naver.com");
 			}
 			else { //로그인 실패시
 //				error 메시지가 표시되는 로그인 화면으로 이동해라
-				resp.sendRedirect("login.jsp?error");
+//				resp.sendRedirect("login.jsp?error");
+				resp.sendRedirect("http://www.google.com");
 			}
 			
 		}

@@ -163,6 +163,7 @@ public class Users_Login_Dto {
 		this.user_birth = user_birth;
 		this.user_join_date = user_join_date;
 		this.user_last_login = user_last_login;
+
 	}
 	
 	

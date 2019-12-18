@@ -1,42 +1,27 @@
 package beans;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.sql.DataSource;
 
 import beans.Users_Login_Dto;
 import oracle.jdbc.proxy.annotation.Pre;
 
 public class Users_Login_Dao {
-	
-	//연결 
-	//이름 : getConnection
-	//준비물:x
-	//결과물:연결(Connection)
-	
-	private static DataSource source;
-	static {
-		//source에 context.xml의 Resource 정보를 설정
-		//[1] 탐색 도구 생성
-		//[2] 도구를 이용하여 탐색 후 source 에 대입
-		try {
-			InitialContext ctx = new InitialContext();//[1] 
-		source =	(DataSource) ctx.lookup("java:comp/env/jdbc/oracle");  // context.xml의 resource 중에서 /jdbc/oracle을찾아라  
-		} catch (NamingException e) { 
-			e.printStackTrace();
-		}
-	}
-	
+
+//	필수기능 : 연결
+//	이름 : getConnection
+//	준비물(매개변수) : x
+//	결과물(반환형) : 연결(Connection)
 	// 연결메소드
 	public Connection getConnection() throws Exception {
-//		return common-dbcp에서 관리하는 연결을 빌려와서 반환해라(빌려와라);
-		return source.getConnection();
-	}
-	
+	      Class.forName("oracle.jdbc.OracleDriver");
+	      Connection con = DriverManager.getConnection("jdbc:oracle:thin:@www.sysout.co.kr:1521:xe", "kh22", "kh22");
+
+
+	      return con;
+	   }
 	
 	
 	//이름 : 로그인 
