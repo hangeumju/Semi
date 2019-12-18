@@ -3,41 +3,42 @@
 <%--유저 아이디  찾기 페이지 --%>    
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/common.css">   
 <jsp:include page="/template/header.jsp"></jsp:include>
-<div align="center">
-	<h2>회원 아이디 찾기</h2>
+<form action="users_login_find.do" method="post">
+<article class="w-50">
+<div class="row">
+<h2>User 아이디 찾기</h2>
 
-	<form action="users_login_find.do" method="post">
-		<table>
-			<!-- 정보입력 : 이름, 전화번호 -->
-			<tr>
-				<th>이름</th>
-				<td><input type="text" name="user_name" placeholder="이름" required>
-				</td>
-			</tr>
-			<!-- -------------------------------------- -->
-			<tr>
-				<th>전화번호</th>
-				<td><input type="tel" name="user_phone" placeholder="전화번호" required>
-				</td>
-			</tr>
-			<!-- -------------------------------------- -->
-			<tr>
-				<th align="center" colspan="2"><input type="reset" value="초기화">
-					<input type="submit" value="아이디찾기"></th>
-			</tr>
-			<!-- -------------------------------------- -->
-
-			<tr>
-				<td>
-					<!-- 각종링크( 회원가입 . 비번찾기) --> <a href="/semi/join/users_regist.jsp">회원가입</a><br>
-					<a href="#">비밀번호 찾기/변경</a><br>
-				</td>
-			</tr>
-			<!-- -------------------------------------- -->
-
-
-
-		</table>
-	</form>
+<!-- 정보입력 : 이름, 전화번호 -->
+<div class="row-left">
+	<label for="user_name-input">이름:</label>
+	<input id="user_name-input" class="block-item input item"  type="text" name="user_name" required>
 </div>
+<!-- 전화번호 입력란 -->
+<div class="row-left">
+	<label for="user_phone-input">전화번호: </label>
+	<input id="user_phone-input" class="block-item input item" type="tel" name="user_phone" required>
+</div>
+<!-- 입력 및 찾기 버튼 -->
+<div class="row-left">
+	<input class="btn" type="submit" value="계정 찾기">
+	<input class="btn" type="submit" value="지우기">
+</div>
+<!-- 각종링크( 회원가입 . 비번찾기) --> 
+<div class="row-left">
+<a href="/semi/join/users_regist.jsp">회원가입</a><br>
+
+</div>
+
+</div>
+</article>	
+</form>
 <jsp:include page="/template/footer.jsp"></jsp:include>
+
+
+		
+		
+	
+
+
+
+

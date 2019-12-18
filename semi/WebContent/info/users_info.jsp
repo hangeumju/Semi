@@ -40,7 +40,7 @@
        		<ul class="custom-list float-item"">
 		       <li>이용내역</li>
 		       <li>이용후기</li>
-		       <li>정보수정</li>
+		       <li><a href ="users_check.jsp?go=/info/users_change_info.jsp" >정보수정</a></li> 
 		       <li>회원탈퇴</li>
 		       <li>포인트내역</li>
 		   </ul>
