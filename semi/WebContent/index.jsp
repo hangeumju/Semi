@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 
 <jsp:include page="/template/header.jsp"></jsp:include>
+
 <body test>
     <main>
         <header>
@@ -16,6 +17,7 @@
                 <a href="#">로그인</a>
             </div>
         </header>
+
 
         <section onload="loadSlider()" >
 	        <!-- 이미지 슬라이더 영역 -->
@@ -52,6 +54,8 @@
 	
 	    </div>
 	    <!-- 이미지 슬라이더 영역 종료 -->
+	    
+	    <!--  -->
             <article>
                 <div class="row-empty"></div>
                 <div class="row-empty"></div>
