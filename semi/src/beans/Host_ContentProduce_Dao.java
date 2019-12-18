@@ -15,7 +15,7 @@ public class Host_ContentProduce_Dao {
 	
 	//컨텐츠 생성 입니다
 	//매개변수 : 카테고리, 참여비용, 컨텐츠 이름, 판매수량, 소개,  위치, 기타정보안내, 예약차트, 원본파일, 수정파일, 컨텐츠QA
-	//나올값 : void 없음
+	//나올값 : void
 	
 	public void host_contentproduce(Host_ContentProduce_Dto HCdto) throws Exception{
 		Connection con = getConnection();
