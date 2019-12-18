@@ -39,6 +39,7 @@ public class Host_content_Produce_Servlet extends HttpServlet{
 			//파일다오를 통해 입력받은 컨텐츠를 생성한다
 			HCdao.host_contentproduce(HCdto);
 			
+			//아직 보내는 곳은 미정입니다
 			resp.sendRedirect("#");
 			
 		}
