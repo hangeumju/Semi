@@ -1,6 +1,6 @@
 package beans;
 //컨텐츠 생성 빈즈입니다
-public class Host_ContentProduce_Dto {
+public class Host_Content_Dto {
 	private int host_content_no;
 	private String host_id;
 	private String host_content_category;
@@ -24,7 +24,7 @@ public class Host_ContentProduce_Dto {
 		this.host_content_approval = host_content_approval;
 	}
 
-	public Host_ContentProduce_Dto() {
+	public Host_Content_Dto() {
 		super();
 	}
 

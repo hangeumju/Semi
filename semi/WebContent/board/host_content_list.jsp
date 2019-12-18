@@ -49,8 +49,10 @@ String host_id = (String)request.getSession().getAttribute("host_id");
 		
 		<div>
 			<p> 모집위치 </p>		
+
 			    <input class="block-item input-item" type="text" id="address-input" name="host_content_location" placeholder="주소 입력" onblur="loadMap();">
    				<div  id="map" style="width:100%;height:400px;display:none;" ></div>
+
 		</div>
 				
 		<div class="row-left">			
