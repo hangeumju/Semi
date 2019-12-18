@@ -16,8 +16,10 @@ String host_id = (String)request.getSession().getAttribute("host_id");
 	<article class="w-40">
 	
 	<!-- host_id 는 hidden 으로 넘김 -->
+	<!-- host_id 대신에 rlawldms 넣어놨으니 나중에 변경 -->
+	<%-- <input  type="hidden" name= "host_id" value="<%=host_id%>">	 --%>
 	<input  type="hidden" name= "host_id" value="rlawldms">	
-	
+
 		<div class="row"> 		
 			<h2> 호스트 컨텐츠 생성</h2>
 		</div>
