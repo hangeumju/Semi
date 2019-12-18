@@ -1,9 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
- <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/common.css">   
+ <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/common.css">   
 <jsp:include page="/template/header.jsp"></jsp:include>
+
 <form action="users_login.do" method="post">
 <article class="w-40">
+
 <!-- ID 입력창 -->
 <div class="row">
 <input class="block-item input-item" name ="user_id" placeholder="아이디 입력" required></div>
@@ -18,7 +20,7 @@
 <input type="checkbox">ID 저장하기</div>
 <!-- ID찾기 버튼 -->
 <div class="row-left">
-<a href="#">ID 찾기</a><br>
+<a href="<%=request.getContextPath()%>/login/users_login_find.jsp">ID 찾기</a><br>
 <a href="#">PW 찾기</a><br>
 <a href="<%=request.getContextPath()%>/join/users_regist.jsp">Join us</a></div>
 <!-- error 전송될 경우 메세지 출력 -->
