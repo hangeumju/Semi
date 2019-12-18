@@ -65,7 +65,6 @@
             <div class="gallary">
                 <div class="gallary-item">
                     <div class="gallary-image">
-                    	<a href = "#">
                         <img src="http://placeimg.com/480/480/animals"></a>
                     </div>
                     <div class="gallary-text">
