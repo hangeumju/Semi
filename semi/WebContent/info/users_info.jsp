@@ -29,12 +29,12 @@
 	//1. session에서 id에 들어있는 데이터를 꺼낸다
 	//2. id를 주고dao를 이용하여 회원정보(Dto)를 꺼낸다
 	//3. 원하는 위치에 출력한다. 	
+
 	String id = (String) session.getAttribute("user_id");
-	Users_Get_Dto UGdto = new Users_Get_Dto();
+	Users_Get_Dto UGdto;
 	
-	//나중에 사용할지도 몰라서??..남겨뒀어요
-// 	Users_Get_Dao UGdao = new Users_Get_Dao();
-// 	Users_Get_Dto UGdto = UGdao.users_get(id);
+ 	Users_Info_Dao UGdao = new Users_Info_Dao();
+ 	UGdto = UGdao.users_get(id);
 %>
 
 <jsp:include page="/template/header.jsp"></jsp:include>

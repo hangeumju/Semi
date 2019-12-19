@@ -11,7 +11,8 @@ public class Users_Info_Dao {
 	//연결 메소드(Connection)
 	public Connection getConnection() throws Exception {
 		Class.forName("oracle.jdbc.OracleDriver");
-				Connection con = DriverManager.getConnection("jdbc:oracle:thin:@www.sysout.co.kr:1521:xe", "kh22","kh22");
+		Connection con = DriverManager.getConnection("jdbc:oracle:thin:@116.38.170.78:1521:xe", "kh22", "kh22");
+//				Connection con = DriverManager.getConnection("jdbc:oracle:thin:@www.sysout.co.kr:1521:xe", "kh22","kh22");
 				return con;
 	}
 	
@@ -48,12 +49,12 @@ public class Users_Info_Dao {
 	//메소드 이름 : users_get
 	//매개변수 : String id
 	//반환형 : Users_Get_Dto
-		public Users_Get_Dto users_get(String id) throws Exception{
+		public Users_Get_Dto users_get(String user_id) throws Exception{
 			Connection con = getConnection();
 			
 			String sql = "select * from users where user_id =?";
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setString(1, id);
+			ps.setString(1, user_id);
 			ResultSet rs = ps.executeQuery(); 
 			
 			
@@ -66,7 +67,7 @@ public class Users_Info_Dao {
 				UGdto.setUser_name(rs.getString("user_name"));
 				UGdto.setUser_phone(rs.getString("user_phone"));
 				UGdto.setUser_email_id(rs.getString("user_email_id"));
-				UGdto.setUser_email_domain(rs.getString("user_email_domail"));
+				UGdto.setUser_email_domain(rs.getString("user_email_domain"));
 				UGdto.setUser_point(rs.getInt("user_point"));
 				UGdto.setUser_interest(rs.getString("user_interest"));
 				UGdto.setUser_birth(rs.getString("user_birth"));
@@ -84,14 +85,15 @@ public class Users_Info_Dao {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		
 		//회원 탈퇴 기능
-		//메소드 이름 : user_exit
+		//메소드 이름 : users_exit
 		//매개변수 : String id
 		//반환형 : 없음 void
-		public void user_exit(String id) throws Exception {
+		public void users_exit(String user_id) throws Exception {
 			Connection con = getConnection();
 			
 			String sql = "delete from users where user_id = ?";
 			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1, user_id);
 			ps.execute();
 			
 			con.close();

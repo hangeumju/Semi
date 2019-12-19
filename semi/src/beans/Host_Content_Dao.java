@@ -100,7 +100,9 @@ public class Host_Content_Dao {
 		
 	}
 	
-//	 Sequence 생성명령--------------------------------------------------------
+	
+// 	사진 삽입을 위한 	
+//	 Sequence 생성명령입니다 --------------------------------------------------------
 	public int host_content_sequence() throws Exception{
 		Connection con = getConnection();
 		
@@ -112,7 +114,6 @@ public class Host_Content_Dao {
 		
 		rs.next();
 		int seq = rs.getInt(1);
-//		int seq = rs.getInt("board_esq.nextval");
 		con.close();
 		return seq;
 	}

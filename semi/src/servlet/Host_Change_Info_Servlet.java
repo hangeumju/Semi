@@ -26,7 +26,7 @@ public class Host_Change_Info_Servlet extends HttpServlet{
 			String host_extra_addr = req.getParameter("host_extra_addr");
 			String host_bank_name = req.getParameter("host_bank_name");
 			String host_bank_account = req.getParameter("host_bank_account");
-			
+
 			Host_Info_Dto HIdto = new Host_Info_Dto();
 			HIdto.setHost_email_id(host_email_id);
 			HIdto.setHost_email_domain(host_email_domain);
