@@ -45,7 +45,7 @@ public class Host_Content_Dao {
 	}
 	
 	//전체 컨텐츠 리스트를 불러오는 다오입니다
-	//매개변수 : 카테고리
+	//매개변수 : 카테고리(아직 미구현했습니다) 
 	//반환값 : 카테고리에 해당하는 컨텐츠 리스트
 	public List<Host_Content_Dto> getList() throws Exception{
 		
@@ -72,6 +72,11 @@ public class Host_Content_Dao {
 		con.close();
 		return list;
 	}
+	
+	//중분류 컨텐츠 리스트를 불러오는 다오입니다
+	//매개변수 : 카테고리와 (가격, ? ? ? ? ?  )를 받습니다
+	//반환값 : 카테고리에 해당하는 컨텐츠 리스트
+	
 	
 	
 }
