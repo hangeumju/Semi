@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import beans.Host_Login_Dao;
+import beans.Host_Info_Dao;
 @WebServlet (urlPatterns = "/login/host_login.do")
 
 public class Host_Login_Servlet extends HttpServlet{
@@ -19,8 +19,8 @@ public class Host_Login_Servlet extends HttpServlet{
 			String id = req.getParameter("host_id");
 			String pw = req.getParameter("host_pw");
 			
-			Host_Login_Dao HLdao = new Host_Login_Dao();
-			boolean result = HLdao.host_login(id,pw);
+			Host_Info_Dao HIdao = new Host_Info_Dao();
+			boolean result = HIdao.host_login(id,pw);
 			
 			if(result) {
 				resp.sendRedirect("http://www.naver.com");
