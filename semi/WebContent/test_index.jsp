@@ -7,6 +7,8 @@
 	<a href="<%=request.getContextPath()%>/join/users_regist.jsp">회원가입</a>
 	<a href="<%=request.getContextPath()%>/login/users_logout.do">로그아웃</a>
 	<a href="<%=request.getContextPath()%>/info/users_info.jsp">내정보</a>
+	<a href="<%=request.getContextPath()%>/login/users_find_id.jsp">아이디찾기</a>
+	<a href="<%=request.getContextPath()%>/info/users_????">비밀번호찾기</a>
 
 <!-- 홈페이지 세션 상태값 출력 -->
             <h5>session user_id = <%=session.getId()%></h5>
