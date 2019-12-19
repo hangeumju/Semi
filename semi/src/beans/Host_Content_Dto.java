@@ -8,22 +8,16 @@ public class Host_Content_Dto {
 	private String host_content_name;
 	private int host_content_ticket;
 	private String host_content_info;
-	private String host_content_date;
+	private String host_content_start_date;
+	private String host_content_last_date;
 	private String host_content_location;
 	private String host_content_ect_info;
-	private String host_content_original_file;
-	private String host_content_edit_file;
 	private String host_content_qa;
 	private String host_content_approval;
+	private String host_content_Create_date;
+	private int host_content_view_count;
+	private int host_content_payment_count;
 	
-	public String getHost_content_approval() {
-		return host_content_approval;
-	}
-
-	public void setHost_content_approval(String host_content_approval) {
-		this.host_content_approval = host_content_approval;
-	}
-
 	public Host_Content_Dto() {
 		super();
 	}
@@ -84,12 +78,20 @@ public class Host_Content_Dto {
 		this.host_content_info = host_content_info;
 	}
 
-	public String getHost_content_date() {
-		return host_content_date;
+	public String getHost_content_start_date() {
+		return host_content_start_date;
 	}
 
-	public void setHost_content_date(String host_content_date) {
-		this.host_content_date = host_content_date;
+	public void setHost_content_start_date(String host_content_start_date) {
+		this.host_content_start_date = host_content_start_date;
+	}
+
+	public String getHost_content_last_date() {
+		return host_content_last_date;
+	}
+
+	public void setHost_content_last_date(String host_content_last_date) {
+		this.host_content_last_date = host_content_last_date;
 	}
 
 	public String getHost_content_location() {
@@ -108,28 +110,44 @@ public class Host_Content_Dto {
 		this.host_content_ect_info = host_content_ect_info;
 	}
 
-	public String getHost_content_original_file() {
-		return host_content_original_file;
-	}
-
-	public void setHost_content_original_file(String host_content_original_file) {
-		this.host_content_original_file = host_content_original_file;
-	}
-
-	public String getHost_content_edit_file() {
-		return host_content_edit_file;
-	}
-
-	public void setHost_content_edit_file(String host_content_edit_file) {
-		this.host_content_edit_file = host_content_edit_file;
-	}
-
 	public String getHost_content_qa() {
 		return host_content_qa;
 	}
 
 	public void setHost_content_qa(String host_content_qa) {
 		this.host_content_qa = host_content_qa;
+	}
+
+	public String getHost_content_approval() {
+		return host_content_approval;
+	}
+
+	public void setHost_content_approval(String host_content_approval) {
+		this.host_content_approval = host_content_approval;
+	}
+
+	public String getHost_content_Create_date() {
+		return host_content_Create_date;
+	}
+
+	public void setHost_content_Create_date(String host_content_Create_date) {
+		this.host_content_Create_date = host_content_Create_date;
+	}
+
+	public int getHost_content_view_count() {
+		return host_content_view_count;
+	}
+
+	public void setHost_content_view_count(int host_content_view_count) {
+		this.host_content_view_count = host_content_view_count;
+	}
+
+	public int getHost_content_payment_count() {
+		return host_content_payment_count;
+	}
+
+	public void setHost_content_payment_count(int host_content_payment_count) {
+		this.host_content_payment_count = host_content_payment_count;
 	}
 	
 	
