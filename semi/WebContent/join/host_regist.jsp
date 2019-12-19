@@ -9,7 +9,7 @@
 <jsp:include page="/template/header.jsp"></jsp:include>  
 
 	<!-- 호스트 가입 우편번호 API -->
-	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/common.css">
+
 	<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script type="text/javascript">
 		function postcode() {

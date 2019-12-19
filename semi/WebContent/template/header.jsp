@@ -5,8 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Document</title>
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/css/common.css">
+
+<link rel="stylesheet" type="text/css" 
+href="<%=request.getContextPath()%>/css/common.css">
 <link rel="stylesheet"
 	href="https://unpkg.com/swiper/css/swiper.min.css">
 <link rel="icon" type="image/png" href="#">

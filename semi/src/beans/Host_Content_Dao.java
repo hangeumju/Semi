@@ -51,7 +51,7 @@ public class Host_Content_Dao {
 	public List<Host_Content_Dto> getList(String type) throws Exception{
 		
 		Connection con = getConnection();
-		String sql = "select * from host_content where host_content_category = "+type;
+		String sql = "select * from host_content where host_content_category = "+type+"";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ResultSet rs = ps.executeQuery();
 		List<Host_Content_Dto> list = new ArrayList<>();
