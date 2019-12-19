@@ -4,15 +4,24 @@
 		  div{
 		  border: 1px dotted black;
 		  float:left;
-		  width:50%
+		  width:25%
 		  }  
 		  .w-70::after {
             content: "";
             display: block;
             clear: both;
+            height : 500px;
         }
 		  .main{
-		  	width:50%;
+		  	width:465px;
+		  }
+		  
+		  .sub{
+			width:232px;
+		  	position: fixed;
+		  	top: 26.3%;
+            right: 27.05%;
+            height : 400px;
 		  }
     </style>
     
