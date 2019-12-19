@@ -67,7 +67,16 @@ String host_id = (String)request.getSession().getAttribute("host_id");
 		<div class="row-left">
 		</div>
 		<div class="row-left">
-			<input class="block-item input-item" type="text" name= "host_content_category" placeholder= "카테고리" required>	
+			<p class="row-left">			
+			<select class="block-item input-item" name="host_content_category">
+				<option value="" selected disabled hidden >카테고리 선택</option>
+				<option>액티비티</option>
+				<option>배움</option>
+				<option>건강/뷰티</option>
+				<option>모임</option>
+				<option>여행</option>
+			</select>
+		</p>	
 		</div>
 		<div class="row-left">
 			<input class="block-item input-item" type="number" name= "host_content_cost" placeholder= "가격" required>
