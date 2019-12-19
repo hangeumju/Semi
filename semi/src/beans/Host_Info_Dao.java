@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import com.sun.crypto.provider.RSACipher;
+
 public class Host_Info_Dao {
 	
 	public Connection getConnection() throws Exception {
@@ -31,7 +33,6 @@ public class Host_Info_Dao {
 		ps.setString(4, HIdto.getHost_phone());
 		ps.setString(5, HIdto.getHost_email_id());
 		ps.setString(6, HIdto.getHost_email_domain());
-		ps.setString(7, HIdto.getHost_interest());
 		ps.setString(8, HIdto.getHost_post());
 		ps.setString(9, HIdto.getHost_basic_addr());
 		ps.setString(10, HIdto.getHost_extra_addr());
@@ -99,8 +100,6 @@ public class Host_Info_Dao {
 				+ " where id=?";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, HIdto.getHost_email_id());
-		ps.setString(2, HIdto.getHost_email_domain());
-		ps.setString(3, HIdto.getHost_interest());
 		ps.setString(4, HIdto.getHost_post());
 		ps.setString(5, HIdto.getHost_basic_addr());
 		ps.setString(6, HIdto.getHost_extra_addr());
@@ -133,6 +132,51 @@ public class Host_Info_Dao {
 		ps.setString(1, host_pw);
 		ps.setString(2, host_id);
 		
+		ps.execute();
+		con.close();
+	}
+		///////////////////////호스트용 로그인 정보 ID 저장(host_login)
+	public Host_Info_Dto get(String host_id) throws Exception {
+		///////////////////////호스트용 로그인 정보 ID 저장(host_login)
+		Connection con = getConnection();
+		String sql = "select*from host where host_id=?";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, host_id);
+		ResultSet rs = ps.executeQuery();
+		
+		Host_Info_Dto HIdto;
+		if(rs.next()) {
+			HIdto = new Host_Info_Dto();
+			
+			HIdto.setHost_id(rs.getString("host_id"));
+			HIdto.setHost_pw(rs.getString("host_pw"));
+			HIdto.setHost_name(rs.getString("host_name"));
+			HIdto.setHost_phone(rs.getString("host_phone"));
+			HIdto.setHost_joindate(rs.getString("host_joindate"));	
+			HIdto.setHost_email_id(rs.getString("host_email_id"));
+			HIdto.setHost_email_domain(rs.getString("host_email_domain"));
+			HIdto.setHost_post(rs.getString("host_post"));
+			HIdto.setHost_basic_addr(rs.getString("host_basic_addr"));
+			HIdto.setHost_extra_addr(rs.getString("host_extra_addr"));
+			HIdto.setHost_bank_name(rs.getString("host_bank_name"));	
+			HIdto.setHost_bank_account(rs.getString("host_bank_account"));
+			HIdto.setHost_lastlogin(rs.getString("host_lastlogin"));
+			
+		}
+		else {
+			HIdto = null;
+		}
+		con.close();
+		return HIdto;
+	}
+	
+		///////////////////////호스트용 로그인 정보 ID 저장(host_login)
+	public void updateHost_lastlogin(String host_id) throws Exception{
+		///////////////////////호스트용 로그인 정보 ID 저장(host_login)
+		Connection con = getConnection();
+		String sql = "update host set host_lastlogin = sysdate where host_id=?";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, host_id);
 		ps.execute();
 		con.close();
 	}

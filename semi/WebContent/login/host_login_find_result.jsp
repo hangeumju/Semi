@@ -4,7 +4,7 @@
 host_id 파라미터를 받아서 결과를 화면에 표시--%>
 
 <% String host_id = request.getParameter("host_id");%>
-
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/common.css">
 <jsp:include page ="/template/header.jsp"></jsp:include>
 <% if(host_id!=null){%>
 <!-- 검색 성공시 -->

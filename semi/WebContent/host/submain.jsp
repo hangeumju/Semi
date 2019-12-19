@@ -79,10 +79,10 @@
     <div class="row-left gallary-item">
     	<ul class="custom-menu">
         <li>
-        	<a href="#">호스트내정보</a>
+        	<a href="<%=context%>/info/host_info.jsp">호스트내정보</a>
         	<ul>
-        		<li><a href="#">정보 수정</a></li>
-        		<li><a href="#">탈퇴</a></li>
+        		<li><a href="<%=context%>/info/host_change_info.jsp">정보 수정</a></li>
+        		<li><a href="<%=context%>/info/host_info.jsp">탈퇴</a></li>
          	</ul>
         </li>
         <li>
@@ -93,13 +93,6 @@
         		<li><a href="#">리뷰 관리</a></li>
         		<li><a href="#">예약자 관리</a></li>
         	</ul>
-        </li>
-        <li>
-        	<a href="<%=context%>/info/host_info.jsp">호스트내정보</a>
-        	<ul>
-        		<li><a href="<%=context%>/info/host_change_info.jsp">정보 수정</a></li>
-        		<li><a href="<%=context%>/info/host_info.jsp">탈퇴</a></li>
-         	</ul>
         </li>
         <li>
         	<a href="#">정산</a>
