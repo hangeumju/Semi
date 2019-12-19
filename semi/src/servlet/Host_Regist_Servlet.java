@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import beans.Host_Content_Photo_Dao;
 import beans.Host_Info_Dao;
 import beans.Host_Info_Dto;
 
@@ -21,6 +22,7 @@ public class Host_Regist_Servlet extends HttpServlet{
 			
 			//다오와 디티오를 불러옵니다
 			Host_Info_Dao HIdao = new Host_Info_Dao();
+	
 			Host_Info_Dto HIdto = new Host_Info_Dto();
 			
 			
@@ -40,6 +42,8 @@ public class Host_Regist_Servlet extends HttpServlet{
 			
 			//다오를 불러와 계산합니다
 			HIdao.host_regist(HIdto);
+			
+			
 			
 			//로그인창으로 이동합니다
 			resp.sendRedirect(req.getContextPath()+"/login/host_login.jsp");
