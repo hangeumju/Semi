@@ -33,7 +33,6 @@ public class Host_Regist_Servlet extends HttpServlet{
 			HIdto.setHost_phone(req.getParameter("host_phone"));
 			HIdto.setHost_email_id(req.getParameter("host_email_id"));
 			HIdto.setHost_email_domain(req.getParameter("host_email_domain"));
-			HIdto.setHost_interest(req.getParameter("host_interest"));
 			HIdto.setHost_post(req.getParameter("host_post"));
 			HIdto.setHost_basic_addr(req.getParameter("host_basic_addr"));
 			HIdto.setHost_extra_addr(req.getParameter("host_extra_addr"));
