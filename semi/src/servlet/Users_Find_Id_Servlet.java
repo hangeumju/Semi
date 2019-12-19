@@ -8,10 +8,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import beans.Users_Login_Find_Dao;
+import beans.Users_Info_Dao;
 //유저 아이디 찾기 서블릿
-@WebServlet(urlPatterns = "/login/users_login_find.do")
-public class Users_Login_Find_Servlet extends HttpServlet {
+@WebServlet(urlPatterns = "/login/users_find_id.do")
+public class Users_Find_Id_Servlet extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -23,15 +23,15 @@ public class Users_Login_Find_Servlet extends HttpServlet {
 				String user_phone = req.getParameter("user_phone");
 				
 				//처리
-				Users_Login_Find_Dao ULFdao = new Users_Login_Find_Dao();
-				String user_id = ULFdao.find(user_name, user_phone);
+				Users_Info_Dao ULFdao = new Users_Info_Dao();
+				String user_id = ULFdao.users_find_id(user_name, user_phone);
 				
 				//이동
 				if(user_id == null) { //id가 없으면
-					 resp.sendRedirect("users_login_find_result.jsp");
+					 resp.sendRedirect("users_find_id_result.jsp");
 				}
 				else {
-					resp.sendRedirect("users_login_find_result.jsp?user_id="+user_id);
+					resp.sendRedirect("users_find_id_result.jsp?user_id="+user_id);
 				}
 				
 			}

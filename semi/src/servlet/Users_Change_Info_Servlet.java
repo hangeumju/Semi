@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import beans.Users_Change_Info_Dao;
 import beans.Users_Change_Info_Dto;
+import beans.Users_Info_Dao;
 
 @WebServlet(urlPatterns = "/info/users_change_info.do")
 public class Users_Change_Info_Servlet extends HttpServlet {
@@ -34,8 +34,8 @@ public class Users_Change_Info_Servlet extends HttpServlet {
 			UCIdto.setUser_email_domain(user_email_domain);
 			UCIdto.setUser_interest(user_interest);
 			
-			Users_Change_Info_Dao UCIdao = new Users_Change_Info_Dao();
-			UCIdao.changeInfo(UCIdto);
+			Users_Info_Dao UCIdao = new Users_Info_Dao();
+			UCIdao.users_change_info(UCIdto);
 			
 			//이동
 			resp.sendRedirect("users_info.jsp");
