@@ -1,12 +1,12 @@
 <%@page import="beans.Users_Change_Info_Dto"%>
-<%@page import="beans.Users_Change_Info_Dao"%>
+<%@page import="beans.Users_Info_Dao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
 	//유저 정보 수정 페이지
 	//사용자의 아이디를 이용하여 정보를 불러와서 출력
 	String user_id = (String)session.getAttribute("user_id");
-	Users_Change_Info_Dao UCIdao = new Users_Change_Info_Dao();
+	Users_Info_Dao UCIdao = new Users_Info_Dao();
 	Users_Change_Info_Dto UCIdto = new Users_Change_Info_Dto();
 %>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/common.css">
@@ -14,7 +14,7 @@
 <form action ="users_change_info.do" method="post">
 <article class = "w-40">
 <div class="row">
-<h2>User<%=UCIdto.getUser_name() %>님의 정보를 수정하시나요?</h2>
+<h2><%=UCIdto.getUser_name() %>님의 정보를 수정하시나요?</h2>
 <!-- 전화번호 수정 -->
 		<div class="row-left">
 			<input class="block-item input-item" type="text" name= "user_phone" placeholder= "휴대전화" required>
@@ -47,7 +47,8 @@
 		<!-- 정보 수정 및 지우기 -->
 		<div class="row-right">
 			<input class="block-item input-item" type="reset" value="지우기">
-			<input class="block-item input-item" type="submit" value= "수정하기" >	
+			<input class="block-item input-item" type="submit" value= "수정하기" >
+			<h4><a href="users_spare_pw.do?user_id=<%=user_id%>">비밀번호 변경</a></h4>
 		</div>	
 
 </div>

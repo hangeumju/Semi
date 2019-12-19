@@ -8,7 +8,7 @@
 
 <!-- ID 입력창 -->
 <div class="row">
-<input class="block-item input-item" name ="user_id" placeholder="아이디 입력" required></div>
+<input class="block-item input-item" type="text"  name ="user_id" placeholder="아이디 입력" required></div>
 <!-- PW 입력창 -->
 <div class="row">
 <input class="block-item input-item" type="password" name ="user_pw" placeholder="비밀번호 입력" required></div>
