@@ -3,7 +3,7 @@
 <%--유저 아이디  찾기 페이지 --%>    
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/common.css">   
 <jsp:include page="/template/header.jsp"></jsp:include>
-<form action="users_login_find.do" method="post">
+<form action="users_find_id.do" method="post">
 <article class="w-50">
 <div class="row">
 <h2>User 아이디 찾기</h2>

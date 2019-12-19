@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import beans.Users_Exit_Dao;
+import beans.Users_Info_Dao;
 
 @WebServlet(urlPatterns = "/info/user_exit.do")
 public class Users_Exit_Servlet extends HttpServlet{
@@ -23,7 +23,7 @@ public class Users_Exit_Servlet extends HttpServlet{
 			req.getSession().removeAttribute("user_id"); //id 항목 삭제			
 			
 			//탈퇴 처리
-			Users_Exit_Dao UEdao = new Users_Exit_Dao();
+			Users_Info_Dao UEdao = new Users_Info_Dao();
 			UEdao.user_exit(id);
 			
 			//메인 페이지로 이동
