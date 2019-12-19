@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import beans.Users_Change_Pw_Dao;
+import beans.Users_Info_Dao;
 
 @WebServlet(urlPatterns = "/info/users_change_pw.do")
 public class Users_Change_Pw_Servlet extends HttpServlet {
@@ -23,8 +23,8 @@ public class Users_Change_Pw_Servlet extends HttpServlet {
 			String user_id =(String)req.getSession().getAttribute("user_id");
 			
 			//처리
-			Users_Change_Pw_Dao UCPdao = new Users_Change_Pw_Dao();
-			UCPdao.changePassword(user_id, user_pw);
+			Users_Info_Dao UCPdao = new Users_Info_Dao();
+			UCPdao.users_change_password(user_id, user_pw);
 			
 			//이동
 			resp.sendRedirect("users_change_pw_result.jsp");

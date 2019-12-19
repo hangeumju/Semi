@@ -19,7 +19,7 @@ public class Host_Regist_Dao {
 		Connection con = getConnection();
 		
 		//인서트로 밑의 것을 받습니다
-		String sql = "insert into host values(host_no_seq.nextval, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, sysdate, sysdate)";
+		String sql = "insert into host values(host_no_seq.nextval, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, sysdate, sysdate)";
 		
 		PreparedStatement ps = con.prepareStatement(sql);
 		
@@ -29,12 +29,11 @@ public class Host_Regist_Dao {
 		ps.setString(4, Hdto.getHost_phone());
 		ps.setString(5, Hdto.getHost_email_id());
 		ps.setString(6, Hdto.getHost_email_domain());
-		ps.setString(7, Hdto.getHost_interest());
-		ps.setString(8, Hdto.getHost_post());
-		ps.setString(9, Hdto.getHost_basic_addr());
-		ps.setString(10, Hdto.getHost_extra_addr());
-		ps.setString(11, Hdto.getHost_bank_name());
-		ps.setString(12, Hdto.getHost_bank_account());
+		ps.setString(7, Hdto.getHost_post());
+		ps.setString(8, Hdto.getHost_basic_addr());
+		ps.setString(9, Hdto.getHost_extra_addr());
+		ps.setString(10, Hdto.getHost_bank_name());
+		ps.setString(11, Hdto.getHost_bank_account());
 		
 		ps.execute();
 		con.close();
