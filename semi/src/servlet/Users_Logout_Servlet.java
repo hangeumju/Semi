@@ -8,14 +8,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(urlPatterns = "/login/logout.do")
+@WebServlet(urlPatterns = "/login/users_logout.do")
 
 public class Users_Logout_Servlet extends HttpServlet {
 
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.getSession().removeAttribute("user_id");
-		resp.sendRedirect(req.getContextPath());
+		resp.sendRedirect(req.getContextPath()+"/test_index.jsp");
 	}
 
 }

@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(urlPatterns = "/login/logout.do")
+@WebServlet(urlPatterns = "/login/host_logout.do")
 public class Host_Logout_Servlet extends HttpServlet {
 	@Override
 		protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

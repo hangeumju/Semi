@@ -47,7 +47,7 @@
 	<input type="hidden" name="go" value="<%=HIdto.getHost_id()%>" >
 			<div>
 				<h1>아이디</h1>
-				<p><%=HIdto.getHost_id()%></p>
+				<div><%=HIdto.getHost_id()%></div>
 			</div>
 			
 			<div>
