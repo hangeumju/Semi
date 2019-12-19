@@ -41,7 +41,7 @@
 	<div class="row-left">
 			<div>
 				<h1>아이디</h1>
-				<p><%=HIdto.getHost_id()%></p>
+				<div><%=HIdto.getHost_id()%></div>
 			</div>
 			
 			<div>

@@ -99,17 +99,7 @@
 				<option>@daum.net</option>
 				<option>@hanmail.net</option>
 			</select>
-		</span>
-		<p class="row-left">			
-			<select class="block-item input-item" name="host_Interest">
-				<option value="" selected disabled hidden >관심분야</option>
-				<option>액티비티</option>
-				<option>배움</option>
-				<option>건강/뷰티</option>
-				<option>모임</option>
-				<option>여행</option>
-			</select>
-		</p>
+		</span>		
 		<div class="row-left">
 			<p>
 				<input class="input-item" type="text" name="host_post"placeholder="우편번호">

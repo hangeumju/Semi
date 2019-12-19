@@ -6,7 +6,11 @@
 	//유저 정보 수정 페이지
 	//사용자의 아이디를 이용하여 정보를 불러와서 출력
 	String user_id = (String)session.getAttribute("user_id");
+
 	Users_Info_Dao UCIdao = new Users_Info_Dao();
+
+
+
 	Users_Change_Info_Dto UCIdto = new Users_Change_Info_Dto();
 %>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/common.css">

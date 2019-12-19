@@ -108,7 +108,7 @@ function closeLoginModal(){
 </script>
 
 </head>
-<body>
+<body test>
 	<main>
 		<header class="flex-container">
 			<div class="flex-item">
