@@ -22,11 +22,11 @@ public class Users_Check_servlet extends HttpServlet {
 			String user_id = (String)req.getSession().getAttribute("user_id");
 			String user_pw = req.getParameter("user_pw");
 			String go = req.getParameter("go");
-//			go= /info/users_change_pw.jsp or /info/users_change_info.jsp 
+//			go= /info/users_change_pw.jsp or /info/users_change_info.jsp or /info/users_exit.do 
 			
 			//처리
 			Users_Info_Dao UCIdao = new Users_Info_Dao();
-			boolean result = UCIdao.users_login(user_id,user_pw);
+			boolean result = UCIdao.users_login(user_id, user_pw);
 			
 			//이동
 			if(result) {//성공시
