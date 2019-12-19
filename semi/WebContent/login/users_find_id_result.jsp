@@ -21,7 +21,7 @@ String user_id = request.getParameter("user_id");
 <%}else{%>
 <!-- 검색 실패시 -->
 <h2>입력하신 정보에 해당하는 회원이 없습니다</h2>
-<h3><a href="users_login_find.jsp">다시 입력하기</a></h3>
+<h3><a href="users_find_id.jsp">다시 입력하기</a></h3>
 <%} %>
 
 </div>

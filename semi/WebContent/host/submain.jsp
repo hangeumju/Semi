@@ -1,9 +1,13 @@
+<%@page import="beans.Host_Info_Dto"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
    <%
     /////////////절대경로 변수
-    String context = request.getContextPath();
+    Host_Info_Dto HIdto = new Host_Info_Dto();
+   	 String context = request.getContextPath();
+  	 String host_id = (String)session.getAttribute("host_id"); 
     %>
    
 <jsp:include page="/template/header.jsp"></jsp:include>  
@@ -28,11 +32,7 @@
         	color:white;
         }
 
-        .custom-menu li:click {
-            background-color: gray;
-            color: black;
-        }
-
+/* 	상세내용이 밑으로 나오게 하는 곳 */
         .custom-menu ul {
             list-style: none;
             padding: 0;
@@ -49,7 +49,7 @@
             width: 150px;
         }
 
-
+/* 		호버상태에서 세부 내용 보이게 하는 곳] */
         .custom-menu li:hover>ul {
 
             display: block;
@@ -57,8 +57,8 @@
         
         .custom-menu li{
             overflow: hidden;
-            white-space: nowrap; /* 공백 */
-            text-overflow: ellipsis; /* 글자가 넘어갔을 경우*/
+            white-space: nowrap; 
+            text-overflow: ellipsis; 
         }
         
         .gallary > .gallary-item {
@@ -67,14 +67,24 @@
     		padding: 10px;
 		}	
         
+        .w-80{
+        height : 400px;
+        }
 </style>
     
     
     
-    <article class="w-60">
+    <article class="w-80">
     <div class="gallary">
     <div class="row-left gallary-item">
     	<ul class="custom-menu">
+        <li>
+        	<a href="#">호스트내정보</a>
+        	<ul>
+        		<li><a href="#">정보 수정</a></li>
+        		<li><a href="#">탈퇴</a></li>
+         	</ul>
+        </li>
         <li>
         	<a href="#">컨텐츠 관리</a>
         	<ul>
@@ -98,10 +108,13 @@
     </ul>
     </div>
     <div class="gallary-item">
-    ddd
+   		<h1>환영합니다! </h1>
+    	<h3>호스트 (<%=HIdto.getHost_id()%>) 님!</h3> 
+   
     </div>
+<!--     공지사항 창입니다 아직 공지사항이 구현되지 않아 이곳도 미구현입니다 -->
     <div class="gallary-item">
-    ddd
+    	공지사항
     </div>
     </div>
     
