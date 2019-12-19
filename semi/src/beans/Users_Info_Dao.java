@@ -214,4 +214,27 @@ public class Users_Info_Dao {
 				return user_id;
 
 			}
+	
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//			비밀번호 찾기 (사용자 확인하는 메소드)
+//			메소드이름 : users_find_pw
+//			매개변수 : 아이디, 이름, 전화번호 String user_id / String user_name / String user_phone
+//			반환형 : boolean
+			public boolean users_find_pw(String user_id, String user_name, String user_phone) throws Exception {
+				Connection con = getConnection();
+				
+				String sql = "select user_no from users where user_id=? and user_name=? and user_phone=?";
+				PreparedStatement ps = con.prepareStatement(sql);
+				ps.setString(1, user_id);
+				ps.setString(2, user_name);
+				ps.setString(3, user_phone);
+				ResultSet rs = ps.executeQuery();
+				
+				String user_no = null;
+				if(rs.next()) {
+					user_no = rs.getString("user_no");
+				}
+				con.close();
+				return true;
+			}
 }
