@@ -1,10 +1,12 @@
 
+<%@page import="beans.Host_Info_Dao"%>
 <%@page import="beans.Host_Info_Dto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%
-    String host_id = (String)session.getAttribute("host_id"); 
-    Host_Info_Dto HIdto = new Host_Info_Dto();
+    String host_id = (String)session.getAttribute("host_id");
+    Host_Info_Dao HIdao = new Host_Info_Dao();
+    Host_Info_Dto HIdto = HIdao.get(host_id);
     %>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/common.css">
 <jsp:include page="/template/header.jsp"></jsp:include>

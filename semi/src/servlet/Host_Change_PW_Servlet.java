@@ -13,7 +13,7 @@ import beans.Host_Info_Dao;
 @WebServlet(urlPatterns = "/info/host_change_pw.do")
 public class Host_Change_PW_Servlet extends HttpServlet{
 @Override
-protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	try {
 		req.setCharacterEncoding("UTF-8");
 		String host_pw = req.getParameter("host_pw");
