@@ -1,5 +1,14 @@
+<%@page import="beans.Host_Info_Dto"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+   <%
+    /////////////절대경로 변수
+    Host_Info_Dto HIdto = new Host_Info_Dto();
+   	 String context = request.getContextPath();
+  	 String host_id = (String)session.getAttribute("host_id"); 
+    %>
    
 <jsp:include page="/template/header.jsp"></jsp:include>  
 <style>
@@ -86,6 +95,13 @@
         	</ul>
         </li>
         <li>
+        	<a href="<%=context%>/info/host_info.jsp">호스트내정보</a>
+        	<ul>
+        		<li><a href="<%=context%>/info/host_change_info.jsp">정보 수정</a></li>
+        		<li><a href="<%=context%>/info/host_info.jsp">탈퇴</a></li>
+         	</ul>
+        </li>
+        <li>
         	<a href="#">정산</a>
         </li>
        
@@ -93,7 +109,7 @@
     </div>
     <div class="gallary-item">
    		<h1>환영합니다! </h1>
-    	<h3>호스트(아이디 자리)님!</h3> 
+    	<h3>호스트 (<%=HIdto.getHost_id()%>) 님!</h3> 
    
     </div>
 <!--     공지사항 창입니다 아직 공지사항이 구현되지 않아 이곳도 미구현입니다 -->

@@ -8,8 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import beans.Users_Login_Dao;
-import beans.Users_Login_Dto;
+import beans.Users_Info_Dao;
 
 @WebServlet(urlPatterns = "/login/users_login.do") // http://localhost:8080/semi/login/users_login.do 처리 서블릿
 public class Users_Login_Servlet extends HttpServlet {
@@ -24,8 +23,8 @@ public class Users_Login_Servlet extends HttpServlet {
 			String user_pw = req.getParameter("user_pw");
 			
 			//처리
-			Users_Login_Dao ULdao = new Users_Login_Dao();
-			boolean result = ULdao.login(user_id,user_pw);
+			Users_Info_Dao ULdao = new Users_Info_Dao();
+			boolean result = ULdao.users_login(user_id,user_pw);
 			
 			//출력
 			if(result) { //로그인 성공시
@@ -36,7 +35,7 @@ public class Users_Login_Servlet extends HttpServlet {
 //				Users_Login_Dto ULdto = dao.get(user_id);
 //				
 //				
-////				추가 : 사용자의 최종 로그인 시각을 수정 
+//				추가 : 사용자의 최종 로그인 시각을 수정 
 //				dao.updateLastLogin(user_id);
 				
 				resp.sendRedirect("http://www.naver.com");

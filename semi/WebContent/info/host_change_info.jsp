@@ -1,18 +1,19 @@
-<%@page import="beans.Host_Change_Info_Dto"%>
-<%@page import="beans.Host_Change_Info_Dao"%>
+
+<%@page import="beans.Host_Info_Dto"%>
+<%@page import="beans.Host_Info_Dao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
     <%String host_id = (String)session.getAttribute("host_id"); 
-    Host_Change_Info_Dao HCIdao = new Host_Change_Info_Dao();
-    Host_Change_Info_Dto HCIdto = new Host_Change_Info_Dto();
+    Host_Info_Dao HIdao = new Host_Info_Dao();
+    Host_Info_Dto HIdto = new Host_Info_Dto();
     %>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/common.css">
 <jsp:include page="/template/header.jsp"></jsp:include>
 <form action="host_change_info.do" method="post">
 <article class="w-40">
 <div class="row">
-<h2>Host <%=HCIdto.getHost_name() %> 님의 정보를 수정하시나요?</h2>
+<h2>Host <%=HIdto.getHost_name() %> 님의 정보를 수정하시나요?</h2>
 		<!-- 전화번호 수정 -->
 		<div class="row-left">
 			<input class="block-item input-item" type="text" name= "host_phone" placeholder= "휴대전화" required>
