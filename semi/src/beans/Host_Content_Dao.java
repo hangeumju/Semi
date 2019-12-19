@@ -24,20 +24,21 @@ public class Host_Content_Dao {
 		Connection con = getConnection();
 		
 		String sql = "insert into host_content values("
-				+ "host_content_no_seq.nextval, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, '보류', sysdate, 0, 0)";
+				+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, '보류', sysdate, 0, 0)";
 		
 		PreparedStatement ps = con.prepareStatement(sql);
-		ps.setString(1, HCdto.getHost_id());
-		ps.setString(2, HCdto.getHost_content_category());
-		ps.setInt(3, HCdto.getHost_content_cost());
-		ps.setString(4, HCdto.getHost_content_name());
-		ps.setInt(5, HCdto.getHost_content_ticket());
-		ps.setString(6, HCdto.getHost_content_info());
-		ps.setString(7, HCdto.getHost_content_start_date());
-		ps.setString(8, HCdto.getHost_content_last_date());
-		ps.setString(9, HCdto.getHost_content_location());
-		ps.setString(10, HCdto.getHost_content_ect_info());
-		ps.setString(11, HCdto.getHost_content_qa());
+		ps.setInt(1, HCdto.getHost_content_no());
+		ps.setString(2, HCdto.getHost_id());
+		ps.setString(3, HCdto.getHost_content_category());
+		ps.setInt(4, HCdto.getHost_content_cost());
+		ps.setString(5, HCdto.getHost_content_name());
+		ps.setInt(6, HCdto.getHost_content_ticket());
+		ps.setString(7, HCdto.getHost_content_info());
+		ps.setString(8, HCdto.getHost_content_start_date());
+		ps.setString(9, HCdto.getHost_content_last_date());
+		ps.setString(10, HCdto.getHost_content_location());
+		ps.setString(11, HCdto.getHost_content_ect_info());
+		ps.setString(12, HCdto.getHost_content_qa());
 		
 		ps.execute();
 		con.close();
@@ -99,7 +100,9 @@ public class Host_Content_Dao {
 		
 	}
 	
-//	 Sequence 생성명령--------------------------------------------------------
+	
+// 	사진 삽입을 위한 	
+//	 Sequence 생성명령입니다 --------------------------------------------------------
 	public int host_content_sequence() throws Exception{
 		Connection con = getConnection();
 		
@@ -111,7 +114,6 @@ public class Host_Content_Dao {
 		
 		rs.next();
 		int seq = rs.getInt(1);
-//		int seq = rs.getInt("board_esq.nextval");
 		con.close();
 		return seq;
 	}

@@ -16,11 +16,11 @@
 <h2>Host <%=HIdto.getHost_name() %> 님의 정보를 수정하시나요?</h2>
 		<!-- 전화번호 수정 -->
 		<div class="row-left">
-			<input class="block-item input-item" type="text" name= "host_phone" placeholder= "휴대전화" required>
+			<input class="block-item input-item" type="text" name="host_phone" placeholder= "휴대전화" required>
 		</div>
 		<!-- 이메일 계정 수정 -->
 		<span class="row-left">
-			<input class="input-item" type="text" name= "host_email_id" placeholder= "이메일아이디" required>
+			<input class="input-item" type="text" name="host_email_id" placeholder="이메일아이디" required>
 		</span>
 		<span class="row-left">
 			<select class="input-item" name="host_email_domain">

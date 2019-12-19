@@ -19,7 +19,6 @@ public class Host_Check_Servlet extends HttpServlet{
 		String host_id = (String)req.getSession().getAttribute("host_id");
 		String host_pw = req.getParameter("host_pw");
 		String go = req.getParameter("go");
-//		go= /info/users_change_pw.jsp or /info/users_change_info.jsp 
 		
 		//처리
 		Host_Info_Dao HIdao = new Host_Info_Dao();

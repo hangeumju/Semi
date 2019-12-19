@@ -57,17 +57,7 @@ public class Host_content_Produce_Servlet extends HttpServlet{
 			//파일다오를 통해 입력받은 컨텐츠를 생성한다 이걸 3번한다
 			HCPdao.host_content_photo_insert(HCPdto);
 			}
-//			HCPdto.setHost_content_no(no);
-//			HCPdto.setHost_content_original_file(req.getParameter("host_content_original_file2"));
-//			HCPdto.setHost_content_edit_file(req.getParameter("host_content_edit_file2"));
-//			
-//			HCPdao.host_content_photo_insert(HCPdto);
-//			
-//			HCPdto.setHost_content_no(no);
-//			HCPdto.setHost_content_original_file(req.getParameter("host_content_original_file3"));
-//			HCPdto.setHost_content_edit_file(req.getParameter("host_content_edit_file3"));
-//			
-//			HCPdao.host_content_photo_insert(HCPdto);
+
 			
 			
 			//아직 보내는 곳은 미정입니다
