@@ -1,4 +1,4 @@
-<%@page import="beans.Users_Get_Dao"%>
+<%@page import="beans.Users_Info_Dao"%>
 <%@page import="beans.Users_Get_Dto"%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
