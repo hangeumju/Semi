@@ -9,8 +9,9 @@
 	String user_id = (String)session.getAttribute("user_id");
 	Users_Get_Dto UGdto = UIdao.users_get(user_id);
 %>
+<!-- 들어갈 내용 : 글번호, 컨텐츠명, 작성자(유저), 작성날짜 -->
 <body>
-	<div class="row">
+	<div align="center">
 		<h2><%=UGdto.getUser_id() %>님의 프립 후기입니다</h2>
 		<!--  컨텐츠 넘버/ 유저 이름(작성자) / 작성일 /  
 		리뷰내용/ 컨텐츠 이름   -->
@@ -18,6 +19,7 @@
 		
 		
 	</div>
+	
 </body>
 
 <jsp:include page="/template/footer.jsp"></jsp:include>

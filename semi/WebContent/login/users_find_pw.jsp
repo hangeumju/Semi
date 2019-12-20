@@ -12,12 +12,7 @@
 <div class="row">
 <h2>비밀번호를 잊으셨나요?</h2>
 
-<!-- 정보입력 : 아이디, 이름, 전화번호 -->
-<!-- 아이디 입력란 -->
-<div class="row-left">
-	<label for="user_id-input">아이디:</label>
-	<input id="user_id-input" class="block-item input item"  type="text" name="user_id" required>
-</div>
+<!-- 정보입력 : 이름, 전화번호 -->
 
 <!-- 이름 입력란 -->
 <div class="row-left">

@@ -38,24 +38,22 @@
 %>
 
 <jsp:include page="/template/header.jsp"></jsp:include>
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/common.css">
 
 <body>
+		<div class="float-wrap">
+			<div class="float-item">
+				<ul class="custom-list float-item"">
+					<li><a href="<%=request.getContextPath() %>/info/users_history.jsp">이용내역</a></li>
+					<li><a href="<%=request.getContextPath() %>/info/users_review.jsp">이용후기</a></li>
+					<li><a href="users_check.jsp?go=/info/users_change_info.jsp">정보수정</a></li>
+					<li><a href="users_check.jsp?go=/info/users_exit.do">회원탈퇴</a></li>
+					<li><a href="<%=request.getContextPath() %>/info/users_point.jsp">포인트내역</a></li>
+				</ul>
+			</div>
 
-   <link rel="stylesheet" type="text/css"
-      href="<%=request.getContextPath()%>/css/common.css">
    <div class="row">
       <h2><%=id %>님의 정보입니다</h2>
-
-      <div class="float-wrap">
-         <div class="float-item">
-            <ul class="custom-list float-item"">
-               <li><a>이용내역</a></li>
-               <li><a href="<%=request.getContextPath() %>/info/users_review.jsp">이용후기</a></li>
-               <li><a href="users_check.jsp?go=/info/users_change_info.jsp">정보수정</a></li>
-               <li><a href="users_check.jsp?go=/info/users_exit.do">회원탈퇴</a></li>
-               <li><a href="<%=request.getContextPath() %>/info/users_point.jsp">포인트내역</a></li>
-            </ul>
-         </div>
 
          <div class="float-item">
             <div>
@@ -67,9 +65,6 @@
                <p>
                   이름<%=UGdto.getUser_name()%>
                </p>
-            </div>
-            <div>
-               <p>권한 : ???</p>
             </div>
             <div>
                <p>
