@@ -73,22 +73,22 @@ table.table.table-hover > tbody > tr:hover {
 */
 
 .modal {
-    position: fixed;
+  	position:fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: none;
 
     display: none;
 }
 
 .modal > .modal-view {
-    position: fixed;
-    width: 300px;
-    height: 400px;
-    background-color: white;
-    top: 50%;
+    position:fixed;
+    width: 350px;
+    height: 500px;
+    background-color: rgba(0, 0, 0, 0.7);
+    top: 35%;
     left: 50%;
     margin-left: -150px;
     margin-top: -200px;
@@ -198,7 +198,7 @@ table.table.table-hover > tbody > tr:hover {
 
 
 
-/* .menu {
+ .menu {
     background-color: black;
 }
 
@@ -254,9 +254,9 @@ table.table.table-hover > tbody > tr:hover {
 
 .menu > #hamburg:checked ~ .menu-item {
     display: block;
-} */
+} 
 
-/*
+
 @media screen and (max-width:720px) {
     .menu > label {
         display: block;
@@ -271,13 +271,8 @@ table.table.table-hover > tbody > tr:hover {
         float: left;
     }
 }
-*/
 
-/*
-body {
-    height: 50000px;
-}
-*/
+
 
 /*개발용 설정 : 영역에 점선이 출력되도록 처리*/
 
@@ -403,7 +398,6 @@ fieldset {
 
 .url{
   margin: 20px 50px;
-  padding-left: 50px;
   -webkit-box-flex: 5;
       -ms-flex-positive: 5;
           flex-grow: 5;
@@ -470,58 +464,84 @@ input:focus {
 
 input:focus ~ .after {
   background-position: 0 0;
+
 }
 
-button {
-  position: relative;
-  width: 200px;
-  height: 34px;
-  font-size: 20px;
-  font-family: system-ui, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  margin-top: 20px;
-  padding: 2px 10px;
-  color: rgba(255, 255, 255, 0.6);
-  background: white;
-  border: none;
-  border-radius: 15px;
-  background: -webkit-gradient(linear, left top, right top, color-stop(50%, white), color-stop(50%, transparent));
-  background: -webkit-linear-gradient(left, white 50%, transparent 50%);
-  background: -o-linear-gradient(left, white 50%, transparent 50%);
-  background: linear-gradient(to right, white 50%, transparent 50%);
-  background-color: RGBA(55, 73, 87, 0.8);
-  background-size: 200% 100%;
-  background-position: 100% 0;
-  -webkit-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  transition: all 0.3s ease;
+.swiper-container {
+	width: 100%;
 }
 
-button:before {
-  position: absolute;
-  font-family: system-ui, FontAwesome, Helvetica, Arial, sans-serif;;
-  font-size: 20px;
-  content: "\f00c";
-  letter-spacing: 3px;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  top: 2px;
-  bottom: 2px;
-  left: 2px;
-  right: 2px;
-  display: block;
-  border-radius: 15px;
-  /*color: white;*/
-  background-color: rgba(0, 0, 0, 0.3);
+.swiper-container img {
+	width: 100%;
 }
 
-button:active,
-button:focus,
-button:hover {
-  outline: none;
-  background-position: 0 0;
-  color: white;
+.flex-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin-top: auto;
 }
 
+.flex-item {
+	flex: none;
+	flex-grow: /* flex: 0 0 auto */ margin-top : auto;
+}
+
+.flex-item-gnb {
+	margin-left: auto;
+}
+
+div>.a {
+	margin: 30px width:100px;
+	background-color: white;
+	border: none;
+	color: black;
+	padding: 0 9px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 1.1rem;
+	margin: 4px;
+	cursor: pointer;
+}
+
+.closebtn {
+	font-size: 2rem;
+	color: white;
+	margin: 10px;
+	margin-right: auto;
+	cursor: pointer;
+}
+
+input[name=id], input[name=pw] {
+	border: none;
+	width: 310px;
+	background: transparent;
+	color: white;
+	margin: 0;
+	padding: 8px;
+	font-size: 1.2rem;
+}
+
+p {
+	margin: 0px;
+	color: white;
+	font-size: 0.8rem;
+}
+
+.modalbtn {
+	background-color: transparent;
+	border: 2px white solid;
+	color: white;
+	width: 100%
+}
+
+.modalbtn.regist {
+	height: 120px;
+}
+
+.modalbtn, .a:focus {
+	outline: none;
+}
 
