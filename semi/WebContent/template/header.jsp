@@ -1,11 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+<%
+
+String user_id = (String) session.getAttribute("user_id");
+boolean login = user_id != null;
+
+%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <title>Document</title>
-
 <link rel="stylesheet" type="text/css" 
 href="<%=request.getContextPath()%>/css/common.css">
 <link rel="stylesheet"
@@ -17,36 +24,6 @@ href="<%=request.getContextPath()%>/css/common.css">
 	href="http://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
-<style>
-.swiper-container {
-	width: 100%;
-}
-
-.swiper-container img {
-	width: 100%;
-}
-
-
-.flex-container {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	margin-top: auto;
-	padding: 50px 0px 0px 0px
-}
-
-.flex-item {
-	flex: none;
-	flex-grow: /* flex: 0 0 auto */
-	margin-top: auto
-}
-
-.flex-item-gnb {
-	margin-left: auto;
-}
-
-</style>
 
 <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
 <script>
@@ -92,49 +69,134 @@ href="<%=request.getContextPath()%>/css/common.css">
 		});
 	}
 </script>
+
+<!-- 로그인 모달창 주소 자동변경을 위한 주소 변수 선언 -->
+<%
+String userlogin = request.getContextPath()+"/login/users_login.do";
+String hostlogin = request.getContextPath()+"/login/host_login.do";
+%>
+
 <script>
-function openLoginModal(){
-    event.preventDefault()
-    var modal = document.querySelector(".modal");
-    modal.style.display = "block"
+	function openLoginModal() {
+		event.preventDefault()
+		var modal = document.querySelector(".modal");
+		modal.style.display = "block"
+	}
+
+	function closeLoginModal() {
+		var modal = document.querySelector(".modal");
+		modal.style.display = "none"
+	}
+	
+	function userLoginModal(){
+		var loginform = document.querySelector(".loginform");
+		loginform.action = "<%=userlogin%>";
+		var user = document.querySelector(".user");
+		user.style.color = "white";
+		var host = document.querySelector(".host");
+		host.style.color = "gray";
+		var userborder = document.querySelector(".user");
+		userborder.style.border = "2px white solid";
+		var hostborder = document.querySelector(".host");
+		hostborder.style.border = "none";
+	}
+	
+	function hostLoginModal(){
+		var loginform = document.querySelector(".loginform");
+		loginform.action = "<%=hostlogin%>";
+		var user = document.querySelector(".user");
+		user.style.color = "gray";
+		var host = document.querySelector(".host");
+		host.style.color = "white";
+		var userborder = document.querySelector(".user");
+		userborder.style.border = "none";
+		var hostborder = document.querySelector(".host");
+		hostborder.style.border = "2px white solid";
+		
+	}
+</script>
+
+<script>
+function openRegistModal() {
+	event.preventDefault()
+	var modal = document.querySelector(".modal.regist");
+	modal.style.display = "block"
 }
 
-function closeLoginModal(){
-    console.log("close");
-    var modal = document.querySelector(".modal");
-    modal.style.display = "none"
+function closeRegistModal() {
+	var modal = document.querySelector(".modal.regist");
+	modal.style.display = "none"
 }
 
+function userRegistModal(){
+	var loginform = document.querySelector(".registform");
+	loginform.action = "http://www.naver.com";
+}
+
+function hostRegistModal(){
+	var loginform = document.querySelector(".registform");
+	loginform.action = "http://www.daum.net";
+}
 
 </script>
 
 </head>
 
-<body test>
+<body>
 	<main>
-		<header class="flex-container">
+		<header style="padding: 100px 32px 0px 32px">
+		<div class="flex-container">
 			<div class="flex-item">
 				<form action="#" autocomplete="off">
-				<img src="http://placehold.it/100x30?text=logo">
+					<img src="http://placehold.it/100x30?text=logo">
 					<fieldset class="url">
-						<input id="url" type="text" name="url"> 
-							<label
-								for="url"><i class="fa fa-search" aria-hidden="true"></i>
-								Search</label>
+						<input id="url" type="text" name="url"> <label for="url"><i
+							class="fa fa-search" aria-hidden="true"></i> Search</label>
 						<div class="after"></div>
-					</fieldset>
-					<fieldset class="enter">
-						<button></button>
 					</fieldset>
 				</form>
 			</div>
+			<div style="height: 30px;"></div>
 			<div class="flex-item-gnb">
-			<!-- 모달화면 구현 -->
-			    <button onclick="openLoginModal();">로그인</button>
-			    <div class="modal" onclick="closeLoginModal();">
-			        <div class="modal-view">
-
-			        </div>
-    </div>	
+				<div>
+					<button class="a" onclick="openLoginModal();">로그인</button>
+					<button class="a" onclick="location.href='<%=request.getContextPath()%>/info/users_info.jsp'">내정보</button>
+					<%if(login){ %>
+					<button class="a" onClick="location.href='<%=request.getContextPath()%>/login/users_logout.do'">로그아웃</button>
+					<%} %>
+					<button class="a" onclick="openRegistModal();">회원가입</button>
+				</div>
 			</div>
+		</div>
+		
+		<!-- 로그인 모달화면 분리 -->
+		<jsp:include page="/template/total_login.jsp"></jsp:include>
+		
+			
+			<!-- 회원가입 모달화면 구현 -->
+			<form class="registform" autocomplete="off" action="#" method="post">
+				<div class="modal regist" onclick="closeRegistModal();">
+					<!-- 모달내부 화면 -->
+					<div class="modal-view regist" onclick="event.stopPropagation();">
+						<div style="position: relative; width: 100%; height: 100%;">
+							<div style="position: absolute; top: 20px; right: 20px;">
+								<span class="closebtn" onclick="closeRegistModal()">&times;</span>
+							</div>
+							<div
+								style="position: absolute; top: 50%; left: 50%; width: 300px; height: 400px; margin-left: -150px; margin-top: -200px;">
+								<div style="height: 60px;"></div>
+								<div style="margin: 10px 0px; color: white;">
+								<button class="modalbtn regist" onclick="userRegistModal()">일반회원 가입</button>
+								</div>
+								<div style="height: 5px;"></div>
+								<div style="margin: 10px 0px; color: white;">
+								<button class="modalbtn regist" onclick="hostRegistModal()">호스트 가입</button>
+								</div>
+								<div style="height: 50px;"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+
 		</header>

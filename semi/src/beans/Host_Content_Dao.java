@@ -125,4 +125,41 @@ public class Host_Content_Dao {
 		return seq;
 	}
 	
+//컨텐츠 상세 페이지에서 게시글의 정보를 불러오는 다오입니다
+//	매개변수 host_content_number
+//	반환 Host_Content_Dto
+	public Host_Content_Dto getOneContent(int no) throws Exception{
+		Connection con = getConnection();
+		
+		String sql = "select * from host_content where host_content_no = ?";
+		
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setInt(1, no);
+		
+		ResultSet rs = ps.executeQuery();
+		
+		
+		Host_Content_Dto HCdto = new Host_Content_Dto();
+		if(rs.next()) {
+		HCdto.setHost_content_name(rs.getString("host_content_name"));
+		HCdto.setHost_content_cost(rs.getInt("host_content_cost"));
+		HCdto.setHost_id(rs.getString("host_id"));
+		HCdto.setHost_content_info(rs.getString("host_content_info"));
+		HCdto.setHost_content_start_date(rs.getString("host_content_start_date"));
+		HCdto.setHost_content_last_date(rs.getString("host_content_last_date"));
+		HCdto.setHost_content_location(rs.getString("host_content_location"));
+		HCdto.setHost_content_ect_info(rs.getString("host_content_ect_info"));
+		HCdto.setHost_content_qa(rs.getString("host_content_qa"));
+		HCdto.setHost_content_ticket(rs.getInt("host_content_ticket"));
+		HCdto.setHost_content_payment_count(rs.getInt("host_content_payment_count"));
+		HCdto.setHost_content_view_count(rs.getInt("host_content_view_count"));
+		HCdto.setHost_content_no(rs.getInt("host_content_no"));
+		HCdto.setHost_content_category(rs.getString("host_content_category"));
+		
+		}
+		
+		con.close();
+		return HCdto;
+	}
+	
 }
