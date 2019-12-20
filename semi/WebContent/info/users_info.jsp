@@ -49,7 +49,7 @@
 		<div class="float-wrap">
 			<div class="float-item">
 				<ul class="custom-list float-item"">
-					<li><a>이용내역</a></li>
+					<li><a href="<%=request.getContextPath() %>/info/users_history.jsp">이용내역</a></li>
 					<li><a href="<%=request.getContextPath() %>/info/users_review.jsp">이용후기</a></li>
 					<li><a href="users_check.jsp?go=/info/users_change_info.jsp">정보수정</a></li>
 					<li><a href="users_check.jsp?go=/info/users_exit.do">회원탈퇴</a></li>

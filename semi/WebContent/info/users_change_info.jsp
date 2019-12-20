@@ -53,7 +53,7 @@
 		<div class="row-right">
 			<input class="block-item input-item" type="reset" value="지우기">
 			<input class="block-item input-item" type="submit" value= "수정하기" >
-			<h4><a href="users_spare_pw.do?user_id=<%=user_id%>">비밀번호 변경</a></h4>
+			<h4><a href="users_change_pw.jsp">비밀번호 변경</a></h4>
 		</div>	
 
 </div>
