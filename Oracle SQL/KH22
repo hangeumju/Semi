@@ -3,7 +3,7 @@
 -- 세미프로젝트 DB
 -------------------------------------------------------
 
--- host table 생성
+-- host table 생성 : host
 drop table host;
 
 Create table host(
@@ -14,7 +14,6 @@ host_name varchar2(21) not null,
 host_phone varchar2(11) not null unique,
 host_email_id varchar2(20) not null,
 host_email_domain varchar2(15) check (host_email_domain in ('@naver.com', '@nate.com', '@gmail.com', '@daum.net', '@hanmail.net' )),
-host_Interest varchar2(21) check (host_Interest in ('액티비티', '배움', '건강/뷰티', '모임', '여행')),
 host_post varchar2(6),
 host_basic_addr varchar2(255),
 host_extra_addr varchar2(255),
@@ -31,7 +30,7 @@ create sequence host_no_seq;
 
 ------------------------------------------------------------------------------
 
--- users table 생성
+-- users table 생성 :  users
 drop table users;
 
 create table users(
@@ -59,24 +58,26 @@ create sequence Users_no_seq;
 ------------------------------------------------------------------------------
 
 
--- Content table 생성
+-- Content table 생성 :  host_content
 drop table host_content;
 
 create table host_content(
 host_content_no number primary key,
 host_id CONSTRAINT fk_hcontent_host REFERENCES host(host_id) on delete CASCADE,
-host_content_category varchar2(21) not null,
+host_content_category varchar2(21) not null check (host_content_category in ('액티비티', '배움', '건강/뷰티', '모임', '여행')),
 host_content_cost number not null check ( host_content_cost > 0),
 host_content_name varchar2(100),
 host_content_ticket number not null check (host_content_ticket > 0),
 host_content_info varchar2(4000),
-host_content_date date,
+host_content_start_date date,
+host_content_last_date date,
 host_content_location varchar2(30),
 host_content_ect_info varchar2(1000),
-host_content_original_file varchar2(260),
-host_content_edit_file varchar2(260),
 host_content_QA varchar2(1000),
-host_content_approval varchar2(6) default '보류' check (host_content_approval in ('보류', '승인', '반려')) 
+host_content_approval varchar2(6) default '보류' check (host_content_approval in ('보류', '승인', '반려')), 
+host_content_Create_date date default sysdate,
+host_content_view_count number default 0,
+host_content_payment_count number default 0
 );
 
 
@@ -84,5 +85,105 @@ host_content_approval varchar2(6) default '보류' check (host_content_approval 
 drop sequence host_content_no_seq;
 create sequence host_content_no_seq;
 
-------------------------------------------------------------------------
+----------------------------------------------------------------------------
+
+-- 사진 업로드 테이블 : host_content_photo
+drop table host_content_photo;
+
+create table host_content_photo(
+host_content_photo_no number primary key,
+host_content_no CONSTRAINT  fk_photo_host_content REFERENCES host_content(host_content_no) on delete CASCADE,
+host_content_original_file varchar2(260),
+host_content_edit_file varchar2(260)
+);
+
+-- 시퀀스 생성
+drop sequence host_content_photo_seq;
+create sequence host_content_photo_seq;
+
+
+
+-------------------------------------------------------------------------------
+-- 결제 테이블 생성 : content_history
+
+-- host에게는 결제정보 (User의 아이디, 이름, 전화번호를 제공하는 것이 목적)
+-- user에게는 이용정보 (Host의 0이름, 전화번호, 로케이션, 컨텐츠 정보를 제공하는 것이 목적)
+-- 거의 다 외래키
+-- 조인 테이블 : host, user, content, content_history
+-------------------------------------------------------------------------------
+drop table content_history;
+
+create table content_history(
+history_no number primary key,
+host_history_no CONSTRAINT fk_history_content REFERENCES host_content(host_content_no) on delete set null,
+users_history_no CONSTRAINT fk_history_user REFERENCES users(user_no) on delete set null,
+user_qty number,
+user_reservation_date date
+);
+
+-- 시퀀스 생성
+drop sequence content_history_seq;
+create sequence content_history_seq;
+
+
+--------------------------------------------------------------------------------------
+-- 뷰 생성
+--------------------------------------------------------------------------------------
+
+-- host에게는 결제정보 (User의 아이디, 이름, 전화번호 & 컨텐츠 예약 번호 를 제공하는 것이 목적)
+-- 보내줘야 하는 정보 (history_no, user_name, user_phone, user_qty, user_reservation_date)
+
+drop view content_history_to_host;
+
+create view content_history_to_host as
+select history_no, user_name, user_phone, user_qty, user_reservation_date from
+    (select * from users U 
+    inner join content_history CH
+    on U.user_no = CH.users_history_no)A
+    inner join host_content B  on  B.host_content_no = A.history_no
+    order by user_reservation_date desc;
+    
+select * from content_history_to_host;
+
+
+
+
+-- user에게는 이용정보 (Host의 0이름, 전화번호, 로케이션, 컨텐츠 정보를 제공하는 것이 목적)
+-- 보내줘야 하는 정보 (host_content_name, host_content_cost, host_name, host_phone, host_content_location, user_reservation_date)
+
+drop view content_history_to_users;
+
+create view content_history_to_users as
+select host_content_name, host_content_cost, host_name, host_phone, host_content_location, user_reservation_date, user_qty from 
+    (select * from 
+    host H inner join host_content HC on H.host_id = HC.host_id) A
+    inner join content_history B on A.host_content_no = B.host_history_no
+    order by user_reservation_date desc;
+ 
+
+select * from content_history_to_users;
+
+
+-------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------
+-- 후기테이블 생성
+
+drop table user_review;
+
+create table user_review(
+review_no number primary key,
+review_writer CONSTRAINT fk_review_user REFERENCES users(user_id) on delete set null,
+centent_original_no CONSTRAINT fk_review_content REFERENCES host_content(host_content_no) on delete CASCADE,
+review_title varchar2(100) not null,
+review_content varchar2(1000) not null,
+review_date date default sysdate
+); 
+
+-- 시퀀스 생성
+drop sequence user_review_seq;
+create sequence user_review_seq;
+
+-------------------------------------------------------------------------------------
+
+
 
