@@ -1,12 +1,17 @@
+<%@page import="beans.Host_Info_Dto"%>
+<%@page import="beans.Host_Info_Dao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-    <%%>
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/common.css">
-
+    <%
+    Host_Info_Dao HIdao = new  Host_Info_Dao();
+    String host_id = (String)session.getAttribute("host_id");
+    Host_Info_Dto HIdto = HIdao.get(host_id);
+    %>
+<jsp:include page="/template/header.jsp"></jsp:include>
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/common.css">
 <html>
 <head>
-    <title>전체 게시글</title>
     
     <style type="text/css">
         #wrap {
@@ -41,16 +46,15 @@
     <br>
     <div id="board">
         <table id="#boardList" width="800" border="3" bordercolor="lightgray">
-            <h3>예약자 관리</h3>
+            <h3>(<%=host_id %>) 님의 예약자 관리</h3>
             <tr heigh="30">
                 <td>예약번호</td>
-                <td>컨텐츠 제목</td>
                 <td>예약자</td>
                 <td>휴대전화 번호</td>
+                <td>티켓수량</td>
                 <td>예약날짜</td>
             </tr>    
             <tr>
-                <td>1</td>
                 <td>1</td>
                 <td>1</td>
                 <td>1</td>
@@ -66,7 +70,6 @@
     <div id="searchForm">
         <form>
             <select name="opt">
-                <option value="0">컨텐츠 제목</option>
                 <option value="1">예약번호</option>
                 <option value="2">예약자</option>
                 <option value="3">예약날짜</option>
@@ -79,3 +82,4 @@
  
 </body>
 </html>
+<jsp:include page="/template/footer.jsp"></jsp:include>

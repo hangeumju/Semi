@@ -94,7 +94,7 @@
         		<li><a href="#">상품 등록</a></li>
         		<li><a href="#">상품 리스트</a></li>
         		<li><a href="#">리뷰 관리</a></li>
-        		<li><a href="<%=request.getContextPath()%>/host/reservation_chart.jsp">예약자 관리</a></li>
+        		<li><a href="<%=request.getContextPath()%>/board/reservation_chart.jsp">예약자 관리</a></li>
         	</ul>
         </li>
         <li>
