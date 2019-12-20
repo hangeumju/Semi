@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <jsp:include page="/template/header.jsp"></jsp:include>
 
+
+
 <div class="row">
 	<a href="<%=request.getContextPath()%>/login/users_login.jsp">로그인</a>
 	<a href="<%=request.getContextPath()%>/join/users_regist.jsp">회원가입</a>
