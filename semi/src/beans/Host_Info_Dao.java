@@ -181,5 +181,33 @@ public class Host_Info_Dao {
 		ps.execute();
 		con.close();
 	}
+	
+		///////////////////////	호스트용 단일 정보 뽑아오기
+		/////////////////////// 매개변수 아이디
+		/////////////////////// 반환값 호스트 정보
+		public Host_Info_Dto getOneHost(String id) throws Exception {
+			Connection con = getConnection();
+			String sql = "select * from host where host_id = ?";
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1, id);
+			
+			ResultSet rs = ps.executeQuery();
+			Host_Info_Dto HIdto = new Host_Info_Dto();
+			if(rs.next()) {
+				//이름, 아이디, 전화번호, 이메일, 주소를 받습니다
+				HIdto.setHost_id(rs.getString("host_id"));
+				HIdto.setHost_name(rs.getString("host_name"));
+				HIdto.setHost_phone(rs.getString("host_phone"));
+				HIdto.setHost_email_id(rs.getString("host_email_id"));
+				HIdto.setHost_email_domain(rs.getString("host_email_domain"));
+				HIdto.setHost_post(rs.getString("host_post"));
+				HIdto.setHost_basic_addr(rs.getString("host_basic_addr"));
+				HIdto.setHost_extra_addr(rs.getString("host_extra_addr"));
+				
+			}
+			
+			con.close();
+			return HIdto;
+		}
 }
 
