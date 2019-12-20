@@ -1,5 +1,7 @@
 package beans;
+
 //컨텐츠 생성 빈즈입니다
+//- 컨텐츠 생성 및 활용에 필요한 필드(변수)를 지정해 놓은 Dto 입니다
 public class Host_Content_Dto {
 	private int host_content_no;
 	private String host_id;
