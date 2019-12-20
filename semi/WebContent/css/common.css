@@ -69,25 +69,25 @@ table.table {
 - 모달화면의 크기는 300X400(조정 가능)
 */
 .modal {
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	/*         background-color: black;*/
-	background-color: rgba(0, 0, 0, 0.5);
+  	position:fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: none;
+
+    display: none;
 }
 
-.modal>.modal-view {
-	position: fixed;
-	width: 300px;
-	height: 400px;
-	background-color: white;
-	top: 50%;
-	left: 50%;
-	margin-left: -150px;
-	margin-top: -200px;
-	display: none;
+.modal > .modal-view {
+    position:fixed;
+    width: 350px;
+    height: 500px;
+    background-color: rgba(0, 0, 0, 0.7);
+    top: 35%;
+    left: 50%;
+    margin-left: -150px;
+    margin-top: -200px;
 }
 /*모달화면 디자인 종료*/
 
@@ -181,6 +181,8 @@ table.table {
 }
 /*반응형 사이트 종료*/
 
+
+
 /*
 메뉴스타일 옵션
 - 기본욥션(.menu) / 부가옵션(.menu-fixed)
@@ -256,13 +258,29 @@ table.table {
 } */
 /*메뉴스타일 옵션 종료*/
 
-/*
-home 화면 레이아웃 설정*/
-/* 
-개발용 설정 : 영역에 점섬이 출력되도록 처리    */
-body[test] main, 
-body[test] header, 
-body[test] nav, 
+
+@media screen and (max-width:720px) {
+    .menu > label {
+        display: block;
+        width: 100%;
+    }
+
+    .menu > .menu-item {
+        display: none;
+    }
+
+    .menu > .right-menu {
+        float: left;
+    }
+}
+
+
+
+/*개발용 설정 : 영역에 점선이 출력되도록 처리*/
+
+body[test] main,
+body[test] header,
+body[test] nav,
 body[test] section,
 body[test] footer, 
 body[test] article, 
@@ -445,6 +463,155 @@ row의 방향 설정
 .row-multi.col-4 > *{width: 25%;}
 .row-multi.col-5 > *{width: 20%;}
 /*다단 스타일(.row-multi) 종료 */
+
+.url{
+  margin: 20px 50px;
+  -webkit-box-flex: 5;
+      -ms-flex-positive: 5;
+          flex-grow: 5;
+}
+
+.enter{
+  margin: 20px 20px;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+label {
+  position: absolute;
+  top: -5px;
+  letter-spacing: 10px;
+  font-size: 20px;
+  color: RGBA(55, 73, 87, 0.8);
+  -webkit-transform-origin: left;
+      -ms-transform-origin: left;
+          transform-origin: left;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+input:focus ~ label,
+input:valid ~ label {
+  top: 0;
+  letter-spacing: 5px;
+  -webkit-transform: translate(0, -30px) scale(0.7, 0.7);
+      -ms-transform: translate(0, -30px) scale(0.7, 0.7);
+          transform: translate(0, -30px) scale(0.7, 0.7);
+
+}
+
+input {
+  font-family: system-ui, Helvetica, Arial, sans-serif;
+  font-size: 20px !important;
+  width: 100%;
+  border: none;
+  margin-top: 0;
+  background-color: transparent;
+}
+
+input:focus {
+  outline: none;
+}
+
+.after {
+  width: 500px;
+  height: 2px;
+  background: -webkit-gradient(linear, left top, right top, color-stop(50%, RGBA(254, 253, 255, 1.00)), color-stop(50%, transparent));
+  background: -webkit-linear-gradient(left, RGBA(254, 253, 255, 1.00) 50%, transparent 50%);
+  background: -o-linear-gradient(left, RGBA(254, 253, 255, 1.00) 50%, transparent 50%);
+  background: linear-gradient(to right, RGBA(254, 253, 255, 1.00) 50%, transparent 50%);
+  background-color: RGBA(55, 73, 87, 0.8);
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+input:focus ~ .after {
+  background-position: 0 0;
+
+}
+
+.swiper-container {
+	width: 100%;
+}
+
+.swiper-container img {
+	width: 100%;
+}
+
+.flex-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin-top: auto;
+}
+
+.flex-item {
+	flex: none;
+	flex-grow: /* flex: 0 0 auto */ margin-top : auto;
+}
+
+.flex-item-gnb {
+	margin-left: auto;
+}
+
+div>.a {
+	margin: 30px width:100px;
+	background-color: white;
+	border: none;
+	color: black;
+	padding: 0 9px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 1.1rem;
+	margin: 4px;
+	cursor: pointer;
+}
+
+.closebtn {
+	font-size: 2rem;
+	color: white;
+	margin: 10px;
+	margin-right: auto;
+	cursor: pointer;
+}
+
+input[name=id], input[name=pw] {
+	border: none;
+	width: 310px;
+	background: transparent;
+	color: white;
+	margin: 0;
+	padding: 8px;
+	font-size: 1.2rem;
+}
+
+p {
+	margin: 0px;
+	color: white;
+	font-size: 0.8rem;
+}
+
+.modalbtn {
+	background-color: transparent;
+	border: 2px white solid;
+	color: white;
+	width: 100%
+}
+
+.modalbtn.regist {
+	height: 120px;
+}
+
+.modalbtn, .a:focus {
+	outline: none;
+}
 
 /* 
 Title 스타일 : 제목에는 그라데이션 추가
