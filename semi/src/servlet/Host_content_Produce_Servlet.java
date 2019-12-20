@@ -39,8 +39,8 @@ public class Host_content_Produce_Servlet extends HttpServlet{
 			HCdto.setHost_content_name(req.getParameter("host_content_name"));
 			HCdto.setHost_content_ticket(Integer.parseInt(req.getParameter("host_content_ticket")));
 			HCdto.setHost_content_info(req.getParameter("host_content_info"));
-			HCdto.setHost_content_start_date(req.getParameter("host_content_start_date"));
-			HCdto.setHost_content_last_date(req.getParameter("host_content_last_date"));
+			HCdto.setHost_content_start_date(req.getParameter("start_date"));
+			HCdto.setHost_content_last_date(req.getParameter("last_date"));
 			HCdto.setHost_content_location(req.getParameter("host_content_location"));
 			HCdto.setHost_content_ect_info(req.getParameter("host_content_ect_info"));
 			HCdto.setHost_content_qa(req.getParameter("host_content_qa"));

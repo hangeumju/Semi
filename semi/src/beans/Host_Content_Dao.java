@@ -7,14 +7,17 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-//컨텐츠 생성 다오 입니다
+// 컨텐츠 생성 다오 입니다
+// - host가 컨텐츠 (클래스) 생성시 사용하는 method 저장 해놓은 Dao 입니다
 public class Host_Content_Dao {
+	
 	//생성 통로입니다
 	public Connection getConnection() throws Exception {
 		Class.forName("oracle.jdbc.OracleDriver");
 		Connection con = DriverManager.getConnection("jdbc:oracle:thin:@www.sysout.co.kr:1521:xe", "kh22", "kh22");
 		return con;
 	}
+	
 	
 	//컨텐츠 생성 입니다
 	//매개변수 : 카테고리, 참여비용, 컨텐츠 이름, 판매수량, 소개,  위치, 기타정보안내, 예약차트, 원본파일, 수정파일, 컨텐츠QA
@@ -44,6 +47,8 @@ public class Host_Content_Dao {
 		con.close();
 	}
 	
+	
+	
 	//전체 컨텐츠 리스트를 불러오는 다오입니다
 	//매개변수 : 카테고리(아직 미구현했습니다) 
 	//반환값 : 카테고리에 해당하는 컨텐츠 리스트
@@ -66,6 +71,8 @@ public class Host_Content_Dao {
 		con.close();
 		return list;
 	}
+	
+	
 	
 	//중분류 컨텐츠 리스트를 불러오는 다오입니다
 	//매개변수 : 카테고리(type으로 받습니다)와 (가격, 날짜선택, 최신, 조회수, 결제카운트 
@@ -120,14 +127,39 @@ public class Host_Content_Dao {
 	
 //컨텐츠 상세 페이지에서 게시글의 정보를 불러오는 다오입니다
 //	매개변수 host_content_number
-//	반환 List<Host_Content_Dto> 
-	public List<Host_Content_Dto> getOneContent(Host_Content_Dto HCdto) throws Exception{
+//	반환 Host_Content_Dto
+	public Host_Content_Dto getOneContent(int no) throws Exception{
 		Connection con = getConnection();
 		
-		String sql = "";
+		String sql = "select * from host_content where host_content_no = ?";
+		
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setInt(1, no);
+		
+		ResultSet rs = ps.executeQuery();
+		
+		
+		Host_Content_Dto HCdto = new Host_Content_Dto();
+		if(rs.next()) {
+		HCdto.setHost_content_name(rs.getString("host_content_name"));
+		HCdto.setHost_content_cost(rs.getInt("host_content_cost"));
+		HCdto.setHost_id(rs.getString("host_id"));
+		HCdto.setHost_content_info(rs.getString("host_content_info"));
+		HCdto.setHost_content_start_date(rs.getString("host_content_start_date"));
+		HCdto.setHost_content_last_date(rs.getString("host_content_last_date"));
+		HCdto.setHost_content_location(rs.getString("host_content_location"));
+		HCdto.setHost_content_ect_info(rs.getString("host_content_ect_info"));
+		HCdto.setHost_content_qa(rs.getString("host_content_qa"));
+		HCdto.setHost_content_ticket(rs.getInt("host_content_ticket"));
+		HCdto.setHost_content_payment_count(rs.getInt("host_content_payment_count"));
+		HCdto.setHost_content_view_count(rs.getInt("host_content_view_count"));
+		HCdto.setHost_content_no(rs.getInt("host_content_no"));
+		HCdto.setHost_content_category(rs.getString("host_content_category"));
+		
+		}
 		
 		con.close();
-		return list;
+		return HCdto;
 	}
 	
 }

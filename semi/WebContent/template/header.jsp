@@ -7,6 +7,8 @@ String user_id = (String) session.getAttribute("user_id");
 String host_id = (String) session.getAttribute("host_id");
 boolean login = user_id != null;
 
+
+
 %>
 
 <!DOCTYPE html>

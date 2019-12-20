@@ -24,6 +24,10 @@ public class Host_Login_Servlet extends HttpServlet{
 			
 			if(result) {
 				req.getSession().setAttribute("host_id", host_id);
+
+
+				//Host_Info_Dto HIdto = HIdao.get(host_id);//id를 이용하여 전체 회원정보를 불러온다.
+
 				resp.sendRedirect(req.getContextPath()+"/host/submain.jsp");
 			}
 			else {
