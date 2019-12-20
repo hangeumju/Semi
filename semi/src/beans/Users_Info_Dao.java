@@ -44,10 +44,9 @@ public class Users_Info_Dao {
 		
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
-	
 	//유저 정보를 가져오는 기능(단일조회)
 	//메소드 이름 : users_get
-	//매개변수 : String id
+	//매개변수 : String user_id
 	//반환형 : Users_Get_Dto
 		public Users_Get_Dto users_get(String user_id) throws Exception{
 			Connection con = getConnection();
@@ -86,7 +85,7 @@ public class Users_Info_Dao {
 		
 		//회원 탈퇴 기능
 		//메소드 이름 : users_exit
-		//매개변수 : String id
+		//매개변수 : String user_id
 		//반환형 : 없음 void
 		public void users_exit(String user_id) throws Exception {
 			Connection con = getConnection();
@@ -160,7 +159,7 @@ public class Users_Info_Dao {
 // 			최종 로그인 시각 변경 메소드
 //			메소드 이름 : users_update_last_login
 //			매개변수 : String user_id
-//			반환형 : 없음
+//			반환형 : 없음(void)
 			public void users_update_last_login(String user_id) throws Exception {
 				Connection con = getConnection();
 
@@ -177,7 +176,7 @@ public class Users_Info_Dao {
 //			비밀번호 변경 메소드 
 // 			메소드 이름 : users_change_password
 // 			매개변수 : String user_id, String user_pw
-//			반환형 void
+//			반환형 : 없음(void)
 				public void users_change_password(String user_id, String user_pw) throws Exception {
 					Connection con = getConnection();
 
@@ -192,49 +191,25 @@ public class Users_Info_Dao {
 
 				}
 			
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// 			아이디 찾기 
-//			메소드 이름 : users_find_id
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//			찾기 (사용자 확인하는 메소드)
+//			메소드이름 : users_find
 //			매개변수 : String user_name, String user_phone
-//			반환형 : String(id)
-			public String users_find_id(String user_name, String user_phone) throws Exception {
+//			반환형 : String
+			public String users_find(String user_name, String user_phone) throws Exception {
 				Connection con = getConnection();
-
+				
 				String sql = "select user_id from users where user_name=? and user_phone=?";
 				PreparedStatement ps = con.prepareStatement(sql);
 				ps.setString(1, user_name);
 				ps.setString(2, user_phone);
 				ResultSet rs = ps.executeQuery();
-
+				
 				String user_id = null;
-				if (rs.next()) {
-							user_id = rs.getString("user_id");
+				if(rs.next()) {
+					user_id = rs.getString("user_id");
 				}
 				con.close();
 				return user_id;
-
-			}
-	
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//			비밀번호 찾기 (사용자 확인하는 메소드)
-//			메소드이름 : users_find_pw
-//			매개변수 : 아이디, 이름, 전화번호 String user_id / String user_name / String user_phone
-//			반환형 : boolean
-			public boolean users_find_pw(String user_id, String user_name, String user_phone) throws Exception {
-				Connection con = getConnection();
-				
-				String sql = "select user_no from users where user_id=? and user_name=? and user_phone=?";
-				PreparedStatement ps = con.prepareStatement(sql);
-				ps.setString(1, user_id);
-				ps.setString(2, user_name);
-				ps.setString(3, user_phone);
-				ResultSet rs = ps.executeQuery();
-				
-				String user_no = null;
-				if(rs.next()) {
-					user_no = rs.getString("user_no");
-				}
-				con.close();
-				return true;
 			}
 }

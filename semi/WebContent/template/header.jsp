@@ -1,11 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+<%
+
+String user_id = (String) session.getAttribute("user_id");
+boolean login = user_id != null;
+
+String host_id = (String) session.getAttribute("host_id");
+boolean host_login = host_id != null;
+
+%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <title>Document</title>
-
 <link rel="stylesheet" type="text/css" 
 href="<%=request.getContextPath()%>/css/common.css">
 <link rel="stylesheet"
@@ -62,6 +72,13 @@ href="<%=request.getContextPath()%>/css/common.css">
 		});
 	}
 </script>
+
+<!-- 로그인 모달창 주소 자동변경을 위한 주소 변수 선언 -->
+<%
+String userlogin = request.getContextPath()+"/login/users_login.do";
+String hostlogin = request.getContextPath()+"/login/host_login.do";
+%>
+
 <script>
 	function openLoginModal() {
 		event.preventDefault()
@@ -76,20 +93,29 @@ href="<%=request.getContextPath()%>/css/common.css">
 	
 	function userLoginModal(){
 		var loginform = document.querySelector(".loginform");
-		loginform.action = "http://www.naver.com";
+		loginform.action = "<%=userlogin%>";
 		var user = document.querySelector(".user");
 		user.style.color = "white";
 		var host = document.querySelector(".host");
 		host.style.color = "gray";
+		var userborder = document.querySelector(".user");
+		userborder.style.border = "2px white solid";
+		var hostborder = document.querySelector(".host");
+		hostborder.style.border = "none";
 	}
 	
 	function hostLoginModal(){
 		var loginform = document.querySelector(".loginform");
-		loginform.action = "http://www.daum.net";
+		loginform.action = "<%=hostlogin%>";
 		var user = document.querySelector(".user");
 		user.style.color = "gray";
 		var host = document.querySelector(".host");
 		host.style.color = "white";
+		var userborder = document.querySelector(".user");
+		userborder.style.border = "none";
+		var hostborder = document.querySelector(".host");
+		hostborder.style.border = "2px white solid";
+		
 	}
 </script>
 
@@ -115,13 +141,11 @@ function hostRegistModal(){
 	loginform.action = "http://www.daum.net";
 }
 
-
-
 </script>
 
 </head>
 
-<body test>
+<body>
 	<main>
 		<header style="padding: 100px 32px 0px 32px">
 		<div class="flex-container">
@@ -135,59 +159,22 @@ function hostRegistModal(){
 					</fieldset>
 				</form>
 			</div>
-
-<!-- 			로그아웃 그냥 넣었어요 나중에 지워주세요~-->
-			<div>
-				<form action="<%=request.getContextPath()%>/logout/host_logout.do">
-				<input type="button" value="로그아웃">
-				</form>
-			</div>
-
 			<div style="height: 30px;"></div>
-
 			<div class="flex-item-gnb">
 				<div>
 					<button class="a" onclick="openLoginModal();">로그인</button>
+					<button class="a" onclick="location.href='<%=request.getContextPath()%>/info/users_info.jsp'">내정보</button>
+					<%if(login){ %>
+					<button class="a" onClick="location.href='<%=request.getContextPath()%>/login/users_logout.do'">로그아웃</button>
+					<%} %>
 					<button class="a" onclick="openRegistModal();">회원가입</button>
 				</div>
 			</div>
 		</div>
 		
-			<!-- 로그인 모달화면 구현 -->
-			<form class="loginform" autocomplete="off" action="http://www.naver.com" method="post">
-				<div class="modal" onclick="closeLoginModal();">
-					<!-- 모달내부 화면 -->
-					<div class="modal-view" onclick="event.stopPropagation();">
-						<div style="position: relative; width: 100%; height: 100%;">
-							<div style="position: absolute; top: 20px; right: 20px;">
-								<span class="closebtn" onclick="closeLoginModal()">&times;</span>
-							</div>
-							<div
-								style="position: absolute; top: 50%; left: 50%; width: 300px; height: 400px; margin-left: -150px; margin-top: -200px;">
-								<div style="height: 50px;"></div>
-								<div style="margin: 10px 0px; text-align: center;">
-									<span class="user" style="margin-right: 50px; color: white; cursor: pointer;" onclick="userLoginModal()">일반회원</span>
-									<span class="host" style="margin-left: 50px; color: gray; cursor: pointer;" onclick="hostLoginModal()">호스트</span>
-								</div>
-								<div style="height: 30px;"></div>
-								<div style="margin: 10px 0px; color: white;">
-									<p>Username</p>
-									<input type="text" name="id"
-										style="border-bottom: 2px white solid; width: 100%;">
-								</div>
-								<div style="height: 5px;"></div>
-								<div style="margin: 10px 0px; color: white;">
-									<p>Password</p>
-									<input type="password" name="pw"
-										style="border-bottom: 2px white solid; width: 100%;">
-								</div>
-								<div style="height: 60px;"></div>
-								<button class="modalbtn">로그인</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</form>
+		<!-- 로그인 모달화면 분리 -->
+		<jsp:include page="/template/total_login.jsp"></jsp:include>
+		
 			
 			<!-- 회원가입 모달화면 구현 -->
 			<form class="registform" autocomplete="off" action="#" method="post">
@@ -200,7 +187,7 @@ function hostRegistModal(){
 							</div>
 							<div
 								style="position: absolute; top: 50%; left: 50%; width: 300px; height: 400px; margin-left: -150px; margin-top: -200px;">
-								<div style="height: 50px;"></div>
+								<div style="height: 60px;"></div>
 								<div style="margin: 10px 0px; color: white;">
 								<button class="modalbtn regist" onclick="userRegistModal()">일반회원 가입</button>
 								</div>

@@ -6,6 +6,12 @@
 
 <!-- 내정보 사이드메뉴를 꾸며주는 css -->
 <style>
+	div{
+            /* div 자신을 가운데 정렬 */
+            margin-left: auto;
+            margin-right:auto;
+        }
+
 .float-wrap {
    
 }
@@ -38,58 +44,41 @@
 %>
 
 <jsp:include page="/template/header.jsp"></jsp:include>
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/common.css">
 
 <body>
+		<div class="float-wrap">
+			<div class="float-item">
+				<ul class="custom-list float-item"">
+					<li><a href="<%=request.getContextPath() %>/info/users_history.jsp">이용내역</a></li>
+					<li><a href="<%=request.getContextPath() %>/info/users_review.jsp">이용후기</a></li>
+					<li><a href="users_check.jsp?go=/info/users_change_info.jsp">정보수정</a></li>
+					<li><a href="users_check.jsp?go=/info/users_exit.do">회원탈퇴</a></li>
+					<li><a href="<%=request.getContextPath() %>/info/users_point.jsp">포인트내역</a></li>
+				</ul>
+			</div>
 
-   <link rel="stylesheet" type="text/css"
-      href="<%=request.getContextPath()%>/css/common.css">
    <div class="row">
       <h2><%=id %>님의 정보입니다</h2>
 
-      <div class="float-wrap">
          <div class="float-item">
-            <ul class="custom-list float-item"">
-               <li><a>이용내역</a></li>
-               <li><a href="<%=request.getContextPath() %>/info/users_review.jsp">이용후기</a></li>
-               <li><a href="users_check.jsp?go=/info/users_change_info.jsp">정보수정</a></li>
-               <li><a href="users_check.jsp?go=/info/users_exit.do">회원탈퇴</a></li>
-               <li><a href="<%=request.getContextPath() %>/info/users_point.jsp">포인트내역</a></li>
-            </ul>
-         </div>
-
-         <div class="float-item">
-            <div>
-               <p>
-                  아이디<%=UGdto.getUser_id()%>
-               </p>
+            <div>               
+                  아이디 : <%=UGdto.getUser_id()%>               
             </div>
-            <div>
-               <p>
-                  이름<%=UGdto.getUser_name()%>
-               </p>
+            <div>               
+                  이름 : <%=UGdto.getUser_name()%>               
             </div>
-            <div>
-               <p>권한 : ???</p>
+            <div>               
+                  휴대폰번호 : <%=UGdto.getUser_phone()%>               
             </div>
-            <div>
-               <p>
-                  휴대폰번호<%=UGdto.getUser_phone()%>
-               </p>
+            <div>               
+                  포인트 : <%=UGdto.getUser_point()%>               
             </div>
-            <div>
-               <p>
-                  포인트<%=UGdto.getUser_point()%>
-               </p>
+            <div>              
+                  이메일 : <%=UGdto.getUser_email_id()%><%=UGdto.getUser_email_domain()%>               
             </div>
-            <div>
-               <p>
-                  이메일<%=UGdto.getUser_email_id()%><%=UGdto.getUser_email_domain()%>
-               </p>
-            </div>
-            <div>
-               <p>
-                  관심사<%=UGdto.getUser_interest()%>
-               </p>
+            <div>               
+                  관심사 : <%=UGdto.getUser_interest()%>
             </div>
          </div>
 

@@ -7,14 +7,17 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-//컨텐츠 생성 다오 입니다
+// 컨텐츠 생성 다오 입니다
+// - host가 컨텐츠 (클래스) 생성시 사용하는 method 저장 해놓은 Dao 입니다
 public class Host_Content_Dao {
+	
 	//생성 통로입니다
 	public Connection getConnection() throws Exception {
 		Class.forName("oracle.jdbc.OracleDriver");
 		Connection con = DriverManager.getConnection("jdbc:oracle:thin:@www.sysout.co.kr:1521:xe", "kh22", "kh22");
 		return con;
 	}
+	
 	
 	//컨텐츠 생성 입니다
 	//매개변수 : 카테고리, 참여비용, 컨텐츠 이름, 판매수량, 소개,  위치, 기타정보안내, 예약차트, 원본파일, 수정파일, 컨텐츠QA
@@ -44,6 +47,8 @@ public class Host_Content_Dao {
 		con.close();
 	}
 	
+	
+	
 	//전체 컨텐츠 리스트를 불러오는 다오입니다
 	//매개변수 : 카테고리(아직 미구현했습니다) 
 	//반환값 : 카테고리에 해당하는 컨텐츠 리스트
@@ -68,6 +73,8 @@ public class Host_Content_Dao {
 		con.close();
 		return list;
 	}
+	
+	
 	
 	//중분류 컨텐츠 리스트를 불러오는 다오입니다
 	//매개변수 : 카테고리(type으로 받습니다)와 (가격, 날짜선택, 최신, 조회수, 결제카운트 

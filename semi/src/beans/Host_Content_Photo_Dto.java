@@ -1,5 +1,6 @@
 package beans;
 
+//- 컨텐츠 생성에 사진을(3개 Fix) 업로드하기 위한 필드(변수)를 지정해 놓은 Dto 입니다
 public class Host_Content_Photo_Dto {
 	private int host_content_photo_no;
 	private int host_content_no;
