@@ -15,7 +15,7 @@ public class Users_Logout_Servlet extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.getSession().removeAttribute("user_id");
-		resp.sendRedirect(req.getContextPath()+"/test_index.jsp");
+		resp.sendRedirect(req.getContextPath()+"/index.jsp");
 	}
 
 }
