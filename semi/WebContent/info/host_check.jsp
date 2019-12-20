@@ -1,11 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <% String go = request.getParameter("go");
-
-
-   /*  String host_id = (String)session.getAttribute("host_id"); */
-
-
+    String host_id = (String)session.getAttribute("host_id");
     %>
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/common.css">
 <jsp:include page="/template/header.jsp"></jsp:include>
