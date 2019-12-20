@@ -28,7 +28,7 @@
 <div class="row-left">
 <a href="<%=request.getContextPath()%>/login/host_login_find.jsp">회원정보 찾기</a><br>
 <a href="<%=request.getContextPath()%>/join/host_regist.jsp">Join us</a><br>
-<a href="<%=request.getContextPath()%>/join/host_change_temporary_pw.jsp">새로운 비밀번호 발급</a></div>
+<a href="<%=request.getContextPath()%>/info/host_change_temporary_pw.do">새로운 비밀번호 발급</a></div>
 <!-- error 전송될 경우 메세지 출력 -->
 <div>
 <%if(request.getParameter("error") != null){%>

@@ -21,8 +21,8 @@
     </style>    
  
  	<%
- 	String host_id = (String)session.getAttribute("host_id"); 
  	Host_Info_Dao HIdao = new Host_Info_Dao();
+ 	String host_id = (String)session.getAttribute("host_id"); 
  	//기존 정보 불러오기 !
     Host_Info_Dto HIdto = HIdao.get(host_id);
     %>
@@ -47,7 +47,7 @@
 	<input type="hidden" name="go" value="<%=HIdto.getHost_id()%>" >
 			<div>
 				<h1>아이디</h1>
-				<p><%=HIdto.getHost_id()%></p>
+				<div><%=HIdto.getHost_id()%></div>
 			</div>
 			
 			<div>
