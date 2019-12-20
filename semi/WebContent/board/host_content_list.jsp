@@ -9,14 +9,15 @@
 // 컨텐츠 불러오기
 
 // 	오류나오는 영역을 고치기 위해 타입을 받았습니다 나중에 고치면 됩니다
-	String type = request.getParameter("type");
-
+// 	String type = request.getParameter("type");
+	String category = "액티비티";
 	Host_Content_Dao HCdao = new Host_Content_Dao();
 	Host_Content_Dto HCdto = new Host_Content_Dto();
 
-	List<Host_Content_Dto> list = HCdao.getList(type);
+	List<Host_Content_Dto> list = HCdao.getList(category);
 
-
+	
+	
 %>
 	<!-- 갤러리 4단 나누기 -->
 
@@ -91,10 +92,9 @@
 
   <div class="gallary">
  	<% for (Host_Content_Dto dto : list) {%> 
-	
-
         <div class="gallary-item">
             <div class="gallary-image">
+       			<a href="<%=request.getContextPath()%>/board/host_content_detail_view.jsp?host_content_no=<%=dto.getHost_content_no()%>">
                 <img src="http://placeimg.com/480/480/animals">                
             </div>            
             <div class="gallary-text">
@@ -103,13 +103,12 @@
                     <%=dto.getHost_content_cost() %>
                 </p>
             </div>
+        		</a>
         </div>    
-        
 	<% } %>  
      </div>               
-
-
 	
+
 </article> 
     
 <jsp:include page="/template/footer.jsp"></jsp:include>  
