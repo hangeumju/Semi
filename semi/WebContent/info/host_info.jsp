@@ -21,10 +21,10 @@
     </style>    
  
  	<%
- 	Host_Info_Dao HIdao = new Host_Info_Dao();
  	String host_id = (String)session.getAttribute("host_id"); 
+ 	Host_Info_Dao HIdao = new Host_Info_Dao();
  	//기존 정보 불러오기 !
-    Host_Info_Dto HIdto = HIdao.get(host_id);
+ 	Host_Info_Dto HIdto = HIdao.get(host_id);
     %>
     
 <jsp:include page="/template/header.jsp"></jsp:include>
