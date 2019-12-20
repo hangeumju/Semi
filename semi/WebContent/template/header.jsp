@@ -126,6 +126,12 @@ function closeLoginModal(){
 					</fieldset>
 				</form>
 			</div>
+<!-- 			로그아웃 그냥 넣었어요 나중에 지워주세요~-->
+			<div>
+				<form action="<%=request.getContextPath()%>/logout/host_logout.do">
+				<input type="button" value="로그아웃">
+				</form>
+			</div>
 			<div class="flex-item-gnb">
 			<!-- 모달화면 구현 -->
 			    <button onclick="openLoginModal();">로그인</button>

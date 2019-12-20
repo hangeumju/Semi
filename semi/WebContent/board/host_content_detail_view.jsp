@@ -14,6 +14,9 @@
         }
 		  .main{
 		  	width:465px;
+			/* 		  	글 안넘어가게 하는 명령어 */
+		  	word-break:break-all; 
+		  	
 		  }
 		  
 		  .sub{
@@ -22,6 +25,8 @@
 		  	top: 26.3%;
             right: 27.05%;
             height : 400px;
+            /* 		  	글 안넘어가게 하는 명령어 */
+            word-break:break-all;
 		  }
     </style>
     
@@ -30,10 +35,10 @@
 	<article class="w-70">
 		
 			<div class="main">
-			a
+			aaaaaaaaaaaaaaa
 			</div>
 			<div class="sub">
-			b
+			bㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠbbbbbbbbbbbbbbbbbbbbbbbbb
 			</div>
 		
 	
