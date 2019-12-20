@@ -23,7 +23,7 @@ public class Host_Change_Temporary_PW_Servlet extends HttpServlet{
 		Host_Info_Dao HIdao= new Host_Info_Dao();
 		HIdao.host_change_temporary_pw(host_id, host_pw);
 		
-		resp.sendRedirect("host_change_temporary_pw.jsp?host_pw="+host_pw);	
+		resp.sendRedirect("host_change_temporary_pw.jsp");	
 	}
 	catch(Exception e) {
 		e.printStackTrace();

@@ -51,7 +51,7 @@ public class Host_Content_Dao {
 	public List<Host_Content_Dto> getList(String type) throws Exception{
 		
 		Connection con = getConnection();
-		String sql = "select * from host_content where host_content_category = "+type;
+		String sql = "select * from host_content where host_content_category = "+type+"";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ResultSet rs = ps.executeQuery();
 		List<Host_Content_Dto> list = new ArrayList<>();
@@ -116,6 +116,18 @@ public class Host_Content_Dao {
 		int seq = rs.getInt(1);
 		con.close();
 		return seq;
+	}
+	
+//컨텐츠 상세 페이지에서 게시글의 정보를 불러오는 다오입니다
+//	매개변수 host_content_number
+//	반환 List<Host_Content_Dto> 
+	public List<Host_Content_Dto> getOneContent(Host_Content_Dto HCdto) throws Exception{
+		Connection con = getConnection();
+		
+		String sql = "";
+		
+		con.close();
+		return list;
 	}
 	
 }

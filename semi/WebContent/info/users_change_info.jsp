@@ -2,16 +2,15 @@
 <%@page import="beans.Users_Change_Info_Dto"%>
 <%@page import="beans.Users_Info_Dao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-	
+   pageEncoding="UTF-8"%>
+   
 <%
-	//유저 정보 수정 페이지
-	//사용자의 아이디를 이용하여 정보를 불러와서 출력
-	String user_id = (String)session.getAttribute("user_id");
-	Users_Info_Dao UIdao = new Users_Info_Dao();
-	Users_Change_Info_Dto UCIdto = new Users_Change_Info_Dto();
-	Users_Get_Dto UGdto = UIdao.users_get(user_id);	
-	
+   //유저 정보 수정 페이지
+   //사용자의 아이디를 이용하여 정보를 불러와서 출력
+   String user_id = (String)session.getAttribute("user_id");
+   Users_Info_Dao UIdao = new Users_Info_Dao();
+   Users_Change_Info_Dto UCIdto = new Users_Change_Info_Dto();
+   Users_Get_Dto UGdto = UIdao.users_get(user_id);      
 %>
 
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/common.css">

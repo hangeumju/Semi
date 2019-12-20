@@ -7,9 +7,15 @@
 
 <%
 // 컨텐츠 불러오기
+
+// 	오류나오는 영역을 고치기 위해 타입을 받았습니다 나중에 고치면 됩니다
+	String type = request.getParameter("type");
+
 	Host_Content_Dao HCdao = new Host_Content_Dao();
 	Host_Content_Dto HCdto = new Host_Content_Dto();
-	List<Host_Content_Dto> list = HCdao.getList();
+
+	List<Host_Content_Dto> list = HCdao.getList(type);
+
 
 %>
 	<!-- 갤러리 4단 나누기 -->
