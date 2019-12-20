@@ -24,10 +24,10 @@ public class Users_Find_Id_Servlet extends HttpServlet {
 				
 				//처리
 				Users_Info_Dao ULFdao = new Users_Info_Dao();
-				String user_id = ULFdao.users_find_id(user_name, user_phone);
+				String user_id = ULFdao.users_find(user_name, user_phone);
 				
 				//이동
-				if(user_id == null) { //id가 없으면
+				if(user_id == null) { //입력값과 일치하는 id가 없으면
 					 resp.sendRedirect("users_find_id_result.jsp");
 				}
 				else {
