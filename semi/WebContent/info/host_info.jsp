@@ -21,22 +21,15 @@
     </style>    
  
  	<%
- 	Host_Info_Dao HIdao = new Host_Info_Dao();
  	String host_id = (String)session.getAttribute("host_id"); 
+ 	Host_Info_Dao HIdao = new Host_Info_Dao();
  	//기존 정보 불러오기 !
-    Host_Info_Dto HIdto = HIdao.get(host_id);
+ 	Host_Info_Dto HIdto = HIdao.get(host_id);
     %>
     
 <jsp:include page="/template/header.jsp"></jsp:include>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/common.css">
-       	<div class="float-item">
-       		<ul class="host-list float-item">
-		       <li>내 컨텐츠 보기</li>
-		       <li>이용후기</li>
-		       <li>정보수정</li>
-		       <li>회원탈퇴</li>
-		   </ul>
-		</div>	
+
 <form action="host_info.do" method="post">
 <article class="w-40">
 <div class="row">
