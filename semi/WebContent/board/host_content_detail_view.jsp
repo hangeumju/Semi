@@ -185,7 +185,7 @@
 			<div class="sub">
 				<div>남은 티켓 수량 : <%=HCdto.getHost_content_ticket()%></div>
 				<div>티켓수량 선택</div>
-				<form action="#" method="get">
+				<form action="<%=request.getContextPath()%>/board/users_pay.jsp" method="get">
 					<input type="button" class="minus" value="-" onclick="minus();">
 					<input class="ticket_input" type="number" name="ticketing" value="1">
 					<input type="button" value = "+" class= "plus" onclick="plus();">
