@@ -4,6 +4,7 @@
 <%
 
 String user_id = (String) session.getAttribute("user_id");
+String host_id = (String) session.getAttribute("host_id");
 boolean login = user_id != null;
 
 %>
@@ -160,8 +161,8 @@ function hostRegistModal(){
 			<div class="flex-item-gnb">
 				<div>
 					<button class="a" onclick="openLoginModal();">로그인</button>
-					<button class="a" onclick="location.href='<%=request.getContextPath()%>/info/users_info.jsp'">내정보</button>
 					<%if(login){ %>
+					<button class="a" onclick="location.href='<%=request.getContextPath()%>/info/users_info.jsp'">내정보</button>
 					<button class="a" onClick="location.href='<%=request.getContextPath()%>/login/users_logout.do'">로그아웃</button>
 					<%} %>
 					<button class="a" onclick="openRegistModal();">회원가입</button>
