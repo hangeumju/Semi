@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 
 import com.sun.crypto.provider.RSACipher;
 
+// host(판매자) 가입 및 로그인 관련 method 기능이 있는 Dao 입니다
 public class Host_Info_Dao {
 	
 	public Connection getConnection() throws Exception {
