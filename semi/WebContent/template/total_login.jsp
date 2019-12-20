@@ -14,8 +14,8 @@
 								style="position: absolute; top: 50%; left: 50%; width: 300px; height: 400px; margin-left: -150px; margin-top: -200px;">
 								<div style="height: 50px;"></div>
 								<div style="margin: 10px 0px; text-align: center;">
-									<span class="user" style="margin-right: 50px; color: white; cursor: pointer;" onclick="userLoginModal()">일반회원</span>
-									<span class="host" style="margin-left: 50px; color: gray; cursor: pointer;" onclick="hostLoginModal()">호스트</span>
+									<span class="user" style="margin-right: 50px; color: white; cursor: pointer; border: 2px white solid; padding: 7px;" onclick="userLoginModal()" >일반회원</span>
+									<span class="host" style="margin-left: 50px; color: gray; cursor: pointer; padding: 7px" onclick="hostLoginModal()">호스트</span>
 								</div>
 								<div style="height: 30px;"></div>
 								<div style="margin: 10px 0px; color: white;">

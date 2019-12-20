@@ -1,11 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+<%
+
+String user_id = (String) session.getAttribute("user_id");
+boolean login = user_id != null;
+
+%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <title>Document</title>
-
 <link rel="stylesheet" type="text/css" 
 href="<%=request.getContextPath()%>/css/common.css">
 <link rel="stylesheet"
@@ -69,7 +76,6 @@ String userlogin = request.getContextPath()+"/login/users_login.do";
 String hostlogin = request.getContextPath()+"/login/host_login.do";
 %>
 
-
 <script>
 	function openLoginModal() {
 		event.preventDefault()
@@ -89,6 +95,10 @@ String hostlogin = request.getContextPath()+"/login/host_login.do";
 		user.style.color = "white";
 		var host = document.querySelector(".host");
 		host.style.color = "gray";
+		var userborder = document.querySelector(".user");
+		userborder.style.border = "2px white solid";
+		var hostborder = document.querySelector(".host");
+		hostborder.style.border = "none";
 	}
 	
 	function hostLoginModal(){
@@ -98,6 +108,11 @@ String hostlogin = request.getContextPath()+"/login/host_login.do";
 		user.style.color = "gray";
 		var host = document.querySelector(".host");
 		host.style.color = "white";
+		var userborder = document.querySelector(".user");
+		userborder.style.border = "none";
+		var hostborder = document.querySelector(".host");
+		hostborder.style.border = "2px white solid";
+		
 	}
 </script>
 
@@ -123,8 +138,6 @@ function hostRegistModal(){
 	loginform.action = "http://www.daum.net";
 }
 
-
-
 </script>
 
 </head>
@@ -143,19 +156,14 @@ function hostRegistModal(){
 					</fieldset>
 				</form>
 			</div>
-
-<!-- 			로그아웃 그냥 넣었어요 나중에 지워주세요~-->
-			<div>
-				<form action="<%=request.getContextPath()%>/logout/host_logout.do">
-				<input type="button" value="로그아웃">
-				</form>
-			</div>
-
 			<div style="height: 30px;"></div>
-
 			<div class="flex-item-gnb">
 				<div>
 					<button class="a" onclick="openLoginModal();">로그인</button>
+					<button class="a" onclick="location.href='<%=request.getContextPath()%>/info/users_info.jsp'">내정보</button>
+					<%if(login){ %>
+					<button class="a" onClick="location.href='<%=request.getContextPath()%>/login/users_logout.do'">로그아웃</button>
+					<%} %>
 					<button class="a" onclick="openRegistModal();">회원가입</button>
 				</div>
 			</div>
@@ -176,7 +184,7 @@ function hostRegistModal(){
 							</div>
 							<div
 								style="position: absolute; top: 50%; left: 50%; width: 300px; height: 400px; margin-left: -150px; margin-top: -200px;">
-								<div style="height: 50px;"></div>
+								<div style="height: 60px;"></div>
 								<div style="margin: 10px 0px; color: white;">
 								<button class="modalbtn regist" onclick="userRegistModal()">일반회원 가입</button>
 								</div>
