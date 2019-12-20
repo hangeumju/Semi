@@ -20,8 +20,8 @@ public class Users_Login_Servlet extends HttpServlet {
 		try {
 			//준비
 			req.setCharacterEncoding("UTF-8");
-			String user_id = req.getParameter("user_id");
-			String user_pw = req.getParameter("user_pw");
+			String user_id = req.getParameter("id");
+			String user_pw = req.getParameter("pw");
 			
 			//처리
 			Users_Info_Dao ULdao = new Users_Info_Dao();
@@ -37,7 +37,7 @@ public class Users_Login_Servlet extends HttpServlet {
 				ULdao.users_update_last_login(user_id);
 				
 //				resp.sendRedirect("http://www.naver.com"); 경로 임시인덱스로 연결해놓음
-				resp.sendRedirect(req.getContextPath()+"/test_index.jsp");
+				resp.sendRedirect(req.getContextPath()+"/index.jsp");
 			}
 			else { //로그인 실패시
 //				error 메시지가 표시되는 로그인 화면으로 이동해라
