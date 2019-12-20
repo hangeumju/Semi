@@ -49,7 +49,7 @@ div{
 .float-wrap > .float-item{
        border: 1px solid black;
        float: left;
-       width: 50%;
+       /* width: 50%; */
         }
         
 .float-wrap {
@@ -63,6 +63,27 @@ div{
    clear: both;
 }
 
+     /*
+	다단 스타일(.row-multi)
+	- 2단 : .row-multi.column-2
+	- 3단 : .row-multi.column-3
+	- 4단 : .row-multi.column-4
+	- 5단 : .row-multi.column-5
+*/
+.row-multi::after{
+    content:"";
+    display: block;
+    clear:both;
+}
+
+.row-multi > *{
+    float:left;      
+}
+
+.row-multi.column-2 > * { width:50%; }
+.row-multi.column-3 > * { width:33.3333%; }
+.row-multi.column-4 > * { width:25%; }
+.row-multi.column-5 > * { width:20%; }
 
 </style>
 <!-- css style 끝 -->
@@ -73,8 +94,8 @@ div{
 		<h2><%=user_id %>님의 이용 내역입니다</h2>
 	</div>
 	
-		<div class="float-wrap">
-			<div class="float-item">
+		<div class="row-multi column-2">
+			<div class="w-30">
 				<ul class="custom-list float-item"">
 					<li><a href="<%=request.getContextPath() %>/info/users_history.jsp">이용내역</a></li>
 					<li><a href="<%=request.getContextPath() %>/info/users_review.jsp">이용후기</a></li>
@@ -86,17 +107,18 @@ div{
 			
 
 
-<div class="float-item">
-	<div>	
+<div class="w-70">
 	<!-- 테이블에 들어갈 내용 : 이용 날짜, 컨텐츠명, 가격, 호스트이름, 호스트 연락처, 장소 -->
-		<table class="table">
+		<table class="table" >
 			<thead>
+				<tr>
 				<th>이용날짜</th>
 				<th>컨텐츠명</th>
 				<th>가격</th>
 				<th>호스트이름</th>
 				<th>호스트연락처</th>
-				<th>위치</th>				
+				<th>위치</th>		
+				</tr>		
 			</thead>
 			<tbody>
             <tr>
@@ -134,7 +156,6 @@ div{
         </tbody>
 		</table>
 
-	</div>
 	</div>
 </div>
 </body>
