@@ -118,4 +118,16 @@ public class Host_Content_Dao {
 		return seq;
 	}
 	
+//컨텐츠 상세 페이지에서 게시글의 정보를 불러오는 다오입니다
+//	매개변수 host_content_number
+//	반환 List<Host_Content_Dto> 
+	public List<Host_Content_Dto> getOneContent(Host_Content_Dto HCdto) throws Exception{
+		Connection con = getConnection();
+		
+		String sql = "";
+		
+		con.close();
+		return list;
+	}
+	
 }
