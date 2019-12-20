@@ -23,11 +23,11 @@ public class Users_Find_Pw_Servlet extends HttpServlet{
 			
 //			[2]정보가 맞는지 확인합니다
 			Users_Info_Dao UIdao = new Users_Info_Dao();
-			String user_id = UIdao.users_find_pw(user_name, user_phone);
+			String user_id = UIdao.users_find(user_name, user_phone);
 			
 			
 			//이동
-			if(user_id == null) { //id가 없으면
+			if(user_id == null) { //입력값과 일치하는 id가 없으면
 				 resp.sendRedirect("users_find_pw_result.jsp");
 			}
 			else {

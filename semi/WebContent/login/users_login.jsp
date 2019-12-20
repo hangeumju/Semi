@@ -14,7 +14,7 @@
 <input class="block-item input-item" type="password" name ="user_pw" placeholder="비밀번호 입력" required></div>
 <!-- login 버튼-->
 <div class="row-left">
-	<input class="btn" type="submit" value="User Login"></div>
+	<input class="btn" type="submit" value="Login"></div>
 <!-- ID저장 버튼-->
 <div class="row-left">
 <input type="checkbox">ID 저장하기</div>
