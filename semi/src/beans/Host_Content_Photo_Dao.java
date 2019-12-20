@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+// host가 컨텐츠(클래스) 생성시 첨부하는 사진파일 3개 (Fix) 를 업로드를 처리하는 method 가 있는 Dao 입니다
 public class Host_Content_Photo_Dao {
 	public Connection getConnection() throws Exception {
 		Class.forName("oracle.jdbc.OracleDriver");
