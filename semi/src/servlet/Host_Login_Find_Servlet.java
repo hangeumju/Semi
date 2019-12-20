@@ -8,7 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import beans.Host_Login_Find_Dao;
+import beans.Host_Info_Dao;
+
+
 @WebServlet(urlPatterns = "/login/host_login_find.do")
 public class Host_Login_Find_Servlet extends HttpServlet{
 @Override
@@ -18,8 +20,8 @@ protected void service(HttpServletRequest req, HttpServletResponse resp) throws 
 		String host_name = req.getParameter("host_name");
 		String host_phone = req.getParameter("host_phone");
 		
-		Host_Login_Find_Dao HLFdao = new Host_Login_Find_Dao();
-		String host_id = HLFdao.host_login_find(host_name,host_phone);
+		Host_Info_Dao HIdao = new Host_Info_Dao();
+		String host_id = HIdao.host_login_find(host_name,host_phone);
 		if(host_id == null) {
 			resp.sendRedirect("host_login_find_result.jsp");
 		}

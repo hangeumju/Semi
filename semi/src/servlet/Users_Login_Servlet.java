@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import beans.Users_Login_Dao;
+import beans.Users_Info_Dao;
 import beans.Users_Login_Dto;
 
 @WebServlet(urlPatterns = "/login/users_login.do") // http://localhost:8080/semi/login/users_login.do 처리 서블릿
@@ -24,22 +24,20 @@ public class Users_Login_Servlet extends HttpServlet {
 			String user_pw = req.getParameter("user_pw");
 			
 			//처리
-			Users_Login_Dao ULdao = new Users_Login_Dao();
-			boolean result = ULdao.login(user_id,user_pw);
+			Users_Info_Dao ULdao = new Users_Info_Dao();
+			boolean result = ULdao.users_login(user_id, user_pw);
 			
 			//출력
 			if(result) { //로그인 성공시
 				
 //				session에 아이디와 권한을 저장
-//				session.setAttribute("user_id", user_id);
-//				req.getSession().setAttribute("user_id", user_id);
-//				Users_Login_Dto ULdto = dao.get(user_id);
-//				
-//				
-////				추가 : 사용자의 최종 로그인 시각을 수정 
-//				dao.updateLastLogin(user_id);
+				req.getSession().setAttribute("user_id", user_id);			
 				
-				resp.sendRedirect("http://www.naver.com");
+//				추가 : 사용자의 최종 로그인 시각을 수정 
+				ULdao.users_update_last_login(user_id);
+				
+//				resp.sendRedirect("http://www.naver.com"); 경로 임시인덱스로 연결해놓음
+				resp.sendRedirect(req.getContextPath()+"/test_index.jsp");
 			}
 			else { //로그인 실패시
 //				error 메시지가 표시되는 로그인 화면으로 이동해라
