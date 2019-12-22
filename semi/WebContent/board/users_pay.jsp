@@ -174,7 +174,7 @@
             <input type="checkbox">개인정보 제 3자 제공 동의, 결제 대행 서비스 이용 약관 등 모든 약관에 동의합니다.
         </div><br>
         <div>
-            <input class="btn_pay" type="submit" value="300000000원 결제하기">
+            <input class="btn_pay" type="submit" value="30000000원 결제하기">
         </div>
     </div>
 
