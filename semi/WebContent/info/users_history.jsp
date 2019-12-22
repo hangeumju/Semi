@@ -24,7 +24,7 @@
       
       #jb-content {
         width: 740px;
-       padding: 20px;
+       padding: 20px; 
         margin-bottom: 20px;
         float: right;
 		border: 1px solid #bcbcbc;
