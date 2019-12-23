@@ -19,7 +19,7 @@
 		
 		Host_Info_Dao HIdao = new Host_Info_Dao();
 		Host_Info_Dto HIdto = HIdao.getOneHost(id);
-	
+		
 	%>
  <!--     	자바 영역 끝입니다---------------------------------------------------------- -->
     

@@ -16,7 +16,7 @@
 
 	List<Host_Content_Dto> list = HCdao.getList(category);
 
-	
+
 	
 %>
 	<!-- 갤러리 4단 나누기 -->
@@ -107,7 +107,6 @@
         </div>    
 	<% } %>  
      </div>               
-	
 
 </article> 
     
