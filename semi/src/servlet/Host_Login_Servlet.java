@@ -22,9 +22,14 @@ public class Host_Login_Servlet extends HttpServlet{
 			Host_Info_Dao HIdao = new Host_Info_Dao();
 			boolean result = HIdao.host_login(host_id,host_pw);
 			
+			String isHost = (String) req.getSession().getAttribute("user_id");
+			
 			if(result) {
 				req.getSession().setAttribute("host_id", host_id);
-
+				
+				if(isHost != null) {
+					req.getSession().removeAttribute("user_id");
+				}
 
 				//Host_Info_Dto HIdto = HIdao.get(host_id);//id를 이용하여 전체 회원정보를 불러온다.
 

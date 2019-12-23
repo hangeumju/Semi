@@ -290,7 +290,7 @@ public class Users_Info_Dao {
 				public List<Users_Review_Dto> users_review_getList(int no) throws Exception{
 					Connection con = getConnection();
 					
-					String sql = "select * from user_review where content_original_no = ?";
+					String sql = "select * from user_review where content_original_no = ? order by review_date desc";
 					PreparedStatement ps = con.prepareStatement(sql);
 					ps.setInt(1, no);
 					

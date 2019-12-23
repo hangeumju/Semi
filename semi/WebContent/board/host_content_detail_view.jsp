@@ -255,13 +255,13 @@
     			<%for (Users_Review_Dto dto : list) {%>
     			<div><%=dto.getReview_no() %></div>
     			<div><%=dto.getReview_writer() %></div>
-    			<div><%=dto.getReview_date() %></div>
+    			<div><%=dto.getReview_date().substring(0, 10) %></div>
     			<div><%=dto.getReview_title() %></div>
     			<div><%=dto.getReview_content() %></div>
     			<%} %>
     			
     			<!-- 댓글 작성칸이 표시될 자리 -->
-			
+				<%if(host_id=="" || !isHost){ %>
 				<form action="users_review_regist.do" method="post">
 					<input type="hidden" name="content_original_no" value="<%=HCdto.getHost_content_no()%>">
 					<input type="hidden" name="review_writer"  value="<%=user_id%>">
@@ -269,6 +269,7 @@
 					<textarea name="review_content" rows="2" cols="103" required="required"></textarea>
 					<input type="submit" value="등록">
 				</form>
+				<%} %>
 			</div>
 			
 			<div class="sub">
