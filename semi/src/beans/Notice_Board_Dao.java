@@ -47,4 +47,24 @@ public class Notice_Board_Dao {
 			con.close();
 			return list;
 		}
+		
+		
+//		전체글 수 구하는 메소드
+//		메소드이름 : notice_board_count
+//		매개변수 : void(없음)
+//		반환형 : int
+		public int notice_board_count() throws Exception{
+			Connection con = getConnection();
+			
+			String sql = "select count(*) from notice"; //목록구하기
+			PreparedStatement ps = con.prepareStatement(sql);
+			
+			ResultSet rs = ps.executeQuery();
+			rs.next();
+			
+			int count = rs.getInt(1);
+			
+			con.close();			
+			return count;
+		}
 	}
