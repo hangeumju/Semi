@@ -1,21 +1,33 @@
-<%@page import="beans.Host_Content_Dto"%>
-<%@page import="beans.Host_Content_Dao"%>
-<%@page import="beans.Users_Get_Dto"%>
 <%@page import="beans.Users_Info_Dao"%>
+<%@page import="beans.Users_Review_Dto"%>
+
+<%@page import="beans.Users_Get_Dto"%>
+<%-- <%@page import="beans.Users_Info_Dao"%> --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
 <%
 	//유저 정보를 불러오는 코드 
 	Users_Info_Dao UIdao = new Users_Info_Dao();
-	String user_id = (String) session.getAttribute("user_id");
-	Users_Get_Dto UGdto = UIdao.users_get(user_id);
+ 	String user_id = (String) session.getAttribute("user_id"); 
+	Users_Get_Dto UGdto = UIdao.users_get(user_id); 
+	
+	//유저 리뷰테이블 정보를 불러오는 코드 (작성자=유저아이디 기준으로 작성일,컨텐츠넘버,리뷰넘버,리뷰내용을 불러온다)
+	String review_writer = "dladnwls";
+	Users_Review_Dto URdto = UIdao.users_review_get(review_writer);
 %>
 
 <jsp:include page="/template/header.jsp"></jsp:include>
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/css/common.css">
-<body>
+
+<hr>
+
+		<div class="row">
+		<h2><%=URdto.getReview_writer() %>님의 리뷰게시판입니다</h2>
+		</div>
+<!-- 				후기 내용이 들어갈 자리 -->
+<!-- 				들어갈 내용 : 컨텐츠 넘버/ 유저 이름(작성자) / 작성일 / 리뷰내용/ 컨텐츠 넘버   -->
+		
+
 	<div class="float-wrap">
 		<div class="float-item">
 			<ul class="custom-list float-item"">
@@ -28,42 +40,16 @@
 				<li><a
 					href="<%=request.getContextPath()%>/info/users_point.jsp">포인트내역</a></li>
 			</ul>
-
-			<!-- 들어갈 내용 : 컨텐츠 넘버/ 유저 이름(작성자) / 작성일 / 리뷰내용/ 컨텐츠 넘버   -->
-
-
-			<div align="row">
-				<h2><%=UGdto.getUser_id()%>님의 프립 후기입니다
-				</h2>
-
-
-				<!-- 작성자 이름과 작성날짜가 들어갈 자리  -->
-				<div class="float-item">
-					<div font-size="16"><%=UGdto.getUser_name()%>: 작성자자리
-					</div>
-					<div>
-						<!-- 작성일이 들어갈 자리 / 지금은 본인(소희)가 날짜를 수기 작성 / 
-			 추후에 리뷰 테이블 만들어지면 변수로 넣을 예정 , -->
-						"2019-12-20 19:14" "작성"
-					</div>
-
-					<br>
-
-					<!-- 컨텐츠 내용 (리뷰내용) / 지금은 본인(소희)가 내용을 수기 작성 / 
-		추후에 리뷰 테이블만들어지면 변수로 넣을 예정 -->
-					<div class="float-item" font-size="14">작성내용:좋아요좋아요</div>
-
-					<br>
-					<!--  컨텐츠 넘버 또는 넘버명 자리 / 지금은 본인(소희)가 내용을 수기 작성 / 
-		추후에 리뷰 테이블만들어지면 변수로 넣을 예정 -->
-					<div class="float-item" font-size="12">컨텐츠 넘버</div>
-
-
-				</div>
+<div class="row">
+<%-- <div class="float-item" >작성넘버:<%=URdto.getReview_no() %></div> --%>
+<%-- <div class="float-item">컨텐츠넘버:<%=URdto.getContent_original_no() %></div> --%>
+<div class="float-item">컨텐츠이름:<%=URdto.getReview_title() %></div>
+<div class="float-item">컨텐츠내용:<%=URdto.getReview_content() %></div>
+<div class="float-item">작성자:<%=URdto.getReview_writer() %></div>
+<div class="float-item">작성일:<%=URdto.getReview_date() %></div>
+</div>
 			</div>
-		</div>
-	</div>
+			</div>
 
-</body>
 
 <jsp:include page="/template/footer.jsp"></jsp:include>
