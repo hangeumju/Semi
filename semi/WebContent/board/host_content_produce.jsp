@@ -8,6 +8,7 @@ String host_id = (String)request.getSession().getAttribute("host_id");
 %>
 
 
+
  <jsp:include page="/template/header.jsp"></jsp:include>  
 
 <!-- style , script 정의 공간 -->
@@ -90,6 +91,7 @@ String host_id = (String)request.getSession().getAttribute("host_id");
     <!-- Content 날자 지정 API 종료  -->
     
 <!-- style , script 정의 공간 -->
+
 
 
 	<form action="host_content_produce.do" method="post">
