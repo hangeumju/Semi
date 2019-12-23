@@ -212,11 +212,6 @@
     </script>
     
     <!--     	스트립트 영역 끝입니다---------------------------------------------------------- -->
-<<<<<<< HEAD
-=======
-
-
->>>>>>> refs/remotes/origin/master
 <jsp:include page="/template/header.jsp"></jsp:include>
     
    
