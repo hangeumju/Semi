@@ -20,7 +20,7 @@ public class Users_Info_Dao {
 	
 	//유저 회원가입 기능
 	//메소드 이름 : users_regist
-	//매개변수 : Users_Regist_Dto dto
+	//매개변수 : Users_Regist_Dto URdto
 	//반환형 : 없음(void)
 	public void users_regist(Users_Regist_Dto URdto) throws Exception{
 		Connection con =  getConnection();
