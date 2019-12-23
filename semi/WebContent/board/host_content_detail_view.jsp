@@ -1,3 +1,5 @@
+<%@page import="beans.Users_Review_Dto"%>
+<%@page import="beans.Users_Info_Dao"%>
 <%@page import="java.util.HashSet"%>
 <%@page import="java.util.Set"%>
 <%@page import="beans.Host_Info_Dao"%>
@@ -13,7 +15,9 @@
 		Host_Content_Dao HCdao = new Host_Content_Dao();
 		//컨텐츠 번호를 받아서 no에 넣는다
 //   		int no = Integer.parseInt(request.getParameter("host_content_no"));
-		int no=40;
+
+		int no = 40;
+
 		//받은 no를 이용해 단일컨텐츠를 불러오는 명령어를 불러온다
 		Host_Content_Dto HCdto = HCdao.getOneContent(no);
 		
@@ -46,6 +50,9 @@
 	 	else{
 	 		host_id = "";
 	 	}
+	 	
+	 	Users_Info_Dao UIdao = new Users_Info_Dao();
+	 	List<Users_Review_Dto> list = UIdao.users_review_getList(no);
 	%>
  <!--     	자바 영역 끝입니다---------------------------------------------------------- -->
     
@@ -197,7 +204,7 @@
                     var choice = window.confirm("수정하시겠습니까?");
                    
                     if(choice){
-                    	location.href = "<%=request.getContextPath()%>/board/host_content_edit.do?host_id=<%=HCdto.getHost_id()%>&no=<%=HCdto.getHost_content_no()%>";
+                    	location.href = "<%=request.getContextPath()%>/board/host_content_edit.jsp?host_content_no=<%=HCdto.getHost_content_no()%>";
                      }
                 }
             	//------------------------삭제 하려고 할때---------------------------
@@ -208,6 +215,13 @@
                      }
                 }
             	
+				//------------------------목록 하려고 할때---------------------------
+				function list(){
+                    var cho = window.confirm("목록으로 가시겠습니까?");
+                    if(cho){
+                    location.href = "<%=request.getContextPath()%>/board/host_content_list.jsp";
+                     }
+                }
             
             	
     </script>
@@ -238,18 +252,20 @@
     			<div><%=HCdto.getHost_content_ect_info() %></div>
     			<div>QnA<%=HCdto.getHost_content_qa() %></div>
     			<div> 리뷰 게시판 자리</div>
+    			<%for (Users_Review_Dto dto : list) {%>
+    			<div><%=dto.getReview_writer() %></div>
+    			<div><%=dto.getReview_date() %></div>
+    			<div><%=dto.getReview_title() %></div>
+    			<div><%=dto.getReview_content() %></div>
+    			<%} %>
     			
-		<div align = "right">
-				<a href="host_content_produce.jsp"><input type="button" value="새 컨텐츠 생성"></a>
-				<a href="host_content_edit.jsp?host_content_no=<%=HCdto.getHost_content_no()%>">
-				<input type="button" value="수정"></a>
-				<a href="delete.do?host_content_no=<%=HCdto.getHost_content_no()%>">
-				<input type="button" value="삭제"></a>
-				
-				<a href="host_contetn_list.jsp"><input type="button" value="컨텐츠 목록으로"></a>
-				</div>
-
-
+    			<!-- 댓글 작성칸이 표시될 자리 -->
+			
+				<form action="reply_insert.do" method="post">
+					<input type="hidden" name="origin" value="<%=HCdto.getHost_content_no()%>">
+					<textarea name="content" rows="2" cols="103" required="required"></textarea>
+					<input type="submit" value="등록">
+				</form>
 			</div>
 			
 			<div class="sub">
@@ -264,8 +280,9 @@
 					<input id="callender" type="text" name="start_date" class="start_date" placeholder="시작하는 날">
 				 	<span class="total"><%=HCdto.getHost_content_cost() %> </span> 
     				<button class="form_button">참여합니다!</button>
-					
 				</form>
+					<button onclick="list();">목록으로</button><br>
+					
 				<%}else {%>
     				<button onclick="edit();">수정</button><br>
     				<button onclick="del();">삭제</button><br>
