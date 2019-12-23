@@ -10,9 +10,8 @@
 	<%
 		Host_Content_Dao HCdao = new Host_Content_Dao();
 		//컨텐츠 번호를 받아서 no에 넣는다
-		//int no = Integer.parseInt(request.getParameter("host_content_no"));
- 		int no = Integer.parseInt(request.getParameter("host_content_no"));
-// 		int no = 3;
+//  	int no = Integer.parseInt(request.getParameter("host_content_no"));
+ 		int no = 3;
 		//받은 no를 이용해 단일컨텐츠를 불러오는 명령어를 불러온다
 		Host_Content_Dto HCdto = HCdao.getOneContent(no);
 		
@@ -196,6 +195,6 @@
 				</form>
 			</div>
 			
-	
+		</div>
 	</article>
 <jsp:include page="/template/footer.jsp"></jsp:include>
