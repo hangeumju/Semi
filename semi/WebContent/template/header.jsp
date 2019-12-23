@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 	
 <%
-
+System.out.println("테스트");
 String user_id = (String) session.getAttribute("user_id");
 String host_id = (String) session.getAttribute("host_id");
 boolean login = user_id != null;
@@ -20,7 +20,7 @@ boolean login = user_id != null;
 href="<%=request.getContextPath()%>/css/common.css">
 <link rel="stylesheet"
 	href="https://unpkg.com/swiper/css/swiper.min.css">
-<link rel="icon" type="image/png" href="#">
+<link rel="icon" type="image/png" href="#"> <!-- 이것의 href가 #이면 현재페이지를 한번더 불러옵니다! -->
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
 <link rel="stylesheet"
