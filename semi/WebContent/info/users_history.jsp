@@ -1,12 +1,22 @@
+<%@page import="beans.Users_Content_History_Dto"%>
+<%@page import="java.util.List"%>
+<%@page import="beans.Users_Content_History_Dao"%>
 <%@page import="beans.Users_Get_Dto"%>
 <%@page import="beans.Users_Info_Dao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <%
 	Users_Info_Dao UIdao = new Users_Info_Dao();
 	String user_id = (String)session.getAttribute("user_id");
-	Users_Get_Dto UGdto = UIdao.users_get(user_id);
+	Users_Get_Dto UGdto = UIdao.users_get(user_id);	
+	///////////////////////////////////////////////////////////////
+	//세션에서 유저아이디를 받아서 이용내역 리스트를 출력합니다
+	Users_Content_History_Dao UCHdao = new Users_Content_History_Dao();
+	String users_history_id = (String)session.getAttribute("user_id");
+	List<Users_Content_History_Dto> list = UCHdao.users_history_list(users_history_id);
 %>
+
 <jsp:include page="/template/header.jsp"></jsp:include>
 
 <style>
@@ -106,44 +116,24 @@
 				<th>이용날짜</th>
 				<th>컨텐츠명</th>
 				<th>가격</th>
+				<th>수량</th>
 				<th>호스트이름</th>
 				<th>호스트연락처</th>
 				<th>위치</th>		
-				</tr>		
+				</tr>
 			</thead>
 			<tbody>
+			<%for(Users_Content_History_Dto UCHdto : list){%>
             <tr>
-                <td>?</td>
-                <td>?</td>
-                <td>?</td>
-                <td>?</td>
-                <td>?</td>
-                <td>?</td>                 
-            </tr>
-            <tr>
-                <td>?</td>
-                <td>?</td>
-                <td>?</td>
-                <td>?</td>
-                <td>?</td>
-                <td>?</td>                 
-            </tr>
-            <tr>
-                <td>?</td>
-                <td>?</td>
-                <td>?</td>
-                <td>?</td>
-                <td>?</td>
-                <td>?</td>                 
-            </tr>
-            <tr>
-                <td>?</td>
-                <td>?</td>
-                <td>?</td>
-                <td>?</td>
-                <td>?</td>
-                <td>?</td>                 
-            </tr>
+                <td><%=UCHdto.getUser_reservation_date() %></td>
+                <td><%=UCHdto.getHost_content_name() %></td>
+                <td><%=UCHdto.getHost_content_cost() %></td>
+                <td><%=UCHdto.getUser_qty() %></td>
+                <td><%=UCHdto.getHost_name() %></td>
+                <td><%=UCHdto.getHost_phone() %></td>
+                <td><%=UCHdto.getHost_content_location() %></td>                       
+            </tr>      
+			<%} %>		
         </tbody>
 		</table>
       </div>
