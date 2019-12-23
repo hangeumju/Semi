@@ -3,15 +3,17 @@ package beans;
 public class Users_Content_History_Dto {
 	private int user_qty,	host_content_cost;
 	private String user_reservation_date, users_history_id, user_id, user_phone, host_content_name, 
-						host_content_location, host_phone, host_name;
+						host_content_location, host_phone, host_name, user_name;
+
 	@Override
 	public String toString() {
 		return "Users_Content_History_Dto [user_qty=" + user_qty + ", host_content_cost=" + host_content_cost
 				+ ", user_reservation_date=" + user_reservation_date + ", users_history_id=" + users_history_id
 				+ ", user_id=" + user_id + ", user_phone=" + user_phone + ", host_content_name=" + host_content_name
 				+ ", host_content_location=" + host_content_location + ", host_phone=" + host_phone + ", host_name="
-				+ host_name + "]";
+				+ host_name + ", user_name=" + user_name + "]";
 	}
+	
 	public Users_Content_History_Dto() {
 		super();
 	}
@@ -75,5 +77,10 @@ public class Users_Content_History_Dto {
 	public void setHost_name(String host_name) {
 		this.host_name = host_name;
 	}
-	
+	public String getUser_name() {
+		return user_name;
+	}
+	public void setUser_name(String user_name) {
+		this.user_name = user_name;
+	}
 }
