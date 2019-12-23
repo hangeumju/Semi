@@ -16,11 +16,15 @@ boolean login = user_id != null;
 <head>
 <meta charset="UTF-8">
 <title>Document</title>
-<link rel="stylesheet" type="text/css" 
-href="<%=request.getContextPath()%>/css/common.css">
+
+<!-- 개인 css 적용 -->
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/jieun.css">
+<!-- 개인 css 적용 종료 -->
+
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/common.css">
 <link rel="stylesheet"
 	href="https://unpkg.com/swiper/css/swiper.min.css">
-<link rel="icon" type="image/png" href="#">
+<!-- <link rel="icon" type="image/png" href="#"> -->
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
 <link rel="stylesheet"
