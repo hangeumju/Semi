@@ -56,8 +56,9 @@ public class Host_Content_Dao {
 	public List<Host_Content_Dto> getList(String type) throws Exception{
 		
 		Connection con = getConnection();
-		String sql = "select * from host_content where host_content_category = "+type+"";
+		String sql = "select * from host_content where host_content_category = ?";
 		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, type);
 		ResultSet rs = ps.executeQuery();
 		List<Host_Content_Dto> list = new ArrayList<>();
 		
@@ -65,6 +66,7 @@ public class Host_Content_Dao {
 			Host_Content_Dto HCdto = new Host_Content_Dto();
 			HCdto.setHost_content_name(rs.getString("Host_content_name"));
 			HCdto.setHost_content_cost(rs.getInt("Host_content_cost"));
+			HCdto.setHost_content_no(rs.getInt("host_content_no"));
 			list.add(HCdto);
 		}
 		
@@ -162,4 +164,6 @@ public class Host_Content_Dao {
 		return HCdto;
 	}
 	
+	
+
 }
