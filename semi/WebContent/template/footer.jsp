@@ -1,7 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+    
 <footer class="row">
-
+		
+		
+				<%
+					String user_id = (String)session.getAttribute("user_id");
+					String host_id = (String)session.getAttribute("host_id");
+				%>
+				
+				<h5>user = <%=user_id %></h5>
+				<h5>host = <%=host_id %></h5>
+		
       <h4>대표: 한금주
 
            개인정보 관리 책임자: 이학준</h4>
