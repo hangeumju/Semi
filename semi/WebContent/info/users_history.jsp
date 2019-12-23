@@ -10,106 +10,97 @@
 <jsp:include page="/template/header.jsp"></jsp:include>
 
 <style>
- /*박스 넓이가 멋대로 늘어나는것 방지*/
- *{
-    box-sizing: border-box;
- }
-/* div 자신을 가운데 정렬 */
-div{
-   margin-left: auto;
-   margin-right:auto;
-   }
-        
-/*
-	row의 방향 설정
-	- 기본값 : center
-	- 왼쪽 : row-left
-	- 오른쪽 : row-right
-*/
-.row, .row-left, .row-right, .row-multi{
-    margin:10px 0px;
-}
-.row{
-	text-align:center;
-}
-.row-left{
-	text-align:left;
-}
-.row-right{
-	text-align:right;
-}
-
-/* 내정보 사이드메뉴를 꾸며주는 css */
-
-.float-wrap:after{
-            content: "";
-            display: block;
-            clear: both;
-        }
-.float-wrap > .float-item{
-       border: 1px solid black;
-       float: left;
-       /* width: 50%; */
-        }
-        
-.float-wrap {
+      #jb-container {
+        width: 940px;
+        margin: 0px auto;
+        padding: 20px;
+		border: 1px solid #bcbcbc;
+      }
+      #jb-header {
+        padding: 20px;
+        margin-bottom: 20px;
+        border: 1px solid #bcbcbc;
+      }
+      
+      #jb-content {
+        width: 740px;
+       padding: 20px;
+        margin-bottom: 20px;
+        float: right;
+		border: 1px solid #bcbcbc;
+      }
+      #jb-sidebar {
+        width: 130px;
+/*         padding: 20px; */
+        margin-bottom: 55px;
+        float: left;
+		 border: 1px solid #bcbcbc;
+      }
    
-}
-
-/* .float-wrap 이 끝나는 영역을 가상으로 생성하고 clear(가상선택자) */
-.float-wrap::after {
-   content: "";
-   display: block;
-   clear: both;
-}
-
      /*
-	다단 스타일(.row-multi)
-	- 2단 : .row-multi.column-2
-	- 3단 : .row-multi.column-3
-	- 4단 : .row-multi.column-4
-	- 5단 : .row-multi.column-5
+    테이블 스타일
+    <기본>
+    - table : 기본 테이블 스타일
+    <옵션>
+    - table-hover : 마우스가 올라간 줄에 하이라이트 적용
+    - table-stripe : 2줄마다 한 줄씩 하이라이트 적용
+    */
+    .table{
+        width:100%;
+        border:1px solid black;
+
+        /* 테두리 병합 */
+        border-collapse: collapse;
+
+    }
+
+    .table > thead > tr > td,
+    .table > thead > tr > th,
+    .table > tbody > tr > td,
+    .table > tbody > tr > th
+    {
+        border:1px solid black;
+        padding:0.5rem;
+    }
+    
+    /*
+    사이드 메뉴 스타일
+    - 리스트 형태로 계층 구조를 구현한 사이드 메뉴 스타일
+    - hover 상황에서 하위 메뉴가 펼쳐짐
+    - 기본 폭 150px
 */
-.row-multi::after{
-    content:"";
-    display: block;
-    clear:both;
+.custom-list{
+    list-style: none;
+    margin:0;
+    padding:0;
+    display:inline-block;
+    width:150px;
 }
-
-.row-multi > *{
-    float:left;      
+.custom-list > li{
+    background-color:black;
+    color:white;
+	padding:10px 10px 10px 10px;
+	cursor:pointer;
 }
-
-.row-multi.column-2 > * { width:50%; }
-.row-multi.column-3 > * { width:33.3333%; }
-.row-multi.column-4 > * { width:25%; }
-.row-multi.column-5 > * { width:20%; }
-
-</style>
+    </style>
 <!-- css style 끝 -->
 
 <body>
-
-	<div class="row">
-		<h2><%=user_id %>님의 이용 내역입니다</h2>
-	</div>
-	
-		<div class="row-multi column-2">
-			<div class="w-30">
-				<ul class="custom-list float-item"">
+    <div id="jb-container">
+    <div id="jb-header">
+       <h2><%=user_id %>님의 이용 내역입니다</h2>
+     </div>
+     <div id="jb-sidebar">
+        <ul class="custom-list"">
 					<li><a href="<%=request.getContextPath() %>/info/users_history.jsp">이용내역</a></li>
 					<li><a href="<%=request.getContextPath() %>/info/users_review.jsp">이용후기</a></li>
 					<li><a href="users_check.jsp?go=/info/users_change_info.jsp">정보수정</a></li>
 					<li><a href="users_check.jsp?go=/info/users_exit.do">회원탈퇴</a></li>
 					<li><a href="<%=request.getContextPath() %>/info/users_point.jsp">포인트내역</a></li>
-				</ul>
-			</div>
-			
-
-
-<div class="w-70">
-	<!-- 테이블에 들어갈 내용 : 이용 날짜, 컨텐츠명, 가격, 호스트이름, 호스트 연락처, 장소 -->
-		<table class="table" >
+		</ul>
+      </div>      
+      <div id="jb-content">
+        <table class="table" >
 			<thead>
 				<tr>
 				<th>이용날짜</th>
@@ -155,9 +146,10 @@ div{
             </tr>
         </tbody>
 		</table>
+      </div>
+      
+    </div>
+  </body>
 
-	</div>
-</div>
-</body>
 
-<jsp:include page="/template/footer.jsp"></jsp:include>
+ <jsp:include page="/template/footer.jsp"></jsp:include>
