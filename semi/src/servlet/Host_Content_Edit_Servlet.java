@@ -8,10 +8,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+<<<<<<< HEAD
 import beans.Host_Content_Dao;
 import beans.Host_Content_Dto;
 
-@WebServlet(urlPatterns = "")
+@WebServlet(urlPatterns = "/board/host_content_edit.do")
 public class Host_Content_Edit_Servlet extends HttpServlet{
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
