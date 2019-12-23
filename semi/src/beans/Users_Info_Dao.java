@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Users_Info_Dao {
 	
@@ -20,7 +22,7 @@ public class Users_Info_Dao {
 	
 	//유저 회원가입 기능
 	//메소드 이름 : users_regist
-	//매개변수 : Users_Regist_Dto dto
+	//매개변수 : Users_Regist_Dto URdto
 	//반환형 : 없음(void)
 	public void users_regist(Users_Regist_Dto URdto) throws Exception{
 		Connection con =  getConnection();
@@ -242,4 +244,73 @@ public class Users_Info_Dao {
 						con.close();
 						return URdto;
 				}
+
+////////////////////////////////////////////////////////////////
+				
+				//유저 리뷰 목록보기 기능
+				//메소드 이름 : users_review_list
+				//매개변수 : String review_writer
+				//반환형 : Users_Review_Dto
+				public List<Users_Review_Dto> users_review_list(String review_writer) throws Exception{
+					Connection con = getConnection();
+					
+					String sql = "select * from user_review where review_writer = ? order by review_no desc";
+					
+					PreparedStatement ps = con.prepareStatement(sql);
+					ps.setString(1, review_writer);
+					ResultSet rs = ps.executeQuery();
+					
+					List<Users_Review_Dto> list = new ArrayList<>();
+
+					
+					while(rs.next()) { //데이터의 갯수만큼 반복합니다
+						Users_Review_Dto URdto = new Users_Review_Dto();
+						URdto.setReview_no(rs.getInt("review_no"));
+						URdto.setReview_writer(rs.getString("review_writer"));
+						URdto.setContent_original_no(rs.getInt("content_original_no"));
+						URdto.setReview_title(rs.getString("review_title"));
+						URdto.setReview_content(rs.getString("review_content"));
+						URdto.setReview_date(rs.getString("review_date"));
+						list.add(URdto);
+					}
+					
+					con.close();		
+					return list;
+				}
+
+
+		
+
+				
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//유저리뷰 테이블 정보를 가져오는 기능(리스트)
+//메소드 이름 : users_review_getList
+//매개변수 : String no
+//반환형 : List<Users_Review_Dto>
+				public List<Users_Review_Dto> users_review_getList(int no) throws Exception{
+					Connection con = getConnection();
+					
+					String sql = "select * from user_review where content_original_no = ? order by review_date desc";
+					PreparedStatement ps = con.prepareStatement(sql);
+					ps.setInt(1, no);
+					
+					ResultSet rs =ps.executeQuery();
+					
+					List<Users_Review_Dto> list = new ArrayList<>();
+					while(rs.next()) {
+						Users_Review_Dto URdto = new Users_Review_Dto();
+						URdto.setReview_no(rs.getInt("review_no"));
+						URdto.setReview_writer(rs.getString("review_writer"));
+						URdto.setReview_date(rs.getString("review_date"));
+						URdto.setReview_title(rs.getString("review_title"));
+						URdto.setReview_content(rs.getString("review_content"));
+						URdto.setContent_original_no(rs.getInt("content_original_no"));
+						
+						list.add(URdto);
+					}
+					
+					con.close();
+					return list;
+				}
+				
 }

@@ -2,15 +2,18 @@ package beans;
 
 public class Users_Content_History_Dto {
 	private int user_qty,	host_content_cost;
-	private String user_reservation_date, users_history_id, host_content_name, 
-						host_content_location, host_phone, host_name;
+	private String user_reservation_date, users_history_id, user_id, user_phone, host_content_name, 
+						host_content_location, host_phone, host_name, user_name;
+
 	@Override
 	public String toString() {
 		return "Users_Content_History_Dto [user_qty=" + user_qty + ", host_content_cost=" + host_content_cost
 				+ ", user_reservation_date=" + user_reservation_date + ", users_history_id=" + users_history_id
-				+ ", host_content_name=" + host_content_name + ", host_content_location=" + host_content_location
-				+ ", host_phone=" + host_phone + ", host_name=" + host_name + "]";
+				+ ", user_id=" + user_id + ", user_phone=" + user_phone + ", host_content_name=" + host_content_name
+				+ ", host_content_location=" + host_content_location + ", host_phone=" + host_phone + ", host_name="
+				+ host_name + ", user_name=" + user_name + "]";
 	}
+	
 	public Users_Content_History_Dto() {
 		super();
 	}
@@ -38,6 +41,18 @@ public class Users_Content_History_Dto {
 	public void setUsers_history_id(String users_history_id) {
 		this.users_history_id = users_history_id;
 	}
+	public String getUser_id() {
+		return user_id;
+	}
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
+	}
+	public String getUser_phone() {
+		return user_phone;
+	}
+	public void setUser_phone(String user_phone) {
+		this.user_phone = user_phone;
+	}
 	public String getHost_content_name() {
 		return host_content_name;
 	}
@@ -62,5 +77,10 @@ public class Users_Content_History_Dto {
 	public void setHost_name(String host_name) {
 		this.host_name = host_name;
 	}
-	
+	public String getUser_name() {
+		return user_name;
+	}
+	public void setUser_name(String user_name) {
+		this.user_name = user_name;
+	}
 }
