@@ -44,6 +44,7 @@ public class Host_Info_Dao {
 		ps.execute();
 		con.close();
 	}
+	
 		///////////////////////호스트용 로그인(host_login)
 	public boolean host_login(String host_id, String host_pw) throws Exception {
 		///////////////////////호스트용 회원가입(host_login)
@@ -162,8 +163,7 @@ public class Host_Info_Dao {
 			HIdto.setHost_extra_addr(rs.getString("host_extra_addr"));
 			HIdto.setHost_bank_name(rs.getString("host_bank_name"));	
 			HIdto.setHost_bank_account(rs.getString("host_bank_account"));
-			HIdto.setHost_lastlogin(rs.getString("host_lastlogin"));
-			
+			HIdto.setHost_lastlogin(rs.getString("host_lastlogin"));	
 		}
 		else {
 			HIdto = null;

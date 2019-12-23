@@ -2,7 +2,9 @@
     pageEncoding="UTF-8"%>
 <jsp:include page="/template/header.jsp"></jsp:include>
 
+
 <div align="center">
+
 	<a href="<%=request.getContextPath()%>/login/users_login.jsp">로그인</a>
 	<a href="<%=request.getContextPath()%>/join/users_regist.jsp">회원가입</a>
 	<a href="<%=request.getContextPath()%>/login/users_logout.do">로그아웃</a>
