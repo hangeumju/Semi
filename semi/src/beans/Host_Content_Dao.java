@@ -57,7 +57,7 @@ public class Host_Content_Dao {
 	public List<Host_Content_Dto> getList(String type) throws Exception{
 		
 		Connection con = getConnection();
-		String sql = "select * from host_content where host_content_category = ?";
+		String sql = "select * from host_content where host_content_category = ? and host_content_approval='승인'";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, type);
 		ResultSet rs = ps.executeQuery();

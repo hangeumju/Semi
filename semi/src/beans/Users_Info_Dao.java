@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Users_Info_Dao {
 	
@@ -242,4 +244,36 @@ public class Users_Info_Dao {
 						con.close();
 						return URdto;
 				}
+				
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//유저리뷰 테이블 정보를 가져오는 기능(리스트)
+//메소드 이름 : users_review_getList
+//매개변수 : String no
+//반환형 : List<Users_Review_Dto>
+				public List<Users_Review_Dto> users_review_getList(int no) throws Exception{
+					Connection con = getConnection();
+					
+					String sql = "select * from user_review where content_original_no = ?";
+					PreparedStatement ps = con.prepareStatement(sql);
+					ps.setInt(1, no);
+					
+					ResultSet rs =ps.executeQuery();
+					
+					List<Users_Review_Dto> list = new ArrayList<>();
+					Users_Review_Dto URdto = new Users_Review_Dto();
+					while(rs.next()) {
+						URdto.setReview_no(rs.getInt("review_no"));
+						URdto.setReview_writer(rs.getString("review_writer"));
+						URdto.setReview_date(rs.getString("review_date"));
+						URdto.setReview_title(rs.getString("review_title"));
+						URdto.setReview_content(rs.getString("review_content"));
+						URdto.setContent_original_no(rs.getInt("content_original_no"));
+						
+						list.add(URdto);
+					}
+					
+					con.close();
+					return list;
+				}
+				
 }
