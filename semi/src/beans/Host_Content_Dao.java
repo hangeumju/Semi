@@ -67,6 +67,7 @@ public class Host_Content_Dao {
 			HCdto.setHost_content_name(rs.getString("Host_content_name"));
 			HCdto.setHost_content_cost(rs.getInt("Host_content_cost"));
 			HCdto.setHost_content_no(rs.getInt("host_content_no"));
+			HCdto.setHost_content_view_count(rs.getInt("host_content_view_count"));
 			list.add(HCdto);
 		}
 		
@@ -164,6 +165,35 @@ public class Host_Content_Dao {
 		return HCdto;
 	}
 	
-	
+//	--------------------------------조회수 증가------------------------------------
+	 public void readCountUp(int no) throws Exception {
+		 Connection con = getConnection();
+		 
+		 String sql = "update host_content set host_content_view_count = host_content_view_count + 1 where host_content_no =?";
+		 PreparedStatement ps = con.prepareStatement(sql);
+		 ps.setInt(1, no);
+		 
+		 ps.executeUpdate();
+		 
+		 con.close();
+		 
+	 }
+	 
+	 //컨텐츠 삭제 Dao
+	 //매개값 호스트 아이디, 글번호
+	 //반환 없음
+	 
+	 public void host_content_delete(String host_id, int no) throws Exception{
+		 Connection con = getConnection();
+		 
+		 String sql = "delete from host_content where host_id = ? and host_content_no = ?";
+		 
+		 PreparedStatement ps = con.prepareStatement(sql);
+		 ps.setString(1, host_id);
+		 ps.setInt(2, no);
+		 
+		 ps.execute();
+		 con.close();
+	 }
 
 }
