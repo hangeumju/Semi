@@ -1,3 +1,5 @@
+<%@page import="java.util.HashSet"%>
+<%@page import="java.util.Set"%>
 <%@page import="beans.Host_Info_Dao"%>
 <%@page import="beans.Host_Info_Dto"%>
 <%@page import="beans.Host_Content_Dto"%>
@@ -10,8 +12,7 @@
 	<%
 		Host_Content_Dao HCdao = new Host_Content_Dao();
 		//컨텐츠 번호를 받아서 no에 넣는다
-//  	int no = Integer.parseInt(request.getParameter("host_content_no"));
- 		int no = 3;
+  		int no = Integer.parseInt(request.getParameter("host_content_no"));
 		//받은 no를 이용해 단일컨텐츠를 불러오는 명령어를 불러온다
 		Host_Content_Dto HCdto = HCdao.getOneContent(no);
 		
@@ -19,6 +20,7 @@
 		
 		Host_Info_Dao HIdao = new Host_Info_Dao();
 		Host_Info_Dto HIdto = HIdao.getOneHost(id);
+
 		
 	%>
  <!--     	자바 영역 끝입니다---------------------------------------------------------- -->
@@ -155,10 +157,6 @@
         
     </script>
     <!--     	스트립트 영역 끝입니다---------------------------------------------------------- -->
-	
-	 
-	
-
 <jsp:include page="/template/header.jsp"></jsp:include>
 	
 	<article class="w-70">
@@ -181,6 +179,17 @@
     			<div><%=HCdto.getHost_content_ect_info() %></div>
     			<div>QnA<%=HCdto.getHost_content_qa() %></div>
     			
+		<div align = "right">
+				<a href="host_content_produce.jsp"><input type="button" value="새 컨텐츠 생성"></a>
+				<a href="host_content_edit.jsp?host_content_no=<%=HCdto.getHost_content_no()%>">
+				<input type="button" value="수정"></a>
+				<a href="delete.do?host_content_no=<%=HCdto.getHost_content_no()%>">
+				<input type="button" value="삭제"></a>
+				
+				<a href="host_contetn_list.jsp"><input type="button" value="컨텐츠 목록으로"></a>
+				</div>
+
+
 			</div>
 			<div class="sub">
 				<div>남은 티켓 수량 : <%=HCdto.getHost_content_ticket()%></div>
@@ -194,7 +203,6 @@
 					<button class="form_button">참여합니다!</button>
 				</form>
 			</div>
-			
 		</div>
 	</article>
 <jsp:include page="/template/footer.jsp"></jsp:include>

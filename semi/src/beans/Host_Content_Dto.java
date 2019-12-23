@@ -19,9 +19,21 @@ public class Host_Content_Dto {
 	private String host_content_Create_date;
 	private int host_content_view_count;
 	private int host_content_payment_count;
+	private int groupno, superno, depth;
 	
+
+
 	public Host_Content_Dto() {
 		super();
+	}
+
+	public Host_Content_Dto(int host_content_no1, String host_id2, String host_content_category2,
+			String host_content_cost2, String host_content_cost3, String host_content_name2, int host_content_ticket2,
+			String host_content_info2, String host_content_start_date2, String host_content_last_date2,
+			String host_content_location2, String host_content_ect_info2, String host_content_qa2,
+			String host_content_approval2, String host_content_Create_date2, int host_content_view_count2,
+			int host_content_payment_count2, int groupno2, int superno2, int depth2) {
+		// TODO Auto-generated constructor stub
 	}
 
 	public int getHost_content_no() {
@@ -151,7 +163,29 @@ public class Host_Content_Dto {
 	public void setHost_content_payment_count(int host_content_payment_count) {
 		this.host_content_payment_count = host_content_payment_count;
 	}
-	
+	public int getGroupno() {
+		return groupno;
+	}
+
+	public void setGroupno(int groupno) {
+		this.groupno = groupno;
+	}
+
+	public int getSuperno() {
+		return superno;
+	}
+
+	public void setSuperno(int superno) {
+		this.superno = superno;
+	}
+
+	public int getDepth() {
+		return depth;
+	}
+
+	public void setDepth(int depth) {
+		this.depth = depth;
+	}
 	
 	
 }
