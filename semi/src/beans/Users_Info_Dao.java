@@ -212,4 +212,34 @@ public class Users_Info_Dao {
 				con.close();
 				return user_id;
 			}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+			//유저리뷰 테이블 정보를 가져오는 기능(단일조회)
+			//메소드 이름 : users_review_get
+			//매개변수 : String review_writer
+			//반환형 : Users_Review_Dto
+				public Users_Review_Dto users_review_get(String review_writer) throws Exception{
+					Connection con = getConnection();
+					
+					String sql = "select * from user_review where review_writer =? ";				
+					PreparedStatement ps = con.prepareStatement(sql);
+					ps.setString(1, review_writer);
+					ResultSet rs = ps.executeQuery(); 
+					
+					
+					//URdto에 db에서 가져온 정보를 저장합니다
+					Users_Review_Dto URdto = new Users_Review_Dto();
+					if(rs.next()) {
+						URdto = new Users_Review_Dto();
+						URdto.setReview_no(rs.getInt("review_no"));
+						URdto.setReview_writer(rs.getString("review_writer"));
+						URdto.setContent_original_no(rs.getInt("content_original_no"));
+						URdto.setReview_title(rs.getString("review_title"));
+						URdto.setReview_content(rs.getString("review_content"));
+						URdto.setReview_date(rs.getString("review_date"));
+						
+					}
+						
+						con.close();
+						return URdto;
+				}
 }
