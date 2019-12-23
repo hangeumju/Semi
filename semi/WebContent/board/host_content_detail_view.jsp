@@ -162,7 +162,7 @@
 
 <jsp:include page="/template/header.jsp"></jsp:include>
 	
-	<article class="w-70">
+	<article class="w-70 row">
 		<div class="float">
 			
 			<div class="main">
