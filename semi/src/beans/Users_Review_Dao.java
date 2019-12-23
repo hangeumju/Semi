@@ -17,7 +17,7 @@ public class Users_Review_Dao {
 				return con;
 	}
 	
-	//유저 정보를 가져오는 기능(단일조회)
+	//유저 리뷰를 가져오는 기능(단일조회)
 	//메소드 이름 : users_review_get
 	//매개변수 : String review_writer
 	//반환형 : Users_Review_Dto
@@ -82,4 +82,24 @@ public class Users_Review_Dao {
 		}
 
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////		
+		
+//		회원 리뷰 작성 기능
+//		메소드이름 : users_review_regist
+//		매개변수 : Users_Review_Dto URdto
+//		반환형 : 없음(void)
+		public void users_review_regist(Users_Review_Dto URdto) throws Exception{
+			Connection con = getConnection();
+			
+			String sql="insert into user_review values(user_review_seq.nextval, ?, ?, ?, ?, sysdate)";
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1, URdto.getReview_writer());
+			ps.setInt(2, URdto.getContent_original_no());
+			ps.setString(3, URdto.getReview_title());
+			ps.setString(4, URdto.getReview_content());
+			
+			ps.execute();
+			
+			con.close();
+		}
 }
