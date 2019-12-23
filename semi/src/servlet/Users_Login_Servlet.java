@@ -26,13 +26,15 @@ public class Users_Login_Servlet extends HttpServlet {
 			//처리
 			Users_Info_Dao ULdao = new Users_Info_Dao();
 			boolean result = ULdao.users_login(user_id, user_pw);
-			
+			String isHost = (String) req.getSession().getAttribute("host_id");
 			//출력
 			if(result) { //로그인 성공시
 				
 //				session에 아이디와 권한을 저장
 				req.getSession().setAttribute("user_id", user_id);			
-				
+				if(isHost!=null) {
+				req.getSession().removeAttribute("host_id");
+				}
 //				추가 : 사용자의 최종 로그인 시각을 수정 
 				ULdao.users_update_last_login(user_id);
 				
