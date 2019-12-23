@@ -18,8 +18,8 @@
 	}
 %>
  
-
 <h4>
+	<!-- 이전 버튼 -->
 	<%if(startBlock > 1){ %>
 		<%if(isSearch){ %>
 			<a href="<%=request.getRequestURI()%>?type=<%=type%>&keyword=<%=keyword%>&pno=<%=startBlock - 1%>">[이전]</a>  
@@ -39,7 +39,7 @@
 			<%} %>
 		<%} %>
 	<%} %>
-	
+	<!-- 다음 버튼 -->
 	<%if(finishBlock < pagecount){ %>
 		<%if(isSearch){ %>
 			<a href="<%=request.getRequestURI()%>?type=<%=type%>&keyword=<%=keyword%>&pno=<%=finishBlock + 1%>">[다음]</a>
