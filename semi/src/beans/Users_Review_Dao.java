@@ -57,7 +57,7 @@ public class Users_Review_Dao {
 		public void users_review_regist(Users_Review_Dto URdto) throws Exception{
 			Connection con = getConnection();
 			
-			String sql="insert into users values(review_no_seq.nextval, ?, ?, ?, ?, sysdate)";
+			String sql="insert into user_review values(user_review_seq.nextval, ?, ?, ?, ?, sysdate)";
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, URdto.getReview_writer());
 			ps.setInt(2, URdto.getContent_original_no());

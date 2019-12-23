@@ -260,8 +260,8 @@ public class Users_Info_Dao {
 					ResultSet rs =ps.executeQuery();
 					
 					List<Users_Review_Dto> list = new ArrayList<>();
-					Users_Review_Dto URdto = new Users_Review_Dto();
 					while(rs.next()) {
+						Users_Review_Dto URdto = new Users_Review_Dto();
 						URdto.setReview_no(rs.getInt("review_no"));
 						URdto.setReview_writer(rs.getString("review_writer"));
 						URdto.setReview_date(rs.getString("review_date"));
