@@ -1,5 +1,6 @@
 package beans;
 
+//host(판매자) 가입 및 로그인 관련  변수가 있는 dto 입니다
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
