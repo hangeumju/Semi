@@ -2,7 +2,7 @@
 <%@page import="beans.Users_Review_Dto"%>
 
 <%@page import="beans.Users_Get_Dto"%>
-<%-- <%@page import="beans.Users_Info_Dao"%> --%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
@@ -51,5 +51,5 @@
 			</div>
 			</div>
 
-
+<!-- 추후에 네비게이터 넣을 자리 -->
 <jsp:include page="/template/footer.jsp"></jsp:include>
