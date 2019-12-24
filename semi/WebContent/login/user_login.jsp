@@ -14,9 +14,6 @@
 							</div>
 							<div
 								style="position: absolute; top: 50%; left: 50%; width: 300px; height: 400px; margin-left: -150px; margin-top: -200px;">
-								<div style="margin: 10px 0px; text-align: center;">
-																
-								</div>
 								<div style="height: 30px;"></div>
 								<div style="margin: 10px 0px; color: white;">
 									<p>Username</p>
@@ -29,7 +26,7 @@
 									<input class="pw-modal" type="password" name="pw"
 										style="border-bottom: 2px white solid; width: 100%;">
 								</div>
-								<div style="height: 40px;"></div>
+								<div style="height: 90px;"></div>
 								<button class="modalbtn">로그인</button>
 								<div style="height: 20px;"></div>
 								<button class="modalbtn" onclick="userRegistModal()">회원가입</button>

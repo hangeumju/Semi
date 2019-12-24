@@ -44,7 +44,7 @@ public class Users_Login_Servlet extends HttpServlet {
 			else { //로그인 실패시
 //				error 메시지가 표시되는 로그인 화면으로 이동해라
 //				resp.sendRedirect("login.jsp?error");
-				resp.sendRedirect("http://www.google.com");
+				resp.sendRedirect(req.getContextPath()+"/index.jsp?error");
 			}
 			
 		}
