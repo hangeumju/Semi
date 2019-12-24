@@ -172,7 +172,7 @@
 				<td colspan="2" align="center">
 					<input type="submit" value="수정하기">
 					<a href="host_content_list.jsp">
-						<input type="button" value="목록보기">
+					<input type="button" value="목록보기">
 				</a>
 			</td>
 		</tr>
