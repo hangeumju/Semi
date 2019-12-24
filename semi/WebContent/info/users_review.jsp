@@ -133,7 +133,6 @@
         <tr>
 			<td><%=URdto.getReview_no() %></td>
 			<%-- <td>컨텐츠넘버:<%=URdto.getContent_original_no() %></td> --%>
-			<td><%=URdto.getReview_title() %></td>
 			<td><%=URdto.getReview_content() %></td>
 			<td><%=URdto.getReview_writer() %></td>
 			<td><%=URdto.getReview_date() %></td>
