@@ -99,4 +99,23 @@ public class Users_Review_Dao {
 			
 			con.close();
 		}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	//전체글 수 구하는 메소드
+	//메소드이름 : users_review_count
+	//매개변수 : void(없음)
+	//반환형 : int
+		public int users_review_count() throws Exception{
+			Connection con = getConnection();
+			
+			String sql = "select count(*) from notice"; //목록구하기
+			PreparedStatement ps = con.prepareStatement(sql);
+			
+			ResultSet rs = ps.executeQuery();
+			rs.next();
+			
+			int count = rs.getInt(1);
+			
+			con.close();			
+			return count;
+			}
 }
