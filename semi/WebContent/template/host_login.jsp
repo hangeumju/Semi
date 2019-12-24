@@ -1,21 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/common.css">
 
-<%
-String user_id = (String) session.getAttribute("user_id");
-String host_id = (String) session.getAttribute("host_id");
-boolean login = user_id != null;
-boolean hostlogin = host_id != null;
-%>
+<script>
+	function openLoginModal() {
+		event.preventDefault()
+		var modal = document.querySelector(".modal");
+		modal.style.display = "block"
+	}
 
+	function closeLoginModal() {
+		var modal = document.querySelector(".modal");
+		modal.style.display = "none"
+	}
+	
+</script>
 
-<!-- 로그인 모달화면 구현 -->
-			<form class="loginform" autocomplete="off"
-			<%if(login){ %>
-			action="<%=request.getContextPath() %>/login/host_login.do"
-			<%} else { %> 
+</head>
+<body>
+<!-- 유져 로그인/회원가입 모달화면 구현 -->
+			<form class="userform" autocomplete="off"
 			action="<%=request.getContextPath() %>/login/users_login.do" 
-			<%} %>
 			method="post">
 				<div class="modal" onclick="closeLoginModal();">
 					<!-- 모달내부 화면 -->
@@ -26,16 +36,8 @@ boolean hostlogin = host_id != null;
 							</div>
 							<div
 								style="position: absolute; top: 50%; left: 50%; width: 300px; height: 400px; margin-left: -150px; margin-top: -200px;">
-								<div style="height: 50px;"></div>
 								<div style="margin: 10px 0px; text-align: center;">
-								<%if(login){ %>
-									<span class="user" style="margin-right: 50px; color: gray;">일반회원</span>
-									<span class="host" style="margin-left: 50px; color: white; cursor: pointer; border: 2px white solid; padding: 7px">호스트</span>
-								<%} else { %>
-									<span class="user" style="margin-right: 50px; color: white; cursor: pointer; border: 2px white solid; padding: 7px;" onclick="userLoginModal()" >일반회원</span>
-									<span class="host" style="margin-left: 50px; color: gray; cursor: pointer; padding: 7px" onclick="hostLoginModal()">호스트</span>
-								<%} %>
-									
+																
 								</div>
 								<div style="height: 30px;"></div>
 								<div style="margin: 10px 0px; color: white;">
@@ -49,16 +51,14 @@ boolean hostlogin = host_id != null;
 									<input class="pw-modal" type="password" name="pw"
 										style="border-bottom: 2px white solid; width: 100%;">
 								</div>
-								<div style="height: 60px;"></div>
+								<div style="height: 40px;"></div>
 								<button class="modalbtn">로그인</button>
+								<div style="height: 20px;"></div>
+								<button class="modalbtn" onclick="userRegistModal()">회원가입</button>
 							</div>
 						</div>
 					</div>
 				</div>
 			</form>
-			
-
-
-
-
-
+</body>
+</html>
