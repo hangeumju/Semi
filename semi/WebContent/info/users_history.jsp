@@ -15,13 +15,47 @@
 	Users_Content_History_Dao UCHdao = new Users_Content_History_Dao();
 	String users_history_id = (String)session.getAttribute("user_id");
 	List<Users_Content_History_Dto> list = UCHdao.users_history_list(users_history_id);
+	
+	//페이지 크기
+		int pagesize = 10;
+		//네비게이터 크기
+		int navsize = 10;
+		
+		//페이징 추가
+		int pno;
+		try{
+			pno = Integer.parseInt(request.getParameter("pno"));
+			if(pno <= 0) throw new Exception(); //음수를 입력하면 예외를 발생시킨다
+		}
+		catch(Exception e){
+			pno = 1;
+		}
+			
+		int finish = pno * pagesize;
+		int start = finish - (pagesize - 1);
+		//	System.out.println("start = " + start + " , finish = " + finish);
+		
+	//**************************************************************************************
+//	 		하단 네비게이터 계산하기
+//			- 시작블록 = (현재페이지-1) / 네비게이터크기 * 네비게이터크기 +1	
+	//**************************************************************************************
+		int count = UCHdao.users_content_history_count(); 
+		int pagecount = (count + pagesize) / pagesize; 
+		
+		int startBlock = (pno -1) / navsize * navsize + 1;
+		int finishBlock = startBlock + (navsize -1);
+		
+		//만약 마지막 블록이 페이지 수보다 크다면 수정 처리
+		if(finishBlock > pagecount){
+			finishBlock = pagecount;
+		}
 %>
 
 <jsp:include page="/template/header.jsp"></jsp:include>
 
 <style>
       #jb-container {
-        width: 940px;
+        width: 1100px;
         margin: 0px auto;
         padding: 20px;
 		border: 1px solid #bcbcbc;
@@ -113,12 +147,13 @@
         <table class="table" >
 			<thead>
 				<tr>
-				<th>이용날짜</th>
+				<th>결제날짜</th>
 				<th>컨텐츠명</th>
 				<th>가격</th>
 				<th>수량</th>
 				<th>호스트이름</th>
 				<th>호스트연락처</th>
+				<th>이용날짜</th>
 				<th>위치</th>		
 				</tr>
 			</thead>
@@ -131,12 +166,22 @@
                 <td><%=UCHdto.getUser_qty() %></td>
                 <td><%=UCHdto.getHost_name() %></td>
                 <td><%=UCHdto.getHost_phone() %></td>
+                <td><%=UCHdto.getUser_class_date() %></td>
                 <td><%=UCHdto.getHost_content_location() %></td>                       
             </tr>      
 			<%} %>		
         </tbody>
 		</table>
 		
+		<div class="row">
+		<!-- 네비게이터(navigator) -->
+		<jsp:include page="/template/navigator.jsp">
+			<jsp:param name="pno" value="<%=pno%>"/>
+			<jsp:param name="count" value="<%=count%>"/>
+			<jsp:param name="navsize" value="<%=navsize%>"/>
+			<jsp:param name="pagesize" value="<%=pagesize%>"/>
+		</jsp:include>
+	</div>
 		
       </div>
       

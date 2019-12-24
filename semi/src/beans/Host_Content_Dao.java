@@ -369,6 +369,7 @@ public class Host_Content_Dao {
 		return list;
 	}
 	
+	
 	public int getCount(String type, String keyword)throws Exception{
 		Connection con = getConnection();
 		boolean isSearch = type != null && keyword != null ;
@@ -389,6 +390,7 @@ public class Host_Content_Dao {
 		return count;
 	}
 	
+	// 호스트 결제 예약 리스트
 	public List<Host_Content_Dto> reservation_list(int start, int finish)throws Exception{
 		Connection con = getConnection();
 		
