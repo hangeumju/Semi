@@ -61,7 +61,7 @@ public class Host_content_Produce_Servlet extends HttpServlet{
 			
 			
 			//아직 보내는 곳은 미정입니다
-			resp.sendRedirect("#");
+			resp.sendRedirect(req.getContextPath()+"");
 			
 		}
 		
