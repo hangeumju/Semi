@@ -71,14 +71,14 @@ public class Host_Content_Dao {
 	//매개변수 : 카테고리(아직 미구현했습니다) 
 	//반환값 : 카테고리에 해당하는 컨텐츠 리스트
 	//아직 사진을 못넣었어요 추가해야 합니다 아직 미완성이에요
-	public List<Host_Content_Dto> getList(String type) throws Exception{
+	public List<Host_Content_Dto> getList(String category) throws Exception{
 		
 		Connection con = getConnection();
 		String sql = "select * from host_content where host_content_category = ? and host_content_approval='승인' order by host_content_no desc";
 						
 		
 		PreparedStatement ps = con.prepareStatement(sql);
-		ps.setString(1, type);
+		ps.setString(1, category);
 		ResultSet rs = ps.executeQuery();
 		List<Host_Content_Dto> list = new ArrayList<>();
 		
@@ -333,7 +333,7 @@ public class Host_Content_Dao {
 				+ " start with superno is null "
 				+ " order siblings by groupno desc, host_content_no asc "
 				+ " )A "
-			+ " ) where rn between ? and ? ";
+			+ " ) where host_content_approval='승인' and rn between ? and ? ";
 
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, keyword);
@@ -401,7 +401,7 @@ public class Host_Content_Dao {
 				+ "start with superno is null "
 				+ "order siblings by groupno desc, host_content_no asc"
 			+ ")A"
-		+ ") where rn between ? and ?";
+		+ ") where host_content_approval='승인' and rn between ? and ?";
 		
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, start);

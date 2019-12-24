@@ -16,12 +16,12 @@
 	<%
 		Host_Content_Dao HCdao = new Host_Content_Dao();
 		//컨텐츠 번호를 받아서 no에 넣는다
-  		int no = Integer.parseInt(request.getParameter("host_content_no"));
+//   		int no = Integer.parseInt(request.getParameter("host_content_no"));
 		
 		String host_id = (String) session.getAttribute("host_id"); //호스트 아이디 받고
 		String user_id = (String) session.getAttribute("user_id"); //유저 아이디 받고
 
-// 		int no = 20;
+		int no = 20;
 
 		//받은 no를 이용해 단일컨텐츠를 불러오는 명령어를 불러온다
 		Host_Content_Dto HCdto = HCdao.getOneContent(no);
@@ -83,14 +83,14 @@
 		  }  
 		  
 		  
-		  .float1
+		  .float2
 		  
 		  .float1::after {
             content: "";
             display: block;
             clear: both;
        	  }
-		  .main{
+		   .float2.main{
 		  	width:75%;
 			/* 		  	글 안넘어가게 하는 명령어 */
 		  	word-break:break-all; 
