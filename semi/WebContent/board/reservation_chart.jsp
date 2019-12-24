@@ -1,3 +1,10 @@
+<%@page import="beans.Reservation_Dto"%>
+<%@page import="beans.Reservation_Dao"%>
+<%@page import="beans.Users_Content_History_Dto"%>
+<%@page import="java.util.List"%>
+<%@page import="beans.Users_Content_History_Dao"%>
+<%@page import="beans.Users_Get_Dto"%>
+<%@page import="beans.Users_Info_Dao"%>
 <%@page import="beans.Host_Info_Dto"%>
 <%@page import="beans.Host_Info_Dao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -7,7 +14,23 @@
     Host_Info_Dao HIdao = new  Host_Info_Dao();
     String host_id = (String)session.getAttribute("host_id");
     Host_Info_Dto HIdto = HIdao.get(host_id);
-    //페이지 크기
+
+	Reservation_Dao Rdao = new Reservation_Dao();
+	
+	String type = request.getParameter("type");
+	String keyword = request.getParameter("keyword");
+	
+	boolean isSearch = type != null && keyword != null;
+	List<Reservation_Dto> list;
+	if(isSearch){//검색어가 있을 경우
+		list = Rdao.search(type,keyword);
+	}
+	else {//검색어가 없을 경우
+		list=Rdao.reservation_list();
+	}
+	%>
+	
+<!--  /*    //페이지 크기
     int pagesize = 10;
     //네비게이터 크기
     int navsize = 10;
@@ -27,10 +50,8 @@
     String type = request.getParameter("type");
     String keyword = request.getParameter("keyword");
     
-    boolean isSearch = type != null && keyword != null;
+    boolean isSearch = type != null && keyword != null; */ -->
     
-    
-    %>
 <jsp:include page="/template/header.jsp"></jsp:include>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/common.css">
 <html>
@@ -67,23 +88,40 @@
     <div id="top"> 
     </div>
     <br>
+       <br>
+    <div id="searchForm">
+        <form action="reservation_chart.jsp" method="get">
+            <select name="type">
+                <option value="history_no">예약번호</option>
+                <option value="user_name">예약자</option>
+                <option value="host_content_name">컨텐츠명</option>
+            </select>
+            
+            <input type="search" name="keyword" placeholder="검색어" required>&nbsp;
+            <input type="submit" value="검색">
+        </form>    
+    </div>  
     <div id="board">
         <table id="#boardList" width="800" border="3" bordercolor="lightgray">
             <h3>(<%=host_id %>) 님의 예약자 관리</h3>
             <tr heigh="30">
                 <td>예약번호</td>
+                <td>컨텐츠명</td>
                 <td>예약자</td>
                 <td>휴대전화 번호</td>
                 <td>예약티켓수량</td>
-                <td>예약날짜</td>
-            </tr>    
-            <tr>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
             </tr>
+            <tbody>    
+            <%for(Reservation_Dto Rdto : list){%>
+            <tr>
+               <td><%=Rdto.getHistory_no() %></td>
+               <td><%=Rdto.getHost_content_name() %></td>
+                <td><%=Rdto.getUser_name()%></td>
+                <td><%=Rdto.getUser_phone()%></td>
+                <td><%=Rdto.getUser_qty() %></td>
+            </tr>
+                <%} %>
+           </tbody>
         </table>
     </div>
     <br>
@@ -96,19 +134,6 @@
 		</jsp:include>
 	</div> --%>
     </div>
-    <br>
-    <div id="searchForm">
-        <form>
-            <select name="opt">
-                <option value="1">예약번호</option>
-                <option value="2">예약자</option>
-                <option value="3">예약날짜</option>
-            </select>
-            <input type="text" size="20" name="condition"/>&nbsp;
-            <input type="submit" value="검색"/>
-        </form>    
-    </div>  
- 
 </body>
 </html>
 <jsp:include page="/template/footer.jsp"></jsp:include>
