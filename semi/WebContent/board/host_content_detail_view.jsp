@@ -299,7 +299,7 @@
 					<input id="pay"  class="ticket_input" type="text" name="ticketing" value="1"> <!-- 티켓수 -->
 					<input type="button" value = "+" class= "plus" onclick="plus();">
 				 	<div class="total"><%=HCdto.getHost_content_cost() %> </div> 
-					<input id="callender" type="text" name="start_date" class="start_date" placeholder="날짜선택"> <!-- 날짜 -->
+					<input id="callender" type="text" name="start_date" class="start_date" placeholder="날짜선택" required="required"> <!-- 날짜 -->
     				<button class="form_button">참여합니다!</button>
 				</form>
 					<button onclick="list();">목록으로</button><br>
