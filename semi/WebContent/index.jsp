@@ -51,62 +51,139 @@
                     <h4><a href="#">전체보기</a></h4>
                 </div>
             
+    
+<style>
+/* .gallary-box{ */
+/* width:100px; */
+/* height:100px; */
+/* padding:20px; */
+/* border:1px solid red; */
+/* margin:10 10 10 10; */
+
+/* } */
+
+	.gallary-text-category{
+        color: grey;
+        font-size:"10";
+        opacity: "10"
+        }
+ 	.gallary-text-content{
+        color: black;
+        font-size:"14";
+        opacity: "10";
+        }
+ 	  .gallary-text-cost{
+ 	  	color:black;
+ 	  	font-size:"14";
+        opacity: "10";
+        font-weight:bold;
+ 	  }
+ 	  
+ 	  .gallary-border{
+ 	  border:1px solid grey;
+ 	  }
+        
+</style>
+            
+
+            
             <div class="gallary">
                 <div class="gallary-item">
+                	<a href="https://ko.wikipedia.org/wiki/%EB%A1%9C%EB%A0%98_%EC%9E%85%EC%88%A8">
                     <div class="gallary-image">
                         <img src="http://placeimg.com/480/480/animals">
                     </div>
-                    <div class="gallary-text">
-                        <h4>Lorem Ipsum</h4>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        </p>
+                    <div class="gallary-border">
+                    <div class="gallary-text-category">  
+                    	카테고리:뷰티
+                   </div>
+                   <div class="gallary-text-content">
+                        컨텐츠명
+                   </div>
+                   <div class="gallary-text-cost">
+                        40000원
+                   </div>
                     </div>
+</div>
                 </div>
+            </a>
+                
                 <div class="gallary-item">
                     <div class="gallary-image">
                         <img src="http://placeimg.com/480/480/nature">
+                       </div>
+                    <div class="gallary-border">
+                    <div class="gallary-text-category">  
+                    	카테고리:뷰티
+                   </div>
+                   <div class="gallary-text-content">
+                        컨텐츠명
+                   </div>
+                   <div class="gallary-text-cost">
+                        40000원
+                   </div>
                     </div>
-                    <div class="gallary-text">
-                        <h4>Lorem Ipsum</h4>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        </p>
                     </div>
                 </div>
-                <div class="gallary-item">
+            </a>
+                
+                               <div class="gallary-item">
                     <div class="gallary-image">
-                        <img src="http://placeimg.com/480/480/people">
+                        <img src="http://placeimg.com/480/480/nature">
+                       </div>
+                    <div class="gallary-border">
+                    <div class="gallary-text-category">  
+                    	카테고리:뷰티
+                   </div>
+                   <div class="gallary-text-content">
+                        컨텐츠명
+                   </div>
+                   <div class="gallary-text-cost">
+                        40000원
+                   </div>
                     </div>
-                    <div class="gallary-text">
-                        <h4>Lorem Ipsum</h4>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        </p>
                     </div>
                 </div>
-                <div class="gallary-item">
+            </a>
+            
+                                <div class="gallary-item">
                     <div class="gallary-image">
-                        <img src="http://placeimg.com/480/480/tech">
+                        <img src="http://placeimg.com/480/480/nature">
+                       </div>
+                    <div class="gallary-border">
+                    <div class="gallary-text-category">  
+                    	카테고리:뷰티
+                   </div>
+                   <div class="gallary-text-content">
+                        컨텐츠명
+                   </div>
+                   <div class="gallary-text-cost">
+                        40000원
+                   </div>
                     </div>
-                    <div class="gallary-text">
-                        <h4>Lorem Ipsum</h4>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        </p>
                     </div>
                 </div>
-                <div class="gallary-item">
+            </a>
+            
+                                <div class="gallary-item">
                     <div class="gallary-image">
-                        <img src="http://placeimg.com/480/480/tech">
+                        <img src="http://placeimg.com/480/480/nature">
+                       </div>
+                    <div class="gallary-border">
+                    <div class="gallary-text-category">  
+                    	카테고리:뷰티
+                   </div>
+                   <div class="gallary-text-content">
+                        컨텐츠명
+                   </div>
+                   <div class="gallary-text-cost">
+                        40000원
+                   </div>
                     </div>
-                    <div class="gallary-text">
-                        <h4>Lorem Ipsum</h4>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        </p>
                     </div>
                 </div>
+                
+            </a>
             </div>
             </article>
         </section>
