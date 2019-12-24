@@ -1,6 +1,7 @@
 package beans;
 
 public class Users_Content_History_Dto {
+
 	private int user_qty,	host_content_cost, groupno, superno, depth;
 	private String user_reservation_date, users_history_id, user_phone, host_content_name, 
 						host_content_location, host_phone, host_name, user_class_date;
@@ -94,6 +95,5 @@ public class Users_Content_History_Dto {
 	public void setUser_class_date(String user_class_date) {
 		this.user_class_date = user_class_date;
 	}
-	
-	
+
 }

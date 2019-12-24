@@ -2,12 +2,9 @@
 	pageEncoding="UTF-8"%>
 	
 <%
-System.out.println("테스트");
 String user_id = (String) session.getAttribute("user_id");
 String host_id = (String) session.getAttribute("host_id");
 boolean login = user_id != null;
-
-
 
 %>
 
@@ -180,7 +177,6 @@ function hostRegistModal(){
 		
 		<!-- 로그인 모달화면 분리 -->
 		<jsp:include page="/template/total_login.jsp"></jsp:include>
-		
 			
 			<!-- 회원가입 모달화면 구현 -->
 			<form class="registform" autocomplete="off" action="#" method="post">

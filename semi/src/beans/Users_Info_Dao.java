@@ -63,6 +63,7 @@ public class Users_Info_Dao {
 			Users_Get_Dto UGdto;
 			if(rs.next()) {
 				UGdto = new Users_Get_Dto();
+				UGdto.setUser_no(rs.getInt("user_no"));
 				UGdto.setUser_id(rs.getString("user_id"));
 				UGdto.setUser_pw(rs.getString("user_pw"));
 				UGdto.setUser_name(rs.getString("user_name"));
