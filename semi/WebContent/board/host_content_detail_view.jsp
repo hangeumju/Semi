@@ -269,7 +269,6 @@
     			<div><%=dto.getReview_no() %></div>
     			<div><%=dto.getReview_writer() %></div>
     			<div><%=dto.getReview_date().substring(0, 10) %></div>
-    			<div><%=dto.getReview_title() %></div>
     			<div><%=dto.getReview_content() %></div>
     			<%} %>
     			

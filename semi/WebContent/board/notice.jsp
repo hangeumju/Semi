@@ -41,7 +41,7 @@
 		finishBlock = pagecount;
 	}
 
-	List<Notice_Board_Dto> list = NBdao.notice_board_list();
+	List<Notice_Board_Dto> list = NBdao.notice_board_list(start, finish);
 %>
 
 <style>
@@ -55,6 +55,33 @@
             padding: 10px;
           }
     
+    .page-navigator{
+            list-style: none;
+            padding:0;
+            margin:0;
+             display: inline-block;
+        }
+        .page-navigator::after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        .page-navigator > li{
+            float:left;
+            background-color: #B1DB4E;
+            color: white;
+            padding: 1rem;            
+        }
+        .page-navigator > li.active{
+            background-color: black;
+        }
+        .page-navigator > li > a{
+            color: white;
+            text-decoration: none;
+        }
+        .page-navigator > li > a:hover{
+            color: #daf83e;
+        }
     </style>
 </head>
 
@@ -68,7 +95,7 @@
                     <tr>
                     	<td><%=NBdto.getNotice_no() %></td>
                         <td>공지</td>
-                        <td><%=NBdto.getNotice_title() %></td>    
+                        <td><a href="notice_detail.jsp?no=<%=NBdto.getNotice_no() %>"><%=NBdto.getNotice_title() %></a></td>    
                         <td align="right"><%=NBdto.getNotice_writer() %></td>
                         <td align="right" width="250"><%=NBdto.getNotice_date() %></td>
                     </tr>
@@ -76,26 +103,27 @@
                 </tbody>
                 
             </table>
-
+            
+            <ul class="page-navigator">
             <!-- 네비게이터(navigator) -->    		
-    		<h4>
+    	
     			<%if(startBlock > 1){ %><!--  -->
-    				<a href="notice.jsp?pno=<%=startBlock -1 %>">[이전] </a> 
+    				<li><a href="notice.jsp?pno=<%=startBlock -1 %>">[이전] </a></li>
     			<%} %>
-    			
+
     			<%for(int i = startBlock; i <= finishBlock; i++){ %>
     				<%if(i == pno){ %><!-- 현재페이지면 -->
-    					<%=i %>
+    					<li><%=i %><li>
     				<%}else{ %>
-    						<a href="notice.jsp?pno=<%=i %>"><%=i %></a>
+    						<li><a href="notice.jsp?pno=<%=i %>"><%=i %></a></li>
     				<%} %>
     			<%} %>
-    			
+
     			<%if(finishBlock < pagecount){ %>
-    					<a href="notice.jsp?pno=<%=finishBlock + 1%>">[다음]</a>
+    					<li><a href="notice.jsp?pno=<%=finishBlock + 1%>">[다음]</a><li>
     			<%} %>
-    		</h4>
-            
+    		</ul>
+
 	        <h5>pno = <%=pno %></h5>
 			<h5>pagecount=<%=pagecount %>, pagesize=<%=pagesize %></h5>
 			<h5>start=<%=start %>, finish=<%=finish %></h5>
