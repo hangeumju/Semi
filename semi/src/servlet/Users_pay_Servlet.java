@@ -53,15 +53,21 @@ public class Users_pay_Servlet extends HttpServlet{
 			CHdto.setUser_class_date(start_date);;
 			CHdto.setHistory_no(seq);
 			
-//			디티오에 받은 정보들로 결제 진행하기
-			CHdao.users_history_pay(CHdto);
 
 //			결제 카운트 증가 및 티켓 수량 감소
 			Host_Content_Dao HCdao = new Host_Content_Dao();
-			HCdao.content_quantity_reduction(ticketing, host_content_no);
+			boolean result = HCdao.content_quantity_reduction(ticketing, host_content_no);
 			
+//			디티오에 받은 정보들로 결제 진행하기
+			if(result) {
+				CHdao.users_history_pay(CHdto);
 //			결제가 성공하면 유저 결제창으로 넘어가기
-			resp.sendRedirect(req.getContextPath()+"/info/users_history.jsp");
+				resp.sendRedirect(req.getContextPath()+"/info/users_history.jsp");
+			}
+			else {
+				resp.sendError(500);
+			}
+			
 			
 		}
 		catch (Exception e) {

@@ -283,18 +283,22 @@ public class Host_Content_Dao {
 	//결제 카운트 증가 및 티켓 수량 감소
 	//매개변수 티켓 갯수, 해당 컨텐츠 번호 
 	//반환 없음
-	public void content_quantity_reduction(int ticketing, int host_content_no) throws Exception{
+	public boolean content_quantity_reduction(int ticketing, int host_content_no) throws Exception{
 		Connection con = getConnection();
-		String sql = "update from host_content set "
+		String sql = "update host_content set "
 				+ "host_content_payment_count = host_content_payment_count + 1 "
-				+ "and host_content_ticket =  host_content_ticket - ? where host_content_no = ?";
+				+ ", host_content_ticket =  host_content_ticket - ? where host_content_no = ?";
 		
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, ticketing);
 		ps.setInt(2, host_content_no);
 		
-		ps.executeUpdate();
+		ResultSet rs = ps.executeQuery();
+		
+		boolean result = rs.next();
 		con.close();
+		return result;
+		
 	}
 	
 
