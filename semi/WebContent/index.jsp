@@ -11,8 +11,17 @@
 	src: url("../font/NanumSquareR.ttf");
 }  
 
+.sohee-title {
+color:white; 
+background-color: #F98967 ;
+opacity:100%;
+padding:10px;
+font-size:14px; 
+
+}
+
 /* 소희-카테고리 이미지 라운드로 */
-	 .gallary > .gallary-item > .category-image > img {
+	 .gallary > .gallary-item > a > .category-image > img {
             width:100%;
             border-radius: 50%;
             opacity: 0.5;
@@ -93,54 +102,63 @@
 	    <!-- 카테고리 이미지 넣기 시작 -->
 
 	    <article>
-	   <div class="row-empty"></div>
+	
+	   <div class="sohee-title" >어떤클래스를하실건가요</div>
        <div class="row-empty"></div>
        
-
        <div class="gallary">
       		<div class="gallary-item">
+		<a href="https://www.frip.co.kr/">
 	    		<div class="category-image">
-	          		<img src="http://placeimg.com/480/480/tech">
+	          		<img src="http://placeimg.com/480/480/tech"> 
 	            <div align="center">액티비티</div>
 	    	</div>
+	    	</a>
 	   </div>
 
 	   
 	    <div class="gallary">
       		<div class="gallary-item">
+      		<a href="https://www.frip.co.kr/">
 	    		<div class="category-image">
 	          		<img src="http://placeimg.com/480/480/tech">
 	            <div align="center">배움</div>
 	    	</div>
+	    	</a>
 	   </div>
 	   
 	   <div class="gallary">
       		<div class="gallary-item">
+      		<a href="https://www.frip.co.kr/">
 	    		<div class="category-image">
 	          		<img src="http://placeimg.com/480/480/any">
 	            <div align="center">건강/뷰티</div>
 	    	</div>
+	    	</a>
 	   </div>
 	   
        <div class="gallary">
       		<div class="gallary-item">
+      		<a href="https://www.frip.co.kr/">
 	    		<div class="category-image">
 	          		<img src="http://placeimg.com/480/480/tech">
 	            <div align="center">모임</div>
 	    	</div>
+	    	</a>
 	   </div>
 
 	   <div class="gallary">
       		<div class="gallary-item">
+      		<a href="https://www.frip.co.kr/">
 	    		<div class="category-image">
 	          		<img src="http://placeimg.com/480/480/any">
 	            <div align="center">여행</div>
 	    	</div>
+</a>
 	   </div>
 
 
 	    
-
 	    </article>
 	    
 	    
@@ -152,7 +170,7 @@
             
           
                 <div id=a>
-                    <h4  style="color:#bca4bd; background-color: #F98967 " >핫핫핫핫 클래스(추후 랜덤이미지 넣기)</h4>
+                	   <div class="sohee-title" >핫핫핫핫클래스</div>
                 <div class="row-empty"></div>
                 </div>
                 <div id=a>
@@ -262,7 +280,7 @@
 
 				</div>
             </article>
-	    	<!-- 핫핫핫핫 클래스  이미지 넣기 종료 -->
+	    	<hr><!-- 핫핫핫핫 클래스  이미지 넣기 종료 -->
 	    	
 
 
