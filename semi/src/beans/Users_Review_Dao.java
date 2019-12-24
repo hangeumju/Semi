@@ -93,7 +93,7 @@ public class Users_Review_Dao {
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, URdto.getReview_writer());
 			ps.setInt(2, URdto.getContent_original_no());
-			ps.setString(4, URdto.getReview_content());
+			ps.setString(3, URdto.getReview_content());
 			
 			ps.execute();
 			
