@@ -8,7 +8,6 @@
 <%
 	Notice_Board_Dao NBdao = new Notice_Board_Dao();	
 
-	
 	//[1] 번호를 받고 
 	int no = Integer.parseInt(request.getParameter("no"));
 	//[2] 번호에 해당하는 게시글을 불러오고
