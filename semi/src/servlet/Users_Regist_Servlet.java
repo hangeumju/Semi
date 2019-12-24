@@ -33,7 +33,7 @@ public class Users_Regist_Servlet extends HttpServlet{
 			URdao.users_regist(URdto);
 			
 //			[3]결과 페이지로 이동합니다
-			resp.sendRedirect("http://www.naver.com");
+			resp.sendRedirect(req.getContextPath()+"/index.jsp");
 			
 		} catch (Exception e) {
 			e.printStackTrace();
