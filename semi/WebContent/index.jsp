@@ -170,7 +170,7 @@ font-size:14px;
             
           
                 <div id=a>
-                	   <div class="sohee-title" >핫핫핫핫클래스</div>
+                	   <div class="sohee-title" >핫하핫</div>
                 <div class="row-empty"></div>
                 </div>
                 <div id=a>

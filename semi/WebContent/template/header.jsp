@@ -8,6 +8,12 @@ boolean login = user_id == null;
 
 %>
 
+<%if(request.getParameter("error") != null) {%>
+<script>
+window.alert("로그인 정보가 맞지 않습니다");
+</script>
+<%} %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,15 +21,7 @@ boolean login = user_id == null;
 <title>Document</title>
 
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/common.css">
-<!-- <link rel="stylesheet"
-	href="https://unpkg.com/swiper/css/swiper.min.css"> -->
 
-<link rel="icon" type="image/png" href="#"> <!-- 이것의 href가 #이면 현재페이지를 한번더 불러옵니다! -->
-
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
-
-<!-- <script src="https://unpkg.com/swiper/js/swiper.min.js"></script> -->
 <script>
 	function loadSlider() {
 		//swiper 객체 생성
@@ -70,7 +68,6 @@ boolean login = user_id == null;
 
 <!-- 로그인 모달창 주소 자동변경을 위한 주소 변수 선언 -->
 <%
-String userlogin = request.getContextPath()+"/login/users_login.do";
 String userregist = request.getContextPath()+"/join/users_regist.jsp";
 String hostlogin = request.getContextPath()+"/login/host_login.jsp";
 %>
