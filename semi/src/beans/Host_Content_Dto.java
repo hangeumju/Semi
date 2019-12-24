@@ -20,7 +20,7 @@ public class Host_Content_Dto {
 	private int host_content_view_count;
 	private int host_content_payment_count;
 	private int groupno, superno, depth;
-	
+	private int rn;
 
 
 	public Host_Content_Dto() {
@@ -185,6 +185,14 @@ public class Host_Content_Dto {
 
 	public void setDepth(int depth) {
 		this.depth = depth;
+	}
+
+	public int getRn() {
+		return rn;
+	}
+
+	public void setRn(int rn) {
+		this.rn = rn;
 	}
 	
 	
