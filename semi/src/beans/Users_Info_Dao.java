@@ -63,6 +63,7 @@ public class Users_Info_Dao {
 			Users_Get_Dto UGdto;
 			if(rs.next()) {
 				UGdto = new Users_Get_Dto();
+				UGdto.setUser_no(rs.getInt("user_no"));
 				UGdto.setUser_id(rs.getString("user_id"));
 				UGdto.setUser_pw(rs.getString("user_pw"));
 				UGdto.setUser_name(rs.getString("user_name"));
@@ -235,7 +236,6 @@ public class Users_Info_Dao {
 						URdto.setReview_no(rs.getInt("review_no"));
 						URdto.setReview_writer(rs.getString("review_writer"));
 						URdto.setContent_original_no(rs.getInt("content_original_no"));
-						URdto.setReview_title(rs.getString("review_title"));
 						URdto.setReview_content(rs.getString("review_content"));
 						URdto.setReview_date(rs.getString("review_date"));
 						
@@ -245,7 +245,7 @@ public class Users_Info_Dao {
 						return URdto;
 				}
 
-////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 				
 				//유저 리뷰 목록보기 기능
 				//메소드 이름 : users_review_list
@@ -268,7 +268,6 @@ public class Users_Info_Dao {
 						URdto.setReview_no(rs.getInt("review_no"));
 						URdto.setReview_writer(rs.getString("review_writer"));
 						URdto.setContent_original_no(rs.getInt("content_original_no"));
-						URdto.setReview_title(rs.getString("review_title"));
 						URdto.setReview_content(rs.getString("review_content"));
 						URdto.setReview_date(rs.getString("review_date"));
 						list.add(URdto);
@@ -301,8 +300,7 @@ public class Users_Info_Dao {
 						Users_Review_Dto URdto = new Users_Review_Dto();
 						URdto.setReview_no(rs.getInt("review_no"));
 						URdto.setReview_writer(rs.getString("review_writer"));
-						URdto.setReview_date(rs.getString("review_date"));
-						URdto.setReview_title(rs.getString("review_title"));
+						URdto.setReview_date(rs.getString("review_date"));					
 						URdto.setReview_content(rs.getString("review_content"));
 						URdto.setContent_original_no(rs.getInt("content_original_no"));
 						

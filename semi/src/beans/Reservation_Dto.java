@@ -8,6 +8,9 @@ public class Reservation_Dto {
 	private String user_reservation_date;
 	private String users_history_id;
 	private String host_content_name;
+	private int groupno, superno, depth;
+	private String user_class_date;
+	private int rn;
 	
 	public Reservation_Dto() {
 		super();
@@ -57,9 +60,44 @@ public class Reservation_Dto {
 	public void setHost_content_name(String host_content_name) {
 		this.host_content_name = host_content_name;
 	}
-	
-	
-	
+
+	public int getGroupno() {
+		return groupno;
+	}
+
+	public void setGroupno(int groupno) {
+		this.groupno = groupno;
+	}
+
+	public int getSuperno() {
+		return superno;
+	}
+
+	public void setSuperno(int superno) {
+		this.superno = superno;
+	}
+
+	public int getDepth() {
+		return depth;
+	}
+
+	public void setDepth(int depth) {
+		this.depth = depth;
+	}
+
+	public String getUser_class_date() {
+		return user_class_date;
+	}
+
+	public void setUser_class_date(String user_class_date) {
+		this.user_class_date = user_class_date;
+	}
+	public int getRn() {
+		return rn;
+	}
+	public void setRn(int rn) {
+		this.rn = rn;
+	}
 }
 
 

@@ -37,7 +37,6 @@ public class Users_Review_Dao {
 				URdto.setReview_no(rs.getInt("review_no"));
 				URdto.setReview_writer(rs.getString("review_writer"));
 				URdto.setContent_original_no(rs.getInt("content_original_no"));
-				URdto.setReview_title(rs.getString("review_title"));
 				URdto.setReview_content(rs.getString("review_content"));
 				URdto.setReview_date(rs.getString("review_date"));
 				
@@ -71,7 +70,6 @@ public class Users_Review_Dao {
 				URdto.setReview_no(rs.getInt("review_no"));
 				URdto.setReview_writer(rs.getString("review_writer"));
 				URdto.setContent_original_no(rs.getInt("content_original_no"));
-				URdto.setReview_title(rs.getString("review_title"));
 				URdto.setReview_content(rs.getString("review_content"));
 				URdto.setReview_date(rs.getString("review_date"));
 				list.add(URdto);
@@ -91,11 +89,10 @@ public class Users_Review_Dao {
 		public void users_review_regist(Users_Review_Dto URdto) throws Exception{
 			Connection con = getConnection();
 			
-			String sql="insert into user_review values(user_review_seq.nextval, ?, ?, ?, ?, sysdate)";
+			String sql="insert into user_review values(user_review_seq.nextval, ?, ?, ?, sysdate)";
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, URdto.getReview_writer());
 			ps.setInt(2, URdto.getContent_original_no());
-			ps.setString(3, URdto.getReview_title());
 			ps.setString(4, URdto.getReview_content());
 			
 			ps.execute();
