@@ -15,15 +15,15 @@ boolean login = user_id == null;
 <title>Document</title>
 
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/common.css">
-<link rel="stylesheet"
-	href="https://unpkg.com/swiper/css/swiper.min.css">
+<!-- <link rel="stylesheet"
+	href="https://unpkg.com/swiper/css/swiper.min.css"> -->
 
 <link rel="icon" type="image/png" href="#"> <!-- 이것의 href가 #이면 현재페이지를 한번더 불러옵니다! -->
 
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
 
-<script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+<!-- <script src="https://unpkg.com/swiper/js/swiper.min.js"></script> -->
 <script>
 	function loadSlider() {
 		//swiper 객체 생성
@@ -72,7 +72,7 @@ boolean login = user_id == null;
 <%
 String userlogin = request.getContextPath()+"/login/users_login.do";
 String userregist = request.getContextPath()+"/join/users_regist.jsp";
-String hostmain = request.getContextPath()+"/host/submain.jsp";
+String hostlogin = request.getContextPath()+"/template/host_login.jsp";
 %>
 
 <script>
@@ -103,7 +103,7 @@ String hostmain = request.getContextPath()+"/host/submain.jsp";
 
 <script>
 	function openHost(){
-		window.open(<%=hostmain%>)
+		window.open("<%=hostlogin%>");
 	}
 </script>
 
@@ -122,14 +122,14 @@ String hostmain = request.getContextPath()+"/host/submain.jsp";
 					<button class="a" onclick="location.href='<%=request.getContextPath()%>/info/users_info.jsp'">내정보</button>
 					<button class="a" onClick="location.href='<%=request.getContextPath()%>/login/users_logout.do'">로그아웃</button>
 					<%} %>
-					<button class="a" onclick="openRegistModal();">호스트</button>
+					<button class="a" onclick="openHost();">호스트</button>
 					<button class="a">고객센터</button>
 				</div>
 			</div>
 		</div>
 		
 		<!-- 로그인 모달화면 분리 -->
-		<jsp:include page="/template/total_login.jsp"></jsp:include>
+		<jsp:include page="/template/user_login.jsp"></jsp:include>
 			
 			<!-- 회원가입 모달화면 구현 -->
 			<form class="registform" autocomplete="off" action="#" method="post">
