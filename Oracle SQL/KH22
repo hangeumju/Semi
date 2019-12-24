@@ -3,7 +3,11 @@
 -- 세미프로젝트 DB
 -------------------------------------------------------
 
+
+-------------------------------------------------------
 -- host table 생성 : host
+-------------------------------------------------------
+
 drop table host;
 
 Create table host(
@@ -30,7 +34,10 @@ create sequence host_no_seq;
 
 ------------------------------------------------------------------------------
 
+-------------------------------------------------------
 -- users table 생성 :  users
+-------------------------------------------------------
+
 drop table users;
 
 create table users(
@@ -55,10 +62,12 @@ User_last_login date default null
 drop sequence Users_no_seq;
 create sequence Users_no_seq;
 
-------------------------------------------------------------------------------
+-------------------------------------------------------
 
-
+-------------------------------------------------------
 -- Content table 생성 :  host_content
+-------------------------------------------------------
+
 drop table host_content;
 
 create table host_content(
@@ -85,9 +94,50 @@ host_content_payment_count number default 0
 drop sequence host_content_no_seq;
 create sequence host_content_no_seq;
 
-----------------------------------------------------------------------------
 
+select * from host_content;
+
+----------------------------------------------------------------------------
+-- 댓글에 필요한 groupno, superno, depth 추가 및 속성 변경
+----------------------------------------------------------------------------
+--- 테이블 구조 변경 시작
+----------------------------------------------------------------------------
+alter table host_content add (
+groupno number,
+superno constraint fk_host_content_superno REFERENCES host_content(host_content_no) on delete cascade,
+depth number default 0 
+);
+
+-- 그룹번호는 no 와 동일하게 설정
+update host_content set groupno = host_content_no;
+alter table host_content modify groupno not null;
+
+update host_content set depth = 0;
+alter table host_content modify depth not null;
+commit;
+-- 게시판 구조변경 종료
+
+-----------------------------------------------------------
+
+-- list에서 조회하면서 댓글게시판 조회하는 sql 구문
+-- 보드의 모든 데이터를 조회하는데
+select * from host_content
+-- no와 superno가 연결되어있고
+connect by prior no = superno
+-- seuperno가 null인 항목이 시작점이야
+start with superno is null
+-- 전체 데이터는 groupno 역방향, no 정방향 순이야
+order siblings by groupno desc, no asc;
+--list에서 조회하면서 댓글게시판 조회하는 sql 구문 종료
+
+
+---------------------------------------------------------
+
+
+-------------------------------------------------------
 -- 사진 업로드 테이블 : host_content_photo
+-------------------------------------------------------
+
 drop table host_content_photo;
 
 create table host_content_photo(
@@ -104,7 +154,7 @@ create sequence host_content_photo_seq;
 
 
 -------------------------------------------------------------------------------
--- 결제 테이블 생성 : content_history
+-- 결제 내역, 이용 내역 테이블 생성 : content_history
 
 -- host에게는 결제정보 (User의 아이디, 이름, 전화번호를 제공하는 것이 목적)
 -- user에게는 이용정보 (Host의 0이름, 전화번호, 로케이션, 컨텐츠 정보를 제공하는 것이 목적)
@@ -116,7 +166,8 @@ drop table content_history;
 create table content_history(
 history_no number primary key,
 host_history_no CONSTRAINT fk_history_content REFERENCES host_content(host_content_no) on delete set null,
-users_history_no CONSTRAINT fk_history_user REFERENCES users(user_no) on delete set null,
+users_history_no CONSTRAINT fk_history_user_no REFERENCES users(user_no) on delete set null,
+users_history_id  CONSTRAINT fk_history_user_id REFERENCES users(user_id) on delete set null,
 user_qty number,
 user_reservation_date date
 );
@@ -125,37 +176,105 @@ user_reservation_date date
 drop sequence content_history_seq;
 create sequence content_history_seq;
 
+----------------------------------------------------------------------------
+-- 댓글에 필요한 groupno, superno, depth 추가 및 속성 변경
+----------------------------------------------------------------------------
+--- content_history 테이블 구조 변경 시작
+----------------------------------------------------------------------------
+alter table content_history add (
+groupno number,
+superno constraint fk_content_history_superno REFERENCES content_history(history_no) on delete cascade,
+depth number default 0 
+);
+
+-- 그룹번호는 no 와 동일하게 설정
+update content_history set groupno = history_no;
+alter table content_history modify groupno not null;
+
+
+update content_history set depth = 0;
+alter table content_history modify depth not null;
+commit;
+-- 게시판 구조변경 종료
+
+-----------------------------------------------------------
+
+-- list에서 조회하면서 댓글게시판 조회하는 sql 구문
+-- 보드의 모든 데이터를 조회하는데
+select * from host_content
+-- no와 superno가 연결되어있고
+connect by prior no = superno
+-- seuperno가 null인 항목이 시작점이야
+start with superno is null
+-- 전체 데이터는 groupno 역방향, no 정방향 순이야
+order siblings by groupno desc, no asc;
+--list에서 조회하면서 댓글게시판 조회하는 sql 구문 종료
+
+
+---------------------------------------------------------
+
+-- content_history 컬럼 추가
+alter table content_history add(
+user_class_date date
+);
+
+-- test 예약
+
+select * from content_history;
+
+insert into content_history values (content_history_seq.nextval, 44, 11, 'dddddd', 1, sysdate);
+
+commit;
+
 
 --------------------------------------------------------------------------------------
--- 뷰 생성
+-- 뷰 생성 (가상의 테이블 생성)
 --------------------------------------------------------------------------------------
+-- inner join(내부조인) 인지 left outer join(외부조인) 으로 해야하는지 확인
+-- A, B 테이블을 join 할 경우, 조건에 맞지 않은 데이터도 표시하고 싶을 때 outer join 사용
+-- 추가로 left/right outer join은 기준이 되는 테이블이 조인 수행시 무조건 드라이빙 테이블이 됨
+-- 드라이빙 테이블은 join이 발생했을때 첫번째로 access 되는 테이블임, 어떤 테이블일 드라이빙 테이블이 되느냐가
+-- 쿼리 성능이나 튜닝 부분에서 굉장히 중요한 영향을 끼침
+-- 데이터의 양 보다는 적은 데이터를 추출하는 테이블로 드라이빙 잡는 것이 중요
+------------------------------------------------------------------------------------------------------
 
 -- host에게는 결제정보 (User의 아이디, 이름, 전화번호 & 컨텐츠 예약 번호 를 제공하는 것이 목적)
--- 보내줘야 하는 정보 (history_no, user_name, user_phone, user_qty, user_reservation_date)
+-- 보내줘야 하는 정보 (history_no, user_name, user_phone, user_qty, user_reservation_date, users_history_id, host_content_name, host_history_no)
+-- 뷰에있는 (A.groupno, A.superno, A.depth)는 content_history의 컬럼내용임
 
 drop view content_history_to_host;
 
 create view content_history_to_host as
-select history_no, user_name, user_phone, user_qty, user_reservation_date from
-    (select * from users U 
-    inner join content_history CH
-    on U.user_no = CH.users_history_no)A
-    inner join host_content B  on  B.host_content_no = A.history_no
+select history_no, user_name, user_phone, user_qty, user_reservation_date, users_history_id, host_content_name, 
+host_history_no, user_class_date, A.groupno, A.superno, A.depth from
+    (select CH.*, U.* from content_history CH left outer join users U
+    on CH.users_history_no = U.user_no)A
+    left outer join host_content B  on  B.host_content_no = A.history_no
     order by user_reservation_date desc;
     
 select * from content_history_to_host;
 
+-- host 이용 테이블 검색 조건 작성
+-- 내 컨텐츠에 예약한 user 정보 페이지
 
+-- 예약번호 기준
+select * from content_history_to_host where history_no ='4' order by history_no desc ;
+-- 예약자 기준
+select * from content_history_to_host where user_name ='한금주' order by history_no desc ;
+-- 컨텐츠 번호 기준
+select * from content_history_to_host where host_history_no ='45' order by history_no desc ;
 
-
+----------------------------------------------------------------------------------------------------------
 -- user에게는 이용정보 (Host의 0이름, 전화번호, 로케이션, 컨텐츠 정보를 제공하는 것이 목적)
 -- 보내줘야 하는 정보 (host_content_name, host_content_cost, host_name, host_phone, host_content_location, user_reservation_date)
+-- 뷰에있는 (B.groupno, B.superno, B.depth)는 content_history의 컬럼내용임
 
 drop view content_history_to_users;
 
 create view content_history_to_users as
-select host_content_name, host_content_cost, host_name, host_phone, host_content_location, user_reservation_date, user_qty from 
-    (select * from 
+select host_name, host_phone, host_content_name, host_content_cost, host_content_location, user_reservation_date, 
+user_qty,users_history_id, user_class_date, B.groupno, B.superno, B.depth  from 
+    (select H.host_name, H.host_phone, HC.host_content_name, HC.host_content_cost, HC.host_content_location, HC.host_content_no from 
     host H inner join host_content HC on H.host_id = HC.host_id) A
     inner join content_history B on A.host_content_no = B.host_history_no
     order by user_reservation_date desc;
@@ -163,27 +282,123 @@ select host_content_name, host_content_cost, host_name, host_phone, host_content
 
 select * from content_history_to_users;
 
+-- user 이용 테이블 검색 조건 작성
+-- 내가 결제한 컨텐츠를 보는 페이지 (내가 최근에 결제한 순서로 정렬)
 
--------------------------------------------------------------------------------------
--------------------------------------------------------------------------------------
--- 후기테이블 생성
+select * from content_history_to_users where users_history_id = 'qkrtjddo' order by user_reservation_date desc;
+
+
+-----------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+-------------------------------------------------------
+-- user 후기테이블 생성(content 밑에 보여 줄 내용)
+-------------------------------------------------------
 
 drop table user_review;
 
 create table user_review(
 review_no number primary key,
 review_writer CONSTRAINT fk_review_user REFERENCES users(user_id) on delete set null,
-centent_original_no CONSTRAINT fk_review_content REFERENCES host_content(host_content_no) on delete CASCADE,
+content_original_no CONSTRAINT fk_review_content REFERENCES host_content(host_content_no) on delete CASCADE,
 review_title varchar2(100) not null,
 review_content varchar2(1000) not null,
 review_date date default sysdate
 ); 
 
+-- review_title 컬럼 삭제
+alter table user_review drop COLUMN review_title;
+
+
+-- user_review test 추가
+
+insert into user_review values (
+user_review_seq.nextval,
+'dladnwls',
+'42',
+'리뷰내용입니다',
+sysdate
+);
+
+
 -- 시퀀스 생성
 drop sequence user_review_seq;
 create sequence user_review_seq;
 
+
+select * from user_review;
+select * from user_review where review_writer = 'dksthgml';
+
+
+
+
+
+
+-------------------------------------------------------------------------------------
+-- 공지사항 게시판 생성
 -------------------------------------------------------------------------------------
 
+drop table notice;
+
+create table notice(
+notice_no number primary key,
+notice_writer varchar2(20) check(notice_writer in ('관리자', 'admin')),
+notice_title varchar2(300),
+notice_content varchar2(4000),
+notice_date date default sysdate
+);
+
+-- 시퀀스 생성
+drop sequence notice_seq;
+create sequence notice_seq;
+
+--test 공지사항 
+insert into notice(notice_no, notice_writer, notice_title, notice_content, notice_date) values (notice_seq.nextval, 'admin', '12차 공지사항입니다', '홈페이지바랍니다', sysdate);
+
+commit;
+
+select * from notice;
+---------------------------------------------------------------------------
+----------------------------------------------------------------------------
+-- 댓글에 필요한 groupno, superno, depth 추가 및 속성 변경
+----------------------------------------------------------------------------
+--- 테이블 구조 변경 시작
+----------------------------------------------------------------------------
+alter table notice add (
+groupno number,
+superno constraint fk_notice_superno REFERENCES notice(notice_no) on delete cascade,
+depth number default 0 
+);
+
+-- 그룹번호는 no 와 동일하게 설정
+update notice set groupno = notice_no;
+alter table notice modify groupno not null;
+
+update notice set depth = 0;
+alter table notice modify depth not null;
+commit;
+-- 게시판 구조변경 종료
+
+-----------------------------------------------------------
+
+-- list에서 조회하면서 댓글게시판 조회하는 sql 구문
+-- 보드의 모든 데이터를 조회하는데
+select * from host_content
+-- no와 superno가 연결되어있고
+connect by prior no = superno
+-- seuperno가 null인 항목이 시작점이야
+start with superno is null
+-- 전체 데이터는 groupno 역방향, no 정방향 순이야
+order siblings by groupno desc, no asc;
+--list에서 조회하면서 댓글게시판 조회하는 sql 구문 종료
+
+---------------------------------------------------------
+---------------------------------------------------------
 
 
