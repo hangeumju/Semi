@@ -32,7 +32,6 @@
 	
 	int finish = pno * pagesize;
 	int start = finish - (pagesize - 1);
-
 	Reservation_Dao Rdao = new Reservation_Dao();
 	
 	String type = request.getParameter("type");
