@@ -77,11 +77,14 @@
 <!--     	스타일 영역 시작입니다---------------------------------------------------------- -->
     <style>
 		  .float1.float2{
-		  border: 1px dotted black;
-		  float:left;
-		  width:50%
+		 	 border: 1px dotted black;
+		 	 float:left;
+		  	 width:50%
 		  }  
 		  
+		  .review_content{
+		  	width : 630px;
+		  }
 		  
 		  .float2
 		  
@@ -90,17 +93,20 @@
             display: block;
             clear: both;
        	  }
+       	  
 		   .float2.main{
 		  	width:75%;
 			/* 		  	글 안넘어가게 하는 명령어 */
 		  	word-break:break-all; 
-		  	
+		 
+		  	margin-left: auto;
+            
 		  }
 		  
 		  .float2.sub{
 			width:300px;
 		  	position: fixed;
-		  	top: 44.5%;
+		  	top: 30.5%;
             right: 10.00%;
             height : 237px;
             /* 		  	글 안넘어가게 하는 명령어 */
@@ -304,7 +310,7 @@
 				<form action="users_review_regist.do" method="post">
 					<input type="hidden" name="content_original_no" value="<%=HCdto.getHost_content_no()%>">
 					<input type="hidden" name="review_writer"  value="<%=user_id%>">
-					<textarea name="review_content" rows="2" cols="103" required="required"></textarea>
+					<textarea class="review_content" name="review_content" rows="2" cols="103" required="required"></textarea>
 					<input type="submit" value="등록">
 				</form>
 				<%} %>
