@@ -17,11 +17,41 @@
 	
 
 	List<Host_Content_Dto> list = HCdao.getList(category);
+	
+// 	페이지 크기
+	int pagesize = 12;
+// 	네비게이터 크기
+	int navsize = 10;
+	
+// 	페이징 추가
+	int pno;
+	try{
+		pno = Integer.parseInt(request.getParameter("pno"));
+		if(pno <= 0) throw new Exception();
+	}
+	catch(Exception e){
+		pno = 1;
+	}
+	
+	int finish = pno * pagesize;
+	int start = finish - (pagesize - 1);
+	
+	String type = request.getParameter("type");
+	String keyword = request.getParameter("keyword");
+	
+	boolean isSearch = type != null && keyword != null;
+	
+	
+	if(isSearch){
+		list = HCdao.search(type, keyword, start, finish); 
+	}
+	else{
+		list = HCdao.reservation_list(start, finish);
+	}
+	
+	int count = HCdao.getCount(type, keyword);
+	%>
 
-	
- 
-	
-%>
 	<!-- 갤러리 4단 나누기 -->
 
 	
@@ -92,6 +122,16 @@
 
 <article class="w-60">
 
+<div id="searchForm">
+        <form action="host_content_list.jsp" method="get">
+            <select name="type">
+                <option value="host_content_name">컨텐츠명</option>
+                <option value="host_name">호스트명</option>
+            </select>
+            <input type="search" name="keyword" placeholder="검색어" required>&nbsp;
+            <input type="submit" value="검색">
+        </form>    
+    </div>  
 
   <div class="gallary">
  	<% for (Host_Content_Dto dto : list) {%> 
@@ -113,7 +153,16 @@
             </div>
         </div>   
 	<% } %>  
-     </div>               
+     </div>  
+     <div class="row">
+		<!-- 네비게이터(navigator) -->
+		<jsp:include page="/template/navigator.jsp">
+			<jsp:param name="pno" value="<%=pno%>"/>
+			<jsp:param name="count" value="<%=count%>"/>
+			<jsp:param name="navsize" value="<%=navsize%>"/>
+			<jsp:param name="pagesize" value="<%=pagesize%>"/>
+		</jsp:include>
+	</div>             
 
 </article> 
     

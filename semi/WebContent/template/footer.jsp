@@ -4,6 +4,14 @@
     
 <footer class="row">
 		
+		<%
+					String user = (String)session.getAttribute("user_id");
+					String host = (String)session.getAttribute("host_id");
+				%>
+				
+				<h5>user = <%=user %></h5>
+				<h5>host = <%=host %></h5>
+		
       <h4>대표: 한금주
 
            개인정보 관리 책임자: 이학준</h4>

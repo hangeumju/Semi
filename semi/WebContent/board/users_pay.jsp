@@ -2,6 +2,19 @@
     pageEncoding="UTF-8"%>
 <jsp:include page="/template/header.jsp"></jsp:include>
 
+<%
+	request.setCharacterEncoding("UTF-8");
+	String host_content_name = request.getParameter("host_content_name");// 호스트 컨텐츠 이름
+	String host_name = request.getParameter("host_name");//호스트 이름
+	String host_phone = request.getParameter("host_phone");//호스트 번호
+	int host_content_no = Integer.parseInt(request.getParameter("host_content_no"));//호스트 컨텐츠 넘버
+	String host_content_location = request.getParameter("host_content_location");//호스트 컨텐츠 위치
+	int host_content_cost = Integer.parseInt(request.getParameter("host_content_cost"));//호스트 컨텐츠 가격
+	int ticketing = Integer.parseInt(request.getParameter("ticketing"));//유저가 구매하려는 티켓수
+	String start_date = request.getParameter("start_date");//유저가 원하는 날짜
+	
+%>
+
 <style>
     /*박스 넓이가 멋대로 늘어나는것 방지*/
     * {
@@ -134,29 +147,29 @@
         <hr>
         <div class="row-left">
             <div class="class_name">
-                클래스 이름이 들어갈 자리
+                클래스 이름이 들어갈 자리<%=host_content_name %>
             </div>
             <hr>
             <div>
                <ul>
                   <li>
-                    옵션1) 케이크 캔들 + 티라이트 캔들 4개 제작(1인) x 1개  
+                    옵션1) 선택한 날짜 <%=start_date %>
                   </li>
                   <li>
-                    옵션2) 케이크 캔들 4개 제작(1인) x 1개  
+                    옵션2) 선택한 수량  <%=ticketing %> 개
                   </li>
                </ul>                
             </div>
         </div>
         <hr>
         <div class="row-multi column-2">
-            <div class="row-left">상품 금액</div>
-            <div class="row-right">????원</div>
+            <div class="row-left">상품 가격 </div>
+            <div class="row-right"><%=host_content_cost %> 원</div>
         </div>
         <hr>
         <div class="row-multi column-2 title">
             <div class="row-left">최종 결제 금액</div>
-            <div class="row-right">????원</div>
+            <div class="row-right"><%=host_content_cost * ticketing %>원</div>
         </div>
         <br>
         <div class="row-left">결제수단</div>
@@ -169,13 +182,22 @@
         <button class="btn_style1">무통장 입금</button>
         <button class="btn_style1"><img src="../image/payco.png"></button>
         <br><br>
-
+		<form action="<%=request.getContextPath()%>/board/user_pay.do" method="post">
+			<input type="hidden" name="host_content_name" value="<%=host_content_name %>"><!--컨텐츠 제목 -->
+			<input type="hidden" name="host_name" value="<%=host_name%>"><!--호스트 이름 -->
+			<input type="hidden" name="host_phone" value="<%=host_phone%>"><!--호스트 폰번호 -->
+			<input type="hidden" name="host_content_no" value="<%=host_content_no%>"><!-- 호스트 컨텐트 넘버 -->
+			<input type="hidden" name="host_content_location" value="<%=host_content_location %>"><!--호스트 지역 -->
+			<input type="hidden" name="host_content_cost" value="<%=host_content_cost %>"> <!--호스트 컨텐츠 가격 -->
+        	<input type="hidden" name="ticketing" value="<%=ticketing %>">
+        	<input type="hidden" name="start_date" value="<%=start_date %>">
         <div class="row">
             <input type="checkbox">개인정보 제 3자 제공 동의, 결제 대행 서비스 이용 약관 등 모든 약관에 동의합니다.
         </div><br>
         <div>
-            <input class="btn_pay" type="submit" value="30000000원 결제하기">
+            <input class="btn_pay" type="submit" value="결제">
         </div>
+        </form>
     </div>
 
 </body>
