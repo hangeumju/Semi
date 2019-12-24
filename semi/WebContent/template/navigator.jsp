@@ -1,7 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-<%
+<!-- 네비게이터(navigator) -->
+<!-- 
+	반드시 받아야 하는 데이터 : type, keyword, pno, count, navsize, pagesize
+ -->
+ <%
 	String type = request.getParameter("type");
 	String keyword = request.getParameter("keyword");
 	boolean isSearch = type != null && keyword != null;
