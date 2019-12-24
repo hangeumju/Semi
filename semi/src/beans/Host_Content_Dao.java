@@ -27,8 +27,24 @@ public class Host_Content_Dao {
 	public void host_contentproduce(Host_Content_Dto HCdto) throws Exception{
 		Connection con = getConnection();
 		
-		String sql = "insert into host_content values("
-				+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, '보류', sysdate, 0, 0)";
+		String sql = "insert into host_content(host_content_no, "
+				+ "host_id, "
+				+ "host_content_category, "
+				+ "host_content_cost, "
+				+ "host_content_name, "
+				+ "host_content_ticket, "
+				+ "host_content_info, "
+				+ "host_content_start_date, "
+				+ "host_content_last_date, "
+				+ "host_content_location, "
+				+ "host_content_ect_info, "
+				+ "host_content_qa, "
+				+ "host_content_approval, "
+				+ "host_content_create_date, "
+				+ "host_content_view_count, "
+				+ "host_content_payment_count, "
+				+ "groupno) values("
+				+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, '보류', sysdate, 0, 0, ?)";
 		
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, HCdto.getHost_content_no());
@@ -43,6 +59,7 @@ public class Host_Content_Dao {
 		ps.setString(10, HCdto.getHost_content_location());
 		ps.setString(11, HCdto.getHost_content_ect_info());
 		ps.setString(12, HCdto.getHost_content_qa());
+		ps.setInt(13, HCdto.getHost_content_no());
 		
 		ps.execute();
 		con.close();
@@ -57,7 +74,9 @@ public class Host_Content_Dao {
 	public List<Host_Content_Dto> getList(String type) throws Exception{
 		
 		Connection con = getConnection();
-		String sql = "select * from host_content where host_content_category = ? and host_content_approval='승인'";
+		String sql = "select * from host_content where host_content_category = ? and host_content_approval='승인' order by host_content_no desc";
+						
+		
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, type);
 		ResultSet rs = ps.executeQuery();
