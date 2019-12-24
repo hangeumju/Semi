@@ -44,6 +44,7 @@ public class Users_Content_History_Dao {
 			UCHdto.setHost_name(rs.getString("host_name"));
 			UCHdto.setHost_phone(rs.getString("host_phone"));
 			UCHdto.setHost_content_location(rs.getString("host_content_location"));			
+			UCHdto.setUser_class_date(rs.getString("user_class_date"));
 			
 			list.add(UCHdto);
 		}
@@ -51,5 +52,7 @@ public class Users_Content_History_Dao {
 		con.close();		
 		return list;
 	}
+	
+	
 
 }
