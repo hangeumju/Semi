@@ -72,7 +72,7 @@ boolean login = user_id == null;
 <%
 String userlogin = request.getContextPath()+"/login/users_login.do";
 String userregist = request.getContextPath()+"/join/users_regist.jsp";
-String hostlogin = request.getContextPath()+"/template/host_login.jsp";
+String hostlogin = request.getContextPath()+"/login/host_login.jsp";
 %>
 
 <script>
@@ -90,20 +90,13 @@ String hostlogin = request.getContextPath()+"/template/host_login.jsp";
 </script>
 
 <script>
-	function userLoginModal(){
-		var loginform = document.querySelector(".userform");
-		loginform.action = "<%=userlogin%>";
-	}
-	
 	function userRegistModal(){
 		var loginform = document.querySelector(".userform");
 		loginform.action = "<%=userregist%>";
 	}
-</script>
-
-<script>
+	
 	function openHost(){
-		window.open("<%=hostlogin%>");
+		window.open("<%=hostlogin%>")
 	}
 </script>
 
@@ -129,32 +122,6 @@ String hostlogin = request.getContextPath()+"/template/host_login.jsp";
 		</div>
 		
 		<!-- 로그인 모달화면 분리 -->
-		<jsp:include page="/template/user_login.jsp"></jsp:include>
+		<jsp:include page="/login/user_login.jsp"></jsp:include>
 			
-			<!-- 회원가입 모달화면 구현 -->
-			<form class="registform" autocomplete="off" action="#" method="post">
-				<div class="modal regist" onclick="closeRegistModal();">
-					<!-- 모달내부 화면 -->
-					<div class="modal-view regist" onclick="event.stopPropagation();">
-						<div style="position: relative; width: 100%; height: 100%;">
-							<div style="position: absolute; top: 20px; right: 20px;">
-								<span class="closebtn" onclick="closeRegistModal()">&times;</span>
-							</div>
-							<div
-								style="position: absolute; top: 50%; left: 50%; width: 300px; height: 400px; margin-left: -150px; margin-top: -200px;">
-								<div style="height: 60px;"></div>
-								<div style="margin: 10px 0px; color: white;">
-								<button class="modalbtn regist" onclick="userRegistModal()">일반회원 가입</button>
-								</div>
-								<div style="height: 5px;"></div>
-								<div style="margin: 10px 0px; color: white;">
-								<button class="modalbtn regist" onclick="hostRegistModal()">호스트 가입</button>
-								</div>
-								<div style="height: 50px;"></div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</form>
-
 		</header>
