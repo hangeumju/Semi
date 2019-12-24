@@ -8,8 +8,6 @@
 <%
 	Notice_Board_Dao NBdao = new Notice_Board_Dao();	
 
-// 공지사항 상세보기 리스트
-	List<Notice_Board_Dto>board_list = NBdao.notice_board_list();	
 	
 	//[1] 번호를 받고 
 	int no = Integer.parseInt(request.getParameter("no"));
