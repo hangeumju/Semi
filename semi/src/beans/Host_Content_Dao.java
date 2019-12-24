@@ -278,4 +278,117 @@ public class Host_Content_Dao {
 		con.close();
 		return HCdto;
 		}
+	
+	// 차트 검색어 받기
+	public List<Host_Content_Dto> search(String type, String keyword,int start, int finish)throws Exception{
+		Connection con = getConnection();
+		String sql = "select * from( "
+				+" select rownum rn, A.* from ( "
+				+ "select * from host_content "
+				+ " where "+type+" like '%'||?||'%' "
+				+ " connect by prior host_content_no = superno "
+				+ " start with superno is null "
+				+ " order siblings by groupno desc, host_content_no asc "
+				+ " )A "
+			+ " ) where rn between ? and ? ";
+
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, keyword);
+		ps.setInt(2, start);
+		ps.setInt(3, finish);
+		
+		ResultSet rs = ps.executeQuery();
+		List<Host_Content_Dto> list = new ArrayList<>();
+		while(rs.next()) { //데이터의 갯수만큼 반복합니다
+			Host_Content_Dto HCdto = new Host_Content_Dto();
+			
+			HCdto.setHost_content_name(rs.getString("host_content_name"));
+			HCdto.setHost_content_cost(rs.getInt("host_content_cost"));
+			HCdto.setHost_id(rs.getString("host_id"));
+			HCdto.setHost_content_info(rs.getString("host_content_info"));
+			HCdto.setHost_content_start_date(rs.getString("host_content_start_date"));
+			HCdto.setHost_content_last_date(rs.getString("host_content_last_date"));
+			HCdto.setHost_content_location(rs.getString("host_content_location"));
+			HCdto.setHost_content_ect_info(rs.getString("host_content_ect_info"));
+			HCdto.setHost_content_qa(rs.getString("host_content_qa"));
+			HCdto.setHost_content_ticket(rs.getInt("host_content_ticket"));
+			HCdto.setHost_content_payment_count(rs.getInt("host_content_payment_count"));
+			HCdto.setHost_content_view_count(rs.getInt("host_content_view_count"));
+			HCdto.setHost_content_no(rs.getInt("host_content_no"));
+			HCdto.setHost_content_category(rs.getString("host_content_category"));
+			HCdto.setGroupno(rs.getInt("groupno"));
+			HCdto.setSuperno(rs.getInt("superno"));
+			HCdto.setDepth(rs.getInt("depth"));
+			
+			list.add(HCdto);
+		}
+		con.close();		
+		return list;
+	}
+	
+	
+	public int getCount(String type, String keyword)throws Exception{
+		Connection con = getConnection();
+		boolean isSearch = type != null && keyword != null ;
+		String sql = "select count(*) from host_content ";
+		if(isSearch) {
+			sql += " where "+type+" like '%'||?||'%'";
+		}
+		
+		PreparedStatement ps = con.prepareStatement(sql);
+		if(isSearch) {
+			ps.setString(1, keyword);
+		}
+		ResultSet rs = ps.executeQuery();
+		rs.next();
+		int count = rs.getInt(1);
+		
+		con.close();
+		return count;
+	}
+	
+	// 호스트 결제 예약 리스트
+	public List<Host_Content_Dto> reservation_list(int start, int finish)throws Exception{
+		Connection con = getConnection();
+		
+		String sql = "select * from ("
+				+ "select rownum rn, A.* from ("
+				+ "select * from host_content "
+				+ "connect by prior host_content_no=superno "
+				+ "start with superno is null "
+				+ "order siblings by groupno desc, host_content_no asc"
+			+ ")A"
+		+ ") where rn between ? and ?";
+		
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setInt(1, start);
+		ps.setInt(2, finish);
+		ResultSet rs = ps.executeQuery();
+		
+		List<Host_Content_Dto> list2 = new ArrayList<>();
+		
+		while(rs.next()) { //데이터의 갯수만큼 반복합니다
+			int rn = rs.getInt("rn");
+			Host_Content_Dto HCdto = new Host_Content_Dto();
+			HCdto.setHost_content_name(rs.getString("host_content_name"));
+			HCdto.setHost_content_cost(rs.getInt("host_content_cost"));
+			HCdto.setHost_id(rs.getString("host_id"));
+			HCdto.setHost_content_info(rs.getString("host_content_info"));
+			HCdto.setHost_content_start_date(rs.getString("host_content_start_date"));
+			HCdto.setHost_content_last_date(rs.getString("host_content_last_date"));
+			HCdto.setHost_content_location(rs.getString("host_content_location"));
+			HCdto.setHost_content_ect_info(rs.getString("host_content_ect_info"));
+			HCdto.setHost_content_qa(rs.getString("host_content_qa"));
+			HCdto.setHost_content_ticket(rs.getInt("host_content_ticket"));
+			HCdto.setHost_content_payment_count(rs.getInt("host_content_payment_count"));
+			HCdto.setHost_content_view_count(rs.getInt("host_content_view_count"));
+			HCdto.setHost_content_no(rs.getInt("host_content_no"));
+			HCdto.setHost_content_category(rs.getString("host_content_category"));
+
+			list2.add(HCdto);
+		}
+		con.close();		
+		return list2;
+	}
+
 }

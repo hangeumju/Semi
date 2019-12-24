@@ -1,8 +1,27 @@
+<%@page import="beans.Notice_Board_Dto"%>
+<%@page import="java.util.List"%>
+<%@page import="beans.Notice_Board_Dao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <jsp:include page="/template/header.jsp"></jsp:include>
 
+<%
+	Notice_Board_Dao NBdao = new Notice_Board_Dao();	
+
+	//[1] 번호를 받고 
+	int no = Integer.parseInt(request.getParameter("no"));
+	//[2] 번호에 해당하는 게시글을 불러오고
+	Notice_Board_Dto NBdto = NBdao.notice_board_datail(no); //게시글 불러오기
+	//[3] 아래에 출력
+
+%>
+
 <style>
+		 /*박스 넓이가 멋대로 늘어나는것 방지*/
+    * {
+        box-sizing: border-box;
+    }
+		
         .notice_table {
             width: 100%;
             border-top: 1px solid #444444;
@@ -57,16 +76,18 @@
         <h1>공지사항</h1>
         <div>
             <table class="notice_table">
-                <tbody>
+                <tbody>              
                     <tr>
+                    	<td><%=NBdto.getNotice_no()  %></td>
                         <td>공지</td>
-                        <td>공지제목이들어갈자리</td>    
-                        <td align="right">공지작성일자가들어갈자리</td>
-                    </tr>                    
+                        <td><%=NBdto.getNotice_title() %></td>    
+                        <td align="right"><%=NBdto.getNotice_writer() %></td>
+                        <td align="right" width="250"><%=NBdto.getNotice_date() %></td>
+                    </tr>             
                 </tbody>
                 
             </table>
-            <div></div>
+            <div><%=NBdto.getNotice_content() %></div>
             
         </div>
     </main> 

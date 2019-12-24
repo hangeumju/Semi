@@ -3,14 +3,19 @@ package beans;
 public class Notice_Board_Dto {
 	private int notice_no;
 	private String notice_writer, notice_title, notice_content, notice_date;
+//	줄번호(rownum)를 저장하기 위한 변수 추가
+	private int rn;
+	
+	
 	@Override
 	public String toString() {
 		return "Notice_Board_Dto [notice_no=" + notice_no + ", notice_writer=" + notice_writer + ", notice_title="
-				+ notice_title + ", notice_content=" + notice_content + ", notice_date=" + notice_date + "]";
+				+ notice_title + ", notice_content=" + notice_content + ", notice_date=" + notice_date + ", rn=" + rn
+				+ "]";
 	}
 	public Notice_Board_Dto() {
-		super();
-	}
+	super();
+}
 	public int getNotice_no() {
 		return notice_no;
 	}
@@ -41,4 +46,11 @@ public class Notice_Board_Dto {
 	public void setNotice_date(String notice_date) {
 		this.notice_date = notice_date;
 	}
+	public int getRn() {
+		return rn;
+	}
+	public void setRn(int rn) {
+		this.rn = rn;
+	}
+	
 }

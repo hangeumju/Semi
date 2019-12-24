@@ -8,6 +8,11 @@
 <%
 	Notice_Board_Dao NBdao = new Notice_Board_Dao();	
 
+	//페이지 크기
+	int pagesize = 10;
+	//네비게이터 크기
+	int navsize = 10;
+	
 	//페이징 추가
 	int pno;
 	try{
@@ -17,9 +22,6 @@
 	catch(Exception e){
 		pno = 1;
 	}
-	
-	//페이지 크기
-	int pagesize = 10;
 		
 	int finish = pno * pagesize;
 	int start = finish - (pagesize - 1);
@@ -30,7 +32,6 @@
 //		- 시작블록 = (현재페이지-1) / 네비게이터크기 * 네비게이터크기 +1	
 //**************************************************************************************
 	int count = NBdao.notice_board_count(); //전체글 개수를 구하는 메소드 108개
-	int navsize = 10;
 	int pagecount = (count + pagesize) / pagesize; //전체 페이지 수 11개
 	
 	int startBlock = (pno -1) / navsize * navsize + 1;
@@ -41,7 +42,7 @@
 		finishBlock = pagecount;
 	}
 
-	List<Notice_Board_Dto> list = NBdao.notice_board_list();
+	List<Notice_Board_Dto> list = NBdao.notice_board_list(start, finish);
 %>
 
 <style>
@@ -54,7 +55,7 @@
             border-bottom: 1px solid #444444;
             padding: 10px;
           }
-    
+
     </style>
 </head>
 
@@ -68,7 +69,7 @@
                     <tr>
                     	<td><%=NBdto.getNotice_no() %></td>
                         <td>공지</td>
-                        <td><%=NBdto.getNotice_title() %></td>    
+                        <td><a href="notice_detail.jsp?no=<%=NBdto.getNotice_no() %>"><%=NBdto.getNotice_title() %></a></td>    
                         <td align="right"><%=NBdto.getNotice_writer() %></td>
                         <td align="right" width="250"><%=NBdto.getNotice_date() %></td>
                     </tr>
@@ -76,30 +77,9 @@
                 </tbody>
                 
             </table>
-
-            <!-- 네비게이터(navigator) -->    		
-    		<h4>
-    			<%if(startBlock > 1){ %><!--  -->
-    				<a href="notice.jsp?pno=<%=startBlock -1 %>">[이전] </a> 
-    			<%} %>
-    			
-    			<%for(int i = startBlock; i <= finishBlock; i++){ %>
-    				<%if(i == pno){ %><!-- 현재페이지면 -->
-    					<%=i %>
-    				<%}else{ %>
-    						<a href="notice.jsp?pno=<%=i %>"><%=i %></a>
-    				<%} %>
-    			<%} %>
-    			
-    			<%if(finishBlock < pagecount){ %>
-    					<a href="notice.jsp?pno=<%=finishBlock + 1%>">[다음]</a>
-    			<%} %>
-    		</h4>
             
-	        <h5>pno = <%=pno %></h5>
-			<h5>pagecount=<%=pagecount %>, pagesize=<%=pagesize %></h5>
-			<h5>start=<%=start %>, finish=<%=finish %></h5>
-			<h5>startBlock=<%=startBlock %>, finishBlock=<%=finishBlock %></h5>
+           
+
         </div>
     </main>
 </body>
