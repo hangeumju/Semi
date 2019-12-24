@@ -2,33 +2,19 @@
 
 /* 웹 폰트 설정
     1. 폰트를 등록한다 (@font-face)
-    2. 등록된 폰트를 설정한다(font=family)
+    2. 등록된 폰트를 설정한다(font-family2)
         */
 @font-face {
-	font-family: jua;
-	src: url("../font/BMJUA_ttf.ttf")
+	font-family2: NanumSquare;
+	src: url("../font/NanumSquareR.ttf")
 }
 
-@font-face {
-	font-family: hana;
-	src: url("../font/BMKIRANGHAERANG-TTF.ttf")
-}
-
-@font-face {
-	font-family: godom;
-	src: url("../font/GodoM.ttf")
-}
-
-@font-face {
-	font-family: binggrae;
-	src: url("../font/Binggrae.ttf")
-}
 /*웹 폰트설정 종료*/
 
 /*전체스타일*/
 * {
 	box-sizing: border-box;
-	font-family: binggrae;
+	font-family: NanumSquare;
 }
 /*전체스타일 종료*/
 
@@ -39,25 +25,25 @@
 - table-hover : 마우스가 올라간 줄에 하이라이트 적용
 - table-stripe : 2줄마다 한줄씩하이라이트 적용
 - */
-table.table {
+table2.table2 {
 	width: 100%;
 	border: 1px solid black;
 	/*          테두리 병합*/
 	border-collapse: collapse;
 }
 
-.table>thead>tr>td, .table>thead>tr>th, .table>tbody>tr>th, .table>tbody>tr>td
+.table2>thead>tr>td, .table2>thead>tr>th, .table2>tbody>tr>th, .table2>tbody>tr>td
 	{
 	border: 1px solid black;
 	padding: 0.5rem;
 }
 /*        확장디자인:줄무늬*/
-.table.table-stripe>tbody>tr:nth-child(2n) {
+.table2.table-stripe>tbody>tr:nth-child(2n) {
 	background-color: aqua;
 	/*         확장디자인 : hover*/
 }
 
-.table.table-hover>tbody>tr:hover {
+.table2.table-hover>tbody>tr:hover {
 	background-color: aqua;
 }
 /*테이블 스타일 종료*/
@@ -96,7 +82,7 @@ table.table {
 - hover 상황에서 하위 메뉴가 펼쳐짐
 - 
 */
-.custom-list {
+.custom-list2 {
 	list-style: none;
 	margin: 0;
 	padding: 0;
@@ -104,19 +90,19 @@ table.table {
 	width: 150px;
 }
 
-.custom-list>li {
+.custom-list2>li {
 	background-color: black;
 	color: white;
 	padding: 15px;
 	cursor: pointer;
 }
 
-.custom-list li:hover {
+.custom-list2 li:hover {
 	background-color: gray;
 	color: black;
 }
 /*        2차 이상의 메뉴 스타일*/
-.custom-list ul {
+.custom-list2 ul {
 	list-style: none;
 	padding: 0;
 	margin: 0;
@@ -126,7 +112,7 @@ table.table {
 	display: none;
 }
 
-.custom-list ul>li {
+.custom-list2 ul>li {
 	background-color: black;
 	color: white;
 	padding: 15px;
@@ -138,12 +124,12 @@ table.table {
         1. hover : 마우스만 올리며 메뉴가 나왐
         2. checked : 체크해야 메뉴가 나옴
         */
-.custom-list li:hover>ul {
+.custom-list2 li:hover>ul {
 	display: block;
 }
 /*     overflow 설정 (넘침 설정)  
         - 숨김처리 + 줄바꿈금지 + 말줌임표 설정*/
-.custom-list li {
+.custom-list2 li {
 	overflow: hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis;
@@ -187,53 +173,53 @@ table.table {
 - 반응형으로 구성(720px 이하면 모바일용 메뉴)
 - 좌측메뉴는 .left-menu, 우측메뉴는 .right-menu로 표시
 */
-.menu {
+.menu2 {
 	background-color: black;
 }
 /*        고정 메뉴 설정(옵션)*/
-.menu.menu-fixed {
+.menu2.menu-fixed {
 	position: fixed;
 	left: 0;
 	right: 0;
 	top: 0;
 }
 
-.menu>.menu-item {
+.menu2>.menu-item2 {
 	color: white;
 	padding: 1rem;
 	width: 100px;
 }
 
-.menu>.left-menu {
+.menu2>.left-menu2 {
 	float: left;
 }
 
-.menu>.right-menu {
+.menu2>.right-menu2 {
 	float: right;
 }
 
-.menu::after {
+.menu2::after {
 	content: "";
 	display: block;
 	clear: both;
 }
 
-.menu a {
+.menu2 a {
 	/*           밑줄 제거*/
 	text-decoration: none;
 }
 
-.menu a:hover {
+.menu2 a:hover {
 	color: gray;
 }
 
-.menu::after {
+.menu2::after {
 	content: "";
 	display: block;
 	clear: both;
 }
 
-.menu>label {
+.menu2>label {
 	font-size: 2rem;
 	color: white;
 	padding: 1rem;
@@ -243,11 +229,11 @@ table.table {
 	padding: 5px;
 }
 
-.menu>#hamburg {
+.menu2>#hamburg2 {
 	display: none;
 }
 
-.menu>#hamburg:checked ~ .menu-item {
+.menu2>#hamburg2:checked ~ .menu-item {
 	display: block;
 }
 
@@ -260,17 +246,17 @@ table.table {
 home 화면 레이아웃 설정*/
 /* 
 개발용 설정 : 영역에 점섬이 출력되도록 처리    */
-body[test] main, 
-body[test] header, 
-body[test] nav, 
-body[test] section,
-body[test] footer, 
-body[test] article, 
-body[test] aside, 
-body[test] div,
-body[test] span, 
-body[test] label, 
-body[test] p {
+body[test] main2, 
+body[test] header2, 
+body[test] nav2, 
+body[test] section2,
+body[test] footer2, 
+body[test] article2, 
+body[test] aside2, 
+body[test] div2,
+body[test] span2, 
+body[test] label2, 
+body[test] p2 {
 	border: 1px dotted black;
 }
 /* 
@@ -279,12 +265,12 @@ body[test] p {
 - 홈페이지는 브라우저 가운데 위치한다 
 - 영역별 내부 여백은 글자 2개 높이만큼으로 한다
  */
-main {
+main2 {
 	width: 1000px;
 	margin: auto;
 }
 
-header, section, footer {
+header2, section2, footer2 {
 	padding: 2rem;
 }
 /*     
@@ -332,7 +318,7 @@ header, section, footer {
 	width: 10%
 }
 
-article {
+article2 {
 	margin: auto;
 }
 /* 
@@ -341,15 +327,15 @@ row의 방향 설정
 - 왼쪽 : row-left
 - 오른쪽 : row -right
  */
-.row, .row-left, .row-right, .row-multi{
+.row2, .row-left2, .row-right2, .row-multi2{
 	margin: 10px 0px;
 }
 
-.row {
+.row2 {
 	text-align: center;
 }
 
-.row-left {
+.row-left2 {
 	text-align: left;
 }
 
@@ -360,11 +346,11 @@ row의 방향 설정
 /* 
 - .block-item 이라는 클래스가 부여되면 block 처리(width:100%)
 */
-.block-item {
+.block-item2 {
 	width: 100%;
 }
 /*   여백    */
-.row-empty {
+.row-empty2 {
 	height: 20px;
 }
 /*home 화면 레이아웃 설정 종료*/
@@ -375,18 +361,18 @@ row의 방향 설정
 - input, select, textarea : .input-item
 - button, inout[teye=button], inutp[type=submit] : .btn*/
  
- .input-item{
+ .input-item2{
  	font-size: 1.5rem;
  	padding: 0.5rem;
  }
- .btn{
+ .btn2{
  	font-size: 1.5rem;
  	padding: 0.5rem;
  	background-color:#2DB400;
  	color: white;
  	border: none;
  }
- .btn:hover {
+ .btn2:hover {
 	background-color: #3EC511;
 	color: white;;
 }
@@ -398,30 +384,30 @@ row의 방향 설정
 - 현재 페이지는 .active 표시를 해야함
 */
 
-.page-navigator{
+.page-navigator2{
     list-style: none;
     margin:0;
     padding:0;
     display: inline-block;
 }
-.page-navigator::after{
+.page-navigator2::after{
     content:"";
     display: block;
     clear:both;
 }
-.page-navigator > li{
+.page-navigator2 > li{
     float:left;
     background-color:#005582;
     padding:1rem;
 }
-.page-navigator > li.active{
+.page-navigator2 > li.active{
     background-color:#002250;
 }
-.page-navigator > li > a{
+.page-navigator2 > li > a{
     color:white;
     text-decoration: none;
 }
-.page-navigator > li > a:hover{
+.page-navigator2 > li > a:hover{
     color:#daf83e;
 }
 
@@ -432,25 +418,25 @@ row의 방향 설정
 - 5단 : .row-multi.col-5
 */
 
-.row-multi::after{
+.row-multi2::after{
             content: "";
             display: block;
             clear: both;
         }
-.row-multi > *{
+.row-multi2 > *{
             float: left;            
         }
-.row-multi.col-2 > *{width: 50%;}
-.row-multi.col-3 > *{width: 33.3333%;}
-.row-multi.col-4 > *{width: 25%;}
-.row-multi.col-5 > *{width: 20%;}
+.row-multi.col-22 > *{width: 50%;}
+.row-multi.col-32 > *{width: 33.3333%;}
+.row-multi.col-42 > *{width: 25%;}
+.row-multi.col-52 > *{width: 20%;}
 /*다단 스타일(.row-multi) 종료 */
 
 /* 
 Title 스타일 : 제목에는 그라데이션 추가
  */
  
- .title{
+ .title2{
  	background: rgb(2,0,36);
 	background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(5,90,175,1) 61%, rgba(4,118,193,1) 70%, rgba(3,149,214,1) 80%, rgba(0,212,255,1) 100%); 
  	color:white;
