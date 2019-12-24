@@ -22,7 +22,6 @@ public class Users_Review_Regist_Servlet extends HttpServlet{
 
 			URdto.setReview_writer(req.getParameter("review_writer"));
 			URdto.setContent_original_no(Integer.parseInt(req.getParameter("content_original_no")));
-			URdto.setReview_title(req.getParameter("review_title"));
 			URdto.setReview_content(req.getParameter("review_content"));
 			URdto.setReview_date(req.getParameter("review_date"));
 			

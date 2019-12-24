@@ -14,6 +14,24 @@
     Host_Info_Dao HIdao = new  Host_Info_Dao();
     String host_id = (String)session.getAttribute("host_id");
     Host_Info_Dto HIdto = HIdao.get(host_id);
+    
+// 	페이지 크기
+	int pagesize = 10;
+// 	네비게이터 크기
+	int navsize = 10;
+	
+// 	페이징 추가
+	int pno;
+	try{
+		pno = Integer.parseInt(request.getParameter("pno"));
+		if(pno <= 0) throw new Exception();
+	}
+	catch(Exception e){
+		pno = 1;
+	}
+	
+	int finish = pno * pagesize;
+	int start = finish - (pagesize - 1);
 
 	Reservation_Dao Rdao = new Reservation_Dao();
 	
@@ -21,36 +39,18 @@
 	String keyword = request.getParameter("keyword");
 	
 	boolean isSearch = type != null && keyword != null;
-	List<Reservation_Dto> list;
-	if(isSearch){//검색어가 있을 경우
-		list = Rdao.search(type,keyword);
-	}
-	else {//검색어가 없을 경우
-		list=Rdao.reservation_list();
-	}
-	%>
 	
-<!--  /*    //페이지 크기
-    int pagesize = 10;
-    //네비게이터 크기
-    int navsize = 10;
-    //페이징 추가
-    int pno;
-    try{
-    	pno = Integer.parseInt(request.getParameter("pno"));
-    	if(pno <= 0) throw new Exception();
-    }
-    catch(Exception e){
-    	pno = 1;
-    }
-    
-    int finish = pno * pagesize;
-    int start = finish - (pagesize - 1);
-    
-    String type = request.getParameter("type");
-    String keyword = request.getParameter("keyword");
-    
-    boolean isSearch = type != null && keyword != null; */ -->
+	List<Reservation_Dto> list;
+	
+	if(isSearch){
+		list = Rdao.search(type, keyword, start, finish); 
+	}
+	else{
+		list = Rdao.reservation_list(start, finish);
+	}
+	
+	int count = Rdao.getCount(type, keyword);
+	%>
     
 <jsp:include page="/template/header.jsp"></jsp:include>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/common.css">
@@ -110,6 +110,7 @@
                 <td>예약자</td>
                 <td>휴대전화 번호</td>
                 <td>예약티켓수량</td>
+                <td>예약 날짜</td>
             </tr>
             <tbody>    
             <%for(Reservation_Dto Rdto : list){%>
@@ -119,20 +120,24 @@
                 <td><%=Rdto.getUser_name()%></td>
                 <td><%=Rdto.getUser_phone()%></td>
                 <td><%=Rdto.getUser_qty() %></td>
+                <td><%=Rdto.getUser_class_date() %></td>
             </tr>
                 <%} %>
+                
+                
            </tbody>
         </table>
     </div>
     <br>
-<%--     <div id="pageForm">
+	<div class="row">
 		<!-- 네비게이터(navigator) -->
-		<jsp:include page="/board/navigator.jsp">
+		<jsp:include page="/template/navigator.jsp">
 			<jsp:param name="pno" value="<%=pno%>"/>
+			<jsp:param name="count" value="<%=count%>"/>
 			<jsp:param name="navsize" value="<%=navsize%>"/>
 			<jsp:param name="pagesize" value="<%=pagesize%>"/>
 		</jsp:include>
-	</div> --%>
+	</div>
     </div>
 </body>
 </html>
