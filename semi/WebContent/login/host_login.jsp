@@ -1,46 +1,74 @@
-<%@page import="beans.Host_Info_Dao"%>
-<%@page import="beans.Host_Info_Dto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-    <%
-    String host_id = (String)session.getAttribute("host_id");
-    Host_Info_Dao HIdao = new Host_Info_Dao();
-    Host_Info_Dto HIdto = HIdao.get(host_id);
-    %>
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/common.css">
-<jsp:include page="/template/header.jsp"></jsp:include>
-<form action="host_login.do" method="post">
-<article class="w-40">
-<!-- ID 입력창 -->
-<div class="row">
-<input class="block-item input-item" type="text" name ="host_id" placeholder="아이디 입력" required></div>
-<!-- PW 입력창 -->
-<div class="row">
-<input class="block-item input-item" type="password" name ="host_pw" placeholder="비밀번호 입력" required></div>
-<!-- login 버튼-->
-<div class="row-left">
-	<input class="btn" type="submit" value="Host Login"></div>
-<!-- ID저장 버튼-->
-<div class="row-left">
-<input type="checkbox">ID 저장하기</div>
-<!-- ID찾기 버튼 -->
-<div class="row-left">
-<a href="<%=request.getContextPath()%>/login/host_login_find.jsp">회원정보 찾기</a><br>
-<a href="<%=request.getContextPath()%>/join/host_regist.jsp">Join us</a><br>
-<!-- error 전송될 경우 메세지 출력 -->
-<div>
-<%if(request.getParameter("error") != null){%>
-<h3><font color="red">입력하신 정보가 일치하지 않습니다.<br>
-다시 확인해주세요.</font></h3>
-<%} %>
-</div>
-</article>
-</form>
-<jsp:include page="/template/footer.jsp"></jsp:include>
+<%
+String hostregist = request.getContextPath()+"/join/host_regist.jsp";
+%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/common.css">
+
+<script>
+	function openModal() {
+		var modal = document.querySelector(".modal");
+		modal.style.display = "block"
+	}
+	
+	function hostRegistModal(){
+		var loginform = document.querySelector(".hostform");
+		loginform.action = "<%=hostregist%>";
+	}
+
+</script>
+
+<style>
+.modal{
+background-color: rgba(0, 0, 0, 0.1);
+}
 
 
+</style>
 
-
-
-
+</head>
+<body onload="openModal()">
+<section>
+<!-- 호스트 로그인/회원가입 모달화면 구현 -->
+			<form class="hostform" autocomplete="off"
+			action="<%=request.getContextPath() %>/login/host_login.do" 
+			method="post">
+				<div class="modal">
+					<!-- 모달내부 화면 -->
+					<div class="modal-view">
+						<div style="position: relative; width: 100%; height: 100%;">
+							<div
+								style="position: absolute; top: 50%; left: 50%; width: 300px; height: 400px; margin-left: -150px; margin-top: -200px;">
+								<div style="margin: 10px 0px; text-align: center;">
+																
+								</div>
+								<div style="height: 30px;"></div>
+								<div style="margin: 10px 0px; color: white;">
+									<p>Username</p>
+									<input class="id-modal" type="text" name="id"
+										style="border-bottom: 2px white solid; width: 100%;">
+								</div>
+								<div style="height: 5px;"></div>
+								<div style="margin: 10px 0px; color: white;">
+									<p>Password</p>
+									<input class="pw-modal" type="password" name="pw"
+										style="border-bottom: 2px white solid; width: 100%;">
+								</div>
+								<div style="height: 40px;"></div>
+								<button class="modalbtn">로그인</button>
+								<div style="height: 20px;"></div>
+								<button class="modalbtn" onclick="hostRegistModal()">회원가입</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+</section>
+</body>
+</html>
