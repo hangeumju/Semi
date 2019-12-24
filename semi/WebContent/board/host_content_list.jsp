@@ -42,7 +42,7 @@
 	String keyword = request.getParameter("keyword");
 	
 	//실험용입니다
-	type = "건강/뷰티";
+	String category = "건강/뷰티";
 	
 	boolean isSearch = type != null && keyword != null;
 	
@@ -51,7 +51,7 @@
 		list = HCdao.search(type, keyword, start, finish); 
 	}
 	else{
-		list = HCdao.getList(type);
+		list = HCdao.getList(category);
 	}
 	
 	int count = HCdao.getCount(type, keyword);
@@ -131,7 +131,7 @@
         <form action="host_content_list.jsp" method="get">
             <select name="type">
                 <option value="host_content_name">컨텐츠명</option>
-                <option value="host_name">호스트명</option>
+                <option value="host_id">호스트아이디</option>
             </select>
             <input type="search" name="keyword" placeholder="검색어" required>&nbsp;
             <input type="submit" value="검색">
