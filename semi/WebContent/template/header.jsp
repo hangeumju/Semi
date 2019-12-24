@@ -4,7 +4,7 @@
 <%
 String user_id = (String) session.getAttribute("user_id");
 String host_id = (String) session.getAttribute("host_id");
-boolean login = user_id != null;
+boolean login = user_id == null;
 
 %>
 
@@ -14,24 +14,16 @@ boolean login = user_id != null;
 <meta charset="UTF-8">
 <title>Document</title>
 
-<!-- 개인 css 적용 -->
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/jieun.css">
-<!-- 개인 css 적용 종료 -->
-
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/common.css">
-<link rel="stylesheet"
-	href="https://unpkg.com/swiper/css/swiper.min.css">
+<!-- <link rel="stylesheet"
+	href="https://unpkg.com/swiper/css/swiper.min.css"> -->
 
 <link rel="icon" type="image/png" href="#"> <!-- 이것의 href가 #이면 현재페이지를 한번더 불러옵니다! -->
 
 <link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
-<link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
-<link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
 
-<script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+<!-- <script src="https://unpkg.com/swiper/js/swiper.min.js"></script> -->
 <script>
 	function loadSlider() {
 		//swiper 객체 생성
@@ -79,7 +71,8 @@ boolean login = user_id != null;
 <!-- 로그인 모달창 주소 자동변경을 위한 주소 변수 선언 -->
 <%
 String userlogin = request.getContextPath()+"/login/users_login.do";
-String hostlogin = request.getContextPath()+"/login/host_login.do";
+String userregist = request.getContextPath()+"/join/users_regist.jsp";
+String hostlogin = request.getContextPath()+"/template/host_login.jsp";
 %>
 
 <script>
@@ -94,56 +87,24 @@ String hostlogin = request.getContextPath()+"/login/host_login.do";
 		modal.style.display = "none"
 	}
 	
+</script>
+
+<script>
 	function userLoginModal(){
-		var loginform = document.querySelector(".loginform");
+		var loginform = document.querySelector(".userform");
 		loginform.action = "<%=userlogin%>";
-		var user = document.querySelector(".user");
-		user.style.color = "white";
-		var host = document.querySelector(".host");
-		host.style.color = "gray";
-		var userborder = document.querySelector(".user");
-		userborder.style.border = "2px white solid";
-		var hostborder = document.querySelector(".host");
-		hostborder.style.border = "none";
 	}
 	
-	function hostLoginModal(){
-		var loginform = document.querySelector(".loginform");
-		loginform.action = "<%=hostlogin%>";
-		var user = document.querySelector(".user");
-		user.style.color = "gray";
-		var host = document.querySelector(".host");
-		host.style.color = "white";
-		var userborder = document.querySelector(".user");
-		userborder.style.border = "none";
-		var hostborder = document.querySelector(".host");
-		hostborder.style.border = "2px white solid";
-		
+	function userRegistModal(){
+		var loginform = document.querySelector(".userform");
+		loginform.action = "<%=userregist%>";
 	}
 </script>
 
 <script>
-function openRegistModal() {
-	event.preventDefault()
-	var modal = document.querySelector(".modal.regist");
-	modal.style.display = "block"
-}
-
-function closeRegistModal() {
-	var modal = document.querySelector(".modal.regist");
-	modal.style.display = "none"
-}
-
-function userRegistModal(){
-	var loginform = document.querySelector(".registform");
-	loginform.action = "http://www.naver.com";
-}
-
-function hostRegistModal(){
-	var loginform = document.querySelector(".registform");
-	loginform.action = "http://www.daum.net";
-}
-
+	function openHost(){
+		window.open("<%=hostlogin%>");
+	}
 </script>
 
 </head>
@@ -152,31 +113,23 @@ function hostRegistModal(){
 	<main>
 		<header style="padding: 100px 32px 0px 32px">
 		<div class="flex-container">
-			<div class="flex-item">
-				<form action="#" autocomplete="off">
-					<img src="http://placehold.it/100x30?text=logo">
-					<fieldset class="url">
-						<input id="url" type="text" name="url"> <label for="url"><i
-							class="fa fa-search" aria-hidden="true"></i> Search</label>
-						<div class="after"></div>
-					</fieldset>
-				</form>
-			</div>
 			<div style="height: 30px;"></div>
 			<div class="flex-item-gnb">
 				<div>
-					<button class="a" onclick="openLoginModal();">로그인</button>
 					<%if(login){ %>
+					<button class="a" onclick="openLoginModal();">일반회원</button>
+					<%} else{ %>
 					<button class="a" onclick="location.href='<%=request.getContextPath()%>/info/users_info.jsp'">내정보</button>
 					<button class="a" onClick="location.href='<%=request.getContextPath()%>/login/users_logout.do'">로그아웃</button>
 					<%} %>
-					<button class="a" onclick="openRegistModal();">회원가입</button>
+					<button class="a" onclick="openHost();">호스트</button>
+					<button class="a">고객센터</button>
 				</div>
 			</div>
 		</div>
 		
 		<!-- 로그인 모달화면 분리 -->
-		<jsp:include page="/template/total_login.jsp"></jsp:include>
+		<jsp:include page="/template/user_login.jsp"></jsp:include>
 			
 			<!-- 회원가입 모달화면 구현 -->
 			<form class="registform" autocomplete="off" action="#" method="post">
