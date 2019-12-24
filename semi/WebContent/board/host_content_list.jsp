@@ -12,11 +12,13 @@
 
 // 	오류나오는 영역을 고치기 위해 타입을 받았습니다 나중에 고치면 됩니다
 // 	String type = request.getParameter("type");
-	String category = "건강/뷰티";
+	
 	Host_Content_Dao HCdao = new Host_Content_Dao();
 	
 
-	List<Host_Content_Dto> list = HCdao.getList(category);
+	List<Host_Content_Dto> list ;
+	
+// 	System.out.println(category);
 	
 // 	페이지 크기
 	int pagesize = 12;
@@ -39,6 +41,9 @@
 	String type = request.getParameter("type");
 	String keyword = request.getParameter("keyword");
 	
+	//실험용입니다
+	String category = "건강/뷰티";
+	
 	boolean isSearch = type != null && keyword != null;
 	
 	
@@ -46,7 +51,7 @@
 		list = HCdao.search(type, keyword, start, finish); 
 	}
 	else{
-		list = HCdao.reservation_list(start, finish);
+		list = HCdao.getList(category);
 	}
 	
 	int count = HCdao.getCount(type, keyword);
@@ -126,7 +131,7 @@
         <form action="host_content_list.jsp" method="get">
             <select name="type">
                 <option value="host_content_name">컨텐츠명</option>
-                <option value="host_name">호스트명</option>
+                <option value="host_id">호스트아이디</option>
             </select>
             <input type="search" name="keyword" placeholder="검색어" required>&nbsp;
             <input type="submit" value="검색">

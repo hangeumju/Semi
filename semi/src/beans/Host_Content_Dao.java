@@ -27,8 +27,24 @@ public class Host_Content_Dao {
 	public void host_contentproduce(Host_Content_Dto HCdto) throws Exception{
 		Connection con = getConnection();
 		
-		String sql = "insert into host_content values("
-				+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, '보류', sysdate, 0, 0)";
+		String sql = "insert into host_content(host_content_no, "
+				+ "host_id, "
+				+ "host_content_category, "
+				+ "host_content_cost, "
+				+ "host_content_name, "
+				+ "host_content_ticket, "
+				+ "host_content_info, "
+				+ "host_content_start_date, "
+				+ "host_content_last_date, "
+				+ "host_content_location, "
+				+ "host_content_ect_info, "
+				+ "host_content_qa, "
+				+ "host_content_approval, "
+				+ "host_content_create_date, "
+				+ "host_content_view_count, "
+				+ "host_content_payment_count, "
+				+ "groupno) values("
+				+ "?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, '보류', sysdate, 0, 0, ?)";
 		
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, HCdto.getHost_content_no());
@@ -43,6 +59,7 @@ public class Host_Content_Dao {
 		ps.setString(10, HCdto.getHost_content_location());
 		ps.setString(11, HCdto.getHost_content_ect_info());
 		ps.setString(12, HCdto.getHost_content_qa());
+		ps.setInt(13, HCdto.getHost_content_no());
 		
 		ps.execute();
 		con.close();
@@ -54,12 +71,14 @@ public class Host_Content_Dao {
 	//매개변수 : 카테고리(아직 미구현했습니다) 
 	//반환값 : 카테고리에 해당하는 컨텐츠 리스트
 	//아직 사진을 못넣었어요 추가해야 합니다 아직 미완성이에요
-	public List<Host_Content_Dto> getList(String type) throws Exception{
+	public List<Host_Content_Dto> getList(String category) throws Exception{
 		
 		Connection con = getConnection();
-		String sql = "select * from host_content where host_content_category = ? and host_content_approval='승인'";
+		String sql = "select * from host_content where host_content_category = ? and host_content_approval='승인' order by host_content_no desc";
+						
+		
 		PreparedStatement ps = con.prepareStatement(sql);
-		ps.setString(1, type);
+		ps.setString(1, category);
 		ResultSet rs = ps.executeQuery();
 		List<Host_Content_Dto> list = new ArrayList<>();
 		
@@ -279,6 +298,30 @@ public class Host_Content_Dao {
 		return HCdto;
 		}
 	
+
+	//결제 카운트 증가 및 티켓 수량 감소
+	//매개변수 티켓 갯수, 해당 컨텐츠 번호 
+	//반환 없음
+	public boolean content_quantity_reduction(int ticketing, int host_content_no) throws Exception{
+		Connection con = getConnection();
+		String sql = "update host_content set "
+				+ "host_content_payment_count = host_content_payment_count + 1 "
+				+ ", host_content_ticket =  host_content_ticket - ? where host_content_no = ?";
+		
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setInt(1, ticketing);
+		ps.setInt(2, host_content_no);
+		
+		ResultSet rs = ps.executeQuery();
+		
+		boolean result = rs.next();
+		con.close();
+		return result;
+		
+	}
+	
+
+
 	// 차트 검색어 받기
 	public List<Host_Content_Dto> search(String type, String keyword,int start, int finish)throws Exception{
 		Connection con = getConnection();
@@ -290,7 +333,7 @@ public class Host_Content_Dao {
 				+ " start with superno is null "
 				+ " order siblings by groupno desc, host_content_no asc "
 				+ " )A "
-			+ " ) where rn between ? and ? ";
+			+ " ) where host_content_approval='승인' and rn between ? and ? ";
 
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, keyword);
@@ -358,7 +401,7 @@ public class Host_Content_Dao {
 				+ "start with superno is null "
 				+ "order siblings by groupno desc, host_content_no asc"
 			+ ")A"
-		+ ") where rn between ? and ?";
+		+ ") where host_content_approval='승인' and rn between ? and ?";
 		
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, start);
@@ -392,3 +435,4 @@ public class Host_Content_Dao {
 	}
 
 }
+

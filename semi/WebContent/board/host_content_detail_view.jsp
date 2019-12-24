@@ -16,12 +16,12 @@
 	<%
 		Host_Content_Dao HCdao = new Host_Content_Dao();
 		//컨텐츠 번호를 받아서 no에 넣는다
-  		int no = Integer.parseInt(request.getParameter("host_content_no"));
+//   		int no = Integer.parseInt(request.getParameter("host_content_no"));
 		
 		String host_id = (String) session.getAttribute("host_id"); //호스트 아이디 받고
 		String user_id = (String) session.getAttribute("user_id"); //유저 아이디 받고
 
-// 		int no = 40;
+		int no = 20;
 
 		//받은 no를 이용해 단일컨텐츠를 불러오는 명령어를 불러온다
 		Host_Content_Dto HCdto = HCdao.getOneContent(no);
@@ -76,36 +76,41 @@
     
 <!--     	스타일 영역 시작입니다---------------------------------------------------------- -->
     <style>
-		  .float{
+		  .float1.float2{
 		  border: 1px dotted black;
 		  float:left;
-		  width:25%
+		  width:50%
 		  }  
-		  .w-70::after {
+		  
+		  
+		  .float2
+		  
+		  .float1::after {
             content: "";
             display: block;
             clear: both;
-            height : 500px;
-        }
-		  .main{
-		  	width:465px;
+       	  }
+		   .float2.main{
+		  	width:75%;
 			/* 		  	글 안넘어가게 하는 명령어 */
 		  	word-break:break-all; 
 		  	
 		  }
 		  
-		  .sub{
-			width:232px;
+		  .float2.sub{
+			width:300px;
 		  	position: fixed;
 		  	top: 44.5%;
-            right: 27.05%;
+            right: 10.00%;
             height : 237px;
             /* 		  	글 안넘어가게 하는 명령어 */
             word-break:break-all;
 		  }
 		  
 		  .form_button{
-		 	 width:100%;
+		 	 width:300px;
+		 	 display : block;
+		 	 
 		  }
 		  
 		
@@ -113,10 +118,10 @@
     <!--     	스타일 영역 끝입니다---------------------------------------------------------- -->
    
 	<!--    슬라이더를 불러옵니다 -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/deslider/1.5.1/style.css">
    
-     <!--     	스크립트 영역 시작입니다---------------------------------------------------------- -->
-    <script type="text/javascript" src="../js/slider.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/deslider/1.5.1/style.css">
+    <script type="text/javascript" src="<%=request.getContextPath()%>/js/slider.js"></script>
+    
     
     <!-- Content 날자 지정 API  -->
     <link rel="stylesheet" type="text/css" href="../css/datepicker.css">
@@ -139,10 +144,17 @@
             {
                 link:"http://placehold.it/300x100?text=c",
                 caption:"테스트 제목1"
+            },
+            {
+                link:"http://placehold.it/300x100?text=d",
+                caption:"테스트 제목1"
+            },
+            {
+                link:"http://placehold.it/300x100?text=e",
+                caption:"테스트 제목1"
             }
-            
             ];
-            var containerId = '#deslider-container';
+            var containerId = '.deslider-container';
 
             var options = {
                 auto: {
@@ -158,7 +170,7 @@
             var myDeslider = new Deslider(imgSources, containerId, options);
              }
 
-        	window.onload=loadSlider;
+        	
         	
         	//티켓 창 플러스 1 시키는 명령어
         	function plus(){
@@ -206,10 +218,26 @@
                     var picker = new Lightpick(options);
                 }
             	
+           	 	function addLoadEvent(func) {
+                	var oldonload = window.onload;
+                   	 if(typeof window.onload != 'function') {
+                        window.onload = func;
+                   	 } else {
+                        window.onload = function() {
+                            oldonload();
+                            func();
+                    			}
+                			}	
+            		}
+
+           	 		addLoadEvent(loadSlider);
+            		addLoadEvent(loadPicker);
             	
             	
             	//이 페이지에서 예약 실행
-            	window.onload=loadPicker; 
+            	
+//             	window::onload(){loadSlider();}
+//             	window::onload(){loadPicker();} 
         		
             	//------------------------수정 하려고 할때---------------------------
             	function edit(){
@@ -235,7 +263,7 @@
                     location.href = "<%=request.getContextPath()%>/board/host_content_list.jsp";
                      }
                 }
-            
+           
             	
     </script>
     
@@ -245,11 +273,10 @@
    
 	
 	<article class="w-70 row">
-		<div class="float">
-			
-			<div class="main">
+		<div class="float1">
+			<div class="float2 main">
 				<!-- 이미지 슬라이더 영역 -->
-    			<div id="deslider-container"></div>
+    			<div class="deslider-container"></div>
     			<div><h1><%=HCdto.getHost_content_name() %></h1></div>
     			<div><h3>조회수(<%=HCdto.getHost_content_view_count() %>)</h3></div>
     			<div><h3>가격 = <%=HCdto.getHost_content_cost() %></h3></div>
@@ -283,7 +310,7 @@
 				<%} %>
 			</div>
 			
-			<div class="sub">
+			<div class="float2 sub">
 				<%if(isUser) {%>
 				<div>남은 티켓 수량 : <%=HCdto.getHost_content_ticket()%></div>
 				<div>티켓수량 선택</div>

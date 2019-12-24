@@ -20,13 +20,48 @@
 // 		String review_writer = (String)session.getAttribute("user_id");  //나중에 주석풀어서 이거 쓰기
 	String review_writer = "dladnwls";
 	List<Users_Review_Dto> list = URdao.users_review_list(review_writer);
+	
+	//네비게이터 내용
+	//페이지 크기
+			int pagesize = 10;
+			//네비게이터 크기
+			int navsize = 10;
+			
+			//페이징 추가
+			int pno;
+			try{
+				pno = Integer.parseInt(request.getParameter("pno"));
+				if(pno <= 0) throw new Exception(); //음수를 입력하면 예외를 발생시킨다
+			}
+			catch(Exception e){
+				pno = 1;
+			}
+				
+			int finish = pno * pagesize;
+			int start = finish - (pagesize - 1);
+			//	System.out.println("start = " + start + " , finish = " + finish);
+			
+		//**************************************************************************************
+//		 		하단 네비게이터 계산하기
+//				- 시작블록 = (현재페이지-1) / 네비게이터크기 * 네비게이터크기 +1	
+		//**************************************************************************************
+			int count = URdao.users_review_count(); 
+			int pagecount = (count + pagesize) / pagesize;
+			
+			int startBlock = (pno -1) / navsize * navsize + 1;
+			int finishBlock = startBlock + (navsize -1);
+			
+			//만약 마지막 블록이 페이지 수보다 크다면 수정 처리
+			if(finishBlock > pagecount){
+				finishBlock = pagecount;
+			}
 %>
 
 <jsp:include page="/template/header.jsp"></jsp:include>
 
 <style>
       #jb-container {
-        width: 940px;
+        width: 1100px;
         margin: 0px auto;
         padding: 20px;
 		border: 1px solid #bcbcbc;
@@ -122,7 +157,6 @@
         <thead>
         	<tr>
 	        <th>작성번호</th>
-    	    <th>컨텐츠명</th>
         	<th>컨텐츠내용</th>
         	<th>작성자</th>
         	<th>작성일</th>
@@ -145,9 +179,14 @@
 	</div>
 </body>
   
-
-
-
-<!-- 추후에 네비게이터 넣을 자리 -->
+<div class="row">
+		<!-- 네비게이터(navigator) -->
+		<jsp:include page="/template/navigator.jsp">
+			<jsp:param name="pno" value="<%=pno%>"/>
+			<jsp:param name="count" value="<%=count%>"/>
+			<jsp:param name="navsize" value="<%=navsize%>"/>
+			<jsp:param name="pagesize" value="<%=pagesize%>"/>
+		</jsp:include>
+	</div>
 
 <jsp:include page="/template/footer.jsp"></jsp:include>
