@@ -29,22 +29,32 @@ public class Users_pay_Servlet extends HttpServlet{
 			int ticketing = Integer.parseInt(req.getParameter("ticketing"));//유저가 구매하려는 티켓수
 			String start_date = req.getParameter("start_date");//유저가 원하는 날짜
 			
+			//유저 세션 받아오기
 			String user_id = (String) req.getSession().getAttribute("user_id");
 			
+			//콘텐츠 다오 불러오기
+			Content_History_Dao CHdao = new Content_History_Dao();
+			
+			//시퀀스 미리 뽑아오기
+			int seq = CHdao.getSequence();
+			
+			//유저 정보 불러오기
 			Users_Info_Dao DIdao = new Users_Info_Dao();
 			Users_Get_Dto UGdto = DIdao.users_get(user_id);
 			
+			//불러온 정보들을 콘텐츠 디티오에 몰아넣기
 			Content_History_Dto CHdto = new Content_History_Dto();
-			System.out.println(UGdto.getUser_no());
 			CHdto.setHost_history_no(host_content_no);
 			CHdto.setUsers_history_no(UGdto.getUser_no());
 			CHdto.setUsers_history_id(user_id);
 			CHdto.setUser_qty(ticketing);
 			CHdto.setUser_class_date(start_date);;
+			CHdto.setHistory_no(seq);
 			
-			Content_History_Dao CHdao = new Content_History_Dao();
+//			디티오에 받은 정보들로 결제 진행하기
 			CHdao.users_history_pay(CHdto);
-				
+
+//			결제가 성공하면 유저 결제창으로 넘어가기
 			resp.sendRedirect(req.getContextPath()+"/info/users_history.jsp");
 			
 		}
