@@ -4,7 +4,6 @@
     1. 폰트를 등록한다 (@font-face)
     2. 등록된 폰트를 설정한다(font-family2)
         */
- <style>
     /* header,  .search, nav, section, footer 등 각 영역의 구분 */
         @font-face {
 	font-family: NanumSquareR;
@@ -383,14 +382,11 @@ p {
 .modalbtn, .a:focus {
 	outline: none;
 }
-=======
-@charset "UTF-8";
 
 /* 웹 폰트 설정
     1. 폰트를 등록한다 (@font-face)
     2. 등록된 폰트를 설정한다(font-family2)
         */
- <style>
     /* header,  .search, nav, section, footer 등 각 영역의 구분 */
       
 @font-face {
@@ -814,7 +810,6 @@ current {
    color: white;
    cursor: pointer;
 }
-    </style>
 
 
 
