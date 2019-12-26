@@ -134,6 +134,11 @@
        	height: 25px;
        }
        
+       .content_text{
+       font-size:12px;
+       }
+       
+       
     </style>
 <!-- css style 끝 -->
 
@@ -176,7 +181,7 @@
       <div class="content">
             <div class="row-empty"></div>
         	<div class="row-empty2"></div>
-        <table class="notice_table"  font-size="10px">
+        <table class="notice_table" >
 			<thead>
 				<tr>
 				<th>결제날짜</th>
@@ -184,7 +189,7 @@
 				<th>가격</th>
 				<th width="100px" >수량</th>
 				<th width="100px">호스트이름</th>
-				<th>호스트연락처</th>
+				<th width="130px" >호스트연락처</th>
 				<th width="100px">이용날짜</th>
 				<th>위치</th>		
 				</tr>
@@ -192,14 +197,14 @@
 			
 			<tbody  align="center" font-size="10px">
 			<%for(Users_Content_History_Dto UCHdto : list){%>
-            <tr font-size="10px">
-                <td width="150px" font-size="10px"><%=UCHdto.getUser_reservation_date_WithFormat() %></td>
+            <tr class="content_text">
+                <td width="150px"><%=UCHdto.getUser_reservation_date_WithFormat() %></td>
                 <td width="150px"><%=UCHdto.getHost_content_name() %></td>
                 <td><%=UCHdto.getHost_content_cost() %></td>
                 <td><%=UCHdto.getUser_qty() %></td>
                 <td><%=UCHdto.getHost_name() %></td>
                 <td><%=UCHdto.getHost_phone() %></td>
-                <td><%=UCHdto.getUser_class_date_WithFormat() %></td>
+                <td width="150px"><%=UCHdto.getUser_class_date_WithFormat() %></td>
                 <td><%=UCHdto.getHost_content_location() %></td>                       
             </tr>      
 			<%} %>		
