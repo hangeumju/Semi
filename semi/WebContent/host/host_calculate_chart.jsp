@@ -34,6 +34,7 @@
     %>
     
     
+    
 <jsp:include page="/template/host_header.jsp"></jsp:include>
 	<article>
 		<div>총 금액</div>
