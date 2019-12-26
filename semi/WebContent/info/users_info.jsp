@@ -24,13 +24,16 @@
             line-height: 40px;
             display: block;
             text-decoration: none;
+            
        }
        
        ul{
            list-style: none;
+       
        }
        .side .side_menu > ul > li:hover{
             background-color: antiquewhite;
+            
             color: black;
        }
        .side .side_menu > ul > li{
@@ -67,6 +70,11 @@
             display: block;
             clear: both;
         }
+        
+	 .hr_color {
+         background-color: red;
+         ;
+         }
        
    </style>
 <%
@@ -87,7 +95,7 @@
 
 <body>
    <div id="dd">
-    <hr>
+    <hr color="#F9896">
      <h2 style="margin: 20px 50px 10px"><%=id %>님의 프로필</h2>
      <div class="row-empty"></div>
       <!-- side_menu시작 -->
@@ -97,7 +105,7 @@
              
               <ul>
                 <div style="margin: 0px 10px;">내 정보</div>
-                 <hr>
+                 <hr color="#F9896">
                   <li>
                       <a href="<%=request.getContextPath() %>/info/users_history.jsp">이용내역</a>
                   </li>
@@ -114,7 +122,7 @@
                   <li>                     
                       <a href="<%=request.getContextPath() %>/info/users_point.jsp">포인트내역</a>
                   </li>
-                  <hr>
+               <hr color="#F9896">
               </ul>
           </div>
           <!-- side_menu끝 -->
@@ -156,7 +164,7 @@
 	
    </div> 
   
-   <hr>    
+    <hr color="#F9896">    
 </body>
 
    <jsp:include page="/template/footer.jsp"></jsp:include>

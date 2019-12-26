@@ -98,13 +98,14 @@ ul {
 	background-color: #F98967;
 	color: white;
 	border: none;
+	border-radius: 10px;
 }
 </style>
 <!-- css style 끝 -->
 
 <body>
 	<div id="dd">
-		<hr>
+		<hr color="#F9896">
 		<h2 style="margin: 20px 50px 10px"><%=UGdto.getUser_id()%>님의 정보를
 			비밀번호를 수정하시나요?
 		</h2>
@@ -117,7 +118,7 @@ ul {
 
 				<ul>
 					<div style="margin: 0px 10px;">내 정보</div>
-					<hr>
+					<hr color="#F9896">
 					<li><a
 						href="<%=request.getContextPath()%>/info/users_history.jsp">이용내역</a>
 					</li>
@@ -132,7 +133,7 @@ ul {
 					<li><a
 						href="<%=request.getContextPath()%>/info/users_point.jsp">포인트내역</a>
 					</li>
-					<hr>
+					<hr color="#F9896">
 				</ul>
 			</div>
 			<!-- side_menu끝 -->
@@ -153,6 +154,6 @@ ul {
 			</div>
 	</div>
 </body>
-<hr>
+<hr color="#F9896">
 </section>
 <jsp:include page="/template/footer.jsp"></jsp:include>

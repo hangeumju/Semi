@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!-- 유저 비밀번호 변경 입력 결과창-->
 
 <jsp:include page="/template/header.jsp"></jsp:include>
@@ -101,7 +101,7 @@ ul {
 
 <body>
 	<div id="dd">
-<hr>
+		<hr color="#F9896">
 		<div class="row-empty"></div>
 		<!-- side_menu시작 -->
 
@@ -111,7 +111,7 @@ ul {
 
 				<ul>
 					<div style="margin: 0px 10px;">내 정보</div>
-					<hr>
+					<hr color="#F9896">
 					<li><a
 						href="<%=request.getContextPath()%>/info/users_history.jsp">이용내역</a>
 					</li>
@@ -126,24 +126,27 @@ ul {
 					<li><a
 						href="<%=request.getContextPath()%>/info/users_point.jsp">포인트내역</a>
 					</li>
-					<hr>
+					<hr color="#F9896">
 				</ul>
 			</div>
 			<!-- side_menu끝 -->
 		</div>
 		<!-- side끝 -->
-		
-		
-		
+
+
+
 		<section>
-   <div align = "center">
-   
-   <h2> 비밀번호 변경이 완료되었습니다</h2>
-   
-   <h4 class="going_home_text"><a href="<%=request.getContextPath()%>">메인 페이지로 이동</a></h4>
-   
-   </div>
-   </section>
-   </div>
-   </body>
-   
+			<div align="center">
+
+				<h2>비밀번호 변경이 완료되었습니다</h2>
+
+				<h4 class="going_home_text">
+					<a href="<%=request.getContextPath()%>">메인 페이지로 이동</a>
+				</h4>
+
+			</div>
+		</section>
+	</div>
+</body>
+<hr color="#F9896">
+<jsp:include page="/template/footer.jsp"></jsp:include>
