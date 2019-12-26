@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import beans.Host_Info_Dao;
 
-@WebServlet(urlPatterns = "/info/exit.do")
+@WebServlet(urlPatterns = "/info/host_exit.do")
 public class Host_Exit_Servlet extends HttpServlet{
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

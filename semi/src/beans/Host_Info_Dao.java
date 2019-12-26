@@ -64,7 +64,7 @@ public class Host_Info_Dao {
 	public void exit(String host_id) throws Exception {
 		///////////////////////호스트용 탈퇴(host_exit)
 		Connection con = getConnection();
-		String sql = "delete host where id=?";
+		String sql = "delete host where host_id=?";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, host_id);
 		
@@ -121,6 +121,7 @@ public class Host_Info_Dao {
 		ps.setString(2, host_id);
 		
 		ps.execute();
+		
 		con.close();
 	}
 		///////////////////////호스트용 임시 비밀번호 발급(host_change_temporary_pw)

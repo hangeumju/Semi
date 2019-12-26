@@ -5,6 +5,7 @@
 <%
 //host_id 는 hidden 으로 넘김
 String host_id = (String)request.getSession().getAttribute("host_id");
+System.out.println(host_id);
 %>
 
 
@@ -119,7 +120,7 @@ String host_id = (String)request.getSession().getAttribute("host_id");
 	<!-- host_id 는 hidden 으로 넘김 -->
 	<!-- host_id 대신에 rlawldms 넣어놨으니 나중에 변경 -->
 	<%-- <input  type="hidden" name= "host_id" value="<%=host_id%>">	 --%>
-	<input  type="hidden" name= "host_id" value="rlawldms">	
+	<input  type="hidden" name= "host_id" value="<%=host_id%>">	
 	<div align ="left">
 		<div class="row"> 		
 			<h2>(<%=host_id %>) 님의 컨텐츠 생성</h2>
