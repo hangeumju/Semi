@@ -8,8 +8,8 @@ String host_id = (String)request.getSession().getAttribute("host_id");
 %>
 
 
-
- <jsp:include page="/template/header.jsp"></jsp:include>  
+ <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/host_main.css">
+<jsp:include page="/template/host_header.jsp"></jsp:include>
 
 <!-- style , script 정의 공간 -->
 
@@ -167,4 +167,4 @@ String host_id = (String)request.getSession().getAttribute("host_id");
 	</form>	
 
 
-<jsp:include page="/template/footer.jsp"></jsp:include>  
+<jsp:include page="/template/host_footer.jsp"></jsp:include>

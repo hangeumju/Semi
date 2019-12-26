@@ -10,7 +10,8 @@
     Host_Content_Dto HCdto = HCdao.getOneHost(content_no);
     %>
  <!--     	자바 영역 끝입니다---------------------------------------------------------- -->
-<jsp:include page="/template/header.jsp"></jsp:include>
+ <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/host_main.css">
+<jsp:include page="/template/host_header.jsp"></jsp:include>
 
 	<!-- 호스트 컨텐츠 생성 지도 API -->
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=144ecc43e88cf564cd023973d3eb1f18&libraries=services"></script>
@@ -204,4 +205,4 @@
 	</table>
 	</form>
 </div>
-<jsp:include page="/template/footer.jsp"></jsp:include>
+<jsp:include page="/template/host_footer.jsp"></jsp:include>
