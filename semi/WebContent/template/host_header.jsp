@@ -16,8 +16,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/host_main.css">
+    <title></title>
     <style>
         
     </style>
@@ -34,7 +34,7 @@
      
        <nav>
 		<ul>
-	        <li><a class="active" href="/semi/host/submain2.jsp">Home</a></li>
+	        <li><a class="active" href="/semi/host/host_submain.jsp">Home</a></li>
 	         <li class="dropdown">
 	             <a href="<%=context%>/info/host_info.jsp" class="dropbtn">호스트 내정보</a>
 	             <div class="dropdown-content">

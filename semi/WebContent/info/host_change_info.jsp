@@ -12,7 +12,8 @@
     %> 
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/common.css">
 <jsp:include page="/template/host_header.jsp"></jsp:include>
-<form action="host_regist.do" method="post">
+
+<form action="host_change_info.do" method="post">
 <style>
        *{
            box-sizing: border-box;

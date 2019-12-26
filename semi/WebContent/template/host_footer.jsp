@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
     
     
-<footer class="row">
+<footer class="row" align = "center">
 		
 		<%
 					String user = (String)session.getAttribute("user_id");
