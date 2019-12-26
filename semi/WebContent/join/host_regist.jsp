@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
-<jsp:include page="/template/header.jsp"></jsp:include>  
 <form action="host_regist.do" method="post">
 <style>
        *{
@@ -135,8 +133,9 @@
                </div> 
 		 <div class="join_row">
                    <h3 class="join_title">
-                       <div>휴대전화</div>
+                       <div>전화번호</div>
                    </h3>
+                   <span class="join_box">
 	  		<input id="phone" class="block-item input-item" type="tel" name="host_phone"  required>
 		</span>
                </div> 
@@ -210,4 +209,3 @@
                    </span>
             </div> 
       </form>
-<jsp:include page="/template/footer.jsp"></jsp:include>

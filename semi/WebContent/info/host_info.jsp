@@ -8,75 +8,141 @@
  	//기존 정보 불러오기 !
  	Host_Info_Dto HIdto = HIdao.get(host_id);
     %>
-    
-   <style>
-  table {
-    width: 100%;
-    border-top: 1px solid #444444;
-    border-collapse: collapse;
-    font-family : NanumSquareR;
-    font-size : 2rem;
-  }
-  th {
-    border-bottom: 1px solid #444444;
-    padding: 10px;
-    font-family : NanumSquareR;
-     font-size : 2rem;
-  }
-  td {
-    border-bottom: 1px solid #444444;
-    padding: 10px;
-    font-family : NanumSquareR;
-     font-size : 1rem;
-  }
+ <style>
+       *{
+           box-sizing: border-box;
+       }
+       
+       #container, #footer, #header {
+        margin: 0 auto;
+        width: 400px;  
+    }       
+       .join_content{
+           width: 100%; 
+/*            border: 1px solid black; */
+       }
+       
+        .join_title {
+        margin: 19px 0 8px;
+        font-size: 14px;
+        font-weight: 700;
+/*         border: 1px solid black; */
+    }
+       .join_box *{
+           border: solid 1px darkgray;
+           padding: 10px;
+           width: 100%; 
+       }
+       .email_box *{
+           height: 32px;          
+       }
+       #email_id{
+           width: 220px;
+           border: solid 1px darkgray;
+       }
+       .join_btn{
+            font-size:1.5rem;
+            padding:0.5rem;
+            background-color: #F98967;
+            color:white;
+            border:none;
+        }       
 </style>
-
-<jsp:include page="/template/header.jsp"></jsp:include>
-<div align="center">
-<h2><font size ="8" style="font-family:NanumSquareR"><%=HIdto.getHost_id() %>님의 정보</font></h2>
+	<div id="container">
+       <div class="join_content">
+           <div class="row_group">
+              <div class="join_content" style="text-align: center">
+	<h2><%=HIdto.getHost_id() %>님의 정보</h2>
+     </div>         
 <br>
 <!-- 회원정보 출력 -->
-	<table border="1" width="700" >
 	<!-- 히든정보 -->
-			<tr>
-				<th>아이디</th>
-				<td><%=HIdto.getHost_id()%></td>
-			</tr>
-			<tr>
-				<th>이름</th>
-				<td><%=HIdto.getHost_name()%></td>
-			</tr>
-			<tr>
-				<th>휴대전화</th>
-				<td><%=HIdto.getHost_phone()%></td>
-			</tr>
-			<tr>
-				<th>가입일</th>
-				<td><%=HIdto.getHost_joindatewithFormat()%></td>
-			</tr>
-			<tr>
-				<th>이메일</th>
-				<td><%=HIdto.getHost_totalmail()%></td>
-			</tr>
-			<tr>
-				<th>최종로그인시간</th>
-				<td><%=HIdto.getHost_lastloginwithFormat()%></td>
-			</tr>
-			<tr>
-				<th>주소</th>
-				<td><%=HIdto.getHost_address()%></td>
-			</tr>
-			<tr>
-				<th>은행</th>
-				<td><%=HIdto.getHost_bankaccount()%></td>
-			</tr>
-	</table>
-	<br><br>
+	<!-- 아이디 -->
+			 <div class="join_row">
+                   <h3 class="join_title">
+                       <div>아이디</div>
+                    </h3>
+                  <span class="join_box">
+				<div><%=HIdto.getHost_id()%></div>
+				</span>
+			</div>
+	<!-- 이름 -->			
+		 <div class="join_row">
+                   <h3 class="join_title">
+                       <div>이름</div>
+                    </h3>
+                  <span class="join_box">
+				<div><%=HIdto.getHost_name()%></div>
+				</span>
+			</div>
+	<!-- 전화번호 -->
+				 <div class="join_row">
+                   <h3 class="join_title">
+                       <div>전화번호</div>
+                    </h3>
+                  <span class="join_box">
+				<div><%=HIdto.getHost_phone()%></div>
+				</span>
+			</div>
+				
+	<!-- 가입일 -->
+		 <div class="join_row">
+                   <h3 class="join_title">
+                       <div>가입일</div>
+                    </h3>
+                  <span class="join_box">
+				<div><%=HIdto.getHost_joindatewithFormat()%></div>
+				</span>
+			</div>
+	
+	<!-- 이메일 -->		
+		<div class="join_row">
+                   <h3 class="join_title">
+                       <div>이메일</div>
+                    </h3>
+                  <span class="join_box">
+				<div><%=HIdto.getHost_totalmail()%></div>
+				</span>
+			</div>
+				
+	<!-- 최종로그인시간 -->	
+	<div class="join_row">
+                   <h3 class="join_title">
+                       <div>마지막 로그인 날짜</div>
+                    </h3>
+                  <span class="join_box">
+				<div><%=HIdto.getHost_lastloginwithFormat()%></div>
+				</span>
+			</div>
+				
+	<!-- 주소 -->	
+	<div class="join_row">
+                   <h3 class="join_title">
+                       <div>주소</div>
+                    </h3>
+                  <span class="join_box">
+				<div><%=HIdto.getHost_address()%></div>
+				</span>
+			</div>
+				
+	<!-- 은행-->	
+	<div class="join_row">
+                   <h3 class="join_title">
+                       <div>계좌 정보</div>
+                    </h3>
+                  <span class="join_box">
+				<div><%=HIdto.getHost_bankaccount()%></div>
+			</span>
+		</div>
+		</div>
+			</div>
+			<br><br>
 <h4><a href="host_check.jsp?go=/info/host_change_pw.jsp">
-<font size ="5" style="font-family:NanumSquareR">비밀번호 변경</font></a></h4>
+<font size ="5" color="#F98967">비밀번호 변경</font></a></h4>
 <h4><a href="host_check.jsp?go=/info/host_change_info.jsp">
-<font size ="5" style="font-family:NanumSquareR">회원정보 수정</font></a></h4>
+<font size ="5" color="#F98967">회원정보 수정</font></a></h4>
 <h4><a href="host_check.jsp?go=/info/host_exit.jsp">
-<font size ="5" style="font-family:NanumSquareR">회원 탈퇴</font></a></h4>
+<font size ="5" color="#F98967">회원 탈퇴</font></a></h4>
 </div>
-<jsp:include page="/template/footer.jsp"></jsp:include>
+
+
