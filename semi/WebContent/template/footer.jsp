@@ -1,13 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+ 
+<%
+	String user = (String)session.getAttribute("user_id");
+	String host = (String)session.getAttribute("host_id");
+%>
     
 <footer class="row">
 		
-		<%
-					String user = (String)session.getAttribute("user_id");
-					String host = (String)session.getAttribute("host_id");
-				%>
+
 				
 				<h5>user = <%=user %></h5>
 				<h5>host = <%=host %></h5>
