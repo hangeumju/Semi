@@ -60,12 +60,8 @@
 
 <jsp:include page="/template/header.jsp"></jsp:include>
 
-<style>
-     div{
-/* 		border: 1px solid black; */
-       }
-       
-      /*
+<style>   
+     /*
     테이블 스타일
     */
  		.notice_table {
@@ -80,9 +76,12 @@
           }
     
     /*
-    사이드 메뉴 스타일  
+    사이드 메뉴 스타일
+  
 */
-<<<<<<< HEAD
+     div{
+/*     border: 1px solid black; */
+       }
        .side{
            width: 170px;
            float: left;
@@ -134,35 +133,13 @@
        .row-empty2{
        	height: 25px;
        }
-       </style>
-=======
-.custom-list{
-    list-style: none;
-    margin:0;
-    padding:0;
-    display:inline-block;
-    width:150px;
-}
-.custom-list > li{
-    background-color:black;
-    color:white;
-	padding:10px 10px 10px 10px;
-	cursor:pointer;
-}
-
-
-
+       
     </style>
-    
-    
 <!-- css style 끝 -->
->>>>>>> refs/remotes/origin/master
-
 
 <!-- 				후기 내용이 들어갈 자리 -->
 <!-- 				들어갈 내용 : 컨텐츠 넘버/ 유저 이름(작성자) / 작성일 / 리뷰내용/ 컨텐츠 넘버   -->
 <body>
-<<<<<<< HEAD
 	<div id="dd">
     <hr>
 	<h2 style="margin: 20px 50px 10px"><%=user_id %>님의 리뷰게시판입니다</h2>
@@ -202,23 +179,6 @@
             <div class="row-empty"></div>
         	<div class="row-empty2"></div>
         <table class="notice_table" >
-=======
-	<div id="jb-container">
-    <div id="jb-header">
-		<h2><%=user_id %>님의 리뷰게시판입니다</h2>
-	</div>
-    <div id="jb-sidebar">
-        <ul class="custom-list"">
-				<li><a href="<%=request.getContextPath()%>/info/users_history.jsp">이용내역</a></li>
-				<li><a href="<%=request.getContextPath()%>/info/users_review.jsp">이용후기</a></li>
-				<li><a href="users_check.jsp?go=/info/users_change_info.jsp">정보수정</a></li>
-				<li><a href="users_check.jsp?go=/info/users_exit.do">회원탈퇴</a></li>
-				<li><a href="<%=request.getContextPath()%>/info/users_point.jsp">포인트내역</a></li>
-		</ul>
-	</div>
-	<div class="jb-content" align="center">
-        <table class="table">
->>>>>>> refs/remotes/origin/master
         <thead>
         	<tr>
 	        <th>작성번호</th>
@@ -240,13 +200,13 @@
 		<%} %>
         </tbody>
 		</table>
-		 </div>
-	   </div>
-	    <div class="row-empty"></div>
-	    <div class="row-empty"></div>
+      </div>
+    </div>
+    <div class="row-empty"></div>
+    <div class="row-empty"></div>
     <hr>
     
-    	<div class="row">
+    <div class="row">
 		<!-- 네비게이터(navigator) -->
 		<jsp:include page="/template/navigator.jsp">
 			<jsp:param name="pno" value="<%=pno%>"/>
