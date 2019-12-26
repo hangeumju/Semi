@@ -30,7 +30,7 @@ public class Users_Review_Regist_Servlet extends HttpServlet{
 			URdao.users_review_regist(URdto);
 			
 //			[3]해당 상품 페이지로 다시 이동합니다
-			resp.sendRedirect(req.getContextPath() + "/board/host_content_detail_view.jsp?no="+ URdto.getContent_original_no());
+			resp.sendRedirect(req.getContextPath()+"/board/host_content_detail_view.jsp?host_content_no="+ URdto.getContent_original_no());
 		} 
 		catch (Exception e) {
 			e.printStackTrace();

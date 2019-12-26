@@ -10,15 +10,11 @@
 <%
 // 컨텐츠 불러오기
 
-// 	오류나오는 영역을 고치기 위해 타입을 받았습니다 나중에 고치면 됩니다
-// 	String type = request.getParameter("type");
-	
 	Host_Content_Dao HCdao = new Host_Content_Dao();
+	String category = request.getParameter("category");
+// 	String category = "액티비티";
 	
-
 	List<Host_Content_Dto> list ;
-	
-// 	System.out.println(category);
 	
 // 	페이지 크기
 	int pagesize = 12;
@@ -41,20 +37,25 @@
 	String type = request.getParameter("type");
 	String keyword = request.getParameter("keyword");
 	
-	//실험용입니다
-	String category = "건강/뷰티";
-	
-	boolean isSearch = type != null && keyword != null;
-	
+	boolean isSearch =(type != null && keyword != null);
+
 	
 	if(isSearch){
 		list = HCdao.search(type, keyword, start, finish); 
 	}
 	else{
-		list = HCdao.getList(category);
+		list = HCdao.getList(category, start, finish);
 	}
 	
-	int count = HCdao.getCount(type, keyword);
+	
+	int count = HCdao.getCount(type, keyword, category);
+	
+// 	System.out.println(count);
+// 	System.out.println(category);
+// 	System.out.println(pagesize);
+// 	System.out.println(start);
+// 	System.out.println(finish);
+	
 	%>
 
 	<!-- 갤러리 4단 나누기 -->
@@ -139,6 +140,7 @@
     </div>  
 
   <div class="gallary">
+
  	<% for (Host_Content_Dto dto : list) {%> 
         <div class="gallary-item">
             <div class="gallary-image">
@@ -154,19 +156,24 @@
                 <h4>
                 	<%=dto.getHost_content_view_count() %>
                 </h4>
+                <h3>
+                	<%=dto.getHost_content_category() %>
+                </h3>
                 
             </div>
         </div>   
 	<% } %>  
+	
      </div>  
      <div class="row">
 		<!-- 네비게이터(navigator) -->
-		<jsp:include page="/template/navigator.jsp">
+		<jsp:include page="/template/list_navigator.jsp">
 			<jsp:param name="pno" value="<%=pno%>"/>
 			<jsp:param name="count" value="<%=count%>"/>
 			<jsp:param name="navsize" value="<%=navsize%>"/>
 			<jsp:param name="pagesize" value="<%=pagesize%>"/>
 		</jsp:include>
+			
 	</div>             
 
 </article> 

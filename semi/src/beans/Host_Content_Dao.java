@@ -71,14 +71,25 @@ public class Host_Content_Dao {
 	//매개변수 : 카테고리(아직 미구현했습니다) 
 	//반환값 : 카테고리에 해당하는 컨텐츠 리스트
 	//아직 사진을 못넣었어요 추가해야 합니다 아직 미완성이에요
-	public List<Host_Content_Dto> getList(String category) throws Exception{
+	public List<Host_Content_Dto> getList(String category, int start, int finish) throws Exception{
 		
 		Connection con = getConnection();
-		String sql = "select * from host_content where host_content_category = ? and host_content_approval='승인' order by host_content_no desc";
+		String sql = "select * from "
+				+ "(select rownum rn, A.* "
+				+ " from( "
+				+ " select * from host_content "
+				+ " where host_content_category = ?"
+				+ " connect by prior host_content_no=superno "
+				+ " start with superno is null "
+				+ " order siblings by groupno desc, host_content_no asc "
+				+ " ) "
+				+ " A) where host_content_approval='승인' and rn between ? and ?";
 						
 		
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, category);
+		ps.setInt(2, start);
+		ps.setInt(3, finish);
 		ResultSet rs = ps.executeQuery();
 		List<Host_Content_Dto> list = new ArrayList<>();
 		
@@ -88,6 +99,7 @@ public class Host_Content_Dao {
 			HCdto.setHost_content_cost(rs.getInt("Host_content_cost"));
 			HCdto.setHost_content_no(rs.getInt("host_content_no"));
 			HCdto.setHost_content_view_count(rs.getInt("host_content_view_count"));
+			HCdto.setHost_content_category(rs.getString("host_content_category"));
 			list.add(HCdto);
 		}
 		
@@ -370,17 +382,24 @@ public class Host_Content_Dao {
 	}
 	
 	
-	public int getCount(String type, String keyword)throws Exception{
+	public int getCount(String type, String keyword, String category)throws Exception{
 		Connection con = getConnection();
 		boolean isSearch = type != null && keyword != null ;
 		String sql = "select count(*) from host_content ";
 		if(isSearch) {
 			sql += " where "+type+" like '%'||?||'%'";
 		}
+		else {
+			sql += " where host_content_category = ?";
+		}
 		
 		PreparedStatement ps = con.prepareStatement(sql);
 		if(isSearch) {
 			ps.setString(1, keyword);
+			
+		}
+		else {
+			ps.setString(1, category);
 		}
 		ResultSet rs = ps.executeQuery();
 		rs.next();
@@ -389,6 +408,26 @@ public class Host_Content_Dao {
 		con.close();
 		return count;
 	}
+	
+	public int getCount(String type, String keyword)throws Exception{
+	      Connection con = getConnection();
+	      boolean isSearch = type != null && keyword != null ;
+	      String sql = "select count(*) from host_content ";
+	      if(isSearch) {
+	         sql += " where "+type+" like '%'||?||'%'";
+	      }
+	      
+	      PreparedStatement ps = con.prepareStatement(sql);
+	      if(isSearch) {
+	         ps.setString(1, keyword);
+	      }
+	      ResultSet rs = ps.executeQuery();
+	      rs.next();
+	      int count = rs.getInt(1);
+	      
+	      con.close();
+	      return count;
+	   }
 	
 	// 호스트 결제 예약 리스트
 	public List<Host_Content_Dto> reservation_list(int start, int finish)throws Exception{

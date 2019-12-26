@@ -1,3 +1,5 @@
+<%@page import="java.util.Date"%>
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="beans.Users_Get_Dto"%>
 <%@page import="beans.Users_Regist_Dto"%>
 <%@page import="beans.Users_Review_Dto"%>
@@ -14,14 +16,15 @@
     
     <!--     	자바 영역 시작입니다---------------------------------------------------------- -->
 	<%
+		request.setCharacterEncoding("UTF-8");
 		Host_Content_Dao HCdao = new Host_Content_Dao();
 		//컨텐츠 번호를 받아서 no에 넣는다
-//   		int no = Integer.parseInt(request.getParameter("host_content_no"));
+  		int no = Integer.parseInt(request.getParameter("host_content_no"));
 		
 		String host_id = (String) session.getAttribute("host_id"); //호스트 아이디 받고
 		String user_id = (String) session.getAttribute("user_id"); //유저 아이디 받고
 
-		int no = 20;
+// 		int no = 20;
 
 		//받은 no를 이용해 단일컨텐츠를 불러오는 명령어를 불러온다
 		Host_Content_Dto HCdto = HCdao.getOneContent(no);
@@ -69,6 +72,13 @@
 	
 	 	
 	 	List<Users_Review_Dto> list = UIdao.users_review_getList(no);
+	 	
+	 	SimpleDateFormat format1 = new SimpleDateFormat ("yyyy-MM-dd");
+	 	
+	 			
+	 	Date time = new Date();
+	 			
+	 	String time1 = format1.format(time);
 	 	
 	 	
 	%>
@@ -201,6 +211,31 @@
         	
         	
             function loadPicker(){
+            	var minDate;
+            	var maxDate;
+            	
+            	var startDate = moment("<%=time1%>");
+            	var finishDate = moment("<%=HCdto.getHost_content_start_date().substring(0, 10)%>")
+//             	console.log(startDate);
+//             	console.log(startDate.isValid());
+//             	console.log(finishDate);
+//             	console.log(finishDate.isValid());
+//             	console.log(startDate.diff(finishDate));//-나오면 startDate가 finishDate 이전이란 뜻
+            	
+//             	var duration = moment.duration(finishDate.diff(startDate));
+//             	console.log(duration);
+//             	console.log(duration.asDays());
+            	//날짜 지정
+                if(startDate.diff(finishDate) > 0){
+                	minDate = moment(new Date()).add(0, 'days');
+                	maxDate = moment('<%=HCdto.getHost_content_last_date().substring(0, 10) %>');
+                }
+                else{
+                	minDate = moment('<%=HCdto.getHost_content_start_date().substring(0, 10) %>');
+                	maxDate = moment('<%=HCdto.getHost_content_last_date().substring(0, 10) %>');
+                }
+            	
+            	
                 var options = {
                    //날짜가 입력될 첫 번째 칸 설정
                    field:document.querySelector(".start_date"),
@@ -213,11 +248,9 @@
                    //날짜 구분자 설정
                    seperator:'-',
                        
-                   //날짜 지정
-               		minDate: moment('<%=HCdto.getHost_content_start_date().substring(0, 10) %>'),
-               		maxDate: moment('<%=HCdto.getHost_content_last_date().substring(0, 10) %>'),
-
-                        
+                   minDate : minDate,
+                   maxDate : maxDate,
+               		
                    //날짜형식설정
                     format:'YYYY-MM-DD'
                     };
@@ -266,7 +299,7 @@
 				function list(){
                     var cho = window.confirm("목록으로 가시겠습니까?");
                     if(cho){
-                    location.href = "<%=request.getContextPath()%>/board/host_content_list.jsp";
+                    location.href = "<%=request.getContextPath()%>/board/host_content_list.jsp?category=<%=HCdto.getHost_content_category()%>";
                      }
                 }
            
@@ -320,7 +353,7 @@
 				<%if(isUser) {%>
 				<div>남은 티켓 수량 : <%=HCdto.getHost_content_ticket()%></div>
 				<div>티켓수량 선택</div>
-				<form action="<%=request.getContextPath()%>/board/users_pay.jsp" method="post">
+				<form action="<%=request.getContextPath()%>/board/users_pay.jsp" method="get">
 					<input type="hidden" name="host_content_name" value="<%=HCdto.getHost_content_name() %>"><!--컨텐츠 제목 -->
 					<input type="hidden" name="host_name" value="<%=HIdto.getHost_name()%>"><!--호스트 이름 -->
 					<input type="hidden" name="host_phone" value="<%=HIdto.getHost_phone() %>"><!--호스트 폰번호 -->
