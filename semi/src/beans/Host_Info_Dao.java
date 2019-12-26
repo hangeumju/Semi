@@ -115,7 +115,7 @@ public class Host_Info_Dao {
 	public void host_change_password(String host_id, String host_pw) throws Exception {
 		///////////////////////호스트용 비밀번호 변경(host_change_password)
 		Connection con = getConnection();
-		String sql = "update host set host_pw=? where host_id=?";
+		String sql = "update host set host_pw = ? where host_id = ?";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, host_pw);
 		ps.setString(2, host_id);
@@ -129,7 +129,7 @@ public class Host_Info_Dao {
 		///////////////////////호스트용 임시 비밀번호 발급(host_change_temporary_pw)
 		Connection con = getConnection();
 		
-		String sql = "update host set host_pw=? where host_id=?";
+		String sql = "update host set host_pw = ? where host_id=?";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, host_pw);
 		ps.setString(2, host_id);
@@ -141,7 +141,7 @@ public class Host_Info_Dao {
 	public Host_Info_Dto get(String host_id) throws Exception {
 		///////////////////////호스트용 로그인 정보 ID 저장(host_login)
 		Connection con = getConnection();
-		String sql = "select*from host where host_id=?";
+		String sql = "select*from host where host_id = ?";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, host_id);
 		ResultSet rs = ps.executeQuery();
