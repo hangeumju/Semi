@@ -112,7 +112,7 @@ public class Users_Info_Dao {
 			Connection con = getConnection();
 
 			String sql = "update users "
-							+	"set user_phone=?, user_email_id=?, user_email_domain=?, user_interest=? "
+							+	" set user_phone=?, user_email_id=?, user_email_domain=?, user_interest=? "
 							+	"where user_id=?";
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, UCIdto.getUser_phone());
