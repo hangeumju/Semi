@@ -13,11 +13,14 @@
 	Host_Info_Dto HIdto = HIdao.get(host_id);
 %>
 
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/host_main.css">
+<jsp:include page="/template/host_header.jsp"></jsp:include>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>호스트 메인</title>
 
 <style>
 .custom-menu {
@@ -29,7 +32,7 @@
 }
 
 .custom-menu>li {
-	background-color: black;
+	background-color: #F98967;
 	padding: 15px;
 	cursor: pointer;
 }
@@ -49,7 +52,7 @@
 }
 
 .custom-menu ul>li {
-	background-color: black;
+	background-color: #F98967;
 	color: white;
 	padding: 15px;
 	width: 150px;

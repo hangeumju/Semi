@@ -21,15 +21,23 @@ public class Users_Content_History_Dao {
 	
 	//유저 이용내역 목록보기 기능
 	//메소드 이름 : users_history_list
-	//매개변수 : String users_history_id
+	//매개변수 : String users_history_id, int start, int finish
 	//반환형 : Users_Content_History_Dto
-	public List<Users_Content_History_Dto> users_history_list(String users_history_id) throws Exception{
+	public List<Users_Content_History_Dto> users_history_list(String users_history_id, int start, int finish) throws Exception{
 		Connection con = getConnection();
 		
-		String sql = "select * from content_history_to_users where users_history_id = ? order by user_reservation_date desc";
+//		"select * from content_history_to_users where users_history_id = ? order by user_reservation_date desc";
 		
+//		네비게이터 서브쿼리추가
+		String sql = "select * from(" + 
+			"    select rownum rn, A.* from( " + 
+			"        select * from content_history_to_users where users_history_id = ? order by user_reservation_date desc " + 
+			"    )A " + 
+			")where rn between ? and ?"; //최신순
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, users_history_id);
+		ps.setInt(2, start);
+		ps.setInt(3, finish);
 		ResultSet rs = ps.executeQuery();
 		
 		List<Users_Content_History_Dto> list = new ArrayList<>();
@@ -55,13 +63,23 @@ public class Users_Content_History_Dao {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//전체글 수 구하는 메소드
 	//메소드이름 : users_content_history_count
-	//매개변수 : void(없음)
+	//매개변수 : String user_id,  int start, int finish
 	//반환형 : int
-	public int users_content_history_count() throws Exception{
+	public int users_content_history_count(String user_id,  int start, int finish) throws Exception{
 		Connection con = getConnection();
 		
-		String sql = "select count(*) from notice"; //목록구하기
+//		String sql = "select count(*) from content_history where users_history_id=?"; //목록구하기
+//		네비게이터 서브쿼리추가
+		String sql = "select * from(" + 
+			"    select rownum rn, A.* from( " + 
+			"        select * from content_history where users_history_id=? order by review_no desc " + 
+			"    )A " + 
+			")where rn between ? and ?"; //최신순
+		
 		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, user_id);
+		ps.setInt(2, start);
+		ps.setInt(3, finish);
 		
 		ResultSet rs = ps.executeQuery();
 		rs.next();
@@ -71,5 +89,7 @@ public class Users_Content_History_Dao {
 		con.close();			
 		return count;
 		}
+	
+	
 
 }

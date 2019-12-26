@@ -100,18 +100,24 @@ String hostlogin = request.getContextPath()+"/login/host_login.jsp";
 </head>
 
 <body>
+
 	<header>
+
 		<div class="flex-container">
 			<img class="flex-item" src="<%=request.getContextPath() %>/image/header.png" width=60%>
 			<div class="flex-item-gnb">
+
 					<%if (login) {%>
 					<button class="a" onclick="openLoginModal();">일반회원</button>
 					<%} else {%>
+
 					<button class="a"
 						onclick="location.href='<%=request.getContextPath()%>/info/users_info.jsp'">내정보</button>
 					<button class="a"
 						onClick="location.href='<%=request.getContextPath()%>/login/users_logout.do'">로그아웃</button>
+
 					<%}%>
+
 					<button class="a" onclick="openHost();">호스트</button>
 					<button class="a">고객센터</button>
 			</div>

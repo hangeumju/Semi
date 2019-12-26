@@ -24,13 +24,21 @@ public class Users_Review_Regist_Servlet extends HttpServlet{
 			URdto.setContent_original_no(Integer.parseInt(req.getParameter("content_original_no")));
 			URdto.setReview_content(req.getParameter("review_content"));
 			URdto.setReview_date(req.getParameter("review_date"));
-			
+
+			String login = (String)req.getSession().getAttribute("user_id");
+			boolean isLogin = login == null;
+
 //			[2]dao를 불러와 users_review_regist 사용, 리뷰 작성 처리를 합니다
 			Users_Review_Dao URdao = new Users_Review_Dao();
+			if(!isLogin) {
 			URdao.users_review_regist(URdto);
+			resp.sendRedirect(req.getContextPath()+"/board/host_content_detail_view.jsp?host_content_no="+ URdto.getContent_original_no());
+			} 
 			
 //			[3]해당 상품 페이지로 다시 이동합니다
-			resp.sendRedirect(req.getContextPath() + "/board/host_content_detail_view.jsp?no="+ URdto.getContent_original_no());
+			else {
+			resp.sendRedirect(req.getContextPath()+"/board/host_content_detail_view.jsp?host_content_no="+ URdto.getContent_original_no());
+			}
 		} 
 		catch (Exception e) {
 			e.printStackTrace();

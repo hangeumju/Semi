@@ -7,14 +7,16 @@
     pageEncoding="UTF-8"%>
 
 
+
+
 <%
 // 컨텐츠 불러오기
 
 	Host_Content_Dao HCdao = new Host_Content_Dao();
-	String category = request.getParameter("category");
-// 	String category = "액티비티";
+	String host_id = (String)request.getSession().getAttribute("host_id");
 	
-	List<Host_Content_Dto> list ;
+
+	
 	
 // 	페이지 크기
 	int pagesize = 12;
@@ -33,37 +35,21 @@
 	
 	int finish = pno * pagesize;
 	int start = finish - (pagesize - 1);
+	List<Host_Content_Dto> list = HCdao.getList2(host_id, start, finish);
+	int count = HCdao.getCount(host_id);
 	
-	String type = request.getParameter("type");
-	String keyword = request.getParameter("keyword");
-	
-	boolean isSearch =(type != null && keyword != null);
-
-	
-	if(isSearch){
-		list = HCdao.search(type, keyword, start, finish); 
-	}
-	else{
-		list = HCdao.getList(category, start, finish);
-	}
-	
-	
-	int count = HCdao.getCount(type, keyword, category);
-	
-// 	System.out.println(count);
-// 	System.out.println(category);
-// 	System.out.println(pagesize);
-// 	System.out.println(start);
-// 	System.out.println(finish);
-	
+	System.out.println(count);
 	%>
-
+<jsp:include page="/template/host_header.jsp"></jsp:include>
 	<!-- 갤러리 4단 나누기 -->
 
 	
     <style>
-        * {
+        * { 
             box-sizing: border-box;
+        }
+        .w-100{
+        	width:70%;
         }
         
         .gallary{
@@ -107,36 +93,13 @@
         
 
         
-        
-        /* 테스트용 스타일 */
-        .gallary, .gallary-text{
-            border:1px dotted black;
-        }
-        .gallary-item{
-            border:1px dotted red;
-        }
-        .gallary-image{
-            border:1px dotted blue;
-        }
 
     </style>
 	<!-- 갤러리 4단 나누기 종료-->
 
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/common.css">
-<jsp:include page="/template/header.jsp"></jsp:include>
 
-<article class="w-60">
-
-<div id="searchForm">
-        <form action="host_content_list.jsp" method="get">
-            <select name="type">
-                <option value="host_content_name">컨텐츠명</option>
-                <option value="host_id">호스트아이디</option>
-            </select>
-            <input type="search" name="keyword" placeholder="검색어" required>&nbsp;
-            <input type="submit" value="검색">
-        </form>    
-    </div>  
+<article class="w-100">
 
   <div class="gallary">
 
@@ -158,6 +121,9 @@
                 <h3>
                 	<%=dto.getHost_content_category() %>
                 </h3>
+                <h3>
+                	<%=dto.getHost_content_approval() %>
+                </h3>
                 
             </div>
         </div>   
@@ -166,7 +132,7 @@
      </div>  
      <div class="row">
 		<!-- 네비게이터(navigator) -->
-		<jsp:include page="/template/list_navigator.jsp">
+		<jsp:include page="/template/host_list_navigator.jsp">
 			<jsp:param name="pno" value="<%=pno%>"/>
 			<jsp:param name="count" value="<%=count%>"/>
 			<jsp:param name="navsize" value="<%=navsize%>"/>
@@ -177,4 +143,4 @@
 
 </article> 
     
-<jsp:include page="/template/footer.jsp"></jsp:include> 
+<jsp:include page="/template/host_footer.jsp"></jsp:include> 

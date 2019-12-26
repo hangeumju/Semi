@@ -3,7 +3,7 @@
 <jsp:include page="/template/header.jsp"></jsp:include>
 
 <%
-	request.setCharacterEncoding("UTF-8");
+
 	String host_content_name = request.getParameter("host_content_name");// 호스트 컨텐츠 이름
 	String host_name = request.getParameter("host_name");//호스트 이름
 	String host_phone = request.getParameter("host_phone");//호스트 번호
@@ -12,6 +12,11 @@
 	int host_content_cost = Integer.parseInt(request.getParameter("host_content_cost"));//호스트 컨텐츠 가격
 	int ticketing = Integer.parseInt(request.getParameter("ticketing"));//유저가 구매하려는 티켓수
 	String start_date = request.getParameter("start_date");//유저가 원하는 날짜
+// 	System.out.println(host_content_name);
+// 	System.out.println(host_content_no);
+// 	System.out.println(host_name);
+// 	System.out.println(host_phone);
+	
 	
 %>
 

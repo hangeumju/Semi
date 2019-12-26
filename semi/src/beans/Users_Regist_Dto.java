@@ -1,5 +1,9 @@
 package beans;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Users_Regist_Dto {
 	private int user_no, user_point;
 	private String user_id, user_pw, user_name, user_phone, user_email_id,
@@ -13,6 +17,45 @@ public class Users_Regist_Dto {
 				+ user_interest + ", user_birth=" + user_birth + ", user_join_date=" + user_join_date
 				+ ", user_last_login=" + user_last_login + "]";
 	}
+	
+	
+	//시간 변환을 수행하여 출력하는 메소드
+public String getJoindateWithFormat() throws ParseException {
+	if(user_join_date==null) {
+		return"";
+	}
+	else {
+		
+	// [1]내가 가진 가입일을 날짜 형식(java.util.Date)으로 변환 - .Parse()
+	// [2] 1번 결과를 다시 원하는 형식의 문자열로 변환 	- .format()
+	SimpleDateFormat read = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S");
+	Date date = read.parse(user_join_date);   
+	SimpleDateFormat write = new SimpleDateFormat("y년 M월 d일");
+	String time = write.format(date);
+	
+	return time;
+}
+}
+
+public String getLast_loginWithFormat() throws ParseException {
+	if(user_last_login == null) {
+		return"";
+	}
+	else {
+		
+	
+	//[1]내가 가진 가입일을 날짜형식 (java.util.Date로 변환 -parse 
+	SimpleDateFormat read = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S");
+	Date date =  read.parse(user_last_login);
+	//[2] 1번결과를 다시 원하는 형식의 문자열로 반환 - .format()
+	SimpleDateFormat write = new SimpleDateFormat("y년 M월 d일 E요일 H시 m분");
+	String time = write.format(date);
+	return time;
+	
+			
+	}
+			
+}
 	public Users_Regist_Dto() {
 		super();
 	}
