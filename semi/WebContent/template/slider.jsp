@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<section onload="loadSlider()">
-	<!-- 이미지 슬라이더 영역 -->
+<article onload="loadSlider()">
 	<div class="swiper-container">
 
 		<!-- 이미지가 들어갈 영역 시작 -->
@@ -30,5 +29,4 @@
 		<div class="swiper-scrollbar"></div>
 
 	</div>
-	<hr>
-	<!-- 이미지 슬라이더 영역 종료 -->
+</article>
