@@ -46,7 +46,7 @@
 	             <a href="javascript:void(0)" class="dropbtn">컨텐츠 관리</a>
 	             <div class="dropdown-content">
 	                 <a href="<%=context%>/board/host_content_produce.jsp" >상품등록</a>
-	                 <a href="<%=context%>/board/host_content_list.jsp" >상품 리스트</a>
+	                 <a href="<%=context%>/board/host_confirm_list.jsp" >상품 리스트</a>
 	                 <a href="<%=request.getContextPath()%>/board/reservation_chart.jsp">예약자관리</a>
 		            </div>
 		        </li>
