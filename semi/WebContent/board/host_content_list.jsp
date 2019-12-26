@@ -167,7 +167,7 @@
      </div>  
      <div class="row">
 		<!-- 네비게이터(navigator) -->
-		<jsp:include page="/template/navigator.jsp">
+		<jsp:include page="/template/list_navigator.jsp">
 			<jsp:param name="pno" value="<%=pno%>"/>
 			<jsp:param name="count" value="<%=count%>"/>
 			<jsp:param name="navsize" value="<%=navsize%>"/>
