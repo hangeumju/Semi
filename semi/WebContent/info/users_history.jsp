@@ -41,7 +41,7 @@
 //			- 시작블록 = (현재페이지-1) / 네비게이터크기 * 네비게이터크기 +1	
 	//**************************************************************************************
 
-		int count = UCHdao.users_content_history_count(user_id, start, finish); 
+		int count = UCHdao.users_content_history_count(user_id); 
 
 
 		int pagecount = (count + pagesize) / pagesize; 
