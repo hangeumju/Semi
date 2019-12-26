@@ -53,13 +53,22 @@ public class Users_Review_Dao {
 		//메소드 이름 : users_review_list
 		//매개변수 : String review_writer
 		//반환형 : Users_Review_Dto
-		public List<Users_Review_Dto> users_review_list(String review_writer) throws Exception{
+		public List<Users_Review_Dto> users_review_list(String review_writer, int start, int finish) throws Exception{
 			Connection con = getConnection();
 			
-			String sql = "select * from user_review where review_writer = ? order by review_no desc";
+//			String sql = "select * from user_review where review_writer = ? order by review_no desc";
+			
+//			네비게이터 서브쿼리추가
+			String sql = "select * from(" + 
+				"    select rownum rn, A.* from( " + 
+				"        select * from user_review where review_writer = ? order by review_no desc " + 
+				"    )A " + 
+				")where rn between ? and ?"; //최신순
 			
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, review_writer);
+			ps.setInt(2, start);
+			ps.setInt(3, finish);
 			ResultSet rs = ps.executeQuery();
 			
 			List<Users_Review_Dto> list = new ArrayList<>();
@@ -102,13 +111,14 @@ public class Users_Review_Dao {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//전체글 수 구하는 메소드
 	//메소드이름 : users_review_count
-	//매개변수 : void(없음)
+	//매개변수 :	String review_writer
 	//반환형 : int
-		public int users_review_count() throws Exception{
+		public int users_review_count(String review_writer) throws Exception{
 			Connection con = getConnection();
 			
-			String sql = "select count(*) from notice"; //목록구하기
+			String sql = "select count(*) from user_review where review_writer = ?"; //목록구하기
 			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setString(1, review_writer);
 			
 			ResultSet rs = ps.executeQuery();
 			rs.next();
