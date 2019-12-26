@@ -1,3 +1,5 @@
+<%@page import="java.util.Date"%>
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="beans.Users_Get_Dto"%>
 <%@page import="beans.Users_Regist_Dto"%>
 <%@page import="beans.Users_Review_Dto"%>
@@ -70,6 +72,13 @@
 	
 	 	
 	 	List<Users_Review_Dto> list = UIdao.users_review_getList(no);
+	 	
+	 	SimpleDateFormat format1 = new SimpleDateFormat ("yyyy-MM-dd");
+	 	
+	 			
+	 	Date time = new Date();
+	 			
+	 	String time1 = format1.format(time);
 	 	
 	 	
 	%>
@@ -202,6 +211,31 @@
         	
         	
             function loadPicker(){
+            	var minDate;
+            	var maxDate;
+            	
+            	var startDate = moment("<%=time1%>");
+            	var finishDate = moment("<%=HCdto.getHost_content_start_date().substring(0, 10)%>")
+//             	console.log(startDate);
+//             	console.log(startDate.isValid());
+//             	console.log(finishDate);
+//             	console.log(finishDate.isValid());
+//             	console.log(startDate.diff(finishDate));//-나오면 startDate가 finishDate 이전이란 뜻
+            	
+//             	var duration = moment.duration(finishDate.diff(startDate));
+//             	console.log(duration);
+//             	console.log(duration.asDays());
+            	//날짜 지정
+                if(startDate.diff(finishDate) > 0){
+                	minDate = moment(new Date()).add(0, 'days');
+                	maxDate = moment('<%=HCdto.getHost_content_last_date().substring(0, 10) %>');
+                }
+                else{
+                	minDate = moment('<%=HCdto.getHost_content_start_date().substring(0, 10) %>');
+                	maxDate = moment('<%=HCdto.getHost_content_last_date().substring(0, 10) %>');
+                }
+            	
+            	
                 var options = {
                    //날짜가 입력될 첫 번째 칸 설정
                    field:document.querySelector(".start_date"),
@@ -214,11 +248,9 @@
                    //날짜 구분자 설정
                    seperator:'-',
                        
-                   //날짜 지정
-               		minDate: moment('<%=HCdto.getHost_content_start_date().substring(0, 10) %>'),
-               		maxDate: moment('<%=HCdto.getHost_content_last_date().substring(0, 10) %>'),
-
-                        
+                   minDate : minDate,
+                   maxDate : maxDate,
+               		
                    //날짜형식설정
                     format:'YYYY-MM-DD'
                     };
