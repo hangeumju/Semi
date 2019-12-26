@@ -1,12 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
     <% String go = request.getParameter("go");
+   
 
    /*  String host_id = (String)session.getAttribute("host_id"); */
-
-
     %>
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/common.css">
+    <jsp:include page="/template/host_header.jsp"></jsp:include>
 <div align="center">
 <h2>비밀번호 확인</h2>
 <form action="host_check.do" method ="post">
@@ -18,4 +19,4 @@
 <%} %>
 </form>
 </div>
-<jsp:include page="/template/footer.jsp"></jsp:include>
+<jsp:include page="/template/host_footer.jsp"></jsp:include>
