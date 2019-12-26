@@ -9,7 +9,10 @@
 <%@page import="beans.Host_Info_Dao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/host_main.css">
+<jsp:include page="/template/host_header.jsp"></jsp:include>  
+ 
     <%
     Host_Info_Dao HIdao = new  Host_Info_Dao();
     String host_id = (String)session.getAttribute("host_id");
@@ -50,9 +53,6 @@
 	
 	int count = Rdao.getCount(type, keyword);
 	%>
-    
-<jsp:include page="/template/header.jsp"></jsp:include>
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/common.css">
 <html>
 <head>
     
@@ -128,7 +128,7 @@
         </table>
     </div>
     <br>
-	<div class="row">
+	<div class="row" align="center">
 		<!-- 네비게이터(navigator) -->
 		<jsp:include page="/template/navigator.jsp">
 			<jsp:param name="pno" value="<%=pno%>"/>
@@ -140,4 +140,5 @@
     </div>
 </body>
 </html>
-<jsp:include page="/template/footer.jsp"></jsp:include>
+<jsp:include page="/template/host_footer.jsp"></jsp:include>
+

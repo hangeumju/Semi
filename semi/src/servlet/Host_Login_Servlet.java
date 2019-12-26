@@ -31,9 +31,9 @@ public class Host_Login_Servlet extends HttpServlet{
 					req.getSession().removeAttribute("user_id");
 				}
 
-				//Host_Info_Dto HIdto = HIdao.get(host_id);//id를 이용하여 전체 회원정보를 불러온다.
+				//Host_Info_Dto HIdto = HIdao.get(host_id);//id瑜� �씠�슜�븯�뿬 �쟾泥� �쉶�썝�젙蹂대�� 遺덈윭�삩�떎.
 
-				resp.sendRedirect(req.getContextPath()+"/host/submain.jsp");
+				resp.sendRedirect(req.getContextPath()+"/host/host_submain.jsp");
 			}
 			else {
 				resp.sendRedirect("host_login.jsp?error");

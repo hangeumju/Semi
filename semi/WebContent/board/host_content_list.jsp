@@ -122,9 +122,8 @@
     </style>
 	<!-- 갤러리 4단 나누기 종료-->
 
-
-
-<jsp:include page="/template/header.jsp"></jsp:include>
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/host_main.css">
+<jsp:include page="/template/host_header.jsp"></jsp:include>
 
 <article class="w-60">
 
@@ -178,4 +177,4 @@
 
 </article> 
     
-<jsp:include page="/template/footer.jsp"></jsp:include>  
+<jsp:include page="/template/host_footer.jsp"></jsp:include> 
