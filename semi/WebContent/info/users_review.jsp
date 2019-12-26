@@ -134,6 +134,10 @@
        	height: 25px;
        }
        
+      .review_content_text{
+       font-size:12px;
+       }
+       
 
        
     </style>
@@ -192,7 +196,7 @@
         
         <tbody align="center">
         <%for(Users_Review_Dto URdto : list) {%>
-        <tr>
+        <tr class="review_content_text">
 			<td><%=URdto.getReview_no() %></td>
 			<%-- <td>컨텐츠넘버:<%=URdto.getContent_original_no() %></td> --%>
 			<td><%=URdto.getReview_content() %></td>

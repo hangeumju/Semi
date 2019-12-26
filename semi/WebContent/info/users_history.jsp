@@ -7,55 +7,53 @@
     pageEncoding="UTF-8"%>
     
 <%
-	Users_Info_Dao UIdao = new Users_Info_Dao();
-	String user_id = (String)session.getAttribute("user_id");
-	Users_Get_Dto UGdto = UIdao.users_get(user_id);	
-	///////////////////////////////////////////////////////////////
-	//세션에서 유저아이디를 받아서 이용내역 리스트를 출력합니다
-	Users_Content_History_Dao UCHdao = new Users_Content_History_Dao();
-	String users_history_id = (String)session.getAttribute("user_id");	
-	
-	
-	
-	//페이지 크기
-		int pagesize = 10;
-		//네비게이터 크기
-		int navsize = 10;
-		
-		//페이징 추가
-		int pno;
-		try{
-			pno = Integer.parseInt(request.getParameter("pno"));
-			if(pno <= 0) throw new Exception(); //음수를 입력하면 예외를 발생시킨다
-		}
-		catch(Exception e){
-			pno = 1;
-		}
-			
-		int finish = pno * pagesize;
-		int start = finish - (pagesize - 1);
-		//	System.out.println("start = " + start + " , finish = " + finish);
-		
-	//**************************************************************************************
-//	 		하단 네비게이터 계산하기
-//			- 시작블록 = (현재페이지-1) / 네비게이터크기 * 네비게이터크기 +1	
-	//**************************************************************************************
+   Users_Info_Dao UIdao = new Users_Info_Dao();
+   String user_id = (String)session.getAttribute("user_id");
+   Users_Get_Dto UGdto = UIdao.users_get(user_id);   
+   ///////////////////////////////////////////////////////////////
+   //세션에서 유저아이디를 받아서 이용내역 리스트를 출력합니다
+   Users_Content_History_Dao UCHdao = new Users_Content_History_Dao();
+   String users_history_id = (String)session.getAttribute("user_id");   
+   
+   
+   
+   //페이지 크기
+      int pagesize = 10;
+      //네비게이터 크기
+      int navsize = 10;
+      
+      //페이징 추가
+      int pno;
+      try{
+         pno = Integer.parseInt(request.getParameter("pno"));
+         if(pno <= 0) throw new Exception(); //음수를 입력하면 예외를 발생시킨다
+      }
+      catch(Exception e){
+         pno = 1;
+      }
+         
+      int finish = pno * pagesize;
+      int start = finish - (pagesize - 1);
+      //   System.out.println("start = " + start + " , finish = " + finish);
+      
+   //**************************************************************************************
+//          하단 네비게이터 계산하기
+//         - 시작블록 = (현재페이지-1) / 네비게이터크기 * 네비게이터크기 +1   
+   //**************************************************************************************
+      int count = UCHdao.users_content_history_count(user_id);
 
-		int count = UCHdao.users_content_history_count(user_id); 
+      int pagecount = (count + pagesize) / pagesize; 
+      
+      int startBlock = (pno -1) / navsize * navsize + 1;
+      int finishBlock = startBlock + (navsize -1);
+      
+      //만약 마지막 블록이 페이지 수보다 크다면 수정 처리
+      if(finishBlock > pagecount){
+         finishBlock = pagecount;
+      }
+      
 
-
-		int pagecount = (count + pagesize) / pagesize; 
-		
-		int startBlock = (pno -1) / navsize * navsize + 1;
-		int finishBlock = startBlock + (navsize -1);
-		
-		//만약 마지막 블록이 페이지 수보다 크다면 수정 처리
-		if(finishBlock > pagecount){
-			finishBlock = pagecount;
-		}
-		
-
-	List<Users_Content_History_Dto> list = UCHdao.users_history_list(users_history_id, start, finish);
+   List<Users_Content_History_Dto> list = UCHdao.users_history_list(users_history_id, start, finish);
 
 %>
 
@@ -65,7 +63,7 @@
      /*
     테이블 스타일
     */
- 		.notice_table {
+       .notice_table {
             width: 100%;
             border-top: 1px solid lightgray;
             border-collapse: collapse;
@@ -133,7 +131,7 @@
         }
         
        .row-empty2{
-       	height: 25px;
+          height: 25px;
        }
        
     </style>
@@ -141,7 +139,7 @@
 
 <body>
     <div id="dd">
-   	<hr color="#F9896">
+      <hr color="#F9896">
     <h2 style="margin: 20px 50px 10px"><%=user_id %>님의 이용 내역입니다</h2>
     <div class="row-empty"></div>
     <!-- side_menu시작 -->
@@ -177,23 +175,23 @@
        
       <div class="content">
             <div class="row-empty"></div>
-        	<div class="row-empty2"></div>
+           <div class="row-empty2"></div>
         <table class="notice_table"  font-size="10px">
-			<thead>
-				<tr>
-				<th>결제날짜</th>
-				<th>컨텐츠명</th>
-				<th>가격</th>
-				<th width="100px" >수량</th>
-				<th width="100px">호스트이름</th>
-				<th>호스트연락처</th>
-				<th width="100px">이용날짜</th>
-				<th>위치</th>		
-				</tr>
-			</thead>
-			
-			<tbody  align="center" font-size="10px">
-			<%for(Users_Content_History_Dto UCHdto : list){%>
+         <thead>
+            <tr>
+            <th>결제날짜</th>
+            <th>컨텐츠명</th>
+            <th>가격</th>
+            <th width="100px" >수량</th>
+            <th width="100px">호스트이름</th>
+            <th>호스트연락처</th>
+            <th width="100px">이용날짜</th>
+            <th>위치</th>      
+            </tr>
+         </thead>
+         
+         <tbody  align="center" font-size="10px">
+         <%for(Users_Content_History_Dto UCHdto : list){%>
             <tr font-size="10px">
                 <td width="150px" font-size="10px"><%=UCHdto.getUser_reservation_date_WithFormat() %></td>
                 <td width="150px"><%=UCHdto.getHost_content_name() %></td>
@@ -204,25 +202,25 @@
                 <td><%=UCHdto.getUser_class_date_WithFormat() %></td>
                 <td><%=UCHdto.getHost_content_location() %></td>                       
             </tr>      
-			<%} %>		
+         <%} %>      
         </tbody>
-		</table>
+      </table>
       </div>
     </div>
     <div class="row-empty"></div>
     <div class="row-empty"></div>
     <hr color="#F9896">
-		
-		<div class="row">
-		<!-- 네비게이터(navigator) -->
-		<jsp:include page="/template/navigator.jsp">
-			<jsp:param name="pno" value="<%=pno%>"/>
-			<jsp:param name="count" value="<%=count%>"/>
-			<jsp:param name="navsize" value="<%=navsize%>"/>
-			<jsp:param name="pagesize" value="<%=pagesize%>"/>
-		</jsp:include>
-	</div>
-		
+      
+      <div class="row">
+      <!-- 네비게이터(navigator) -->
+      <jsp:include page="/template/navigator.jsp">
+         <jsp:param name="pno" value="<%=pno%>"/>
+         <jsp:param name="count" value="<%=count%>"/>
+         <jsp:param name="navsize" value="<%=navsize%>"/>
+         <jsp:param name="pagesize" value="<%=pagesize%>"/>
+      </jsp:include>
+   </div>
+      
       
   </body>
 
