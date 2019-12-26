@@ -14,6 +14,7 @@
     
     <!--     	자바 영역 시작입니다---------------------------------------------------------- -->
 	<%
+		request.setCharacterEncoding("UTF-8");
 		Host_Content_Dao HCdao = new Host_Content_Dao();
 		//컨텐츠 번호를 받아서 no에 넣는다
   		int no = Integer.parseInt(request.getParameter("host_content_no"));
@@ -266,7 +267,7 @@
 				function list(){
                     var cho = window.confirm("목록으로 가시겠습니까?");
                     if(cho){
-                    location.href = "<%=request.getContextPath()%>/board/host_content_list.jsp";
+                    location.href = "<%=request.getContextPath()%>/board/host_content_list.jsp?category=<%=HCdto.getHost_content_category()%>";
                      }
                 }
            
@@ -320,7 +321,7 @@
 				<%if(isUser) {%>
 				<div>남은 티켓 수량 : <%=HCdto.getHost_content_ticket()%></div>
 				<div>티켓수량 선택</div>
-				<form action="<%=request.getContextPath()%>/board/users_pay.jsp" method="post">
+				<form action="<%=request.getContextPath()%>/board/users_pay.jsp" method="get">
 					<input type="hidden" name="host_content_name" value="<%=HCdto.getHost_content_name() %>"><!--컨텐츠 제목 -->
 					<input type="hidden" name="host_name" value="<%=HIdto.getHost_name()%>"><!--호스트 이름 -->
 					<input type="hidden" name="host_phone" value="<%=HIdto.getHost_phone() %>"><!--호스트 폰번호 -->
