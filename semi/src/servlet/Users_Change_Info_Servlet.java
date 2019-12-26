@@ -33,6 +33,7 @@ public class Users_Change_Info_Servlet extends HttpServlet {
 			UCIdto.setUser_email_id(user_email_id);
 			UCIdto.setUser_email_domain(user_email_domain);
 			UCIdto.setUser_interest(user_interest);
+			UCIdto.setUser_id(user_id);
 			
 			Users_Info_Dao UCIdao = new Users_Info_Dao();
 			UCIdao.users_change_info(UCIdto);
