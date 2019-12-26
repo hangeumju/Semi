@@ -67,6 +67,7 @@
             width: 100%;
             border-top: 1px solid lightgray;
             border-collapse: collapse;
+          
          
           }
           th, td {
@@ -138,7 +139,7 @@
 
 <body>
     <div id="dd">
-   	<hr>
+   	<hr color="#F9896">
     <h2 style="margin: 20px 50px 10px"><%=user_id %>님의 이용 내역입니다</h2>
     <div class="row-empty"></div>
     <!-- side_menu시작 -->
@@ -148,7 +149,7 @@
              
               <ul>
                 <div style="margin: 0px 10px;">내 정보</div>
-                 <hr>
+                 <hr color="#F9896">
                   <li>
                       <a href="<%=request.getContextPath() %>/info/users_history.jsp">이용내역</a>
                   </li>
@@ -165,7 +166,7 @@
                   <li>                     
                       <a href="<%=request.getContextPath() %>/info/users_point.jsp">포인트내역</a>
                   </li>
-                  <hr>
+                  <hr color="#F9896">
               </ul>
           </div>
           <!-- side_menu끝 -->
@@ -175,30 +176,30 @@
       <div class="content">
             <div class="row-empty"></div>
         	<div class="row-empty2"></div>
-        <table class="notice_table" >
+        <table class="notice_table"  font-size="10px">
 			<thead>
 				<tr>
 				<th>결제날짜</th>
 				<th>컨텐츠명</th>
 				<th>가격</th>
 				<th width="100px" >수량</th>
-				<th>호스트이름</th>
+				<th width="100px">호스트이름</th>
 				<th>호스트연락처</th>
-				<th>이용날짜</th>
+				<th width="100px">이용날짜</th>
 				<th>위치</th>		
 				</tr>
 			</thead>
 			
-			<tbody  align="center">
+			<tbody  align="center" font-size="10px">
 			<%for(Users_Content_History_Dto UCHdto : list){%>
-            <tr>
-                <td><%=UCHdto.getUser_reservation_date() %></td>
-                <td><%=UCHdto.getHost_content_name() %></td>
+            <tr font-size="10px">
+                <td width="150px" font-size="10px"><%=UCHdto.getUser_reservation_date_WithFormat() %></td>
+                <td width="150px"><%=UCHdto.getHost_content_name() %></td>
                 <td><%=UCHdto.getHost_content_cost() %></td>
                 <td><%=UCHdto.getUser_qty() %></td>
                 <td><%=UCHdto.getHost_name() %></td>
                 <td><%=UCHdto.getHost_phone() %></td>
-                <td><%=UCHdto.getUser_class_date() %></td>
+                <td><%=UCHdto.getUser_class_date_WithFormat() %></td>
                 <td><%=UCHdto.getHost_content_location() %></td>                       
             </tr>      
 			<%} %>		
@@ -208,7 +209,7 @@
     </div>
     <div class="row-empty"></div>
     <div class="row-empty"></div>
-    <hr>
+    <hr color="#F9896">
 		
 		<div class="row">
 		<!-- 네비게이터(navigator) -->

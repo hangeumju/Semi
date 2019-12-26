@@ -96,6 +96,8 @@
             background-color: #F98967;
             color:white;
             border:none;
+            
+            border-radius: 10px;
 
             }
             
@@ -108,7 +110,7 @@
     
     <body>
     <div id="dd">
-   	<hr>
+   	<hr color="#F9896">
     <h2 style="margin: 20px 50px 10px"><%=user_id %>님의 비밀번호 확인</h2>
     <div class="row-empty"></div>
     <!-- side_menu시작 -->
@@ -118,7 +120,7 @@
              
               <ul>
                 <div style="margin: 0px 10px;">내 정보</div>
-                 <hr>
+                 <hr color="#F9896">
                   <li>
                       <a href="<%=request.getContextPath() %>/info/users_history.jsp">이용내역</a>
                   </li>
@@ -135,7 +137,7 @@
                   <li>                     
                       <a href="<%=request.getContextPath() %>/info/users_point.jsp">포인트내역</a>
                   </li>
-                  <hr>
+                  <hr color="#F9896">
               </ul>
           </div>
           <!-- side_menu끝 -->
@@ -163,6 +165,6 @@
     
     </div>
     </body>
-    <hr>
+    <hr color="#F9896">
     </section>
     <jsp:include page = "/template/footer.jsp"></jsp:include>

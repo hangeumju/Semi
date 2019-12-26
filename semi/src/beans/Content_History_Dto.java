@@ -1,5 +1,9 @@
 package beans;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Content_History_Dto {
 	private int history_no;
 	private int host_history_no;
@@ -54,7 +58,5 @@ public class Content_History_Dto {
 	public void setUser_class_date(String user_class_date) {
 		this.user_class_date = user_class_date;
 	}
-	
-	
-	
+
 }
