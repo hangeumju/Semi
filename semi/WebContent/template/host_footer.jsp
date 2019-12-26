@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
     
     
-<footer class="row">
+<footer class="row" align = "center">
 		
 		<%
 					String user = (String)session.getAttribute("user_id");
@@ -33,7 +33,8 @@
             
       <h4> &copy; KH당일치기 주식회사</h4>      
             
-      <div>이용약관 &nbsp  개인정보 처리방침 &nbsp  위치기반 서비스 이용약관 </div>      
+      <div>이용약관 &nbsp  
+      <a href="/ect/location_based_terms_of_service.jsp">개인정보 처리방침 &nbsp</a>  위치기반 서비스 이용약관 </div>      
 </footer>
     </main>
 </body>

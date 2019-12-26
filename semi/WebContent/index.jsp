@@ -87,6 +87,7 @@
 					</div>
 				</a>
 			</div>
+		</div>
 
 
 			<div class="gallary">
@@ -100,6 +101,7 @@
 						</div>
 					</a>
 				</div>
+			</div>
 
 				<div class="gallary">
 					<div class="gallary-item">
@@ -112,6 +114,7 @@
 							</div>
 						</a>
 					</div>
+				</div>
 
 					<div class="gallary">
 						<div class="gallary-item">
@@ -124,6 +127,7 @@
 								</div>
 							</a>
 						</div>
+					</div>
 
 						<div class="gallary">
 							<div class="gallary-item">
@@ -136,6 +140,7 @@
 									</div>
 								</a>
 							</div>
+				</div>
 	</article>
 
 
@@ -169,9 +174,9 @@
 					<div class="gallary-text-category">카테고리:뷰티</div>
 					<div class="gallary-text-content">컨텐츠명</div>
 					<div class="gallary-text-cost">40000원</div>
+				</a>
 			</div>
 
-			</a>
 
 			<div class="gallary-item">
 				<a
@@ -183,9 +188,9 @@
 					<div class="gallary-text-category">카테고리:뷰티</div>
 					<div class="gallary-text-content">컨텐츠명</div>
 					<div class="gallary-text-cost">40000원</div>
+				</a>
 			</div>
 
-			</a>
 
 			<div class="gallary-item">
 				<a
@@ -197,9 +202,9 @@
 					<div class="gallary-text-category">카테고리:뷰티</div>
 					<div class="gallary-text-content">컨텐츠명</div>
 					<div class="gallary-text-cost">40000원</div>
+				</a>
 			</div>
 
-			</a>
 
 			<div class="gallary-item">
 				<a
@@ -211,9 +216,9 @@
 					<div class="gallary-text-category">카테고리:뷰티</div>
 					<div class="gallary-text-content">컨텐츠명</div>
 					<div class="gallary-text-cost">40000원</div>
+				</a>
 			</div>
 
-			</a>
 
 			<div class="gallary-item">
 				<a
@@ -225,8 +230,8 @@
 					<div class="gallary-text-category">카테고리:뷰티</div>
 					<div class="gallary-text-content">컨텐츠명</div>
 					<div class="gallary-text-cost">40000원</div>
+				</a>
 			</div>
-			</a>
 
 		</div>
 	</article>

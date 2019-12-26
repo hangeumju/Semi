@@ -108,6 +108,45 @@ public class Host_Content_Dao {
 	}
 	
 	
+	//호스트가 자기의 리스트를 확인하는 다오
+	//매개변수 호스트아이디
+public List<Host_Content_Dto> getList2(String host_id, int start, int finish) throws Exception{
+		
+		Connection con = getConnection();
+		String sql = "select * from "
+				+ "(select rownum rn, A.* "
+				+ " from( "
+				+ " select * from host_content "
+				+ " where host_id = ?"
+				+ " connect by prior host_content_no=superno "
+				+ " start with superno is null "
+				+ " order siblings by groupno desc, host_content_no asc "
+				+ " ) "
+				+ " A) where rn between ? and ?";
+				
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, host_id);
+		ps.setInt(2, start);
+		ps.setInt(3, finish);
+		
+		ResultSet rs = ps.executeQuery();
+		List<Host_Content_Dto> list = new ArrayList<>();
+		
+		while(rs.next()) {
+			Host_Content_Dto HCdto = new Host_Content_Dto();
+			HCdto.setHost_content_name(rs.getString("Host_content_name"));
+			HCdto.setHost_content_cost(rs.getInt("Host_content_cost"));
+			HCdto.setHost_content_no(rs.getInt("host_content_no"));
+			HCdto.setHost_content_view_count(rs.getInt("host_content_view_count"));
+			HCdto.setHost_content_category(rs.getString("host_content_category"));
+			HCdto.setHost_content_approval(rs.getString("host_content_approval"));
+			list.add(HCdto);
+		}
+		
+		con.close();
+		return list;
+	}
+	
 	
 	//중분류 컨텐츠 리스트를 불러오는 다오입니다
 	//매개변수 : 카테고리(type으로 받습니다)와 (가격, 날짜선택, 최신, 조회수, 결제카운트 
@@ -381,7 +420,7 @@ public class Host_Content_Dao {
 		return list;
 	}
 	
-	
+	//컨텐츠 리스트 확인용 카운트
 	public int getCount(String type, String keyword, String category)throws Exception{
 		Connection con = getConnection();
 		boolean isSearch = type != null && keyword != null ;
@@ -428,6 +467,23 @@ public class Host_Content_Dao {
 	      con.close();
 	      return count;
 	   }
+	
+	//호스트가 자기걸 확인하는 카운트
+	public int getCount(String host_id)throws Exception{
+		Connection con = getConnection();
+		
+		String sql = "select count(*) from host_content where host_id = ?";
+		
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, host_id);
+
+		ResultSet rs = ps.executeQuery();
+		rs.next();
+		int count = rs.getInt(1);
+		
+		con.close();
+		return count;
+	}
 	
 	// 호스트 결제 예약 리스트
 	public List<Host_Content_Dto> reservation_list(int start, int finish)throws Exception{

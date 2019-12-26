@@ -40,7 +40,7 @@
 //	 		하단 네비게이터 계산하기
 //			- 시작블록 = (현재페이지-1) / 네비게이터크기 * 네비게이터크기 +1	
 	//**************************************************************************************
-		int count = UCHdao.users_content_history_count(user_id); 
+		int count = UCHdao.users_content_history_count(user_id);
 
 		int pagecount = (count + pagesize) / pagesize; 
 		

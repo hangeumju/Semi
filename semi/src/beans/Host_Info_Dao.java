@@ -99,7 +99,7 @@ public class Host_Info_Dao {
 				+ " host_email_id=?, host_email_domain=?, "
 				+ " host_interest=?, "
 				+ " host_post=?, host_basic_addr=?, host_extra_addr=?, "
-				+ " host_bank_name=?, host_bank_account=? "
+				+ " host_bank_name=?, host_bank_account=? , host_phone=?, "
 				+ " where id=?";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, HIdto.getHost_email_id());
@@ -108,7 +108,8 @@ public class Host_Info_Dao {
 		ps.setString(6, HIdto.getHost_extra_addr());
 		ps.setString(7, HIdto.getHost_bank_name());
 		ps.setString(8, HIdto.getHost_bank_account());
-		ps.setString(9, HIdto.getHost_id());
+		ps.setString(9, HIdto.getHost_phone());
+		ps.setString(10, HIdto.getHost_id());
 		
 		ps.execute();
 		con.close();

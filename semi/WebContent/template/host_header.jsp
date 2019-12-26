@@ -16,8 +16,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/host_main.css">
+    <title></title>
     <style>
         
     </style>
@@ -34,7 +34,7 @@
      
        <nav>
 		<ul>
-	        <li><a class="active" href="/semi/host/submain2.jsp">Home</a></li>
+	        <li><a class="active" href="/semi/host/host_submain.jsp">Home</a></li>
 	         <li class="dropdown">
 	             <a href="<%=context%>/info/host_info.jsp" class="dropbtn">호스트 내정보</a>
 	             <div class="dropdown-content">
@@ -46,7 +46,7 @@
 	             <a href="javascript:void(0)" class="dropbtn">컨텐츠 관리</a>
 	             <div class="dropdown-content">
 	                 <a href="<%=context%>/board/host_content_produce.jsp" >상품등록</a>
-	                 <a href="<%=context%>/board/host_content_list.jsp" >상품 리스트</a>
+	                 <a href="<%=context%>/board/host_confirm_list.jsp" >상품 리스트</a>
 	                 <a href="<%=request.getContextPath()%>/board/reservation_chart.jsp">예약자관리</a>
 		            </div>
 		        </li>

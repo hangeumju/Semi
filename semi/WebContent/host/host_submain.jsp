@@ -75,7 +75,6 @@
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/host_main.css">
 <jsp:include page="/template/host_header.jsp"></jsp:include>
 <body>
-    <div class="auction-online-current">
 	<div class="title" align ="center">
 				<h1>환영합니다!</h1>
 				<h3> 호스트 <%=HIdto.getHost_name() %> 
