@@ -38,6 +38,7 @@ public class Host_Change_Info_Servlet extends HttpServlet{
 			HIdto.setHost_extra_addr(host_extra_addr);
 			HIdto.setHost_bank_name(host_bank_name);
 			HIdto.setHost_bank_account(host_bank_account);
+			HIdto.setHost_id(host_id);
 			
 			Host_Info_Dao HIdao = new Host_Info_Dao();
 			HIdao.host_change_info(HIdto);
