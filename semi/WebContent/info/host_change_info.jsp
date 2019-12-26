@@ -10,8 +10,10 @@
     String host_id = (String)session.getAttribute("host_id");
     Host_Info_Dto HIdto = HIdao.get(host_id);
     %> 
+
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/common.css">
 <jsp:include page="/template/host_header.jsp"></jsp:include>
+
 <form action="host_regist.do" method="post">
 <style>
        *{
