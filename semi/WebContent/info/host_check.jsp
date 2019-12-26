@@ -7,7 +7,6 @@
 
     %>
     <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/common.css">
-<jsp:include page="/template/header.jsp"></jsp:include>
 <div align="center">
 <h2>비밀번호 확인</h2>
 <form action="host_check.do" method ="post">
