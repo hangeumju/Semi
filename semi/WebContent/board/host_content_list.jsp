@@ -164,7 +164,6 @@
         </div>   
 	<% } %>  
 	
-	
      </div>  
      <div class="row">
 		<!-- 네비게이터(navigator) -->
