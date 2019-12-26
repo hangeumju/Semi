@@ -9,6 +9,8 @@
     Host_Info_Dto HIdto = HIdao.get(host_id);
     %>
 
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/common.css">
+
 <style>
        *{
            box-sizing: border-box;
@@ -111,6 +113,10 @@
 
 <jsp:include page="/template/host_header.jsp"></jsp:include>
 
+<article>
+<form action="host_change_pw.do" method="post">
+
+
 <body>
    <div id="dd">
    
@@ -138,6 +144,7 @@
        </div>
        <!-- side끝 -->
 
+
 	<!-- 비밀번호 입력 -->
 <div class="content">
 	<div id="container">
@@ -163,6 +170,10 @@
    		</div>
 	</form>
   </div>
+
+</form>
+</article>
+=======
 </div>
 </div>
 <div class="row-empty"></div>
