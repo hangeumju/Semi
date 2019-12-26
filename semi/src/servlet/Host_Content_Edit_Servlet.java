@@ -16,6 +16,8 @@ public class Host_Content_Edit_Servlet extends HttpServlet{
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	try {
+		req.setCharacterEncoding("UTF-8");
+		
 		Host_Content_Dto HCdto = new Host_Content_Dto();
 		
 		HCdto.setHost_content_no(Integer.parseInt(req.getParameter("host_content_no")));
