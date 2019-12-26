@@ -409,6 +409,26 @@ public class Host_Content_Dao {
 		return count;
 	}
 	
+	public int getCount(String type, String keyword)throws Exception{
+	      Connection con = getConnection();
+	      boolean isSearch = type != null && keyword != null ;
+	      String sql = "select count(*) from host_content ";
+	      if(isSearch) {
+	         sql += " where "+type+" like '%'||?||'%'";
+	      }
+	      
+	      PreparedStatement ps = con.prepareStatement(sql);
+	      if(isSearch) {
+	         ps.setString(1, keyword);
+	      }
+	      ResultSet rs = ps.executeQuery();
+	      rs.next();
+	      int count = rs.getInt(1);
+	      
+	      con.close();
+	      return count;
+	   }
+	
 	// 호스트 결제 예약 리스트
 	public List<Host_Content_Dto> reservation_list(int start, int finish)throws Exception{
 		Connection con = getConnection();

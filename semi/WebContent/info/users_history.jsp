@@ -16,6 +16,8 @@
 	String users_history_id = (String)session.getAttribute("user_id");
 	List<Users_Content_History_Dto> list = UCHdao.users_history_list(users_history_id);
 	
+	
+	
 	//페이지 크기
 		int pagesize = 10;
 		//네비게이터 크기
@@ -39,7 +41,7 @@
 //	 		하단 네비게이터 계산하기
 //			- 시작블록 = (현재페이지-1) / 네비게이터크기 * 네비게이터크기 +1	
 	//**************************************************************************************
-		int count = UCHdao.users_content_history_count(); 
+		int count = UCHdao.users_content_history_count(user_id); 
 		int pagecount = (count + pagesize) / pagesize; 
 		
 		int startBlock = (pno -1) / navsize * navsize + 1;
@@ -49,6 +51,12 @@
 		if(finishBlock > pagecount){
 			finishBlock = pagecount;
 		}
+		
+		System.out.println(pagesize);
+		System.out.println(navsize);
+		System.out.println(count);
+		System.out.println(pagecount);
+		
 %>
 
 <jsp:include page="/template/header.jsp"></jsp:include>

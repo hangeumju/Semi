@@ -72,4 +72,20 @@ public class Users_Content_History_Dao {
 		return count;
 		}
 
+	public int users_content_history_count(String user_id) throws Exception{
+		Connection con = getConnection();
+		
+		String sql = "select count(*) from content_history where users_history_id=?"; //목록구하기
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, user_id);
+		
+		ResultSet rs = ps.executeQuery();
+		rs.next();
+		
+		int count = rs.getInt(1);
+		
+		con.close();			
+		return count;
+		}
+	
 }
