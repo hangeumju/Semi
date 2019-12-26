@@ -13,6 +13,7 @@ public class Host_Calculate_chart {
 		return con;
 	}
 	
+	
 	//전체 금액 구하기
 	public int total_pay(String host_id) throws Exception{
 		Connection con = getConnection();
