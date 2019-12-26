@@ -307,10 +307,9 @@
     </script>
     
     <!--     	스트립트 영역 끝입니다---------------------------------------------------------- -->
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/common.css">
 <jsp:include page="/template/header.jsp"></jsp:include>
-    
-   
-	
+
 	<article class="w-70 row">
 		<div class="float1">
 			<div class="float2 main">
