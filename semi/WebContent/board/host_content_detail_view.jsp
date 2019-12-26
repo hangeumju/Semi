@@ -80,7 +80,7 @@
 	 			
 	 	String time1 = format1.format(time);
 	 	
-	 	
+// 	 	System.out.println(time1);
 	%>
  <!--     	자바 영역 끝입니다---------------------------------------------------------- -->
     
