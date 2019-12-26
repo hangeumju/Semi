@@ -13,8 +13,7 @@
 	///////////////////////////////////////////////////////////////
 	//세션에서 유저아이디를 받아서 이용내역 리스트를 출력합니다
 	Users_Content_History_Dao UCHdao = new Users_Content_History_Dao();
-	String users_history_id = (String)session.getAttribute("user_id");
-	List<Users_Content_History_Dto> list = UCHdao.users_history_list(users_history_id);
+	String users_history_id = (String)session.getAttribute("user_id");	
 	
 	//페이지 크기
 		int pagesize = 10;
@@ -39,7 +38,8 @@
 //	 		하단 네비게이터 계산하기
 //			- 시작블록 = (현재페이지-1) / 네비게이터크기 * 네비게이터크기 +1	
 	//**************************************************************************************
-		int count = UCHdao.users_content_history_count(); 
+		int count = UCHdao.users_content_history_count(user_id); 
+		System.out.println(count);
 		int pagecount = (count + pagesize) / pagesize; 
 		
 		int startBlock = (pno -1) / navsize * navsize + 1;
@@ -49,45 +49,33 @@
 		if(finishBlock > pagecount){
 			finishBlock = pagecount;
 		}
+		
+	List<Users_Content_History_Dto> list = UCHdao.users_history_list(users_history_id, start, finish);
 %>
 
 <jsp:include page="/template/header.jsp"></jsp:include>
 
-<style>
-      
-   
+<style>   
      /*
     테이블 스타일
-    <기본>
-    - table : 기본 테이블 스타일
-    <옵션>
-    - table-hover : 마우스가 올라간 줄에 하이라이트 적용
-    - table-stripe : 2줄마다 한 줄씩 하이라이트 적용
     */
-    .table{
-        width:90%;
-        border:1px solid black;
-
-        /* 테두리 병합 */
-        border-collapse: collapse;
-
-    }
-
-    .table > thead > tr > td,
-    .table > thead > tr > th,
-    .table > tbody > tr > td,
-    .table > tbody > tr > th
-    {
-        border:1px solid black;
-        padding:0.5rem;
-    }
+ 		.notice_table {
+            width: 100%;
+            border-top: 1px solid lightgray;
+            border-collapse: collapse;
+         
+          }
+          th, td {
+            border-bottom: 1px solid lightgray;
+            padding: 10px;
+          }
     
     /*
     사이드 메뉴 스타일
   
 */
      div{
-/*            border: 1px solid black; */
+/*     border: 1px solid black; */
        }
        .side{
            width: 170px;
@@ -118,21 +106,37 @@
             padding: 0px 0px 0px 10px;
            
        }
+       
+       .content{
+           float: right;
+           width: 970px;
+           font-size: 16px;
+           font-weight: 500;
+           color: black;
+           line-height: 40px;
+           display: block;
+           padding: 0px 50px 0px 0px;
+       }
+       
          /* .float끝나는 영역을 가상으로 생성하고 clear(가상선택자) */
         #dd::after{
             content:"";
             display: block;
             clear: both;
         }
+        
+       .row-empty2{
+       	height: 25px;
+       }
        
     </style>
 <!-- css style 끝 -->
 
 <body>
-    <div id="jb-container">
-    <div id="jb-header">
-       <h2><%=user_id %>님의 이용 내역입니다</h2>
-     </div>
+    <div id="dd">
+   	<hr>
+    <h2 style="margin: 20px 50px 10px"><%=user_id %>님의 이용 내역입니다</h2>
+    <div class="row-empty"></div>
     <!-- side_menu시작 -->
        <div class="side">
          
@@ -163,23 +167,25 @@
           <!-- side_menu끝 -->
        </div>
        <!-- side끝 -->
+       
       <div class="content">
             <div class="row-empty"></div>
-        
-        <table class="table" >
+        	<div class="row-empty2"></div>
+        <table class="notice_table" >
 			<thead>
 				<tr>
 				<th>결제날짜</th>
 				<th>컨텐츠명</th>
 				<th>가격</th>
-				<th>수량</th>
+				<th width="100px" >수량</th>
 				<th>호스트이름</th>
 				<th>호스트연락처</th>
 				<th>이용날짜</th>
 				<th>위치</th>		
 				</tr>
 			</thead>
-			<tbody>
+			
+			<tbody  align="center">
 			<%for(Users_Content_History_Dto UCHdto : list){%>
             <tr>
                 <td><%=UCHdto.getUser_reservation_date() %></td>
@@ -194,6 +200,11 @@
 			<%} %>		
         </tbody>
 		</table>
+      </div>
+    </div>
+    <div class="row-empty"></div>
+    <div class="row-empty"></div>
+    <hr>
 		
 		<div class="row">
 		<!-- 네비게이터(navigator) -->
@@ -205,9 +216,7 @@
 		</jsp:include>
 	</div>
 		
-      </div>
       
-    </div>
   </body>
 
 

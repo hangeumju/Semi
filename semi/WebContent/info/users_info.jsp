@@ -6,7 +6,7 @@
 
  <style>
        div{
-/*            border: 1px solid black; */
+    border: 1px solid black;
        }
        .side{
            width: 170px;
