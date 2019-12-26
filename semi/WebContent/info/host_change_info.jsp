@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <%@page import="beans.Host_Info_Dto"%>
 <%@page import="beans.Host_Info_Dao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -195,5 +196,17 @@
                    <span class="join_box">
                        <input class="join_btn" type="submit" value="수정완료">			
                    </span>
-            </div> 
+			</div>
+		</div>
+	</div>
+
       </form>
+      </div>
+	<div class="row-empty"></div>
+	<div class="row-empty"></div>
+    </div>
+	<hr color="#F98967">
+ </body>
+      
+      
+<jsp:include page="/template/host_footer.jsp"></jsp:include>

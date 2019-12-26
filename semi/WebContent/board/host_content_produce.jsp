@@ -122,7 +122,7 @@ String host_id = (String)request.getSession().getAttribute("host_id");
 	<input  type="hidden" name= "host_id" value="rlawldms">	
 	<div align ="left">
 		<div class="row"> 		
-			<h2> 호스트 컨텐츠 생성</h2>
+			<h2>(<%=host_id %>) 님의 컨텐츠 생성</h2>
 		</div>
 		<div class="row-left">
 		</div>

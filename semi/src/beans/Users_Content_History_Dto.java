@@ -1,5 +1,9 @@
 package beans;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Users_Content_History_Dto {
 
 	private int user_qty,	host_content_cost, groupno, superno, depth;
@@ -95,5 +99,42 @@ public class Users_Content_History_Dto {
 	public void setUser_class_date(String user_class_date) {
 		this.user_class_date = user_class_date;
 	}
-
+	
+	// 유저 예약 날짜 시간 변환을 수행하여 출력하는 메소드
+	public String getUser_reservation_date_WithFormat() throws ParseException {
+		if(user_reservation_date==null) {
+			return"";
+		}
+		else {
+			
+		// [1]내가 가진 가입일을 날짜 형식(java.util.Date)으로 변환 - .Parse()
+		// [2] 1번 결과를 다시 원하는 형식의 문자열로 변환 	- .format()
+		SimpleDateFormat read = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S");
+		Date date = read.parse(user_reservation_date);   
+		SimpleDateFormat write = new SimpleDateFormat("y년 M월 d일");
+		String time = write.format(date);
+		
+		return time;
+	}
+	}
+	
+	//클래스 이용 날짜 시간 변환을 수행하여 출력하는 메소드
+	public String getUser_class_date_WithFormat() throws ParseException {
+		if(user_class_date==null) {
+			return"";
+		}
+		else {
+			
+		// [1]내가 가진 가입일을 날짜 형식(java.util.Date)으로 변환 - .Parse()
+		// [2] 1번 결과를 다시 원하는 형식의 문자열로 변환 	- .format()
+		SimpleDateFormat read = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S");
+		Date date = read.parse(user_class_date);   
+		SimpleDateFormat write = new SimpleDateFormat("y년 M월 d일");
+		String time = write.format(date);
+		
+		return time;
+	}
+	}
 }
+
+

@@ -134,6 +134,8 @@
        	height: 25px;
        }
        
+
+       
     </style>
 <!-- css style 끝 -->
 
@@ -141,7 +143,7 @@
 <!-- 				들어갈 내용 : 컨텐츠 넘버/ 유저 이름(작성자) / 작성일 / 리뷰내용/ 컨텐츠 넘버   -->
 <body>
 	<div id="dd">
-    <hr>
+    <hr color="#F9896">
 	<h2 style="margin: 20px 50px 10px"><%=user_id %>님의 리뷰게시판입니다</h2>
 	 <div class="row-empty"></div>
      <!-- side_menu시작 -->
@@ -151,7 +153,7 @@
              
               <ul>
                 <div style="margin: 0px 10px;">내 정보</div>
-                 <hr>
+                 <hr color="#F9896">
                   <li>
                       <a href="<%=request.getContextPath() %>/info/users_history.jsp">이용내역</a>
                   </li>
@@ -168,7 +170,7 @@
                   <li>                     
                       <a href="<%=request.getContextPath() %>/info/users_point.jsp">포인트내역</a>
                   </li>
-                  <hr>
+                  <hr color="#F9896">
               </ul>
           </div>
           <!-- side_menu끝 -->
@@ -195,7 +197,7 @@
 			<%-- <td>컨텐츠넘버:<%=URdto.getContent_original_no() %></td> --%>
 			<td><%=URdto.getReview_content() %></td>
 			<td><%=URdto.getReview_writer() %></td>
-			<td><%=URdto.getReview_date() %></td>
+			<td><%=URdto.getReview_date_WithFormat() %></td>
 		</tr>
 		<%} %>
         </tbody>
@@ -204,8 +206,7 @@
     </div>
     <div class="row-empty"></div>
     <div class="row-empty"></div>
-    <hr>
-    
+       
     <div class="row">
 		<!-- 네비게이터(navigator) -->
 		<jsp:include page="/template/navigator.jsp">
@@ -215,7 +216,7 @@
 			<jsp:param name="pagesize" value="<%=pagesize%>"/>
 		</jsp:include>
 	</div>
-	
+	<hr color="#F9896">
 </body>
   
 <jsp:include page="/template/footer.jsp"></jsp:include>
