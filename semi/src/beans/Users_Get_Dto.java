@@ -98,4 +98,6 @@ public class Users_Get_Dto {
 	public void setUser_last_login(String user_last_login) {
 		this.user_last_login = user_last_login;
 	}
+	
+	
 }

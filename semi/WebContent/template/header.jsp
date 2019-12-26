@@ -93,6 +93,7 @@ String hostlogin = request.getContextPath()+"/login/host_login.jsp";
 </head>
 
 <body>
+
 	<header>
 			<div class="logo row">
 				<img src="<%=request.getContextPath() %>/image/header.png">

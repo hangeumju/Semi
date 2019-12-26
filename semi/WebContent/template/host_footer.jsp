@@ -1,14 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
- 
-<%
-	String user = (String)session.getAttribute("user_id");
-	String host = (String)session.getAttribute("host_id");
-%>
     
-<footer class="row">
+    
+<footer class="row" align = "center">
 		
-
+		<%
+					String user = (String)session.getAttribute("user_id");
+					String host = (String)session.getAttribute("host_id");
+				%>
 				
 				<h5>user = <%=user %></h5>
 				<h5>host = <%=host %></h5>
@@ -34,7 +33,9 @@
             
       <h4> &copy; KH당일치기 주식회사</h4>      
             
-      <div><a href="<%=request.getContextPath()%>/ect/terms_of_use.jsp">이용약관 &nbsp</a>  <a href=<%=request.getContextPath()%>/ect/personal_information_processing.jsp>개인정보 처리방침 &nbsp</a>  <a href="<%=request.getContextPath()%>/ect/location_based_terms_of_service.jsp">위치기반 서비스 이용약관</a> </div>      
+      <div>이용약관 &nbsp  
+      <a href="/ect/location_based_terms_of_service.jsp">개인정보 처리방침 &nbsp</a>  위치기반 서비스 이용약관 </div>      
 </footer>
     </main>
-</body></html>
+</body>
+</html>

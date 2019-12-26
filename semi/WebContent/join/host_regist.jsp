@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
-<jsp:include page="/template/header.jsp"></jsp:include>  
 <form action="host_regist.do" method="post">
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/host_main.css">
+<jsp:include page="/template/host_header.jsp"></jsp:include>
 <style>
        *{
            box-sizing: border-box;
@@ -11,7 +11,7 @@
        #container, #footer, #header {
         margin: 0 auto;
         width: 400px;  
-    }       
+  	  }       
        .join_content{
            width: 100%; 
 /*            border: 1px solid black; */
@@ -135,8 +135,9 @@
                </div> 
 		 <div class="join_row">
                    <h3 class="join_title">
-                       <div>휴대전화</div>
+                       <div>전화번호</div>
                    </h3>
+                   <span class="join_box">
 	  		<input id="phone" class="block-item input-item" type="tel" name="host_phone"  required>
 		</span>
                </div> 
@@ -210,4 +211,3 @@
                    </span>
             </div> 
       </form>
-<jsp:include page="/template/footer.jsp"></jsp:include>

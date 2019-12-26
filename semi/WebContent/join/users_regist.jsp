@@ -40,10 +40,12 @@
             background-color: #F98967;
             color:white;
             border:none;
+            border-radius: 10px;
         }       
 </style>
 
 <section>
+                 <hr color="#F9896">
 <form action="users_regist.do" method="post">
 
     <div id="container">
@@ -134,4 +136,5 @@
        </div>        
 	</form>
 </section>
+                 <hr color="#F9896">
 <jsp:include page="/template/footer.jsp"></jsp:include>

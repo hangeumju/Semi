@@ -79,54 +79,69 @@
 
 		<div class="gallary">
 			<div class="gallary-item">
-				<a href="https://www.frip.co.kr/">
+
+				<a href="<%=request.getContextPath()%>/board/host_content_list.jsp?category=액티비티">
+
 					<div class="category-image">
 						<img src="http://placeimg.com/480/480/tech">
 						<div align="center">액티비티</div>
 					</div>
 				</a>
 			</div>
+		</div>
 
 
 			<div class="gallary">
 				<div class="gallary-item">
-					<a href="https://www.frip.co.kr/">
+
+					<a href="<%=request.getContextPath()%>/board/host_content_list.jsp?category=배움">
+
 						<div class="category-image">
 							<img src="http://placeimg.com/480/480/tech">
 							<div align="center">배움</div>
 						</div>
 					</a>
 				</div>
+			</div>
 
 				<div class="gallary">
 					<div class="gallary-item">
-						<a href="https://www.frip.co.kr/">
+
+						<a href="<%=request.getContextPath()%>/board/host_content_list.jsp?category=건강/뷰티">
+
 							<div class="category-image">
 								<img src="http://placeimg.com/480/480/any">
 								<div align="center">건강/뷰티</div>
 							</div>
 						</a>
 					</div>
+				</div>
 
 					<div class="gallary">
 						<div class="gallary-item">
-							<a href="https://www.frip.co.kr/">
+
+							<a href="<%=request.getContextPath()%>/board/host_content_list.jsp?category=모임">
+
 								<div class="category-image">
 									<img src="http://placeimg.com/480/480/tech">
 									<div align="center">모임</div>
 								</div>
 							</a>
 						</div>
+					</div>
 
 						<div class="gallary">
 							<div class="gallary-item">
-								<a href="https://www.frip.co.kr/">
+
+								<a href="<%=request.getContextPath()%>/board/host_content_list.jsp?category=여행">
+
 									<div class="category-image">
 										<img src="http://placeimg.com/480/480/any">
 										<div align="center">여행</div>
 									</div>
 								</a>
 							</div>
+				</div>
 	</article>
 
 
@@ -160,9 +175,9 @@
 					<div class="gallary-text-category">카테고리:뷰티</div>
 					<div class="gallary-text-content">컨텐츠명</div>
 					<div class="gallary-text-cost">40000원</div>
+				</a>
 			</div>
 
-			</a>
 
 			<div class="gallary-item">
 				<a
@@ -174,9 +189,9 @@
 					<div class="gallary-text-category">카테고리:뷰티</div>
 					<div class="gallary-text-content">컨텐츠명</div>
 					<div class="gallary-text-cost">40000원</div>
+				</a>
 			</div>
 
-			</a>
 
 			<div class="gallary-item">
 				<a
@@ -188,9 +203,9 @@
 					<div class="gallary-text-category">카테고리:뷰티</div>
 					<div class="gallary-text-content">컨텐츠명</div>
 					<div class="gallary-text-cost">40000원</div>
+				</a>
 			</div>
 
-			</a>
 
 			<div class="gallary-item">
 				<a
@@ -202,9 +217,9 @@
 					<div class="gallary-text-category">카테고리:뷰티</div>
 					<div class="gallary-text-content">컨텐츠명</div>
 					<div class="gallary-text-cost">40000원</div>
+				</a>
 			</div>
 
-			</a>
 
 			<div class="gallary-item">
 				<a
@@ -216,8 +231,8 @@
 					<div class="gallary-text-category">카테고리:뷰티</div>
 					<div class="gallary-text-content">컨텐츠명</div>
 					<div class="gallary-text-cost">40000원</div>
+				</a>
 			</div>
-			</a>
 
 		</div>
 	</article>

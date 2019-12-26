@@ -1,5 +1,9 @@
 package beans;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Users_Review_Dto {
 	private int review_no;
 	private String review_writer;
@@ -46,6 +50,22 @@ public class Users_Review_Dto {
 		this.review_date = review_date;
 	}
 	
-	
+	// 유저 리뷰작성 날짜 시간 변환을 수행하여 출력하는 메소드
+	public String getReview_date_WithFormat() throws ParseException {
+		if(review_date==null) {
+			return"";
+		}
+		else {
+			
+		// [1]내가 가진 가입일을 날짜 형식(java.util.Date)으로 변환 - .Parse()
+		// [2] 1번 결과를 다시 원하는 형식의 문자열로 변환 	- .format()
+		SimpleDateFormat read = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S");
+		Date date = read.parse(review_date);   
+		SimpleDateFormat write = new SimpleDateFormat("y년 M월 d일");
+		String time = write.format(date);
+		
+		return time;
+	}
+	}
 
 }

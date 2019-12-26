@@ -55,12 +55,18 @@
             border-bottom: 1px solid #444444;
             padding: 10px;
           }
-
+		a{
+            text-decoration: none;
+            color: black;
+       }
     </style>
 </head>
 
 <body>
     <main>
+    <hr color="#F98967">
+    <div class="row-empty"></div>
+    <div class="row-empty"></div>
         <h1>공지사항</h1>
         <div>
             <table class="notice_table">
@@ -89,6 +95,9 @@
 	</div>
 
         </div>
+        <div class="row-empty"></div>
+        <div class="row-empty"></div>
+        <hr color="#F98967">
     </main>
 </body>
 
