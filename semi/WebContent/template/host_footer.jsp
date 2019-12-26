@@ -33,8 +33,10 @@
             
       <h4> &copy; KH당일치기 주식회사</h4>      
             
-      <div>이용약관 &nbsp  
-      <a href="/ect/location_based_terms_of_service.jsp">개인정보 처리방침 &nbsp</a>  위치기반 서비스 이용약관 </div>      
+      <div>
+      <a href="<%=request.getContextPath()%>/ect/terms_of_use.jsp">이용약관 &nbsp </a> 
+      <a href="<%=request.getContextPath()%>/ect/location_based_terms_of_service.jsp">개인정보 처리방침 &nbsp</a>  
+      <a href="<%=request.getContextPath()%>/ect/location_based_terms_of_service.jsp">위치기반 서비스 이용약관</a> </div>      
 </footer>
     </main>
 </body>

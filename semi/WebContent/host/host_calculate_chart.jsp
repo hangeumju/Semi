@@ -1,4 +1,5 @@
-<%@page import="beans.Host_Calculate_Chart"%>
+<%@page import="beans.Host_Calculate_Dao"%>
+
 
 <%@page import="java.util.Date"%>
 <%@page import="java.text.SimpleDateFormat"%>
@@ -22,7 +23,7 @@
 	
     String host_id = (String)request.getSession().getAttribute("host_id");
     
-    Host_Calculate_Chart HCCdao = new Host_Calculate_Chart();
+    Host_Calculate_Dao HCCdao = new Host_Calculate_Dao();
     
     int total = HCCdao.total_pay(host_id);
     int pmonth = HCCdao.total_pay(host_id, month);
