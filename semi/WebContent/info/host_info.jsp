@@ -63,10 +63,10 @@
        
        /* 여백 주기 */
         .row-empty{
-            height: 40px;
+            height: 80px;
         }
        span{
-/*            border: 1px solid black; */
+/*           border: 1px solid black;  */
            margin: 0px 20px 0px 0px;
        }
        
@@ -80,9 +80,7 @@
         	margin: auto;
         	width: 1200px;
         }
-        hr*{
-        background-color: #F98967;
-        }
+       
    </style>
 
 <jsp:include page="/template/host_header.jsp"></jsp:include>
@@ -99,7 +97,7 @@
              
               <ul>
                 <div style="margin: 0px 10px;">내 정보</div>
-                 <hr>
+                 <hr color="#F98967">
                   <li>
                       <a href="host_check.jsp?go=/info/host_change_pw.jsp">비밀번호 변경</a>
                   </li>
@@ -118,7 +116,7 @@
 
 <!-- 회원정보 출력 -->
  <div class="content">
-            <div class="row-empty"></div>
+         
         
             <div class="ins_content">               
                  <span>아이디</span>
@@ -141,16 +139,16 @@
                  <span style="margin: 0 0 0 16px;"><%=HIdto.getHost_totalmail()%></span>
             </div>
             <div class="ins_content">               
-                 <span>마지막 로그인 날짜</span>
-                 <span style="margin: 0 0 0 16px;"><%=HIdto.getHost_lastloginwithFormat()%></span>
-            </div>
-            <div class="ins_content">               
                  <span>주소</span>
-                 <span style="margin: 0 0 0 16px;"><%=HIdto.getHost_address()%></span>
+                 <span style="margin: 0 0 0 35px;"><%=HIdto.getHost_address()%></span>
             </div>
             <div class="ins_content">               
                  <span>계좌 정보</span>
-                 <span style="margin: 0 0 0 16px;"><%=HIdto.getHost_bankaccount()%></span>
+                 <span style="margin: 0 0 0 -3px;"><%=HIdto.getHost_bankaccount()%></span>
+            </div>
+            <div class="ins_content">               
+                 <span>마지막 로그인 날짜</span>
+                 <span style="margin: 0 0 0 -10px;"><%=HIdto.getHost_lastloginwithFormat()%></span>
             </div>
             <div class="row-empty"></div>
             <div class="row-empty"></div>
@@ -159,57 +157,13 @@
        
 <!--  ::after -->
 	
-
-	<!-- 이메일 -->		
-		<div class="join_row">
-                   <h3 class="join_title">
-                       <div>이메일</div>
-                    </h3>
-                  <span class="join_box">
-				<div><%=HIdto.getHost_totalmail()%></div>
-				</span>
-			</div>
-				
-	<!-- 최종로그인시간 -->	
-	<div class="join_row">
-                   <h3 class="join_title">
-                       <div>마지막 로그인 날짜</div>
-                    </h3>
-                  <span class="join_box">
-				<div><%=HIdto.getHost_lastloginwithFormat()%></div>
-				</span>
-			</div>
-				
-	<!-- 주소 -->	
-	<div class="join_row">
-                   <h3 class="join_title">
-                       <div>주소</div>
-                    </h3>
-                  <span class="join_box">
-				<div><%=HIdto.getHost_address()%></div>
-				</span>
-			</div>
-				
-	<!-- 은행-->	
-	<div class="join_row">
-                   <h3 class="join_title">
-                       <div>계좌 정보</div>
-                    </h3>
-                  <span class="join_box">
-				<div><%=HIdto.getHost_bankaccount()%></div>
-			</span>
-		</div>
-		</div>
-			</div>
-			<br><br>
-<h4><a href="<%=request.getContextPath()%>/info/host_change_pw.jsp">
-<font size ="5" color="#F98967">비밀번호 변경</font></a></h4>
-<h4><a href="<%=request.getContextPath()%>/info/host_change_info.jsp">
-<font size ="5" color="#F98967">회원정보 수정</font></a></h4>
-<h4><a href="<%=request.getContextPath()%>/info/host_exit.jsp">
-<font size ="5" color="#F98967">회원 탈퇴</font></a></h4>
-</div>
+   </div> 
+  
+   <hr>   
+ 
+</body>
 
 <jsp:include page="/template/host_footer.jsp"></jsp:include>
 
 
+>>>>>>> refs/remotes/origin/master
