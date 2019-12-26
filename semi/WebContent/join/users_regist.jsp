@@ -40,6 +40,7 @@
             background-color: #F98967;
             color:white;
             border:none;
+            border-radius: 10px;
         }       
 </style>
 
