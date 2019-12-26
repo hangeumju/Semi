@@ -103,7 +103,7 @@ body[test] main, body[test] header, body[test] nav, body[test] section,
             - 홈페이지는 브라우저 가운데 위치한다
             - 영역별 내부 여백은 글자 2개 높이만큼으로 한다
         */
-main {
+body {
 	width: 1200px;
 	margin: auto;
 }
