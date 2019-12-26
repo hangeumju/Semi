@@ -6,13 +6,10 @@ String user_id = (String) session.getAttribute("user_id");
 String host_id = (String) session.getAttribute("host_id");
 boolean login = user_id == null;
 
+// 로그인 모달창 주소 자동변경을 위한 주소 변수 선언
+String userregist = request.getContextPath()+"/join/users_regist.jsp";
+String hostlogin = request.getContextPath()+"/login/host_login.jsp";
 %>
-
-<%if(request.getParameter("error") != null) {%>
-<script>
-window.alert("로그인 정보가 맞지 않습니다");
-</script>
-<%} %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -66,13 +63,11 @@ window.alert("로그인 정보가 맞지 않습니다");
 	}
 </script>
 
-<!-- 로그인 모달창 주소 자동변경을 위한 주소 변수 선언 -->
-<%
-String userregist = request.getContextPath()+"/join/users_regist.jsp";
-String hostlogin = request.getContextPath()+"/login/host_login.jsp";
-%>
-
 <script>
+	<%if(request.getParameter("error") != null) {%>
+		window.alert("로그인 정보가 맞지 않습니다");
+	<%} %>
+
 	function openLoginModal() {
 		event.preventDefault()
 		var modal = document.querySelector(".modal");
@@ -84,9 +79,6 @@ String hostlogin = request.getContextPath()+"/login/host_login.jsp";
 		modal.style.display = "none"
 	}
 	
-</script>
-
-<script>
 	function userRegistModal(){
 		var loginform = document.querySelector(".userform");
 		loginform.action = "<%=userregist%>";
@@ -95,6 +87,7 @@ String hostlogin = request.getContextPath()+"/login/host_login.jsp";
 	function openHost(){
 		window.open("<%=hostlogin%>")
 	}
+	
 </script>
 
 </head>
@@ -102,29 +95,29 @@ String hostlogin = request.getContextPath()+"/login/host_login.jsp";
 <body>
 
 	<header>
-
-		<div class="flex-container">
-			<img class="flex-item" src="<%=request.getContextPath() %>/image/header.png" width=60%>
-			<div class="flex-item-gnb">
-
-					<%if (login) {%>
-					<button class="a" onclick="openLoginModal();">일반회원</button>
-					<%} else {%>
-
-					<button class="a"
-						onclick="location.href='<%=request.getContextPath()%>/info/users_info.jsp'">내정보</button>
-					<button class="a"
-						onClick="location.href='<%=request.getContextPath()%>/login/users_logout.do'">로그아웃</button>
-
-					<%}%>
-
-					<button class="a" onclick="openHost();">호스트</button>
-					<button class="a">고객센터</button>
+			<div class="logo row">
+				<img src="<%=request.getContextPath() %>/image/header.png">
 			</div>
-		</div>
+			<div class="menu">
+				<ul>
+					<%if (login) {%>
+						<li onclick="openLoginModal();">로그인</li>
+					<%} else{%>
+						<li>환영합니다 <%=user_id %>님<img src="<%=request.getContextPath() %>/image/dropdown.png">
+							<ul>
+								<li onclick="location.href='<%=request.getContextPath()%>/info/users_info.jsp'">내정보</li>
+								<li onClick="location.href='<%=request.getContextPath()%>/login/users_logout.do'">로그아웃</li>
+							</ul>
+						</li>
+						<%} %>
+						<li>|</li>
+						<li onclick="openHost();">호스트</li>
+						<li>|</li>
+						<li>고객센터</li>
+				</ul>
+			</div>
 
 		<!-- 로그인 모달화면 분리 -->
 		<jsp:include page="/login/user_login.jsp"></jsp:include>
 
 	</header>
-	<main>
