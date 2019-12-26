@@ -2,8 +2,8 @@
 <%@page import="beans.Host_Info_Dao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/common.css">
-<jsp:include page="/template/header.jsp"></jsp:include>
+ <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/host_main.css">
+<jsp:include page="/template/host_header.jsp"></jsp:include>
 
 <div align="center">
 <%
@@ -22,4 +22,4 @@ Host_Info_Dto HIdto = HIdao.get(host_id);
 	<a>비밀번호 변경</a>
 
 </div>
-<jsp:include page="/template/footer.jsp"></jsp:include>
+<jsp:include page="/template/host_footer.jsp"></jsp:include>

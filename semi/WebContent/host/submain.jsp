@@ -13,6 +13,9 @@
 	Host_Info_Dto HIdto = HIdao.get(host_id);
 %>
 
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/host_main.css">
+<jsp:include page="/template/host_header.jsp"></jsp:include>
+
 <!DOCTYPE html>
 <html>
 <head>

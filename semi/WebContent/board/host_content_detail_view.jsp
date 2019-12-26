@@ -307,7 +307,8 @@
     </script>
     
     <!--     	스트립트 영역 끝입니다---------------------------------------------------------- -->
-<jsp:include page="/template/header.jsp"></jsp:include>
+ <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/host_main.css">
+<jsp:include page="/template/host_header.jsp"></jsp:include>
     
    
 	
@@ -381,4 +382,4 @@
 		
 	</article>
 	
-<jsp:include page="/template/footer.jsp"></jsp:include>
+<jsp:include page="/template/host_footer.jsp"></jsp:include>

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
- <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/common.css">
-<jsp:include page="/template/header.jsp"></jsp:include>
+ <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/host_main.css">
+<jsp:include page="/template/host_header.jsp"></jsp:include>
 <form action ="host_login_find.do" method="post">
 <article class="w-50">
 <div class="row">
@@ -25,4 +25,4 @@
 </div>
 </article>
 </form>
-<jsp:include page="/template/footer.jsp"></jsp:include>
+<jsp:include page="/template/host_footer.jsp"></jsp:include>

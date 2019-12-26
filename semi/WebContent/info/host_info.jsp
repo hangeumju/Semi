@@ -48,6 +48,8 @@
             border:none;
         }       
 </style>
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/common.css">
+<jsp:include page="/template/host_header.jsp"></jsp:include>
 	<div id="container">
        <div class="join_content">
            <div class="row_group">
@@ -144,5 +146,6 @@
 <h4><a href="host_check.jsp?go=/info/host_exit.jsp">
 <font size ="5" color="#F98967">회원 탈퇴</font></a></h4>
 </div>
+<jsp:include page="/template/host_footer.jsp"></jsp:include>
 
 
