@@ -42,12 +42,7 @@
             font-size: 30px;
         }
         
-        .search, form {
-            text-align: center;
-            margin: 10px;
-            margin-right: 10px;
-            padding: 0px;
-        }
+   
         
         ul {
             list-style-type: none;
@@ -426,13 +421,7 @@ p {
             font-size: 30px;
         }
         
-        .search, form {
-            text-align: right;
-            text-align: center;
-            margin: -5px;
-            margin-right: 10px;
-            padding: 0px;
-        }
+
         
         ul {
             list-style-type: none;
