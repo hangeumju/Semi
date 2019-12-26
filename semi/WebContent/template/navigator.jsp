@@ -23,6 +23,7 @@
 %>
  
 <h4>
+
    <!-- 이전 버튼 -->
    <%if(startBlock > 1){ %>
       <%if(isSearch){ %>
@@ -51,4 +52,5 @@
          <a href="<%=request.getRequestURI()%>?pno=<%=finishBlock + 1%>">[다음]</a>
       <%} %>
    <%} %>
+
 </h4>

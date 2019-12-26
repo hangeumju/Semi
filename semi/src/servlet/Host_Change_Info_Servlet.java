@@ -19,6 +19,7 @@ public class Host_Change_Info_Servlet extends HttpServlet{
 			req.setCharacterEncoding("UTF-8");
 			String host_id = (String)req.getSession().getAttribute("host_id");
 			
+			String host_phone = req.getParameter("host_phone");
 			String host_email_id = req.getParameter("host_email_id");
 			String host_email_domain = req.getParameter("host_email_domain");
 			String host_post = req.getParameter("host_post");
@@ -28,6 +29,8 @@ public class Host_Change_Info_Servlet extends HttpServlet{
 			String host_bank_account = req.getParameter("host_bank_account");
 
 			Host_Info_Dto HIdto = new Host_Info_Dto();
+			
+			HIdto.setHost_phone(host_phone);
 			HIdto.setHost_email_id(host_email_id);
 			HIdto.setHost_email_domain(host_email_domain);
 			HIdto.setHost_post(host_post);

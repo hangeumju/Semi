@@ -99,7 +99,6 @@ ul {
 	color: white;
 	border: none;
 	border-radius: 10px;
-	
 }
 
 .change_pw_btn {
@@ -112,14 +111,13 @@ ul {
 	line-height: 40px;
 	display: block;
 	text-decoration: none;
-	
 }
 </style>
 <!-- css style 끝 -->
 
 <body>
 	<div id="dd">
-		<hr>
+		<hr color="#F9896">
 
 		<h2 style="margin: 20px 50px 10px"><%=UGdto.getUser_id()%>님의 정보를
 			수정하시나요?
@@ -132,7 +130,7 @@ ul {
 
 				<ul>
 					<div style="margin: 0px 10px;">내 정보</div>
-					<hr>
+					<hr color="#F9896">
 					<li><a
 						href="<%=request.getContextPath()%>/info/users_history.jsp">이용내역</a>
 					</li>
@@ -147,7 +145,7 @@ ul {
 					<li><a
 						href="<%=request.getContextPath()%>/info/users_point.jsp">포인트내역</a>
 					</li>
-					<hr>
+					<hr color="#F9896">
 				</ul>
 			</div>
 			<!-- side_menu끝 -->
@@ -157,72 +155,65 @@ ul {
 
 <section>
 
-<form action="users_change_info.do" method="post">
-	<div class="content">
-		<div class="row-empty"></div>
+	<form action="users_change_info.do" method="post">
+		<div class="content">
+			<div class="row-empty"></div>
 
 
 
-		<!-- 전화번호 수정 -->
-		<div class="ins_content">
-			<span>전화번호</span>
-				<br>
-			 <input class="block-item input-item" type="text"
-				name="user_phone" placeholder="휴대전화" required>
+			<!-- 전화번호 수정 -->
+			<div class="ins_content">
+				<span>전화번호</span> <br> <input class="block-item input-item"
+					type="text" name="user_phone" placeholder="휴대전화" required>
+			</div>
+
+			<!-- 이메일 계정 수정 -->
+			<div class="ins_content">
+				<span>이메일</span> <br> <input class="input-item" type="text"
+					name="user_email_id" placeholder="이메일아이디" required> <span>
+					<select class="input-item" name="user_email_domain">
+						<option value="" selected disabled hidden>이메일선택</option>
+						<option>@naver.com</option>
+						<option>@nate.com</option>
+						<option>@gmail.com</option>
+						<option>@daum.net</option>
+						<option>@hanmail.net</option>
+				</select>
+				</span>
+			</div>
+
+
+			<!-- 관심분야 수정 -->
+			<div class="ins_content">
+				<span>관심분야 </span> <br> <span> <select
+					class="block-item input-item" name="user_Interest">
+						<option value="" selected disabled hidden>관심분야</option>
+						<option>액티비티</option>
+						<option>배움</option>
+						<option>건강/뷰티</option>
+						<option>모임</option>
+						<option>여행</option>
+				</select>
+				</span>
+			</div>
+			<br>
+			<!-- 정보 수정 및 지우기 버튼 -->
+
+			<input class="join_btn" type="reset" value="지우기"> <input
+				class="join_btn" type="submit" value="수정하기">
+			<div class="change_pw_btn">
+				<h4>
+					<a href="users_change_pw.jsp">비밀번호 변경</a>
+				</h4>
+			</div>
+
+
+
+
+		</div>
 		</div>
 
-		<!-- 이메일 계정 수정 -->
-		<div class="ins_content">
-			<span>이메일</span>
-				<br>			 
-			<input class="input-item" type="text"
-				name="user_email_id" placeholder="이메일아이디" required> <span>
-				<select class="input-item" name="user_email_domain">
-					<option value="" selected disabled hidden>이메일선택</option>
-					<option>@naver.com</option>
-					<option>@nate.com</option>
-					<option>@gmail.com</option>
-					<option>@daum.net</option>
-					<option>@hanmail.net</option>
-			</select>
-			</span>
-		</div>
-
-
-		<!-- 관심분야 수정 -->
-		<div class="ins_content">
-			<span>관심분야 </span> 
-							<br>
-			<span> 
-			<select
-				class="block-item input-item" name="user_Interest">
-					<option value="" selected disabled hidden>관심분야</option>
-					<option>액티비티</option>
-					<option>배움</option>
-					<option>건강/뷰티</option>
-					<option>모임</option>
-					<option>여행</option>
-			</select>
-			</span>
-		</div>
-		<br>
-		<!-- 정보 수정 및 지우기 버튼 -->
-
-		<input class="join_btn" type="reset" value="지우기"> <input
-			class="join_btn" type="submit" value="수정하기">
-		<div class="change_pw_btn">
-			<h4>
-				<a href="users_change_pw.jsp">비밀번호 변경</a>
-			</h4>
-		</div>
-
-
-
-
-	</div>
-	</div>
-
-</form>
+	</form>
 </section>
-<hr>
+<hr color="#F9896">
 <jsp:include page="/template/footer.jsp"></jsp:include>
