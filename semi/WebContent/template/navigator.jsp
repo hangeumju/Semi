@@ -32,6 +32,7 @@
 		<%} %>
 	<%} %>
 	
+	
 	<%for(int i=startBlock; i <= finishBlock; i++){ %>
 		<%if(i == pno){ %>
 			<%=i%>
@@ -43,6 +44,8 @@
 			<%} %>
 		<%} %>
 	<%} %>
+	
+	
 	<!-- 다음 버튼 -->
 	<%if(finishBlock < pagecount){ %>
 		<%if(isSearch){ %>
