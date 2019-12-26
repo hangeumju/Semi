@@ -1,4 +1,3 @@
-
 <%@page import="beans.Host_Info_Dao"%>
 <%@page import="beans.Host_Info_Dto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -9,13 +8,14 @@
  	//기존 정보 불러오기 !
  	Host_Info_Dto HIdto = HIdao.get(host_id);
     %>
+    
  <style>
        *{
            box-sizing: border-box;
        }
 
        div{
-/*     border: 1px solid black;  */
+/*  		 border: 1px solid black;  */
        }
        .side{
            width: 170px;
@@ -76,11 +76,11 @@
             display: block;
             clear: both;
         }       
-       #dd{
-        	margin: auto;
-        	width: 1200px;
-        }
-       
+/*        #dd{ */
+/*         	margin: auto; */
+/*         	width: 1200px; */
+/*         } */
+	
    </style>
 
 <jsp:include page="/template/host_header.jsp"></jsp:include>
@@ -159,11 +159,8 @@
 	
    </div> 
   
-   <hr>   
+   <hr color="#F98967">   
  
 </body>
 
 <jsp:include page="/template/host_footer.jsp"></jsp:include>
-
-
->>>>>>> refs/remotes/origin/master

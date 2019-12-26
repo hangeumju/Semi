@@ -1,4 +1,3 @@
-
 <%@page import="beans.Host_Info_Dto"%>
 <%@page import="beans.Host_Info_Dao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -18,14 +17,13 @@
        }
 
        div{
-/*   border: 1px solid black;   */
+/*  		 border: 1px solid black;    */
        }
        .side{
            width: 170px;
-           float: left;
-/*           background-color:#F98967;*/
-         
+           float: left;         
        }
+       
        .side .side_menu > ul > li > a {
             margin: 0;
             padding: 0;
@@ -50,7 +48,7 @@
            
        }
         .content{
-           float: right;
+           float: left;
            width: 1000px;
            font-size: 16px;
            font-weight: 500;
@@ -75,7 +73,7 @@
             clear: both;
         }       
         .check-btn{
-            padding:0.5rem;
+            padding:0.4rem;
             background-color: #F98967;
             color:white;
             border:none;
@@ -83,6 +81,7 @@
             border-radius: 10px;
         }
     </style>
+<jsp:include page="/template/host_header.jsp"></jsp:include>
 
 <body>
    <div id="dd">
@@ -92,8 +91,7 @@
       <!-- side_menu시작 -->
        <div class="side">
          
-          <div class="side_menu">
-             
+          <div class="side_menu">             
               <ul>
                 <div style="margin: 0px 10px;">내 정보</div>
                  <hr color="#F98967">
@@ -128,8 +126,11 @@
   <div class="row-empty"></div>
 </div>
 
-  </div>  
-   <hr>   
+  </div> 
+  <div class="row-empty"></div>
+  <div class="row-empty"></div>
+
+   <hr color="#F98967">   
  
 </body>
 
