@@ -12,140 +12,158 @@
        *{
            box-sizing: border-box;
        }
-       
-       #container, #footer, #header {
-        margin: 0 auto;
-        width: 400px;  
-    }       
-       .join_content{
-           width: 100%; 
-/*            border: 1px solid black; */
+
+       div{
+/*     border: 1px solid black;  */
+       }
+       .side{
+           width: 170px;
+           float: left;
+/*           background-color:#F98967;*/
+         
+       }
+       .side .side_menu > ul > li > a {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 16px;
+            font-weight: 500;
+            color: black;
+            line-height: 40px;
+            display: block;
+            text-decoration: none;
        }
        
-        .join_title {
-        margin: 19px 0 8px;
-        font-size: 14px;
-        font-weight: 700;
-/*         border: 1px solid black; */
-    }
-       .join_box *{
-           border: solid 1px darkgray;
+       ul{
+           list-style: none;
+       }
+       .side .side_menu > ul > li:hover{
+            background-color: antiquewhite;
+            color: black;
+       }
+       .side .side_menu > ul > li{
+            padding: 0px 0px 0px 10px;
+           
+       }
+       
+       .content{
+           float: right;
+           width: 970px;
+           font-size: 16px;
+           font-weight: 500;
+           color: black;
+           line-height: 40px;
+           display: block;
+           padding: 0px 0px 0px 12px;
+       }
+       .ins_content{
            padding: 10px;
-           width: 100%; 
        }
-       .email_box *{
-           height: 32px;          
+       
+       /* 여백 주기 */
+        .row-empty{
+            height: 40px;
+        }
+       span{
+/*            border: 1px solid black; */
+           margin: 0px 20px 0px 0px;
        }
-       #email_id{
-           width: 220px;
-           border: solid 1px darkgray;
-       }
-       .join_btn{
-            font-size:1.5rem;
-            padding:0.5rem;
-            background-color: #F98967;
-            color:white;
-            border:none;
+       
+       /* .float끝나는 영역을 가상으로 생성하고 clear(가상선택자) */
+        #dd::after{
+            content:"";
+            display: block;
+            clear: both;
         }       
-</style>
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/common.css">
+       #dd{
+        	margin: auto;
+        	width: 1200px;
+        }
+        hr*{
+        background-color: #F98967;
+        }
+   </style>
+
 <jsp:include page="/template/host_header.jsp"></jsp:include>
-	<div id="container">
-       <div class="join_content">
-           <div class="row_group">
-              <div class="join_content" style="text-align: center">
-	<h2><%=HIdto.getHost_id() %>님의 정보</h2>
-     </div>         
-<br>
+
+<body>
+   <div id="dd">
+    
+     <h2 style="margin: 20px 50px 10px"><%=HIdto.getHost_id() %>님의 프로필</h2>
+     <div class="row-empty"></div>
+      <!-- side_menu시작 -->
+       <div class="side">
+         
+          <div class="side_menu">
+             
+              <ul>
+                <div style="margin: 0px 10px;">내 정보</div>
+                 <hr>
+                  <li>
+                      <a href="host_check.jsp?go=/info/host_change_pw.jsp">비밀번호 변경</a>
+                  </li>
+                  <li>                     
+                      <a href="host_check.jsp?go=/info/host_change_info.jsp">내 정보 수정</a>
+                  </li>
+                  <li>                     
+                      <a href="host_check.jsp?go=/info/host_exit.jsp">회원탈퇴</a>
+                  </li>                  
+              </ul>
+          </div>
+          <!-- side_menu끝 -->
+       </div>
+       <!-- side끝 -->
+
+
 <!-- 회원정보 출력 -->
-	<!-- 히든정보 -->
-	<!-- 아이디 -->
-			 <div class="join_row">
-                   <h3 class="join_title">
-                       <div>아이디</div>
-                    </h3>
-                  <span class="join_box">
-				<div><%=HIdto.getHost_id()%></div>
-				</span>
-			</div>
-	<!-- 이름 -->			
-		 <div class="join_row">
-                   <h3 class="join_title">
-                       <div>이름</div>
-                    </h3>
-                  <span class="join_box">
-				<div><%=HIdto.getHost_name()%></div>
-				</span>
-			</div>
-	<!-- 전화번호 -->
-				 <div class="join_row">
-                   <h3 class="join_title">
-                       <div>전화번호</div>
-                    </h3>
-                  <span class="join_box">
-				<div><%=HIdto.getHost_phone()%></div>
-				</span>
-			</div>
-				
-	<!-- 가입일 -->
-		 <div class="join_row">
-                   <h3 class="join_title">
-                       <div>가입일</div>
-                    </h3>
-                  <span class="join_box">
-				<div><%=HIdto.getHost_joindatewithFormat()%></div>
-				</span>
-			</div>
+ <div class="content">
+            <div class="row-empty"></div>
+        
+            <div class="ins_content">               
+                 <span>아이디</span>
+                 <span style="margin: 0 0 0 17px;"><%=HIdto.getHost_id()%></span>
+            </div>
+            <div class="ins_content">               
+                 <span>이름</span>
+                 <span style="margin: 0 0 0 31px;"><%=HIdto.getHost_name()%></span>
+            </div>
+            <div class="ins_content">               
+                 <span>전화번호</span>
+                 <span style="margin: 0 0 0 1px;"><%=HIdto.getHost_phone()%></span>
+            </div>
+            <div class="ins_content">               
+                 <span>가입일</span>
+                 <span style="margin: 0 0 0 16px;"><%=HIdto.getHost_joindatewithFormat()%></span>
+            </div>
+            <div class="ins_content">               
+                 <span>이메일</span>
+                 <span style="margin: 0 0 0 16px;"><%=HIdto.getHost_totalmail()%></span>
+            </div>
+            <div class="ins_content">               
+                 <span>마지막 로그인 날짜</span>
+                 <span style="margin: 0 0 0 16px;"><%=HIdto.getHost_lastloginwithFormat()%></span>
+            </div>
+            <div class="ins_content">               
+                 <span>주소</span>
+                 <span style="margin: 0 0 0 16px;"><%=HIdto.getHost_address()%></span>
+            </div>
+            <div class="ins_content">               
+                 <span>계좌 정보</span>
+                 <span style="margin: 0 0 0 16px;"><%=HIdto.getHost_bankaccount()%></span>
+            </div>
+            <div class="row-empty"></div>
+            <div class="row-empty"></div>
+       </div>
+
+       
+<!--  ::after -->
 	
-	<!-- 이메일 -->		
-		<div class="join_row">
-                   <h3 class="join_title">
-                       <div>이메일</div>
-                    </h3>
-                  <span class="join_box">
-				<div><%=HIdto.getHost_totalmail()%></div>
-				</span>
-			</div>
-				
-	<!-- 최종로그인시간 -->	
-	<div class="join_row">
-                   <h3 class="join_title">
-                       <div>마지막 로그인 날짜</div>
-                    </h3>
-                  <span class="join_box">
-				<div><%=HIdto.getHost_lastloginwithFormat()%></div>
-				</span>
-			</div>
-				
-	<!-- 주소 -->	
-	<div class="join_row">
-                   <h3 class="join_title">
-                       <div>주소</div>
-                    </h3>
-                  <span class="join_box">
-				<div><%=HIdto.getHost_address()%></div>
-				</span>
-			</div>
-				
-	<!-- 은행-->	
-	<div class="join_row">
-                   <h3 class="join_title">
-                       <div>계좌 정보</div>
-                    </h3>
-                  <span class="join_box">
-				<div><%=HIdto.getHost_bankaccount()%></div>
-			</span>
-		</div>
-		</div>
-			</div>
-			<br><br>
-<h4><a href="host_check.jsp?go=/info/host_change_pw.jsp">
-<font size ="5" color="#F98967">비밀번호 변경</font></a></h4>
-<h4><a href="host_check.jsp?go=/info/host_change_info.jsp">
-<font size ="5" color="#F98967">회원정보 수정</font></a></h4>
-<h4><a href="host_check.jsp?go=/info/host_exit.jsp">
-<font size ="5" color="#F98967">회원 탈퇴</font></a></h4>
-</div>
+   </div> 
+  
+   <hr>   
+ 
+</body>
+
 <jsp:include page="/template/host_footer.jsp"></jsp:include>
 
 
