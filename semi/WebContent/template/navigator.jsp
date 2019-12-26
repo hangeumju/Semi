@@ -8,6 +8,7 @@
  <%
 	String type = request.getParameter("type");
 	String keyword = request.getParameter("keyword");
+	String category = request.getParameter("category");
 	boolean isSearch = type != null && keyword != null;
 	int pno = Integer.parseInt(request.getParameter("pno"));
 	int count = Integer.parseInt(request.getParameter("count"));
@@ -20,6 +21,14 @@
 	if(finishBlock > pagecount){
 		finishBlock = pagecount;
 	}
+	
+	System.out.println(category);
+	System.out.println(pno);
+	System.out.println(count);
+	System.out.println(navsize);
+	System.out.println(pagesize);
+	System.out.println(type);
+	System.out.println(keyword);
 %>
  
 <h4>
@@ -28,7 +37,7 @@
 		<%if(isSearch){ %>
 			<a href="<%=request.getRequestURI()%>?type=<%=type%>&keyword=<%=keyword%>&pno=<%=startBlock - 1%>">[이전]</a>  
 		<%}else{ %>
-			<a href="<%=request.getRequestURI()%>?pno=<%=startBlock - 1%>">[이전]</a>
+			<a href="<%=request.getRequestURI()%>?pno=<%=startBlock - 1%>&category=<%=category %>">[이전]</a>
 		<%} %>
 	<%} %>
 	
@@ -39,7 +48,7 @@
 			<%if(isSearch){ %>
 				<a href="<%=request.getRequestURI()%>?type=<%=type%>&keyword=<%=keyword%>&pno=<%=i%>"><%=i%></a>
 			<%}else{ %>
-				<a href="<%=request.getRequestURI()%>?pno=<%=i%>"><%=i%></a>
+				<a href="<%=request.getRequestURI()%>?pno=<%=i%>&category=<%=category %>"><%=i%></a>
 			<%} %>
 		<%} %>
 	<%} %>
@@ -48,7 +57,7 @@
 		<%if(isSearch){ %>
 			<a href="<%=request.getRequestURI()%>?type=<%=type%>&keyword=<%=keyword%>&pno=<%=finishBlock + 1%>">[다음]</a>
 		<%}else{ %>
-			<a href="<%=request.getRequestURI()%>?pno=<%=finishBlock + 1%>">[다음]</a>
+			<a href="<%=request.getRequestURI()%>?pno=<%=finishBlock + 1%>&category=<%=category %>">[다음]</a>
 		<%} %>
 	<%} %>
 </h4>

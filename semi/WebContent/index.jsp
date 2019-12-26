@@ -78,7 +78,7 @@
 
 		<div class="gallary">
 			<div class="gallary-item">
-				<a href="https://www.frip.co.kr/">
+				<a href="<%=request.getContextPath()%>/board/host_content_list.jsp?category=액티비티">
 					<div class="category-image">
 						<img src="http://placeimg.com/480/480/tech">
 						<div align="center">액티비티</div>
@@ -89,7 +89,7 @@
 
 			<div class="gallary">
 				<div class="gallary-item">
-					<a href="https://www.frip.co.kr/">
+					<a href="<%=request.getContextPath()%>/board/host_content_list.jsp?category=배움">
 						<div class="category-image">
 							<img src="http://placeimg.com/480/480/tech">
 							<div align="center">배움</div>
@@ -99,7 +99,7 @@
 
 				<div class="gallary">
 					<div class="gallary-item">
-						<a href="https://www.frip.co.kr/">
+						<a href="<%=request.getContextPath()%>/board/host_content_list.jsp?category=건강/뷰티">
 							<div class="category-image">
 								<img src="http://placeimg.com/480/480/any">
 								<div align="center">건강/뷰티</div>
@@ -109,7 +109,7 @@
 
 					<div class="gallary">
 						<div class="gallary-item">
-							<a href="https://www.frip.co.kr/">
+							<a href="<%=request.getContextPath()%>/board/host_content_list.jsp?category=모임">
 								<div class="category-image">
 									<img src="http://placeimg.com/480/480/tech">
 									<div align="center">모임</div>
@@ -119,7 +119,7 @@
 
 						<div class="gallary">
 							<div class="gallary-item">
-								<a href="https://www.frip.co.kr/">
+								<a href="<%=request.getContextPath()%>/board/host_content_list.jsp?category=여행">
 									<div class="category-image">
 										<img src="http://placeimg.com/480/480/any">
 										<div align="center">여행</div>
