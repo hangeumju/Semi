@@ -24,9 +24,10 @@ public class Users_Review_Regist_Servlet extends HttpServlet{
 			URdto.setContent_original_no(Integer.parseInt(req.getParameter("content_original_no")));
 			URdto.setReview_content(req.getParameter("review_content"));
 			URdto.setReview_date(req.getParameter("review_date"));
-			
+
 			String login = (String)req.getSession().getAttribute("user_id");
 			boolean isLogin = login == null;
+
 //			[2]dao를 불러와 users_review_regist 사용, 리뷰 작성 처리를 합니다
 			Users_Review_Dao URdao = new Users_Review_Dao();
 			if(!isLogin) {
