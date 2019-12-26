@@ -1,3 +1,21 @@
+<<<<<<< HEAD
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+   
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/common.css">
+    <jsp:include page="/template/host_header.jsp"></jsp:include>
+<div align="center">
+<h2>비밀번호 확인</h2>
+<form action="host_check.do" method ="post">
+<input type ="hidden" name="go" value="<%=go%>">
+<input type="password" name="host_pw" required>
+<input type="submit" value="확인">
+<%if(request.getParameter("error") != null) {%>
+<h4><font color="red">비밀번호를 다시 확인해주세요.</font></h4>
+<%} %>
+</form>
+</div>
+=======
 <%@page import="beans.Host_Info_Dto"%>
 <%@page import="beans.Host_Info_Dao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -83,8 +101,6 @@
         }
     </style>
 
-<jsp:include page="/template/host_header.jsp"></jsp:include>
-
 <body>
    <div id="dd">
    
@@ -133,4 +149,5 @@
    <hr>   
  
 </body>
+
 <jsp:include page="/template/host_footer.jsp"></jsp:include>
