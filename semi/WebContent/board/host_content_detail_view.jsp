@@ -116,7 +116,7 @@
 		  .float2.sub{
 			width:300px;
 		  	position: fixed;
-		  	top: 30.5%;
+		  	top: 45.5%;
             right: 10.00%;
             height : 237px;
             /* 		  	글 안넘어가게 하는 명령어 */
@@ -128,8 +128,7 @@
 		 	 display : block;
 		 	 
 		  }
-		  
-		
+	
     </style>
     <!--     	스타일 영역 끝입니다---------------------------------------------------------- -->
    
@@ -302,8 +301,6 @@
                     location.href = "<%=request.getContextPath()%>/board/host_content_list.jsp?category=<%=HCdto.getHost_content_category()%>";
                      }
                 }
-           
-            	
     </script>
     
     <!--     	스트립트 영역 끝입니다---------------------------------------------------------- -->
@@ -315,25 +312,29 @@
 			<div class="float2 main">
 				<!-- 이미지 슬라이더 영역 -->
     			<div class="deslider-container"></div>
-    			<div><h1><%=HCdto.getHost_content_name() %></h1></div>
-    			<div><h3>조회수(<%=HCdto.getHost_content_view_count() %>)</h3></div>
-    			<div><h3>가격 = <%=HCdto.getHost_content_cost() %></h3></div>
-    			<div><h2>호스트 이름 <%=HCdto.getHost_id()%></h2></div>
-    			<div><h2>호스트 연락처 <%=HIdto.getHost_phone() %></h2></div>
+    			
+    			<div>
+    				<h2><%=HCdto.getHost_content_name() %></h2> 
+    				
+    			</div>
+    			
+    			<div><h4><%=HCdto.getHost_content_cost() %>원</h4></div>
+    			<div><h3>호스트 아이디 <%=HCdto.getHost_id()%></h3></div>
+    			<div><h3>호스트 연락처 <%=HIdto.getHost_phone() %></h3></div>
     			
     			<div><%=HCdto.getHost_content_info() %></div>
     			<div>
     			<%=HCdto.getHost_content_start_date().substring(0, 10) %>
     			<%=HCdto.getHost_content_last_date().substring(0, 10) %>
-    			</div>
+    			</div >
     			<div><%=HCdto.getHost_content_location() %></div>
     			<div><%=HCdto.getHost_content_ect_info() %></div>
     			<div>QnA<%=HCdto.getHost_content_qa() %></div>
     			<div> 리뷰 게시판 자리</div>
     			<%for (Users_Review_Dto dto : list) {%>
-    			<div><%=dto.getReview_no() %></div>
-    			<div><%=dto.getReview_writer() %></div>
-    			<div><%=dto.getReview_date().substring(0, 10) %></div>
+    			
+    			<div><%=dto.getReview_writer() %> (<%=dto.getReview_date().substring(0, 10) %>)</div>
+    			
     			<div><%=dto.getReview_content() %></div>
     			<%} %>
     			

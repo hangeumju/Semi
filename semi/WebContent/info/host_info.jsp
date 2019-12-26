@@ -139,11 +139,11 @@
 		</div>
 			</div>
 			<br><br>
-<h4><a href="host_check.jsp?go=/info/host_change_pw.jsp">
+<h4><a href="<%=request.getContextPath()%>/info/host_change_pw.jsp">
 <font size ="5" color="#F98967">비밀번호 변경</font></a></h4>
-<h4><a href="host_check.jsp?go=/info/host_change_info.jsp">
+<h4><a href="<%=request.getContextPath()%>/info/host_change_info.jsp">
 <font size ="5" color="#F98967">회원정보 수정</font></a></h4>
-<h4><a href="host_check.jsp?go=/info/host_exit.jsp">
+<h4><a href="<%=request.getContextPath()%>/info/host_exit.jsp">
 <font size ="5" color="#F98967">회원 탈퇴</font></a></h4>
 </div>
 <jsp:include page="/template/host_footer.jsp"></jsp:include>
