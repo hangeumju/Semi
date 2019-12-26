@@ -1,4 +1,3 @@
-
 <%@page import="beans.Host_Info_Dto"%>
 <%@page import="beans.Host_Info_Dao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -83,6 +82,7 @@
             border-radius: 10px;
         }
     </style>
+<jsp:include page="/template/host_header.jsp"></jsp:include>
 
 <body>
    <div id="dd">

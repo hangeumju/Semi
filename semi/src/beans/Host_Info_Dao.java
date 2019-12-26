@@ -95,21 +95,17 @@ public class Host_Info_Dao {
 	public void host_change_info(Host_Info_Dto HIdto)throws Exception {
 		///////////////////////호스트용 정보 수정(host_change_info)
 		Connection con =  getConnection();
-		String sql = "update host set"
-				+ " host_email_id=?, host_email_domain=?, "
-				+ " host_interest=?, "
-				+ " host_post=?, host_basic_addr=?, host_extra_addr=?, "
-				+ " host_bank_name=?, host_bank_account=? , host_phone=?, "
-				+ " where id=?";
+		String sql = "update host set host_email_id = ?, host_email_domain=?, host_post=?, host_basic_addr=?, host_extra_addr=?, host_bank_name = ? , host_bank_account=?, host_phone=? where host_id = ?";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, HIdto.getHost_email_id());
-		ps.setString(4, HIdto.getHost_post());
-		ps.setString(5, HIdto.getHost_basic_addr());
-		ps.setString(6, HIdto.getHost_extra_addr());
-		ps.setString(7, HIdto.getHost_bank_name());
-		ps.setString(8, HIdto.getHost_bank_account());
-		ps.setString(9, HIdto.getHost_phone());
-		ps.setString(10, HIdto.getHost_id());
+		ps.setString(2, HIdto.getHost_email_domain());
+		ps.setString(3, HIdto.getHost_post());
+		ps.setString(4, HIdto.getHost_basic_addr());
+		ps.setString(5, HIdto.getHost_extra_addr());
+		ps.setString(6, HIdto.getHost_bank_name());
+		ps.setString(7, HIdto.getHost_bank_account());
+		ps.setString(8, HIdto.getHost_phone());
+		ps.setString(9, HIdto.getHost_id());
 		
 		ps.execute();
 		con.close();
