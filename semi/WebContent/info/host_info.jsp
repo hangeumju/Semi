@@ -26,6 +26,7 @@
          
        }
        .side .side_menu > ul > li > a {
+       		width:140px;
             margin: 0;
             padding: 0;
             border: 0;
@@ -35,6 +36,7 @@
             line-height: 40px;
             display: block;
             text-decoration: none;
+            text-align: left;
        }
        
        ul{
