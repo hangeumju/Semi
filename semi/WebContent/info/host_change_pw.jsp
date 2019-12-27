@@ -10,7 +10,7 @@
     %>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/common.css">
 <jsp:include page="/template/host_header.jsp"></jsp:include>
-<form action="host_change_pw.do" method="post">
+<form action="host_change_pw.do" method="get">
 <style>
        *{
            box-sizing: border-box;
