@@ -5,6 +5,7 @@
 <%
 //host_id 는 hidden 으로 넘김
 String host_id = (String)request.getSession().getAttribute("host_id");
+
 /////////////절대경로 변수
 String context = request.getContextPath();
 %>
@@ -220,12 +221,12 @@ String context = request.getContextPath();
 	<form action="host_content_produce.do" method="post">
 	<!-- host_id 는 hidden 으로 넘김 -->
 	<!-- host_id 대신에 rlawldms 넣어놨으니 나중에 변경 -->
-	<%-- <input  type="hidden" name= "host_id" value="<%=host_id%>">	 --%>
-	
+	<%-- <input  type="hidden" name= "host_id" value="<%=host_id%>">	 --%>	
 	<input  type="hidden" name= "host_id" value="rlawldms">	
 
-		<div> 		
-			<h2>컨텐츠 만들기</h2>
+	<div> 		
+		<h2>컨텐츠 만들기</h2>
+
 		</div>
 		<div class="row-left">
 		</div>

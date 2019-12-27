@@ -34,7 +34,6 @@
 .gallary-text-category {
 	color: grey;
 	font-size: 10px;
-	opacity: "10";
 	padding: 5px;
 }
 
@@ -62,11 +61,11 @@
 }
 </style>
 
-<main>
+
 <section>
 
-<!-- 이미지 슬라이더 템플릿 -->
-<jsp:include page="/template/slider.jsp"></jsp:include>
+	<!-- 이미지 슬라이더 템플릿 -->
+	<jsp:include page="/template/slider.jsp"></jsp:include>
 
 
 
@@ -80,7 +79,8 @@
 		<div class="gallary">
 			<div class="gallary-item">
 
-				<a href="<%=request.getContextPath()%>/board/host_content_list.jsp?category=액티비티">
+				<a
+					href="<%=request.getContextPath()%>/board/host_content_list.jsp?category=액티비티">
 
 					<div class="category-image">
 						<img src="http://placeimg.com/480/480/tech">
@@ -88,13 +88,13 @@
 					</div>
 				</a>
 			</div>
-		</div>
 
 
 			<div class="gallary">
 				<div class="gallary-item">
 
-					<a href="<%=request.getContextPath()%>/board/host_content_list.jsp?category=배움">
+					<a
+						href="<%=request.getContextPath()%>/board/host_content_list.jsp?category=배움">
 
 						<div class="category-image">
 							<img src="http://placeimg.com/480/480/tech">
@@ -102,12 +102,12 @@
 						</div>
 					</a>
 				</div>
-			</div>
 
 				<div class="gallary">
 					<div class="gallary-item">
 
-						<a href="<%=request.getContextPath()%>/board/host_content_list.jsp?category=건강/뷰티">
+						<a
+							href="<%=request.getContextPath()%>/board/host_content_list.jsp?category=건강/뷰티">
 
 							<div class="category-image">
 								<img src="http://placeimg.com/480/480/any">
@@ -115,12 +115,12 @@
 							</div>
 						</a>
 					</div>
-				</div>
 
 					<div class="gallary">
 						<div class="gallary-item">
 
-							<a href="<%=request.getContextPath()%>/board/host_content_list.jsp?category=모임">
+							<a
+								href="<%=request.getContextPath()%>/board/host_content_list.jsp?category=모임">
 
 								<div class="category-image">
 									<img src="http://placeimg.com/480/480/tech">
@@ -128,12 +128,12 @@
 								</div>
 							</a>
 						</div>
-					</div>
 
 						<div class="gallary">
 							<div class="gallary-item">
 
-								<a href="<%=request.getContextPath()%>/board/host_content_list.jsp?category=여행">
+								<a
+									href="<%=request.getContextPath()%>/board/host_content_list.jsp?category=여행">
 
 									<div class="category-image">
 										<img src="http://placeimg.com/480/480/any">
@@ -141,12 +141,24 @@
 									</div>
 								</a>
 							</div>
-				</div>
 	</article>
 
 
 	<hr>
 	<!-- 카테고리 이미지 넣기 종료 -->
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 	<!-- 핫핫핫핫 클래스  이미지 넣기 시작 -->
@@ -170,11 +182,45 @@
 					href="https://ko.wikipedia.org/wiki/%EB%A1%9C%EB%A0%98_%EC%9E%85%EC%88%A8">
 					<div class="gallary-image">
 						<img src="http://placeimg.com/480/480/animals">
-					</div>
 
-					<div class="gallary-text-category">카테고리:뷰티</div>
-					<div class="gallary-text-content">컨텐츠명</div>
-					<div class="gallary-text-cost">40000원</div>
+
+						<div class="gallary-text-category">카테고리:뷰티</div>
+						<div class="gallary-text-content">컨텐츠명</div>
+						<div class="gallary-text-cost">40000원</div>
+					</div>
+				</a>
+			</div>
+
+
+
+			<div class="gallary-item">
+				<a
+					href="https://ko.wikipedia.org/wiki/%EB%A1%9C%EB%A0%98_%EC%9E%85%EC%88%A8">
+					<div class="gallary-image">
+						<img src="http://placeimg.com/480/480/animals">
+
+
+						<div class="gallary-text-category">카테고리:뷰티</div>
+						<div class="gallary-text-content">컨텐츠명</div>
+						<div class="gallary-text-cost">40000원</div>
+					</div>
+				</a>
+			</div>
+
+
+
+
+			<div class="gallary-item">
+				<a
+					href="https://ko.wikipedia.org/wiki/%EB%A1%9C%EB%A0%98_%EC%9E%85%EC%88%A8">
+					<div class="gallary-image">
+						<img src="http://placeimg.com/480/480/nature">
+
+
+						<div class="gallary-text-category">카테고리:뷰티</div>
+						<div class="gallary-text-content">컨텐츠명</div>
+						<div class="gallary-text-cost">40000원</div>
+					</div>
 				</a>
 			</div>
 
@@ -184,11 +230,12 @@
 					href="https://ko.wikipedia.org/wiki/%EB%A1%9C%EB%A0%98_%EC%9E%85%EC%88%A8">
 					<div class="gallary-image">
 						<img src="http://placeimg.com/480/480/nature">
-					</div>
 
-					<div class="gallary-text-category">카테고리:뷰티</div>
-					<div class="gallary-text-content">컨텐츠명</div>
-					<div class="gallary-text-cost">40000원</div>
+
+						<div class="gallary-text-category">카테고리:뷰티</div>
+						<div class="gallary-text-content">컨텐츠명</div>
+						<div class="gallary-text-cost">40000원</div>
+					</div>
 				</a>
 			</div>
 
@@ -198,39 +245,12 @@
 					href="https://ko.wikipedia.org/wiki/%EB%A1%9C%EB%A0%98_%EC%9E%85%EC%88%A8">
 					<div class="gallary-image">
 						<img src="http://placeimg.com/480/480/nature">
+
+
+						<div class="gallary-text-category">카테고리:뷰티</div>
+						<div class="gallary-text-content">컨텐츠명</div>
+						<div class="gallary-text-cost">40000원</div>
 					</div>
-
-					<div class="gallary-text-category">카테고리:뷰티</div>
-					<div class="gallary-text-content">컨텐츠명</div>
-					<div class="gallary-text-cost">40000원</div>
-				</a>
-			</div>
-
-
-			<div class="gallary-item">
-				<a
-					href="https://ko.wikipedia.org/wiki/%EB%A1%9C%EB%A0%98_%EC%9E%85%EC%88%A8">
-					<div class="gallary-image">
-						<img src="http://placeimg.com/480/480/nature">
-					</div>
-
-					<div class="gallary-text-category">카테고리:뷰티</div>
-					<div class="gallary-text-content">컨텐츠명</div>
-					<div class="gallary-text-cost">40000원</div>
-				</a>
-			</div>
-
-
-			<div class="gallary-item">
-				<a
-					href="https://ko.wikipedia.org/wiki/%EB%A1%9C%EB%A0%98_%EC%9E%85%EC%88%A8">
-					<div class="gallary-image">
-						<img src="http://placeimg.com/480/480/nature">
-					</div>
-
-					<div class="gallary-text-category">카테고리:뷰티</div>
-					<div class="gallary-text-content">컨텐츠명</div>
-					<div class="gallary-text-cost">40000원</div>
 				</a>
 			</div>
 

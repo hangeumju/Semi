@@ -285,11 +285,11 @@
                    </span>
 			</div>
 		</div>
-	</div>
-
       </form>
-      </div>
- </div>
+</div>
+
+</div>
+</div>
       
 <div class="row-empty"></div>
 <div class="row-empty"></div>

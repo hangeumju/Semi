@@ -27,6 +27,7 @@ public class Host_content_Produce_Servlet extends HttpServlet{
 			
 //			
 			//콘텐츠 생성 다오 및 디티오 받기
+			String host_id = (String)req.getSession().getAttribute("host_id");
 			Host_Content_Dao HCdao = new Host_Content_Dao();
 			Host_Content_Dto HCdto = new Host_Content_Dto();
 			Host_Content_Photo_Dao HCPdao = new Host_Content_Photo_Dao();
@@ -46,7 +47,9 @@ public class Host_content_Produce_Servlet extends HttpServlet{
 			HCdto.setHost_content_qa(req.getParameter("host_content_qa"));
 			
 			int no = HCdao.host_content_sequence();
+			
 			HCdto.setHost_content_no(no);
+			
 			HCdao.host_contentproduce(HCdto);
 			
 			for(int i = 1; i < 4; i++) {
