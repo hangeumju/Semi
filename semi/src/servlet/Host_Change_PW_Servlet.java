@@ -22,7 +22,7 @@ protected void service(HttpServletRequest req, HttpServletResponse resp) throws 
 		
 		Host_Info_Dao HIdao = new Host_Info_Dao();
 		HIdao.host_change_password(host_id,host_pw);
-		resp.sendRedirect("host_change_pw_result.jsp");
+		resp.sendRedirect("host_info.jsp");
 		
 	}
 	catch(Exception e) {

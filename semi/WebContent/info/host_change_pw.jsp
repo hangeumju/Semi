@@ -103,7 +103,6 @@ ul {
 	<!-- 비밀번호 입력 -->
 <body>
 	<div id="dd">
-		<hr color="#F9896">
 		<h2 style="margin: 20px 50px 10px"><%=HIdto.getHost_id()%>님의 정보를
 			비밀번호를 수정하시나요?
 		</h2>
@@ -121,9 +120,7 @@ ul {
                   </li>
                   <li>                     
                       <a href="<%=request.getContextPath()%>/board/host_confirm_list.jsp">내 컨텐츠 리스트</a>
-                      
                   </li>
-                  <hr color="#F9896">
               </ul>
           </div>
           <!-- side_menu끝 -->
