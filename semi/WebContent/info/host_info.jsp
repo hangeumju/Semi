@@ -7,6 +7,8 @@
  	Host_Info_Dao HIdao = new Host_Info_Dao();
  	//기존 정보 불러오기 !
  	Host_Info_Dto HIdto = HIdao.get(host_id);
+	/////////////절대경로 변수
+	String context = request.getContextPath();
     %>
     
  <style>
@@ -96,7 +98,9 @@
           <div class="side_menu">
              
               <ul>
-                <div style="margin: 0px 10px;">내 정보</div>
+                <div style="margin: 0px 10px; font-size: 15px;">
+                	<a style="text-decoration: none; color: black;" href="<%=request.getContextPath()%>/info/host_info.jsp">내 정보</a>
+                </div>
                  <hr color="#F98967">
                   <li>
                       <a href="host_check.jsp?go=/info/host_change_pw.jsp">비밀번호 변경</a>
