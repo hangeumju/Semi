@@ -248,22 +248,6 @@
                     var picker = new Lightpick(options);
                 }
             	
-           	 	function addLoadEvent(func) {
-                	var oldonload = window.onload;
-                   	 if(typeof window.onload != 'function') {
-                        window.onload = func;
-                   	 } else {
-                        window.onload = function() {
-                            oldonload();
-                            func();
-                    			}
-                			}	
-            		}
-
-           	 		addLoadEvent(loadSlider);
-            		addLoadEvent(loadPicker);
-            	
-            	
             	//이 페이지에서 예약 실행
             	
 //             	window::onload(){loadSlider();}
@@ -293,6 +277,22 @@
                     location.href = "<%=request.getContextPath()%>/board/host_content_list.jsp?category=<%=HCdto.getHost_content_category()%>";
                      }
                 }
+            	
+           	 	function addLoadEvent(func) {
+                	var oldonload = window.onload;
+                   	 if(typeof window.onload != 'function') {
+                        window.onload = func;
+                   	 } else {
+                        window.onload = function() {
+                            oldonload();
+                            func();
+                    			}
+                			}	
+            		}
+
+           	 		addLoadEvent(loadSlider);
+            		addLoadEvent(loadPicker);
+            	
     </script>
     
     <!--     	스트립트 영역 끝입니다---------------------------------------------------------- -->
