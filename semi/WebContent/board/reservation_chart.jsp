@@ -16,7 +16,7 @@
     <%
     Host_Info_Dao HIdao = new  Host_Info_Dao();
     String host_id = (String)session.getAttribute("host_id");
-    Host_Info_Dto HIdto = HIdao.get(host_id);
+  
     
 // 	페이지 크기
 	int pagesize = 10;
@@ -35,6 +35,7 @@
 	
 	int finish = pno * pagesize;
 	int start = finish - (pagesize - 1);
+	
 	Reservation_Dao Rdao = new Reservation_Dao();
 	
 	String type = request.getParameter("type");
@@ -48,10 +49,10 @@
 		list = Rdao.search(type, keyword, start, finish); 
 	}
 	else{
-		list = Rdao.reservation_list(start, finish);
+		list = Rdao.reservation_list(host_id, start, finish);
 	}
 	
-	int count = Rdao.getCount(type, keyword);
+	int count = Rdao.getCount(host_id, type, keyword);
 	%>
 <html>
 <head>
