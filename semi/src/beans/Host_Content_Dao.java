@@ -528,6 +528,29 @@ public List<Host_Content_Dto> getList2(String host_id, int start, int finish) th
 		con.close();		
 		return list2;
 	}
+	
+	public List<Host_Content_Dto> mainViewTop5() throws Exception{
+		Connection con = getConnection();
+		String sql = "select * from (select rownum rn, E.* from (select * from host_content order by host_content_view_count desc) E) where rn between 1 and 5";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ResultSet rs = ps.executeQuery();
+		
+		List<Host_Content_Dto> list = new ArrayList<>();
+		
+		while(rs.next()) {
+			Host_Content_Dto HCdto = new Host_Content_Dto();
+			HCdto.setHost_content_no(rs.getInt("host_content_no"));
+			HCdto.setHost_content_category(rs.getString("host_content_category"));
+			HCdto.setHost_content_name(rs.getString("host_content_name"));
+			HCdto.setHost_content_cost(rs.getInt("host_content_cost"));
+			
+			list.add(HCdto);
+		}
+		
+		con.close();
+		return list;
+	}
+	
 
 }
 
