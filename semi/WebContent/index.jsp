@@ -341,6 +341,7 @@ color:black;
 			</div>
 			<!-- 액티비티 카테고리 종료 -->
 
+
 			<!-- 배움 카테고리 시작 -->
 			<div class="gallary-item" align="center">
 			<div class="category-image">
