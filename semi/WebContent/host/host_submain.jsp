@@ -6,7 +6,7 @@
 <%@page import="java.util.Calendar"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+ 
 <%
 	/////////////절대경로 변수
 	String context = request.getContextPath();
@@ -37,35 +37,27 @@
     System.out.println(pmonth);
     System.out.println(bmonth);
     %>
-	<style>   
-     /*
-    테이블 스타일
-    */
- 		.notice_table {
-            width: 100%;
-            border-top: 1px solid lightgray;
-            border-collapse: collapse;
-         
-          }
-          th, td {
-            border-bottom: 1px solid lightgray;
-            padding: 10px;
-            }
-            
-       	 #dd::after{
-            content:"";
-            display: block;
-            clear: both;
-        	}
-        
-       	.row-empty2{
-       	height: 25px;
+    
+	<style>     
+	 *{
+           box-sizing: border-box;
        }
-       /* 전체 글꼴 */
+	          
+  /* 전체 글꼴 */
 	@font-face {
 	font-family: NanumSquareR;
 	src: url("../font/NanumSquareR.ttf");
 	}
+       
+    #dd::after{
+        content:"";
+        display: block;
+        clear: both;
+       }
+        
+    .row-empty2{
+      height: 25px;
+     }
 
 	.sohee-title {
 	color: white;
@@ -73,34 +65,6 @@
 	opacity: 100%;
 	padding: 10px;
 	font-size: 14px;
-	}
-
-	/* 소희-카테고리 이미지 라운드로 */
-	.gallary>.gallary-item>a>.category-image>img {
-	width: 100%;
-	border-radius: 50%;
-	opacity: 0.5;
-	}
-
-	/* 소희-상품 이미지 라운드주기         */
-	.gallary>.gallary-item>a>.gallary-image>img {
-	border-radius: 3%;
-	}
-
-	/* 소희-상품 카테고리글꼴스타일 	   */
-	.gallary-text-category {
-	color: grey;
-	font-size: 10px;
-	opacity: "10";
-	padding: 5px;
-	}
-
-	/* 소희-상품명 글꼴스타일 	   */
-	.gallary-text-content {
-	color: black;
-	font-size: 14px;
-	opacity: "10";
-	padding: 5px;
 	}
 	
 	/* 소희-상품 가격 글꼴스타일 	   */
@@ -113,47 +77,64 @@
 	border-radius: 10%;
 	}
 
-	/* 소희-회색 테두리 ,필요하 	   */
-	.gallary-border {
-	border: 1px solid grey;
+	.gallary{
+		padding:50px;
+		margin: auto;
+/* 		border: 1px solid black; */
+		text-align: center;
 	}
+	.gallary-item{
+		display:inline-block;
+/* 		border: 1px solid black;		 */
+		width: 300px;
+		padding: 20px;
+	}
+	
+
 	</style>
        
 
 	<jsp:include page="/template/host_header.jsp"></jsp:include>
 	<body>
-		<div id="dd">
 			<div class="title" align ="center">
 					<h1>환영합니다!</h1>
 					<h3> 호스트 <%=HIdto.getHost_name() %> 
-					(<%=HIdto.getHost_id()%>) 님 ! </h3>
+					(<%=HIdto.getHost_id()%>)님 ! </h3>
 			</div>
 		
-		<article>
-			<div class="row-empty"></div>
-		</div>
+<div class="row-empty"></div>
+			
+		<div id="dd">
 		<div class="gallary">
-			<div class="gallary-item" align="center">
-				<a href="<%=request.getContextPath()%>/board/host_calculate_chart.jsp">
+
+		<div class="gg">
+			<div class="gallary-item">
 					<div class="gallary-image" align="center">
-						<img src="<%=request.getContextPath()%>/image/count.png" width="120" height="230"></a>
+						<a href="<%=request.getContextPath()%>/board/host_calculate_chart.jsp">
+						<img style="width: 100%;" src="<%=request.getContextPath()%>/image/count.png" width="120" height="230"></a>
 					</div>
-					<h3>(<%=HIdto.getHost_id()%>) 님의 이달 정산 내역</h3>
+					<h3><%=HIdto.getHost_id()%>님의 정산 내역</h3>
 					<div class="gallary-text-cost"><%=pmonth %>원</div>
 			</div>
-
-			<div class="gallary-item">
-				<a href="">
+			
+		
+			<div class="gallary-item" >
 					<div class="gallary-image">
-						<img src="<%=request.getContextPath() %>/image/call.png" width="120" height="230"></a>
+						<a href="#">
+						<img style="width: 100%;" src="<%=request.getContextPath() %>/image/call.png" width="120" height="230"></a>
 					</div>
 					<h3>고객센터 및 사업제휴</h3>
 					<div class="gallary-text-cost">1588-1588</div>
 			</div>
-	</div>
-</article>
+			</div>
+			
+		</div>
+	</div> 
+
+
     <div class="row-empty"></div>
     <div class="row-empty"></div>
+    <hr color="#F98967">  
 </body>
 <!--     공지사항 창입니다 아직 공지사항이 구현되지 않아 이곳도 미구현입니다 -->
 <jsp:include page="/template/host_footer.jsp"></jsp:include>

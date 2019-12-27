@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!-- web.xml 파일 : 프로젝트의 운영 설정을 이곳에 재정의. 서버 설정보다 우선 적용 단 형식은 무조건 기존 xml이랑 
+	동일하게 설정해야 한다 -->
+
+<web-app version="4.0"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee                       http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
+
+<!-- 	사용자의 요청정보를 UTF-8로 복원하는 필터 -->
+
+	<filter>
+		<filter-name>encoding</filter-name>
+		<filter-class>filter.EFilter</filter-class>
+	</filter>	
+	
+	<filter-mapping>
+		<filter-name>encoding</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<filter>
+		<filter-name>user_login</filter-name>
+		<filter-class>filter.UserLoginFilter</filter-class>
+	</filter>
+	
+<!-- 	유저용 필터 -->
+	<filter-mapping>
+		<filter-name>user_login</filter-name>
+		<url-pattern>/board/users_pay.jsp</url-pattern>
+		<url-pattern>/info/users_change_info.jsp</url-pattern>
+		<url-pattern>/info/users_change_pw.jsp</url-pattern>
+		<url-pattern>/info/users_check.jsp</url-pattern>
+		<url-pattern>/info/users_history.jsp</url-pattern>
+		<url-pattern>/info/users_info.jsp</url-pattern>
+		<url-pattern>/info/users_point.jsp</url-pattern>
+		<url-pattern>/info/users_review.jsp</url-pattern>
+		<url-pattern>/login/users_find_pw_result.jsp</url-pattern>
+		<url-pattern>/login/users_find_pw.jsp</url-pattern>
+		<url-pattern>/info/users_change_info.do</url-pattern>
+		<url-pattern>/info/users_change_pw.do</url-pattern>
+		<url-pattern>/info/users_check.do</url-pattern>
+		<url-pattern>/info/users_exit.do</url-pattern>
+		<url-pattern>/login/users_find_pw.do</url-pattern>
+		<url-pattern>/login/users_logout.do</url-pattern>
+		<url-pattern>/board/user_pay.do</url-pattern>
+		<url-pattern>/board/users_review_regist.do</url-pattern>
+		<url-pattern>/info/users_spare_pw.do</url-pattern>
+	</filter-mapping>
+	
+	<filter>
+		<filter-name>host_login</filter-name>
+		<filter-class>filter.HostLoginFilter</filter-class>
+	</filter>
+	
+<!-- 	호스트용 필터 -->
+	<filter-mapping>
+		<filter-name>host_login</filter-name>
+		<url-pattern>/board/host_calculate_chart.jsp</url-pattern>
+		<url-pattern>/board/host_confirm_list.jsp</url-pattern>
+		<url-pattern>/board/host_content_edit.jsp</url-pattern>
+		<url-pattern>/board/host_content_produce.jsp</url-pattern>
+		<url-pattern>/board/reservation_chart.jsp</url-pattern>
+		<url-pattern>/host/host_submain.jsp</url-pattern>
+		<url-pattern>/info/host_change_info.jsp</url-pattern>
+		<url-pattern>/info/host_change_pw_result.jsp</url-pattern>
+		<url-pattern>/info/host_change_pw.jsp</url-pattern>
+		<url-pattern>/info/host_check.jsp</url-pattern>
+		<url-pattern>/info/host_exit_result.jsp</url-pattern>
+		<url-pattern>/info/host_info.jsp</url-pattern>
+		<url-pattern>/info/host_change_info.do</url-pattern>
+		<url-pattern>/info/host_change_pw.do</url-pattern>
+		<url-pattern>/info/host_check.do</url-pattern>
+		<url-pattern>/board/host_content_delete.do</url-pattern>
+		<url-pattern>/board/host_content_edit.do</url-pattern>
+		<url-pattern>/board/host_content_produce.do</url-pattern>
+		<url-pattern>/info/host_exit.do</url-pattern>
+		<url-pattern>/login/host_logout.do</url-pattern>
+	</filter-mapping>
+	
+	<filter>
+		<filter-name>host_auth_check_filter</filter-name>
+		<filter-class>filter.HostAuthCheckFilter</filter-class>
+	</filter>	
+	
+	<filter-mapping>
+		<filter-name>host_auth_check_filter</filter-name>
+		<url-pattern>/board/host_content_edit.jsp</url-pattern>
+		<url-pattern>/board/host_content_delete.do</url-pattern>
+		<url-pattern>/board/host_content_edit.do</url-pattern>
+	</filter-mapping>
+	
+	<!-- 
+		에러 페이지 설정
+		-에러가 발생한 경우에 어떤 페이지를 사용자에게 보여줄지 설정할 수 있다
+		-HTTP 상태번호를 알아야함
+		-403, 404, 405, 500
+	 -->
+	<error-page>
+		<error-code>404</error-code>
+		<location>/error/404.jsp</location>
+	</error-page>	
+	
+	<error-page>
+		<error-code>403</error-code>
+		<location>/error/403.jsp</location>
+	</error-page>
+	
+	<error-page>
+		<error-code>405</error-code>
+		<location>/error/405.jsp</location>
+	</error-page>
+	
+	<error-page>
+		<error-code>500</error-code>
+		<location>/error/500.jsp</location>
+	</error-page>
+	
+	
+</web-app>
