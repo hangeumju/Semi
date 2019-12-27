@@ -11,7 +11,6 @@ Host_Content_Dao HCdao = new Host_Content_Dao();
 List<Host_Content_Dto> HClist = HCdao.mainViewTop5();
 %>
 
-
 <style>
 
 /* 전체 글꼴 */
