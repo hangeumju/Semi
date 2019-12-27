@@ -130,7 +130,6 @@
                       <a href="<%=request.getContextPath()%>/board/host_confirm_list.jsp">내 컨텐츠 리스트</a>
                       
                   </li>
-                  <hr color="#F9896">
               </ul>
           </div>
           <!-- side_menu끝 -->

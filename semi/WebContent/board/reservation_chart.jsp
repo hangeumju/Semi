@@ -142,14 +142,13 @@
           <div class="side_menu">
               <ul>
                 <div style="margin: 0px 10px;">내 정보</div>
-                 <hr color="#F9896">
+                 <hr color="#F98967">
                   <li>
                       <a href="<%=request.getContextPath()%>/board/reservation_chart.jsp">예약차트</a>
                   </li>
                   <li>                     
                       <a href="<%=request.getContextPath()%>/board/host_confirm_list.jsp">내 컨텐츠 리스트</a>
                   </li>
-                  <hr color="#F9896">
               </ul>
           </div>
           <!-- side_menu끝 -->
