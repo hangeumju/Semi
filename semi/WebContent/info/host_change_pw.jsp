@@ -146,4 +146,5 @@ ul {
 </form>
 <hr color="#F9896">
 </section>
+>>>>>>> refs/remotes/origin/master
 <jsp:include page="/template/host_footer.jsp"></jsp:include>
