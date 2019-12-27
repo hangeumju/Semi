@@ -6,7 +6,7 @@
 <%@page import="java.util.Calendar"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+ 
 <%
 	/////////////절대경로 변수
 	String context = request.getContextPath();
@@ -129,7 +129,7 @@
 			</div>
 			
 		</div>
-	</div>
+	</div> 
 
 
     <div class="row-empty"></div>

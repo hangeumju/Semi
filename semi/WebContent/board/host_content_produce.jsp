@@ -33,7 +33,7 @@ String context = request.getContextPath();
             line-height: 40px;
             display: block;
             text-decoration: none;
-            text-align: left;
+            text-align: left; 
        }
        
        ul{
