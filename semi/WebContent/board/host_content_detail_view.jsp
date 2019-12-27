@@ -317,6 +317,7 @@
     			<div><%=HCdto.getHost_content_info() %></div>
     			<div>
     			<%=HCdto.getHost_content_start_date().substring(0, 10) %>
+    			~
     			<%=HCdto.getHost_content_last_date().substring(0, 10) %>
     			</div >
     			<div><%=HCdto.getHost_content_location() %></div>
