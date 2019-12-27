@@ -133,7 +133,6 @@
     </style>
 <body>
 	<div id="dd">
-    <hr color="#F9896">
  	<h2 style="margin: 20px 50px 10px"><%=host_id %>님의 예약 차트입니다</h2>
         <form action="reservation_chart.jsp" method="get">
  <div class="row-empty"></div>
