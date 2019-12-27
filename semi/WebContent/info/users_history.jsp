@@ -152,7 +152,9 @@
           <div class="side_menu">
              
               <ul>
-                <div style="margin: 0px 10px;">내 정보</div>
+                <div style="margin: 0px 10px;">
+                	<a style="text-decoration: none; color: black;" href="<%=request.getContextPath() %>/info/users_info.jsp">내 정보</a>
+                </div>
                  <hr color="#F9896">
                   <li>
                       <a href="<%=request.getContextPath() %>/info/users_history.jsp">이용내역</a>
@@ -213,8 +215,6 @@
     </div>
     <div class="row-empty"></div>
     <div class="row-empty"></div>
-    <hr color="#F9896">
-      
       <div class="row">
       <!-- 네비게이터(navigator) -->
       <jsp:include page="/template/navigator.jsp">
@@ -224,7 +224,8 @@
          <jsp:param name="pagesize" value="<%=pagesize%>"/>
       </jsp:include>
    </div>
-      
+    <div class="row-empty"></div>
+    <hr color="#F9896">
       
   </body>
 

@@ -7,12 +7,8 @@
 <jsp:include page="/template/header.jsp"></jsp:include>
 
 <%
-	// 컨텐츠 불러오기
-	Host_Content_Dao HCdao = new Host_Content_Dao();
-	String category = request.getParameter("category");
-	// 	String category = "액티비티";
-	Host_Content_Dto HCdto = new Host_Content_Dto();
-	List<Host_Content_Dto> list;
+Host_Content_Dao HCdao = new Host_Content_Dao();
+List<Host_Content_Dto> HClist = HCdao.mainViewTop5();
 %>
 
 
@@ -156,120 +152,42 @@ color:black;
 	<!-- 카테고리 이미지 넣기 종료 -->
 	
 	<article>
-	<!-- TOP5 클래스  이미지 넣기 시작 -->
-
-
 		<!-- 당일치기 TOP5 시작 -->
-<!-- 		<div id=a> -->
 			<div class="sohee-title">당일치기 TOP 5!</div>
 			<div class="row-empty"></div>
-<!-- 		</div> -->
-<!-- 		<div id=a> -->
 			<h4 class="gallary-text-category">
 				<a href="#">전체보기</a>
 			</h4>
-<!-- 		</div> -->
+			
 		<!-- TOP1 시작 -->
 		
-			<div class="gallary">
-			<div class="gallary-item">
-				<a href="https://ko.wikipedia.org/wiki/%EB%A1%9C%EB%A0%98_%EC%9E%85%EC%88%A8">
-					<img src="http://placeimg.com/480/480/animals"></a>
-					<div class="gallary-text-category">
-					<a href="https://ko.wikipedia.org/wiki/%EB%A1%9C%EB%A0%98_%EC%9E%85%EC%88%A8">
-						<%=HCdto.getHost_content_category()%>:뷰티</a>
-					</div>
-					<div class="gallary-text-content">
-					<a href="https://ko.wikipedia.org/wiki/%EB%A1%9C%EB%A0%98_%EC%9E%85%EC%88%A8">
-						<%=HCdto.getHost_content_name()%>:컨텐츠명 </a>
-					</div>
-					<div class="gallary-text-cost">
-					<a href="https://ko.wikipedia.org/wiki/%EB%A1%9C%EB%A0%98_%EC%9E%85%EC%88%A8">
-						<%=HCdto.getHost_content_cost()%>:40000원</a>
-					</div>
-			</div>
-			<!-- TOP1 종료 -->
+		<div class="gallary">
 			
-			<!-- TOP2 시작 -->
+			<%for(Host_Content_Dto HCdto : HClist){ %>
 			<div class="gallary-item">
-				<a href="https://ko.wikipedia.org/wiki/%EB%A1%9C%EB%A0%98_%EC%9E%85%EC%88%A8">
-					<img src="http://placeimg.com/480/480/animals"> </a>
-					<div class="gallary-text-category">
-					<a href="https://ko.wikipedia.org/wiki/%EB%A1%9C%EB%A0%98_%EC%9E%85%EC%88%A8">
-						<%=HCdto.getHost_content_category()%>:뷰티</a>
-					</div>
-					<div class="gallary-text-content">
-					<a href="https://ko.wikipedia.org/wiki/%EB%A1%9C%EB%A0%98_%EC%9E%85%EC%88%A8">
-						<%=HCdto.getHost_content_name()%>:컨텐츠명</a>
-					</div>
-					<div class="gallary-text-cost">
-					<a href="https://ko.wikipedia.org/wiki/%EB%A1%9C%EB%A0%98_%EC%9E%85%EC%88%A8">
-						<%=HCdto.getHost_content_cost()%>:40000원 </a>
-					</div>
+				<a href="<%=request.getContextPath()%>/board/host_content_detail_view.jsp?host_content_no=<%=HCdto.getHost_content_no()%>">
+					<img src="./image/top5.png"></a>
+				<div class="gallary-text-category">
+					<span><%=HCdto.getHost_content_category() %></span>
+				</div>
+				<div class="gallary-text-content">
+					<span><%=HCdto.getHost_content_name() %></span>
+				</div>
+				<div class="gallary-text-cost">
+					<span><%=HCdto.getHost_content_cost() %>원</span>
+				</div>
 			</div>
-			<!-- TOP2 종료 -->
-
-			<!-- TOP3 시작 -->
-			<div class="gallary-item">
-				<a href="https://ko.wikipedia.org/wiki/%EB%A1%9C%EB%A0%98_%EC%9E%85%EC%88%A8">
-					<img src="http://placeimg.com/480/480/nature">	</a>
-					<div class="gallary-text-category">
-					<a href="https://ko.wikipedia.org/wiki/%EB%A1%9C%EB%A0%98_%EC%9E%85%EC%88%A8">
-						<%=HCdto.getHost_content_category()%>:뷰티</a>
-					</div>
-					<div class="gallary-text-content">
-					<a href="https://ko.wikipedia.org/wiki/%EB%A1%9C%EB%A0%98_%EC%9E%85%EC%88%A8">
-						<%=HCdto.getHost_content_name()%>:컨텐츠명</a>
-					</div>
-					<div class="gallary-text-cost">
-					<a href="https://ko.wikipedia.org/wiki/%EB%A1%9C%EB%A0%98_%EC%9E%85%EC%88%A8">
-						<%=HCdto.getHost_content_cost()%>:40000원 </a>
-					</div>
-			</div>
-			<!-- TOP3 종료 -->
-
-			<!-- TOP4 시작 -->
-			<div class="gallary-item">
-				<a href="https://ko.wikipedia.org/wiki/%EB%A1%9C%EB%A0%98_%EC%9E%85%EC%88%A8">
-					<img src="http://placeimg.com/480/480/nature"></a>
-					<div class="gallary-text-category">
-					<a href="https://ko.wikipedia.org/wiki/%EB%A1%9C%EB%A0%98_%EC%9E%85%EC%88%A8">
-						<%=HCdto.getHost_content_category()%>:뷰티</a>
-					</div>
-					<div class="gallary-text-content">
-					<a href="https://ko.wikipedia.org/wiki/%EB%A1%9C%EB%A0%98_%EC%9E%85%EC%88%A8">
-						<%=HCdto.getHost_content_name()%>:컨텐츠명</a>
-					</div>
-					<div class="gallary-text-cost">
-					<a href="https://ko.wikipedia.org/wiki/%EB%A1%9C%EB%A0%98_%EC%9E%85%EC%88%A8">
-						<%=HCdto.getHost_content_cost()%>:40000원 </a>
-					</div>
-			</div>
-			<!-- TOP4 종료 -->
-			
-			<!-- TOP5 종료 -->
-			<div class="gallary-item">
-				<a href="https://ko.wikipedia.org/wiki/%EB%A1%9C%EB%A0%98_%EC%9E%85%EC%88%A8">
-					<img src="http://placeimg.com/480/480/nature"></a>
-					<div class="gallary-text-category">
-					<a href="https://ko.wikipedia.org/wiki/%EB%A1%9C%EB%A0%98_%EC%9E%85%EC%88%A8">
-						<%=HCdto.getHost_content_category()%>:뷰티</a>
-					</div>
-					<div class="gallary-text-content">
-					<a href="https://ko.wikipedia.org/wiki/%EB%A1%9C%EB%A0%98_%EC%9E%85%EC%88%A8">
-						<%=HCdto.getHost_content_name()%>:컨텐츠명</a>
-					</div>
-					<div class="gallary-text-cost">
-					<a href="https://ko.wikipedia.org/wiki/%EB%A1%9C%EB%A0%98_%EC%9E%85%EC%88%A8">
-						<%=HCdto.getHost_content_cost()%>:40000원 </a>
-					</div>
-			</div>
-			<!-- TOP5 종료 -->
-
+			<%} %>
 		</div>
-	<hr>
-	<!-- TOP5 클래스  이미지 넣기 종료 -->
 	</article>
+	
+	
+	
+	
+	
+	
+	
+<%-- 	
 	
 	<article>
 	<!-- 최신 클래스  이미지 넣기 시작 -->
@@ -389,7 +307,7 @@ color:black;
 	
 
 
-
+ --%>
 
 
 </section>
