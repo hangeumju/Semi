@@ -5,11 +5,84 @@
 <%
 //host_id 는 hidden 으로 넘김
 String host_id = (String)request.getSession().getAttribute("host_id");
+/////////////절대경로 변수
+String context = request.getContextPath();
 %>
 
+<style>
+       *{
+           box-sizing: border-box;
+       }
+             div{
+/* 		 border: 1px solid black;    */
+       }
+       .side{
+           width: 170px;
+           float: left;         
+       }
+       
+       .side .side_menu > ul > li > a {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 16px;
+            font-weight: 500;
+            color: black;
+            line-height: 40px;
+            display: block;
+            text-decoration: none;
+       }
+       
+       ul{
+           list-style: none;
+       }
+       .side .side_menu > ul > li:hover{
+            background-color: antiquewhite;
+            color: black;
+       }
+       .side .side_menu > ul > li{
+            padding: 0px 0px 0px 10px;
+           
+       }
+        .content{
+           float: left;
+           width: 1000px;
+           font-size: 16px;
+           font-weight: 500;
+           color: black;
+           line-height: 40px;
+           display: block;
+           padding: 0px 0px 0px 100px;
+/*            text-align: center; */
+       }
+         /* 여백 주기 */
+        .row-empty{
+            height: 80px;
+        }
+        #dd{
+        	margin: auto;
+        	width: 1200px;
+        }
+         /* .float끝나는 영역을 가상으로 생성하고 clear(가상선택자) */
+        #dd::after{
+            content:"";
+            display: block;
+            clear: both;
+        }   
+        
+         .join_btn{
+         	width:300px;
+            font-size:1.5rem;
+            padding:0.5rem;
+            background-color: #F98967;
+            color:white;
+            border:none;
+            border-radius: 10px;
+        }       
+</style>
 
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/host_main.css">
-<jsp:include page="/template/host_header.jsp"></jsp:include>
+
+
 
 <!-- style , script 정의 공간 -->
 
@@ -113,21 +186,52 @@ String host_id = (String)request.getSession().getAttribute("host_id");
 
 
 
+<jsp:include page="/template/host_header.jsp"></jsp:include>
+<body>
+   <div id="dd">
+   
+    <h2 style="margin: 20px 50px 10px"><%=host_id %>님의 컨텐츠 관리</h2>
+     <div class="row-empty"></div>
+      <!-- side_menu시작 -->
+       <div class="side">
+         
+          <div class="side_menu">             
+              <ul>
+                <div style="margin: 0px 10px;">내 컨텐츠</div>
+                 <hr color="#F98967">
+                  <li>
+                      <a href="<%=context%>/board/host_content_produce.jsp" >컨텐츠 등록</a>
+                  </li>
+                  <li>                     
+                      <a href="<%=context%>/board/host_confirm_list.jsp" >내 컨텐츠 목록</a>
+                  </li>
+                  <li>                     
+                      <a href="<%=context%>/board/reservation_chart.jsp">예약자관리</a>
+                  </li>                  
+              </ul>
+          </div>
+          <!-- side_menu끝 -->
+       </div>
+       <!-- side끝 -->
+       
+
+<!-- 컨텐츠 정보 입력 -->
+<div class="content">
 	<form action="host_content_produce.do" method="post">
-	<article class="w-80">
-	
 	<!-- host_id 는 hidden 으로 넘김 -->
 	<!-- host_id 대신에 rlawldms 넣어놨으니 나중에 변경 -->
 	<%-- <input  type="hidden" name= "host_id" value="<%=host_id%>">	 --%>
+	
 	<input  type="hidden" name= "host_id" value="rlawldms">	
-	<div align ="left">
-		<div class="row"> 		
-			<h2>(<%=host_id %>) 님의 컨텐츠 생성</h2>
+
+		<div> 		
+			<h2>컨텐츠 만들기</h2>
 		</div>
 		<div class="row-left">
 		</div>
 		<div class="row-left">
-			<p class="row-left">			
+			<p class="row-left">
+			<span style="color: black; margin: 0 15px 0 0px;">카테고리</span>
 			<select class="block-item input-item" name="host_content_category">
 				<option value="" selected disabled hidden >카테고리 선택</option>
 				<option>액티비티</option>
@@ -141,42 +245,62 @@ String host_id = (String)request.getSession().getAttribute("host_id");
 		<div style ="height: 10px"></div>
 		
 		<div class="row-left">
-			<input class="block-item input-item" type="number" name= "host_content_cost" placeholder= "가격" required>
+		<span style="color: black; margin: 0 40px 0 0px; font-size: 12.8px">가격</span>
+			<input class="block-item input-item" type="number" name= "host_content_cost"  required>
 		</div>
 		<div style ="height: 10px"></div>
 		
 		<div class="row-left">
-			<input class="block-item input-item" type="text" name= "host_content_name" placeholder= "컨텐츠 이름" required>
+		<span style="color: black; margin: 0 15px 0 0px; font-size: 12.8px">컨텐츠명</span>
+			<input class="block-item input-item" type="text" name= "host_content_name"  required>
 		</div>
 		<div style ="height: 10px"></div>
 	
 		<div class="row-left">
-			<input class="block-item input-item" type="number" name= "host_content_ticket" placeholder= "컨텐츠 수량" required>
+		<span style="color: black; margin: 0 15px 0 0px; font-size: 12.8px">판매수량</span>
+			<input class="block-item input-item" type="number" name= "host_content_ticket"  required>
+		</div>
+		<div style ="height: 30px"></div>
+		
+		<div class="row-left">
+		<h4 style="color: black; font-size: 16px; margin: 0 0 7px 0;">컨텐츠 소개글을 작성해주세요</h4>					
+			<textarea class="block-item input-item" rows="10"  rows="15" cols="100" name="host_content_info" 
+			placeholder="(필수) 진행장소에 대한 소개 & 세부일정에 대한 설명 & 배우는 컨텐츠 소개 & 난이도 설명"></textarea>
 		</div>
 		<div style ="height: 10px"></div>
 		
-		<div class="row-left">			
-			<textarea class="block-item input-item" rows="10"  rows="15" cols="100" name="host_content_info" col> 컨탠츠 내용을 작성해주세요 </textarea>
+		<h4 style="color: black; font-size: 16px;  margin: 0 0 7px 0;">사진을 업로드해주세요</h4>			
+		<div>
+			<input type="file" name="host_content_file1" accept=".jpg, png, .gif" value="첨부파일">
+			<input type="file" name="host_content_file2" accept=".jpg, png, .gif" value="첨부파일">
+			<input type="file" name="host_content_file3" accept=".jpg, png, .gif" value="첨부파일">
 		</div>
-		<div style ="height: 10px"></div>
+		
+		<div class="row-empty"></div>
+		<div class="row-empty"></div>
 		
 		<div class="row-left">	
-			<p> 진행 날짜 설정 </p>	
+			<h4 style="color: black; font-size: 16px;  margin: 0 0 7px 0;">클래스 진행 기간을 설정해주세요</h4>			
 				<div>
    				 <input type="text" name="start_date" class="start_date" placeholder="시작하는 날">
+   				 ~
     			<input type="text" name="last_date" class="last_date" placeholder="끝나는 날">
 				</div>			
 		</div>
 		<div style ="height: 10px"></div>
 		
-			<p>주소</p>
-                   <span class="join_box">
-			<p>
-				<input class="input-item" type="text" name="host_post"placeholder="우편번호">
-				<div style ="height: 5px"></div>		
-		    	<input class="input-item" type="button" onclick="postcode()" value="우편번호 찾기">
-		    	<div style ="height: 5px"></div>	
-		    </p>
+	<div class="row-empty"></div>
+	<div class="row-empty"></div>
+		    
+		    <div class="join_row">
+                   <h3 class="join_title">
+                       <h4 style="color: black; font-size: 16px;  margin: 0 0 7px 0;">클래스 진행장소를 입력해주세요</h4>
+                   </h3>
+                   <span class="email_box">
+						<input class="input-item" type="text" name="host_post" placeholder="우편번호">
+						<input class="input-item" type="button" onclick="postcode()" value="우편번호 찾기">
+                   </span>
+               </div>  
 		    
 		    <p>	
 		    	<input class="block-item input-item" type="text" name="host_basic_addr" placeholder="기본주소">
@@ -186,28 +310,43 @@ String host_id = (String)request.getSession().getAttribute("host_id");
 		
 		<div style ="height: 10px"></div>
 				
+		<div class="row-empty"></div>
+		<div class="row-empty"></div>
+				
 		<div class="row-left">			
-			<textarea class="block-item input-item" rows="15" cols="100"  name="host_content_ect_info"> 컨탠츠 추가 내용을 작성해주세요 </textarea>
+		<h4 style="color: black; font-size: 16px;  margin: 0 0 7px 0;">준비물 및 유의사항을 작성해주세요</h4>		
+			<textarea class="block-item input-item" rows="15" cols="100"  name="host_content_ect_info"></textarea>
 		</div>
 		<div style ="height: 20px"></div>
+
 		
-		<div>
-			<input type="file" name="host_content_file1" accept=".jpg, png, .gif" value="첨부파일">
-			<input type="file" name="host_content_file2" accept=".jpg, png, .gif" value="첨부파일">
-			<input type="file" name="host_content_file3" accept=".jpg, png, .gif" value="첨부파일">
-		</div>
 		<div style ="height: 20px"></div>
+		<div class="row-empty"></div>
+		<div class="row-empty"></div>
 			
-		<div class="row-left">			
-			<textarea class="block-item input-item" rows="15" cols="100"  name="host_content_QA"> QA 내용을 작성해주세요 </textarea>
+			
+		<div class="row-left">	
+		<h4 style="color: black; font-size: 16px;  margin: 0 0 7px 0;">추가사항을 작성해주세요</h4>			
+			<textarea class="block-item input-item" rows="15" cols="100"  name="host_content_QA" placeholder="(필수) 세부일정 & 포함사항 및 불포함사항 & 자주묻는질문에 대한 답변(Q&A)"></textarea>
 		</div>
 		<div style ="height: 10px"></div>
 		
-		<div class="row-right">
-			<input class="block-item input-item" type="submit" value= "컨텐츠 등록하기" >	
+		<div style="text-align: center; margin: 0 180px 0 0;">
+			<div class="row-empty"></div>
+			<div class="row-empty"></div>
+			<input class="join_btn" type="submit" value= "컨텐츠 등록하기" >	
 		</div>
-	</article>	
-	</form>	
+
+	</form>
+</div>
+</div>
+<div class="row-empty"></div>
+<div class="row-empty"></div>
+<div class="row-empty"></div>
+<div class="row-empty"></div>
+
+   <hr color="#F98967">   
+</body>	
 
 
 <jsp:include page="/template/host_footer.jsp"></jsp:include>
