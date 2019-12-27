@@ -1,5 +1,3 @@
-<%@page import="beans.Host_Content_Photo_Dao"%>
-<%@page import="beans.Host_Content_Photo_Dto"%>
 <%@page import="java.util.Date"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="beans.Users_Get_Dto"%>
@@ -13,8 +11,7 @@
 <%@page import="beans.Host_Content_Dto"%>
 <%@page import="java.util.List"%>
 <%@page import="beans.Host_Content_Dao"%>
-
-<%@page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
     <!--     	자바 영역 시작입니다---------------------------------------------------------- -->
@@ -84,14 +81,6 @@
 	 	String time1 = format1.format(time);
 	 	
 // 	 	System.out.println(time1);
-		
-// 		사진 불러오는 
-		Host_Content_Photo_Dao HCPdao = new Host_Content_Photo_Dao();
-		Host_Content_Photo_Dto HCPdto = new Host_Content_Photo_Dto();
-		HCPdto.setHost_content_no(no);
-		List<Host_Content_Photo_Dto> HCPlist = HCPdao.host_content_photo_getPhoto(HCPdto);
-	
-
 	%>
  <!--     	자바 영역 끝입니다---------------------------------------------------------- -->
     
@@ -146,17 +135,78 @@
 	<!--    슬라이더를 불러옵니다 -->
    
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/deslider/1.5.1/style.css">
-  
+    <script type="text/javascript" src="<%=request.getContextPath()%>/js/slider.js"></script>
+    
     
     <!-- Content 날자 지정 API  -->
     <link rel="stylesheet" type="text/css" href="../css/datepicker.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
-    <script type="text/javascript"   src="<%=request.getContextPath()%>/js/datepicker.js"></script>
+    <script src="../js/datepicker.js"></script>
+    <script>
+        
+//반복문으로 사진넣는것도 해결해야 합니다!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        function loadSlider(){
+            var imgSources = [
+            {
+                link:"http://placehold.it/300x100?text=a",
+                caption:"테스트 제목1"
+            },
 
-    
-    <script>       
+            {
+                link:"http://placehold.it/300x100?text=b",
+                 caption:"테스트 제목1"
+            },
+            {
+                link:"http://placehold.it/300x100?text=c",
+                caption:"테스트 제목1"
+            },
+            {
+                link:"http://placehold.it/300x100?text=d",
+                caption:"테스트 제목1"
+            },
+            {
+                link:"http://placehold.it/300x100?text=e",
+                caption:"테스트 제목1"
+            }
+            ];
+            var containerId = '.deslider-container';
 
-    	/* 슬라이더 funtion 자리 */
+            var options = {
+                auto: {
+                    speed: 2000,//한장이 표시될 밀리초
+                    pauseOnHover: true,//hover 상태의 재생여부
+                },
+                fullScreen: true,
+                swipe: true,
+                pagination: true,
+                repeat: true
+            };
+
+            var myDeslider = new Deslider(imgSources, containerId, options);
+             }
+
+        	
+        	
+        	//티켓 창 플러스 1 시키는 명령어
+        	function plus(){
+        		var plus = document.querySelector("input[name=ticketing]");
+        		if(plus.value < <%=HCdto.getHost_content_ticket()%>){
+        		plus.value = parseInt(plus.value) + 1;
+        		}
+        		var total = document.querySelector(".total");
+        		total.innerText = plus.value*<%=HCdto.getHost_content_cost() %>;
+
+        	}
+        	
+        	//티켓 창 마이너스 1 시키는 명령어
+        	function minus(){
+        		var minus = document.querySelector("input[name=ticketing]");
+        		if(minus.value > 1){
+        		minus.value = parseInt(minus.value) - 1;
+        		}
+        		var total = document.querySelector(".total");
+        		total.innerText = minus.value*<%=HCdto.getHost_content_cost() %>;
+        	}
         	
         	
             function loadPicker(){
@@ -206,30 +256,28 @@
                     var picker = new Lightpick(options);
                 }
             	
-   
-			
-    	 	function addLoadEvent(func) {
-            	var oldonload = window.onload;
-               	 if(typeof window.onload != 'function') {
-                    window.onload = func;
-               	 } else {
-                    window.onload = function() {
-                        oldonload();
-                        func();
-                			}
-            			}	
+           	 	function addLoadEvent(func) {
+                	var oldonload = window.onload;
+                   	 if(typeof window.onload != 'function') {
+                        window.onload = func;
+                   	 } else {
+                        window.onload = function() {
+                            oldonload();
+                            func();
+                    			}
+                			}	
+            		}
 
-        		}
-    	 	
-//     	 		addLoadEvent(loadSlider);
-        		addLoadEvent(loadPicker);
-        		
+           	 		addLoadEvent(loadSlider);
+            		addLoadEvent(loadPicker);
+            	
+            	
             	//이 페이지에서 예약 실행
-
-
+            	
+//             	window::onload(){loadSlider();}
+//             	window::onload(){loadPicker();} 
+        		
             	//------------------------수정 하려고 할때---------------------------
-            	
-            	
             	function edit(){
                     
                     var choice = window.confirm("수정하시겠습니까?");
@@ -252,12 +300,8 @@
                     if(cho){
                     location.href = "<%=request.getContextPath()%>/board/host_content_list.jsp?category=<%=HCdto.getHost_content_category()%>";
                      }
-                }	           		
-				
+                }
     </script>
-    
-    
-    
     
     <!--     	스트립트 영역 끝입니다---------------------------------------------------------- -->
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/common.css">
@@ -266,25 +310,8 @@
 	<article class="w-70 row">
 		<div class="float1">
 			<div class="float2 main">
-			
-			
-			
-			
-				<!-- 이미지 슬라이더 영역 시작 -->
-			
-    			<div>
-    			<%-- 	<img src="<%=request.getContextPath()%>/board/download.do?no=<%=no%>" > --%>
-    			<% for (Host_Content_Photo_Dto dto : HCPlist) {%>
-    				<img src="<%=request.getContextPath()%>/board/download.do?no=<%=dto.getHost_content_no()%>">
-
-    			<%System.out.println(dto.getHost_content_no()); %>
-    			<% } %>
-    			
-    			</div>
-			
-				<!-- 이미지 슬라이더 영역 종료 -->
-
-
+				<!-- 이미지 슬라이더 영역 -->
+    			<div class="deslider-container"></div>
     			
     			<div>
     				<h2><%=HCdto.getHost_content_name() %></h2> 
@@ -298,7 +325,6 @@
     			<div><%=HCdto.getHost_content_info() %></div>
     			<div>
     			<%=HCdto.getHost_content_start_date().substring(0, 10) %>
-    			~
     			<%=HCdto.getHost_content_last_date().substring(0, 10) %>
     			</div >
     			<div><%=HCdto.getHost_content_location() %></div>
