@@ -529,5 +529,28 @@ public List<Host_Content_Dto> getList2(String host_id, int start, int finish) th
 		return list2;
 	}
 
+
+	public Host_Content_Dto get(int host_content_no) throws Exception {
+		Connection con = getConnection();
+		
+		String sql = "select * from host_content where host_content_no = ?";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setInt(1, host_content_no);
+		
+		ResultSet rs = ps.executeQuery();
+		
+		Host_Content_Dto HCdto = new Host_Content_Dto();
+		if(rs.next()) {
+			
+			HCdto.setHost_content_category(rs.getString("host_content_category"));
+			HCdto.setHost_id(rs.getString("host_id"));
+			HCdto.setHost_content_no(rs.getInt("host_content_no"));
+			
+		}
+		
+		con.close();
+		return HCdto;
+	}
+	
 }
 
