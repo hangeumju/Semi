@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <%@page import="beans.Host_Info_Dto"%>
 <%@page import="beans.Host_Info_Dao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -11,10 +11,6 @@
     String host_id = (String)session.getAttribute("host_id");
     Host_Info_Dto HIdto = HIdao.get(host_id);
     %> 
-<jsp:include page="/template/host_header.jsp"></jsp:include>
-
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/CSS/host_main.css">
-<form action="host_change_info.do" method="post">
 <style>
        *{
            box-sizing: border-box;
@@ -53,7 +49,65 @@
             background-color: #F98967;
             color:white;
             border:none;
+            border-radius: 10px;
         }       
+        
+             div{
+/*  		 border: 1px solid black;    */
+       }
+       .side{
+           width: 170px;
+           float: left;         
+       }
+       
+       .side .side_menu > ul > li > a {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 16px;
+            font-weight: 500;
+            color: black;
+            line-height: 40px;
+            display: block;
+            text-decoration: none;
+       }
+       
+       ul{
+           list-style: none;
+       }
+       .side .side_menu > ul > li:hover{
+            background-color: antiquewhite;
+            color: black;
+       }
+       .side .side_menu > ul > li{
+            padding: 0px 0px 0px 10px;
+           
+       }
+        .content{
+           float: left;
+           width: 1000px;
+           font-size: 16px;
+           font-weight: 500;
+           color: black;
+           line-height: 40px;
+           display: block;
+           padding: 0px 20px 0px 0px;
+          
+       }
+         /* 여백 주기 */
+        .row-empty{
+            height: 80px;
+        }
+        #dd{
+        	margin: auto;
+        	width: 1200px;
+        }
+         /* .float끝나는 영역을 가상으로 생성하고 clear(가상선택자) */
+        #dd::after{
+            content:"";
+            display: block;
+            clear: both;
+        }   
 </style>
 
 	<!-- 호스트 가입 우편번호 API -->
@@ -115,11 +169,43 @@
 		}
 	</script>
 	<!-- 우편번호 API 종료 -->	
-	<div id="container">
+	
+<jsp:include page="/template/host_header.jsp"></jsp:include>
+	<body>
+   <div id="dd">
+   
+    <h2 style="margin: 20px 50px 10px"><%=HIdto.getHost_id() %>님의 프로필</h2>
+     <div class="row-empty"></div>
+      <!-- side_menu시작 -->
+       <div class="side">
+         
+          <div class="side_menu">             
+              <ul>
+                <div style="margin: 0px 10px;">내 정보</div>
+                 <hr color="#F98967">
+                  <li>
+                      <a href="host_check.jsp?go=/info/host_change_pw.jsp">비밀번호 변경</a>
+                  </li>
+                  <li>                     
+                      <a href="host_check.jsp?go=/info/host_change_info.jsp">내 정보 수정</a>
+                  </li>
+                  <li>                     
+                      <a href="host_check.jsp?go=/info/host_exit.jsp">회원탈퇴</a>
+                  </li>                  
+              </ul>
+          </div>
+          <!-- side_menu끝 -->
+       </div>
+       <!-- side끝 -->
+       
+<!-- 수정할 정보 입력 -->
+<div class="content">
+<div id="container">
+	<form action="host_change_info.do" method="post">
        <div class="join_content">
            <div class="row_group">
-              <div class="join_content" style="text-align: center">
-			<h2> 호스트 <%=HIdto.getHost_id()%> 님의 정보 수정</h2>
+              <div class="join_content" >
+			<h2> 호스트 정보 수정</h2>
 		 <div class="join_row">
                    <h3 class="join_title">
                        <div>전화번호</div>
@@ -202,11 +288,14 @@
 
       </form>
       </div>
-	<div class="row-empty"></div>
-	<div class="row-empty"></div>
-    </div>
-	<hr color="#F98967">
- </body>
+ </div>
       
+<div class="row-empty"></div>
+<div class="row-empty"></div>
+<div class="row-empty"></div>
+<div class="row-empty"></div>
+
+   <hr color="#F98967">   
+</body>
       
 <jsp:include page="/template/host_footer.jsp"></jsp:include>

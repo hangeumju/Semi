@@ -15,7 +15,7 @@
        }
 
        div{
- 		 border: 1px solid black; 
+/*  		 border: 1px solid black;  */
        }
        .side{
            width: 170px;
@@ -105,7 +105,7 @@
                       <a href="host_check.jsp?go=/info/host_change_info.jsp">내 정보 수정</a>
                   </li>
                   <li>                     
-                      <a href="host_check.jsp?go=/info/host_exit.jsp">회원탈퇴</a>
+                      <a href="host_check.jsp?go=/info/host_exit.do">회원탈퇴</a>
                   </li>                  
               </ul>
           </div>
@@ -159,7 +159,7 @@
 	
    </div> 
   
-   <hr>   
+   <hr color="#F98967">   
  
 </body>
 
