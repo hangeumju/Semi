@@ -27,7 +27,7 @@ public class Users_Change_Pw_Servlet extends HttpServlet {
 			UCPdao.users_change_password(user_id, user_pw);
 			
 			//이동
-			resp.sendRedirect("users_change_pw_result.jsp");
+			resp.sendRedirect("users_info.jsp?s");
 			
 		}
 		catch(Exception e) {
