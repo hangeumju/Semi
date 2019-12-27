@@ -11,6 +11,7 @@
 
 <%
 // 컨텐츠 불러오기
+
    Host_Content_Dao HCdao = new Host_Content_Dao();
    String host_id = (String)request.getSession().getAttribute("host_id");
    
