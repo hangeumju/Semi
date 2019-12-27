@@ -91,11 +91,7 @@
 		 	 float:left;
 		  	 width:50%
 		  }  
-		  
-		  .review_content{
-		  	width : 630px;
-		  }
-		  
+		 
 		  .float2
 		  
 		  .float1::after {
@@ -395,9 +391,7 @@
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/common.css">
 <jsp:include page="/template/host_header.jsp"></jsp:include>
    <div id="dd">
-   <div class="content"> 
-		<div id="container">
-			 <div class="join_content">
+			 <div class="join_content" align="center">
           		 <div class="row_group">
               		<div class="join_content" >
 				<!-- 이미지 슬라이더 영역 -->
@@ -416,6 +410,7 @@
     			<div><%=HCdto.getHost_content_info() %></div>
     			<div>
     			<%=HCdto.getHost_content_start_date().substring(0, 10) %>
+    			~
     			<%=HCdto.getHost_content_last_date().substring(0, 10) %>
     			</div >
     			<div><%=HCdto.getHost_content_location() %></div>
@@ -428,25 +423,25 @@
     			
     			<div><%=dto.getReview_content() %></div>
     			<%} %>
-    			
+    			<br>
     			<!-- 댓글 작성칸이 표시될 자리 -->
 			</div>
 
-				<div class="row-empty">
+				<div class="row-empty" align="center">
 				<%if(host_id != null && isHost) {%>
 					<span class="join_box">
     				<button onclick="edit();" class="join_btn">수정</button> <button onclick="del();" class="join_btn">삭제</button><br>
     			<%} else {%>
     				<button onclick="list();">목록으로</button><br>
     			<%} %>
-</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+					</span>
+				</div>
+			</div>
+			</div>
+			</div>
+				</div>
+					</div>
+						</div>
 
 <div class="row-empty"></div>   
 <div class="row-empty"></div>
