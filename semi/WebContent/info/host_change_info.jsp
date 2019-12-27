@@ -10,6 +10,7 @@
     String host_id = (String)session.getAttribute("host_id");
     Host_Info_Dto HIdto = HIdao.get(host_id);
     %> 
+    
 <style>
        *{
            box-sizing: border-box;
