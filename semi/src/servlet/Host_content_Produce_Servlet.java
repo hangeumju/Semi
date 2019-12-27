@@ -26,7 +26,7 @@ public class Host_content_Produce_Servlet extends HttpServlet{
 		try {
 			req.setCharacterEncoding("utf-8");
 			
-			MultipartRequest mRequest = new MultipartRequest(req, "D:/git/Semiproject/semi/WebContent/image", 10*1024*1024, "utf-8", new DefaultFileRenamePolicy());
+			MultipartRequest mRequest = new MultipartRequest(req, "D:\\4. JAVA\\upload\\home", 10*1024*1024, "utf-8", new DefaultFileRenamePolicy());
 //			
 			
 			ServletContext context = getServletContext(); //어플리케이션에 대한 정보를 ServletContext 객체가 갖게 됨. 
@@ -82,8 +82,6 @@ public class Host_content_Produce_Servlet extends HttpServlet{
 		catch(Exception e) {
 			e.printStackTrace();
 			resp.sendError(500);
-		}
-		
-		
+		}		
 	}
 }

@@ -128,6 +128,102 @@
 		 	 display : block;
 		 	 
 		  }
+		     *{
+           box-sizing: border-box;
+       }
+       
+       #container, #footer, #header {
+        margin: 0 auto;
+        width: 400px;  
+    }       
+       .join_content{
+           width: 100%; 
+/*            border: 1px solid black; */
+       }
+       
+        .join_title {
+        margin: 19px 0 8px;
+        font-size: 14px;
+        font-weight: 700;
+/*         border: 1px solid black; */
+    }
+       .join_box *{
+           border: solid 1px darkgray;
+           padding: 30px;
+           width: 20%; 
+       }
+       .email_box *{
+           height: 32px;          
+       }
+       #email_id{
+           width: 220px;
+           border: solid 1px darkgray;
+       }
+       .join_btn{
+            font-size:1.5rem;
+            padding:0.5rem;
+            background-color: #F98967;
+            color:white;
+            border:none;
+            border-radius: 10px;
+        }       
+        
+             div{
+/*  		 border: 1px solid black;    */
+       }
+       .side{
+           width: 170px;
+           float: left;         
+       }
+       
+       .side .side_menu > ul > li > a {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 16px;
+            font-weight: 500;
+            color: black;
+            line-height: 40px;
+            display: block;
+            text-decoration: none;
+       }
+       
+       ul{
+           list-style: none;
+       }
+       .side .side_menu > ul > li:hover{
+            background-color: antiquewhite;
+            color: black;
+       }
+       .side .side_menu > ul > li{
+            padding: 0px 0px 0px 10px;
+           
+       }
+        .content{
+           float: left;
+           width: 1000px;
+           font-size: 16px;
+           font-weight: 500;
+           color: black;
+           line-height: 40px;content
+           display: block;
+           padding: 0px 20px 0px 0px;
+          
+       }
+         /* 여백 주기 */
+        .row-empty{
+            height: 30px;
+        }
+        #dd{
+        	margin: auto;
+        	width: 1200px;
+        }
+         /* .float끝나는 영역을 가상으로 생성하고 clear(가상선택자) */
+        #dd::after{
+            content:"";
+            display: block;
+            clear: both;
+        }
 	
     </style>
     <!--     	스타일 영역 끝입니다---------------------------------------------------------- -->
@@ -248,6 +344,22 @@
                     var picker = new Lightpick(options);
                 }
             	
+           	 	function addLoadEvent(func) {
+                	var oldonload = window.onload;
+                   	 if(typeof window.onload != 'function') {
+                        window.onload = func;
+                   	 } else {
+                        window.onload = function() {
+                            oldonload();
+                            func();
+                    			}
+                			}	
+            		}
+
+           	 		addLoadEvent(loadSlider);
+            		addLoadEvent(loadPicker);
+            	
+            	
             	//이 페이지에서 예약 실행
             	
 //             	window::onload(){loadSlider();}
@@ -277,31 +389,17 @@
                     location.href = "<%=request.getContextPath()%>/board/host_content_list.jsp?category=<%=HCdto.getHost_content_category()%>";
                      }
                 }
-            	
-           	 	function addLoadEvent(func) {
-                	var oldonload = window.onload;
-                   	 if(typeof window.onload != 'function') {
-                        window.onload = func;
-                   	 } else {
-                        window.onload = function() {
-                            oldonload();
-                            func();
-                    			}
-                			}	
-            		}
-
-           	 		addLoadEvent(loadSlider);
-            		addLoadEvent(loadPicker);
-            	
     </script>
     
     <!--     	스트립트 영역 끝입니다---------------------------------------------------------- -->
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/common.css">
-<jsp:include page="/template/header.jsp"></jsp:include>
-
-	<article class="w-70 row">
-		<div class="float1">
-			<div class="float2 main">
+<jsp:include page="/template/host_header.jsp"></jsp:include>
+   <div id="dd">
+   <div class="content"> 
+		<div id="container">
+			 <div class="join_content">
+          		 <div class="row_group">
+              		<div class="join_content" >
 				<!-- 이미지 슬라이더 영역 -->
     			<div class="deslider-container"></div>
     			
@@ -309,6 +407,7 @@
     				<h2><%=HCdto.getHost_content_name() %></h2> 
     				
     			</div>
+    		
     			
     			<div><h4><%=HCdto.getHost_content_cost() %>원</h4></div>
     			<div><h3>호스트 아이디 <%=HCdto.getHost_id()%></h3></div>
@@ -331,46 +430,27 @@
     			<%} %>
     			
     			<!-- 댓글 작성칸이 표시될 자리 -->
-				<%if(host_id=="" || !isHost){ %>
-				<form action="users_review_regist.do" method="post">
-					<input type="hidden" name="content_original_no" value="<%=HCdto.getHost_content_no()%>">
-					<input type="hidden" name="review_writer"  value="<%=user_id%>">
-					<textarea class="review_content" name="review_content" rows="2" cols="103" required="required"></textarea>
-					<input type="submit" value="등록">
-				</form>
-				<%} %>
 			</div>
-			
-			<div class="float2 sub">
-				<%if(isUser) {%>
-				<div>남은 티켓 수량 : <%=HCdto.getHost_content_ticket()%></div>
-				<div>티켓수량 선택</div>
-				<form action="<%=request.getContextPath()%>/board/users_pay.jsp" method="get">
-					<input type="hidden" name="host_content_name" value="<%=HCdto.getHost_content_name() %>"><!--컨텐츠 제목 -->
-					<input type="hidden" name="host_name" value="<%=HIdto.getHost_name()%>"><!--호스트 이름 -->
-					<input type="hidden" name="host_phone" value="<%=HIdto.getHost_phone() %>"><!--호스트 폰번호 -->
-					<input type="hidden" name="host_content_no" value="<%=HCdto.getHost_content_no() %>"><!-- 호스트 컨텐트 넘버 -->
-					<input type="hidden" name="host_content_location" value="<%=HCdto.getHost_content_location() %>"><!--호스트 지역 -->
-					<input type="hidden" name="host_content_cost" value="<%=HCdto.getHost_content_cost() %>"> <!--호스트 컨텐츠 가격 -->
-					<input type="button" class="minus" value="-" onclick="minus();">
-					<input id="pay"  class="ticket_input" type="text" name="ticketing" value="1"> <!-- 티켓수 -->
-					<input type="button" value = "+" class= "plus" onclick="plus();">
-				 	<div class="total"><%=HCdto.getHost_content_cost() %> </div> 
-					<input id="callender" type="text" name="start_date" class="start_date" placeholder="날짜선택" required="required"> <!-- 날짜 -->
-    				<button class="form_button">참여합니다!</button>
-				</form>
-					<button onclick="list();">목록으로</button><br>
-					
-				<%}else if(host_id != null && isHost) {%>
-    				<button onclick="edit();">수정</button><br>
-    				<button onclick="del();">삭제</button><br>
+
+				<div class="row-empty">
+				<%if(host_id != null && isHost) {%>
+					<span class="join_box">
+    				<button onclick="edit();" class="join_btn">수정</button> <button onclick="del();" class="join_btn">삭제</button><br>
     			<%} else {%>
     				<button onclick="list();">목록으로</button><br>
     			<%} %>
-			</div>
-		</div>
-		
-		
-	</article>
-	
-<jsp:include page="/template/footer.jsp"></jsp:include>
+</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="row-empty"></div>   
+<div class="row-empty"></div>
+<div class="row-empty"></div>
+		<hr color="#F98967">   
+    
+<jsp:include page="/template/host_footer.jsp"></jsp:include>
