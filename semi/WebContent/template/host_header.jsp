@@ -59,7 +59,7 @@
 	         <li class="dropdown">
 	             <a href="<%=context%>/board/notice_host.jsp" class="dropbtn">공지사항</a>
               <div class="dropdown-content">
-                  <a href="<%=context%>/board/notice.jsp">공지사항</a>
+                  <a href="<%=context%>/board/notice_host.jsp">공지사항</a>
               </div>
           </li>
       </ul> 
