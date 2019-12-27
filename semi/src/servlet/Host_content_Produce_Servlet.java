@@ -3,6 +3,7 @@ package servlet;
 import java.io.File;
 import java.io.IOException;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,26 +26,32 @@ public class Host_content_Produce_Servlet extends HttpServlet{
 		try {
 			req.setCharacterEncoding("utf-8");
 			
+			MultipartRequest mRequest = new MultipartRequest(req, "D:/git/Semiproject/semi/WebContent/image", 10*1024*1024, "utf-8", new DefaultFileRenamePolicy());
 //			
+			
+			ServletContext context = getServletContext(); //어플리케이션에 대한 정보를 ServletContext 객체가 갖게 됨. 
+			String saveDir = context.getRealPath(req.getContextPath()+"/image"); //절대경로를 가져옴
+			
+			
+			
 			//콘텐츠 생성 다오 및 디티오 받기
 			String host_id = (String)req.getSession().getAttribute("host_id");
 			Host_Content_Dao HCdao = new Host_Content_Dao();
 			Host_Content_Dto HCdto = new Host_Content_Dto();
 			Host_Content_Photo_Dao HCPdao = new Host_Content_Photo_Dao();
-			Host_Content_Photo_Dto HCPdto = new Host_Content_Photo_Dto();
 			
 			///board/host_content_list.jsp 에서 보내는 변수를 받는다
-			HCdto.setHost_id(req.getParameter("host_id"));
-			HCdto.setHost_content_category(req.getParameter("host_content_category"));
-			HCdto.setHost_content_cost(Integer.parseInt(req.getParameter("host_content_cost")));
-			HCdto.setHost_content_name(req.getParameter("host_content_name"));
-			HCdto.setHost_content_ticket(Integer.parseInt(req.getParameter("host_content_ticket")));
-			HCdto.setHost_content_info(req.getParameter("host_content_info"));
-			HCdto.setHost_content_start_date(req.getParameter("start_date"));
-			HCdto.setHost_content_last_date(req.getParameter("last_date"));
-			HCdto.setHost_content_location(req.getParameter("host_content_location"));
-			HCdto.setHost_content_ect_info(req.getParameter("host_content_ect_info"));
-			HCdto.setHost_content_qa(req.getParameter("host_content_qa"));
+			HCdto.setHost_id(mRequest.getParameter("host_id"));
+			HCdto.setHost_content_category(mRequest.getParameter("host_content_category"));
+			HCdto.setHost_content_cost(Integer.parseInt(mRequest.getParameter("host_content_cost")));
+			HCdto.setHost_content_name(mRequest.getParameter("host_content_name"));
+			HCdto.setHost_content_ticket(Integer.parseInt(mRequest.getParameter("host_content_ticket")));
+			HCdto.setHost_content_info(mRequest.getParameter("host_content_info"));
+			HCdto.setHost_content_start_date(mRequest.getParameter("start_date"));
+			HCdto.setHost_content_last_date(mRequest.getParameter("last_date"));
+			HCdto.setHost_content_location(mRequest.getParameter("host_content_location"));
+			HCdto.setHost_content_ect_info(mRequest.getParameter("host_content_ect_info"));
+			HCdto.setHost_content_qa(mRequest.getParameter("host_content_qa"));
 			
 			int no = HCdao.host_content_sequence();
 			
@@ -53,10 +60,14 @@ public class Host_content_Produce_Servlet extends HttpServlet{
 			HCdao.host_contentproduce(HCdto);
 			
 			for(int i = 1; i < 4; i++) {
+			File file = mRequest.getFile("host_content_file"+i);
+			Host_Content_Photo_Dto HCPdto = new Host_Content_Photo_Dto();
 			HCPdto.setHost_content_no(no);
-			HCPdto.setHost_content_original_file(req.getParameter("host_content_original_file"+i));
-			HCPdto.setHost_content_edit_file(req.getParameter("host_content_edit_file"+i));
-			
+			HCPdto.setHost_content_original_file(mRequest.getOriginalFileName("host_content_file"+i));
+			HCPdto.setHost_content_edit_file(mRequest.getFilesystemName("host_content_file"+i));
+//			System.out.println(file);
+//			System.out.println(mRequest.getOriginalFileName("file"));
+//			System.out.println(mRequest.getFilesystemName("file"));
 			//파일다오를 통해 입력받은 컨텐츠를 생성한다 이걸 3번한다
 			HCPdao.host_content_photo_insert(HCPdto);
 			}

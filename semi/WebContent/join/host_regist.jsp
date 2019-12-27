@@ -163,7 +163,7 @@
                    </h3>
                    <span class="join_box">
 			<p>
-				<input class="input-item" type="text" name="host_post"placeholder="우편번호">
+				<input class="input-item" type="text" name="host_post"placeholder="우편번호" maxlength="6">
 		    	<input class="input-item" type="button" onclick="postcode()" value="우편번호 찾기">
 		    </p>
 		    

@@ -17,21 +17,22 @@ public class Reservation_Dao {
 	}
 	
 	//예약 차트 전체 보기
-	public List<Reservation_Dto> reservation_list(int start, int finish)throws Exception{
+	public List<Reservation_Dto> reservation_list(String host_id, int start, int finish)throws Exception{
 	Connection con = getConnection();
 	
 	String sql = "select * from ("
-			+ "select rownum rn, A.* from ("
-			+ "select * from content_history_to_host "
-			+ "connect by prior history_no=superno "
-			+ "start with superno is null "
-			+ "order siblings by groupno desc, history_no asc"
-		+ ")A"
+			+ " select rownum rn, A.* from ("
+			+ " select * from content_history_to_host where host_id = ?"
+			+ " connect by prior history_no=superno "
+			+ " start with superno is null "
+			+ " order siblings by groupno desc, history_no asc"
+		+ " )A "
 	+ ") where rn between ? and ?";
 	
 	PreparedStatement ps = con.prepareStatement(sql);
-	ps.setInt(1, start);
-	ps.setInt(2, finish);
+	ps.setString(1, host_id);
+	ps.setInt(2, start);
+	ps.setInt(3, finish);
 	ResultSet rs = ps.executeQuery();
 	
 	List<Reservation_Dto> list = new ArrayList<>();
@@ -93,17 +94,24 @@ public class Reservation_Dao {
 		return list;
 	}
 	
-	public int getCount(String type, String keyword)throws Exception{
+	public int getCount(String host_id, String type, String keyword)throws Exception{
 		Connection con = getConnection();
 		boolean isSearch = type != null && keyword != null ;
 		String sql = "select count(*) from content_history_to_host ";
 		if(isSearch) {
-			sql += " where "+type+" like '%'||?||'%'";
+			sql += " where "+type+" like '%'||?||'%' and host_id = ?";
+		}
+		else {
+			sql += " where host_id = ?";
 		}
 		
 		PreparedStatement ps = con.prepareStatement(sql);
 		if(isSearch) {
 			ps.setString(1, keyword);
+			ps.setString(2, host_id);
+		}
+		else {
+			ps.setString(1, host_id);
 		}
 		ResultSet rs = ps.executeQuery();
 		rs.next();
