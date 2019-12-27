@@ -12,8 +12,6 @@
 	Users_Change_Info_Dto UCIdto = new Users_Change_Info_Dto();
 	Users_Get_Dto UGdto = UIdao.users_get(user_id);
 %>
-
-
 <jsp:include page="/template/header.jsp"></jsp:include>
 <style>
 /*
