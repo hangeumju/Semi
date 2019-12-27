@@ -40,7 +40,7 @@
    %>
    <!-- 갤러리 4단 나누기 -->
 
-   
+
     <style>
         * { 
             box-sizing: border-box;
@@ -101,8 +101,9 @@
     <% for (Host_Content_Dto dto : list) {%> 
         <div class="gallary-item">
             <div class="gallary-image">
-       			<a href="<%=request.getContextPath()%>/board/host_content_detail_view_list.jsp?host_content_no=<%=dto.getHost_content_no()%>">
-                <a href="<%=request.getContextPath()%>/board/host_content_detail_view_list.jsp?host_content_no=<%=dto.getHost_content_no()%>">
+
+
+                <a href="<%=request.getContextPath()%>/board/host_content_detail_view.jsp?host_content_no=<%=dto.getHost_content_no()%>">
                 <img src="http://placeimg.com/480/480/animals">
                 </a>                
             </div>            
