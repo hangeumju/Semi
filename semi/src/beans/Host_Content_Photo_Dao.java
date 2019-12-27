@@ -58,7 +58,29 @@ public class Host_Content_Photo_Dao {
 		return list;
 	}
 	
-	
+	    // 단일 사진 불러오기 메소드입니다
+		// 매개변수 : 게시글 번호
+		// 반환값 사진 1개만 불러오기
+		public Host_Content_Photo_Dto host_content_photo_getPhoto1(int host_content_no) throws Exception{
+			Connection con = getConnection();
+			String sql = "select * from host_content_photo where host_content_no = ?";
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1, host_content_no);
+			
+			ResultSet rs = ps.executeQuery();			
+			
+			Host_Content_Photo_Dto HCPdto = new Host_Content_Photo_Dto();
+			if(rs.next()) {
+				HCPdto.setHost_content_photo_no(rs.getInt("host_content_photo_no"));
+				HCPdto.setHost_content_no(rs.getInt("host_content_no"));
+				HCPdto.setHost_content_original_file(rs.getString("host_content_original_file"));
+				HCPdto.setHost_content_edit_file(rs.getString("host_content_edit_file"));
+			}
+			
+			con.close();
+			return HCPdto;
+		}
+		
 	
 }
 
