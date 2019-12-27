@@ -34,7 +34,7 @@ th, td {
   
 */
 div {
-	/*     border: 1px solid black; */
+/* 	    border: 1px solid black;  */
 	
 }
 
@@ -71,7 +71,7 @@ ul {
 
 .content {
 	float: right;
-	width: 970px;
+	width: 700px;
 	font-size: 16px;
 	font-weight: 500;
 	color: black;
@@ -87,7 +87,7 @@ ul {
 	clear: both;
 }
 
-.row-empty2 {
+.row-empty {
 	height: 25px;
 }
 
@@ -98,6 +98,11 @@ ul {
 	color: white;
 	border: none;
 }
+#money{
+	color: #F98967;
+	font-size: 25px;
+}
+
 </style>
 <!-- css style 끝 -->
 
@@ -105,7 +110,7 @@ ul {
 <!-- 포인트 테이블은 없어서 보유 포인트만 나오도록 했습니다 -->
 <body>
 	<div id="dd">
-		<hr color="#F9896">
+		<hr color="#F98967">
 
 		<h2 style="margin: 20px 50px 10px"><%=user_id%>님의 포인트 내역
 		</h2>
@@ -121,7 +126,7 @@ ul {
 					<div style="margin: 0px 10px;">
                 		<a style="text-decoration: none; color: black;" href="<%=request.getContextPath() %>/info/users_info.jsp">내 정보</a>
                 	</div>
-					<hr color="#F9896">
+					<hr color="#F98967">
 					<li><a
 						href="<%=request.getContextPath()%>/info/users_history.jsp">이용내역</a>
 					</li>
@@ -136,27 +141,27 @@ ul {
 					<li><a
 						href="<%=request.getContextPath()%>/info/users_point.jsp">포인트내역</a>
 					</li>
-					<hr color="#F9896">
+					<hr color="#F98967">
 				</ul>
 			</div>
 			<!-- side_menu끝 -->
 		</div>
 		<!-- side끝 -->
-		<section>
-			<div align="center">
-				<h2>회원님의 포인트는</h2>
-				<h2><%=UGdto.getUser_point()%>
-					point입니다
-				</h2>
-				<h2>회원님의 총 이용금액은</h2>
-				<h2><%=money%>
-					원입니다
-				</h2>
+		
+			<div class="content">
+			<div class="row-empty"></div>
+			<div class="row-empty"></div>
+				<div>회원님의 포인트는</div>
+				<div><%=UGdto.getUser_point()%>point입니다</div>
+			<div class="row-empty"></div>
+				<div>회원님의 총 이용금액은</div>
+				<div><a id="money"><%=money%></a>원입니다</div>
 			</div>
-		</section>
 
 
 	</div>
+		<div class="row-empty"></div>
+		<div class="row-empty"></div>
 </body>
-<hr color="#F9896">
+<hr color="#F98967">
 <jsp:include page="/template/footer.jsp"></jsp:include>
