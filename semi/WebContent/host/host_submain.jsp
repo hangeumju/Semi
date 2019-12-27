@@ -138,7 +138,7 @@
 					<div class="gallary-image" align="center">
 						<img src="<%=request.getContextPath()%>/image/count.png" width="120" height="230"></a>
 					</div>
-					<div class="gallary-text-content">이달의 정산 내역</div>
+					<h3>(<%=HIdto.getHost_id()%>) 님의 이달 정산 내역</h3>
 					<div class="gallary-text-cost"><%=pmonth %>원</div>
 			</div>
 
@@ -147,7 +147,7 @@
 					<div class="gallary-image">
 						<img src="<%=request.getContextPath() %>/image/call.png" width="120" height="230"></a>
 					</div>
-					<div class="gallary-text-content">고객센터 및 사업제휴</div>
+					<h3>고객센터 및 사업제휴</h3>
 					<div class="gallary-text-cost">1588-1588</div>
 			</div>
 	</div>
