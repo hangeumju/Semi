@@ -85,8 +85,13 @@
 	 	
 // 	 	System.out.println(time1);
 		
-
+// 		사진 불러오는 
+		Host_Content_Photo_Dao HCPdao = new Host_Content_Photo_Dao();
+		Host_Content_Photo_Dto HCPdto = new Host_Content_Photo_Dto();
+		HCPdto.setHost_content_no(no);
+		List<Host_Content_Photo_Dto> HCPlist = HCPdao.host_content_photo_getPhoto(HCPdto);
 	
+
 	%>
  <!--     	자바 영역 끝입니다---------------------------------------------------------- -->
     
@@ -268,7 +273,13 @@
 				<!-- 이미지 슬라이더 영역 시작 -->
 			
     			<div>
-    				<img src="<%=request.getContextPath()%>/board/download.do?no=<%=no%>" >
+    			<%-- 	<img src="<%=request.getContextPath()%>/board/download.do?no=<%=no%>" > --%>
+    			<% for (Host_Content_Photo_Dto dto : HCPlist) {%>
+    				<img src="<%=request.getContextPath()%>/board/download.do?no=<%=dto.getHost_content_no()%>">
+
+    			<%System.out.println(dto.getHost_content_no()); %>
+    			<% } %>
+    			
     			</div>
 			
 				<!-- 이미지 슬라이더 영역 종료 -->
