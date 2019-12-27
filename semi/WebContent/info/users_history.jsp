@@ -120,7 +120,7 @@
            color: black;
            line-height: 40px;
            display: block;
-           padding: 0px 50px 0px 0px;
+           padding: 0px 30px 0px 0px;
        }
        
          /* .float끝나는 영역을 가상으로 생성하고 clear(가상선택자) */
@@ -132,6 +132,10 @@
         
        .row-empty2{
           height: 25px;
+       }
+       
+      .review_content_text{
+       font-size:12px;
        }
        
     </style>
@@ -183,8 +187,8 @@
             <th>컨텐츠명</th>
             <th>가격</th>
             <th width="100px" >수량</th>
-            <th width="100px">호스트이름</th>
-            <th>호스트연락처</th>
+            <th width="150px">호스트이름</th>
+            <th width="150px">호스트연락처</th>
             <th width="100px">이용날짜</th>
             <th>위치</th>      
             </tr>
@@ -192,15 +196,15 @@
          
          <tbody  align="center" font-size="10px">
          <%for(Users_Content_History_Dto UCHdto : list){%>
-            <tr font-size="10px">
+            <tr class="review_content_text">
                 <td width="150px" font-size="10px"><%=UCHdto.getUser_reservation_date_WithFormat() %></td>
-                <td width="150px"><%=UCHdto.getHost_content_name() %></td>
+                <td width="180px"><%=UCHdto.getHost_content_name() %></td>
                 <td><%=UCHdto.getHost_content_cost() %></td>
                 <td><%=UCHdto.getUser_qty() %></td>
                 <td><%=UCHdto.getHost_name() %></td>
                 <td><%=UCHdto.getHost_phone() %></td>
-                <td><%=UCHdto.getUser_class_date_WithFormat() %></td>
-                <td><%=UCHdto.getHost_content_location() %></td>                       
+                <td width="150px"><%=UCHdto.getUser_class_date_WithFormat() %></td>
+                <td width="150px"><%=UCHdto.getHost_content_location() %></td>                       
             </tr>      
          <%} %>      
         </tbody>
