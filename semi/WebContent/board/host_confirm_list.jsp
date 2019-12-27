@@ -36,8 +36,8 @@
    
    System.out.println(count);
    
-	/////////////절대경로 변수
-	String context = request.getContextPath();
+   /////////////절대경로 변수
+   String context = request.getContextPath();
    %>
    <!-- 갤러리 4단 나누기 -->
 
@@ -89,7 +89,7 @@
             word-break:break-all;
         }
                     div{
-/*   		 border: 1px solid black;   */
+/*          border: 1px solid black;   */
        }
        .side{
            width: 170px;
@@ -97,7 +97,7 @@
        }
        
        .side .side_menu > ul > li > a {
-       		width:140px;
+             width:140px;
             margin: 0;
             padding: 0;
             border: 0;
@@ -129,7 +129,7 @@
            color: black;
            line-height: 40px;
            display: block;
-	      padding: 0px 100px 0px 0px;
+         padding: 0px 100px 0px 0px;
        }
          /* 여백 주기 */
         .row-empty{
@@ -215,8 +215,8 @@
          <jsp:param name="navsize" value="<%=navsize%>"/>
          <jsp:param name="pagesize" value="<%=pagesize%>"/>
       </jsp:include>
-	</div>
-   	 
+   </div>
+       
 <div class="row-empty"></div>
 <div class="row-empty"></div>
    <hr color="#F98967">   
