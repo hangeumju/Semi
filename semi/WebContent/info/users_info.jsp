@@ -3,6 +3,12 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
+   
+<script>
+<%if(request.getParameter("s") != null){%>
+window.alert("비밀번호 변경 완료");
+<%}%>
+</script>
 
  <style>
        div{
