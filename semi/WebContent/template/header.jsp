@@ -52,7 +52,7 @@ String hostlogin = request.getContextPath()+"/login/host_login.jsp";
 
 	<header>
 			<div class="logo row">
-				<img src="<%=request.getContextPath() %>/image/header.png">
+				<a href="<%=request.getContextPath() %>/index.jsp"><img src="<%=request.getContextPath() %>/image/header.png"></a>
 			</div>
 			<div class="menu">
 				<ul>
@@ -61,6 +61,7 @@ String hostlogin = request.getContextPath()+"/login/host_login.jsp";
 					<%} else{%>
 						<li class="main">환영합니다 <%=user_id %>님<img src="<%=request.getContextPath() %>/image/dropdown.png">
 							<ul>
+								<li class="sub" onclick="location.href='<%=request.getContextPath()%>/info/users_info.jsp'">내정보</li>
 								<li class="sub" onclick="location.href='<%=request.getContextPath()%>/info/users_history.jsp'">이용내역</li>
 								<li class="sub" onclick="location.href='<%=request.getContextPath()%>/info/users_review.jsp'">이용후기</li>
 								<li class="sub" onclick="location.href='<%=request.getContextPath()%>/info/users_point.jsp'">내포인트</li>
