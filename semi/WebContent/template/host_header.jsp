@@ -27,7 +27,7 @@
         <header>
         <div class="title">
         	<a href="<%=request.getContextPath()%>/host/host_submain.jsp">
-        		<img src="/semi/image/header.png" width="70%">
+        		<img src="/semi/image/header.png" width="60%">
         	</a>
        	</div>
      </header>
