@@ -114,7 +114,7 @@ System.out.println(host_id);
 
 
 
-	<form action="host_content_produce.do" method="post">
+	<form action="host_content_produce.do" method="post" enctype="multipart/form-data">
 	<article class="w-80">
 	
 	<!-- host_id 는 hidden 으로 넘김 -->

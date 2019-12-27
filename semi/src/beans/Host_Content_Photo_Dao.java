@@ -57,6 +57,8 @@ public class Host_Content_Photo_Dao {
 		return list;
 	}
 	
+	
+	
 }
 
 

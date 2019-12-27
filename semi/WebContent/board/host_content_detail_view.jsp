@@ -159,14 +159,6 @@
             {
                 link:"http://placehold.it/300x100?text=c",
                 caption:"테스트 제목1"
-            },
-            {
-                link:"http://placehold.it/300x100?text=d",
-                caption:"테스트 제목1"
-            },
-            {
-                link:"http://placehold.it/300x100?text=e",
-                caption:"테스트 제목1"
             }
             ];
             var containerId = '.deslider-container';

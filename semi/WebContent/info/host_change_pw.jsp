@@ -1,4 +1,3 @@
-
 <%@page import="beans.Host_Info_Dao"%>
 <%@page import="beans.Host_Info_Dto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -130,11 +129,12 @@ ul {
           <!-- side_menu끝 -->
        </div>
        
+       
        <!-- side끝 -->
            <section>
 			<div align="center">
 				<h1>신규 비밀번호 입력</h1>
-				<form action="host_change_pw.do" method="get">
+				<form action="host_change_pw.do" method="post">
 
 				<input type="password" name="host_pw" required> 
 				<input class="join_btn" type="submit" value="완료">
@@ -146,5 +146,5 @@ ul {
 </form>
 <hr color="#F9896">
 </section>
->>>>>>> refs/remotes/origin/master
+
 <jsp:include page="/template/host_footer.jsp"></jsp:include>
