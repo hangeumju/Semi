@@ -133,7 +133,7 @@ ul {
            <section>
 			<div align="center">
 				<h1>신규 비밀번호 입력</h1>
-				<form action="host_change_pw.do" method="get">
+				<form action="host_change_pw.do" method="post">
 
 				<input type="password" name="host_pw" required> 
 				<input class="join_btn" type="submit" value="완료">
