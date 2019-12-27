@@ -6,9 +6,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-
-
-
 <%
 // 컨텐츠 불러오기
 
@@ -38,6 +35,9 @@
    int count = HCdao.getCount(host_id);
    
    System.out.println(count);
+   
+	/////////////절대경로 변수
+	String context = request.getContextPath();
    %>
    <!-- 갤러리 4단 나누기 -->
 
@@ -51,7 +51,7 @@
         }
         
         .gallary{
-            
+/*             border: 1px solid black; */
         }
         .gallary::after{
             content:"";
@@ -62,13 +62,13 @@
         .gallary > .gallary-item{
             float:left;
             width:25% !important;
-            padding:10px;
+            padding:30px;
+/*             border: 1px solid darkgray;  */
         }
         
-        .gallary > .gallary-item > .gallary-image > img{
+        .gallary img{
             width:100%;
-            border-radius: 50%;
-            opacity: 0.5;
+            border-radius: 5px;
         }
         
         .gallary > .gallary-item:hover{
@@ -88,16 +88,98 @@
         .gallary > .gallary-item> .gallary-text > p {
             word-break:break-all;
         }
-        
+                    div{
+/*   		 border: 1px solid black;   */
+       }
+       .side{
+           width: 170px;
+           float: left;         
+       }
+       
+       .side .side_menu > ul > li > a {
+       		width:140px;
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 16px;
+            font-weight: 500;
+            color: black;
+            line-height: 40px;
+            display: block;
+            text-decoration: none;
+            text-align: left; 
+       }
+       
+       ul{
+           list-style: none;
+       }
+       .side .side_menu > ul > li:hover{
+            background-color: antiquewhite;
+            color: black;
+       }
+       .side .side_menu > ul > li{
+            padding: 0px 0px 0px 10px;
+           
+       }
+        .content{
+           float: right;
+           width: 1000px;
+           font-size: 16px;
+           font-weight: 500;
+           color: black;
+           line-height: 40px;
+           display: block;
+	      padding: 0px 100px 0px 0px;
+       }
+         /* 여백 주기 */
+        .row-empty{
+            height: 80px;
+        }
+         #dd{
+           margin: auto;
+           width: 1200px;
+        }
+         /* .float끝나는 영역을 가상으로 생성하고 clear(가상선택자) */
+        #dd::after{
+            content:"";
+            display: block;
+            clear: both;
+        }   
         
     </style>
    <!-- 갤러리 4단 나누기 종료-->
 
 <jsp:include page="/template/host_header.jsp"></jsp:include>
 
-<article class="w-100">
-
-  <div class="gallary">
+<body>
+   <div id="dd">
+   
+    <h2 style="margin: 20px 50px 10px"><%=host_id %>님의 컨텐츠 관리</h2>
+     <div class="row-empty"></div>
+      <!-- side_menu시작 -->
+       <div class="side">
+         
+          <div class="side_menu">             
+              <ul>
+                <div style="margin: 0px 10px;">내 컨텐츠</div>
+                 <hr color="#F98967">
+                  <li>
+                      <a href="<%=context%>/board/host_content_produce.jsp" >컨텐츠 등록</a>
+                  </li>
+                  <li>                     
+                      <a href="<%=context%>/board/host_confirm_list.jsp" >내 컨텐츠 목록</a>
+                  </li>
+                  <li>                     
+                      <a href="<%=context%>/board/reservation_chart.jsp">예약자관리</a>
+                  </li>                  
+              </ul>
+          </div>
+          <!-- side_menu끝 -->
+       </div>
+       <!-- side끝 -->
+<div class="content">
+<div class="row-empty"></div>
+<div class="gallary">
 
     <% for (Host_Content_Dto dto : list) {%> 
         <div class="gallary-item">
@@ -109,36 +191,35 @@
                 </a>                
             </div>            
             <div class="gallary-text">
-                <h4><%=dto.getHost_content_name() %></h4>
-                <h4>
-                    <%=dto.getHost_content_cost() %>
-                </h4>
-                <h4>
-                   <%=dto.getHost_content_view_count() %>
-                </h4>
-                <h3>
-                   <%=dto.getHost_content_category() %>
-                </h3>
-                <h3>
-                   <%=dto.getHost_content_approval() %>
-                </h3>
-                
+                <div> #<%=dto.getHost_content_category() %></div>   
+                <div><%=dto.getHost_content_name() %></div>
+                <div><%=dto.getHost_content_cost() %>원</div>   
+                <div><%=dto.getHost_content_view_count() %></div>   
+                <div><%=dto.getHost_content_approval() %></div>                                   
             </div>
         </div>   
    <% } %>  
    
-     </div>  
+</div>      
+   </div> 
+</div>
+   
+<div class="row-empty"></div>
+<div class="row-empty"></div>
+
      <div class="row">
       <!-- 네비게이터(navigator) -->
-      <jsp:include page="/template/host_list_navigator.jsp">
+      <jsp:include page="/template/navigator.jsp">
          <jsp:param name="pno" value="<%=pno%>"/>
          <jsp:param name="count" value="<%=count%>"/>
          <jsp:param name="navsize" value="<%=navsize%>"/>
          <jsp:param name="pagesize" value="<%=pagesize%>"/>
       </jsp:include>
-         
-   </div>             
-
-</article> 
+	</div>
+   	 
+<div class="row-empty"></div>
+<div class="row-empty"></div>
+   <hr color="#F98967">   
+</body>  
     
 <jsp:include page="/template/host_footer.jsp"></jsp:include> 
