@@ -185,8 +185,6 @@ String context = request.getContextPath();
     
 <!-- style , script 정의 공간 -->
 
-
-
 <jsp:include page="/template/host_header.jsp"></jsp:include>
 <body>
    <div id="dd">
@@ -219,6 +217,7 @@ String context = request.getContextPath();
 <!-- 컨텐츠 정보 입력 -->
 <div class="content">
 	<form action="host_content_produce.do" method="post">
+
 	<!-- host_id 는 hidden 으로 넘김 -->
 	<!-- host_id 대신에 rlawldms 넣어놨으니 나중에 변경 -->
 	<%-- <input  type="hidden" name= "host_id" value="<%=host_id%>">	 --%>	

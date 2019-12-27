@@ -112,7 +112,6 @@
     </style>
 <body>
 	<div id="dd">
-    <hr color="#F9896">
 	<h2 style="margin: 20px 50px 10px"><%=host_id %>님의 정산 차트입니다</h2>
 	 <div class="row-empty"></div>
      <!-- side_menu시작 -->
@@ -130,7 +129,6 @@
                       <a href="<%=request.getContextPath()%>/board/host_confirm_list.jsp">내 컨텐츠 리스트</a>
                       
                   </li>
-                  <hr color="#F9896">
               </ul>
           </div>
           <!-- side_menu끝 -->
