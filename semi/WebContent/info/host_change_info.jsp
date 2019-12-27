@@ -1,4 +1,3 @@
-
 <%@page import="beans.Host_Info_Dto"%>
 <%@page import="beans.Host_Info_Dao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -282,6 +281,7 @@
                    <span class="join_box">
                        <input class="join_btn" type="submit" value="수정완료">			
                    </span>
+
 			</div>
 		</div>
 	</div>
