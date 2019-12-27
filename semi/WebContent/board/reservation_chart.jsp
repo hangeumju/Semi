@@ -10,8 +10,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/host_main.css">
-<jsp:include page="/template/host_header.jsp"></jsp:include>  
  
     <%
     Host_Info_Dao HIdao = new  Host_Info_Dao();
@@ -53,10 +51,10 @@
 	
 	int count = Rdao.getCount(type, keyword);
 	%>
-<html>
-<head>
-    
-    <style type="text/css">
+
+<jsp:include page="/template/host_header.jsp"></jsp:include>  
+
+    <style>
         #wrap {
             width: 800px;
             margin: 0 auto 0 auto;
@@ -71,6 +69,8 @@
         #boardList{
             text-align :center;
         }
+        
+        
     </style>
     
     <script type="text/javascript">
@@ -128,6 +128,7 @@
         </table>
     </div>
     <br>
+    
 	<div class="row" align="center">
 		<!-- 네비게이터(navigator) -->
 		<jsp:include page="/template/navigator.jsp">
@@ -137,8 +138,8 @@
 			<jsp:param name="pagesize" value="<%=pagesize%>"/>
 		</jsp:include>
 	</div>
+	
     </div>
 </body>
-</html>
-<jsp:include page="/template/host_footer.jsp"></jsp:include>
 
+<jsp:include page="/template/host_footer.jsp"></jsp:include>
