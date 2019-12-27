@@ -12,7 +12,7 @@
 
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/host_main.css">
 <jsp:include page="/template/host_header.jsp"></jsp:include>  
- 
+   
     <%
     Host_Info_Dao HIdao = new  Host_Info_Dao();
     String host_id = (String)session.getAttribute("host_id");
