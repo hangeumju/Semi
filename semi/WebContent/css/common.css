@@ -43,6 +43,7 @@
 	bottom: 0;
 	background-color: none;
 	display: none;
+	z-index:200;
 }
 
 .modal>.modal-view {
@@ -54,6 +55,7 @@
 	left: 50%;
 	margin-left: -150px;
 	margin-top: -200px;
+	z-index:200;
 }
 
 
@@ -190,7 +192,7 @@ article {
 	width: 100%;
 }
 
-.menu li{
+.menu .main{
 	display:inline-block;
 	cursor: pointer;
 	margin-left:10px;
@@ -208,18 +210,24 @@ article {
 display:none;
 height:auto;
 padding:10px;
-margin:0px;
+margin:0px 0px 0px 100px;
 border:0px;
 position:absolute;
-width:230px;
+width:100px;
 z-index:200;
-text-align:center;
-background-color: #f9f9f9;
+background-color: rgba(255,255,255, 0.8);
 box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 }
 
 .menu li:hover ul {
 display:block;
+}
+
+.sub{
+	display:block;
+	padding:5px;
+	text-align:center;
+	font-size:1rem;
 }
 
 .logo img{
