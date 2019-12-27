@@ -62,6 +62,7 @@
          
        }
        .side .side_menu > ul > li > a {
+       		width:140px;
             margin: 0;
             padding: 0;
             border: 0;
@@ -71,6 +72,7 @@
             line-height: 40px;
             display: block;
             text-decoration: none;
+            text-align: left;
        }
        
        ul{
@@ -120,7 +122,7 @@
           <div class="side_menu">
              
               <ul>
-                <div style="margin: 0px 10px;">내 정보</div>
+                <div style="margin: 0px 10px;">내 정산</div>
                  <hr color="#F9896">
                   <li>
                       <a href="<%=request.getContextPath()%>/board/reservation_chart.jsp">예약차트</a>

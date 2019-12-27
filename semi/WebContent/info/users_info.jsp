@@ -12,7 +12,7 @@ window.alert("비밀번호 변경 완료");
 
  <style>
        div{
-/*     border: 1px solid black; */
+   border: 1px solid black;
        }
        .side{
            width: 170px;
@@ -111,7 +111,7 @@ window.alert("비밀번호 변경 완료");
              
               <ul>
                 <div style="margin: 0px 10px;">내 정보</div>
-                 <hr color="#F9896">
+                 <hr color="#F98967">
                   <li>
                       <a href="<%=request.getContextPath() %>/info/users_history.jsp">이용내역</a>
                   </li>
