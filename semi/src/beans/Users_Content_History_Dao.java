@@ -82,6 +82,27 @@ public class Users_Content_History_Dao {
 		return count;
 		}
 	
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	//유저 총 이용금액 구하는 메소드
+	//메소드이름 : users_pay_total
+	//매개변수 : String users_history_id
+	//반환형 : int
+	public int users_pay_total(String users_history_id) throws Exception {
+		Connection con = getConnection();
+		
+		String sql = " select sum(user_pay_total) from( " + 
+						" select users_history_id, (host_content_cost * user_qty)user_pay_total from content_history_to_users where users_history_id = ?" + 
+				"    )";
+		PreparedStatement ps = con.prepareStatement(sql);
+		ps.setString(1, users_history_id);
+		
+		ResultSet rs = ps.executeQuery();
+		rs.next();
+		
+		int money = rs.getInt(1);
+		
+		con.close();			
+		return money;
+		}
 	
-
-}
+	}

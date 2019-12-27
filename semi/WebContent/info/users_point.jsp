@@ -1,3 +1,4 @@
+<%@page import="beans.Users_Content_History_Dao"%>
 <%@page import="beans.Users_Info_Dao"%>
 <%@page import="beans.Users_Get_Dto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -8,6 +9,10 @@
 	Users_Info_Dao UIdao = new Users_Info_Dao();
 	String user_id = (String) session.getAttribute("user_id");
 	Users_Get_Dto UGdto = UIdao.users_get(user_id);
+	
+	String users_history_id = (String) session.getAttribute("user_id");
+	Users_Content_History_Dao UCHdao = new Users_Content_History_Dao();
+	int money = UCHdao.users_pay_total(users_history_id);
 %>
 <style>
 /*
@@ -140,6 +145,10 @@ ul {
 				<h2>회원님의 포인트는</h2>
 				<h2><%=UGdto.getUser_point()%>
 					point입니다
+				</h2>
+				<h2>회원님의 총 이용금액은</h2>
+				<h2><%=money%>
+					원입니다
 				</h2>
 			</div>
 		</section>

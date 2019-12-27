@@ -29,7 +29,7 @@ public class Users_Exit_Servlet extends HttpServlet{
 			UEdao.users_exit(user_id);
 			
 			//메인 페이지로 이동
-			resp.sendRedirect("http://www.naver.com");
+			resp.sendRedirect(req.getContextPath()+"/index.jsp");
 			
 			
 		} catch (Exception e) {
