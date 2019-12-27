@@ -12,7 +12,7 @@ window.alert("비밀번호 변경 완료");
 
  <style>
        div{
-   border: 1px solid black;
+/*    border: 1px solid black; */
        }
        .side{
            width: 170px;

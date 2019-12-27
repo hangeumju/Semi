@@ -89,7 +89,47 @@ color:black;
    <!-- 이미지 슬라이더 템플릿 -->
    <hr color="#F9896">
    <jsp:include page="/template/slider.jsp"></jsp:include>
-
+   
+   
+   <article>
+   <hr>
+      <!-- 당일치기 TOP5 시작 -->
+         <div class="sohee-title">당일치기 TOP 5!</div>
+         <div class="row-empty"></div>
+         <h4 class="gallary-text-category">
+            <a href="#">전체보기</a>
+         </h4>
+         
+      <!-- TOP5 시작 -->
+      
+      <div class="gallary">
+         
+         <%for(Host_Content_Dto HCdto : HClist){ %>
+         <div class="gallary-item">
+            <a href="<%=request.getContextPath()%>/board/host_content_detail_view.jsp?host_content_no=<%=HCdto.getHost_content_no()%>">
+               <img src="./image/top5.png"></a>
+            <!-- 카테고리 -->
+            <div class="gallary-text-category">
+               <span><%=HCdto.getHost_content_category() %></span>
+            </div>
+            <!-- 컨텐츠 제목 -->
+            <div class="gallary-text-content">
+               <span><%=HCdto.getHost_content_name() %>
+                  <%if(HCdto.getHost_content_ticket() > 0){ %>
+                     (예약 가능)   
+                  <%} else{ %>
+                     (마감)
+                  <%} %>
+               </span>
+            </div>
+            <!-- 컨텐츠 가격 -->
+            <div class="gallary-text-cost">
+               <span><%=HCdto.getHost_content_cost() %>원</span>
+            </div>
+         </div>
+         <%} %>
+      </div>
+   </article>
 
 
    <!-- 카테고리 이미지 넣기 시작 -->
@@ -151,51 +191,6 @@ color:black;
    </article>
    <hr>
    <!-- 카테고리 이미지 넣기 종료 -->
-   
-   <article>
-      <!-- 당일치기 TOP5 시작 -->
-         <div class="sohee-title">당일치기 TOP 5!</div>
-         <div class="row-empty"></div>
-         <h4 class="gallary-text-category">
-            <a href="#">전체보기</a>
-         </h4>
-         
-      <!-- TOP5 시작 -->
-      
-      <div class="gallary">
-         
-         <%for(Host_Content_Dto HCdto : HClist){ %>
-         <div class="gallary-item">
-            <a href="<%=request.getContextPath()%>/board/host_content_detail_view.jsp?host_content_no=<%=HCdto.getHost_content_no()%>">
-               <img src="./image/top5.png"></a>
-            <!-- 카테고리 -->
-            <div class="gallary-text-category">
-               <span><%=HCdto.getHost_content_category() %></span>
-            </div>
-            <!-- 컨텐츠 제목 -->
-            <div class="gallary-text-content">
-               <span><%=HCdto.getHost_content_name() %>
-                  <%if(HCdto.getHost_content_ticket() > 0){ %>
-                     (예약 가능)   
-                  <%} else{ %>
-                     (마감)
-                  <%} %>
-               </span>
-            </div>
-            <!-- 컨텐츠 가격 -->
-            <div class="gallary-text-cost">
-               <span><%=HCdto.getHost_content_cost() %>원</span>
-            </div>
-         </div>
-         <%} %>
-      </div>
-   </article>
-   
-   
-   
-   
-   
-   
    
 <%--    
    
