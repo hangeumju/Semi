@@ -53,65 +53,124 @@
 	
 	int count = Rdao.getCount(type, keyword);
 	%>
-<html>
-<head>
+<style>   
+     /*
+    테이블 스타일
+    */
+ 		.notice_table {
+            width: 100%;
+            border-top: 1px solid lightgray;
+            border-collapse: collapse;
+         
+          }
+          th, td {
+            border-bottom: 1px solid lightgray;
+            padding: 10px;
+          }
     
-    <style type="text/css">
-        #wrap {
-            width: 800px;
-            margin: 0 auto 0 auto;
-        }
-        #top{
-            text-align :right;
-        }
-        #board, #pageForm, #searchForm{
-            text-align :center;
+    /*
+    사이드 메뉴 스타일
+  
+*/
+     div{
+/*     border: 1px solid black; */
+       }
+       .side{
+           width: 170px;
+           float: left;
+/*           background-color:#F98967;*/
+         
+       }
+       .side .side_menu > ul > li > a {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 16px;
+            font-weight: 500;
+            color: black;
+            line-height: 40px;
+            display: block;
+            text-decoration: none;
+       }
+       
+       ul{
+           list-style: none;
+       }
+       .side .side_menu > ul > li:hover{
+            background-color: antiquewhite;
+            color: black;
+       }
+       .side .side_menu > ul > li{
+            padding: 0px 0px 0px 10px;
+           
+       }
+       
+       .content{
+           float: right;
+           width: 970px;
+           font-size: 16px;
+           font-weight: 500;
+           color: black;
+           line-height: 40px;
+           display: block;
+           padding: 0px 50px 0px 0px;
+       }
+       
+         /* .float끝나는 영역을 가상으로 생성하고 clear(가상선택자) */
+        #dd::after{
+            content:"";
+            display: block;
+            clear: both;
         }
         
-        #boardList{
-            text-align :center;
-        }
+       .row-empty2{
+       	height: 25px;
+       }
+       
+
+       
     </style>
-    
-    <script type="text/javascript">
-        function writeForm(){
-            location.href="";
-        }
-    </script>
-    
-</head>
-<body>    
- 
-<div id="wrap">
-    <br>
-    <div id="top"> 
-    </div>
-    <br>
-       <br>
-    <div id="searchForm">
+<body>
+	<div id="dd">
+    <hr color="#F9896">
+ 	<h2 style="margin: 20px 50px 10px"><%=host_id %>님의 예약 차트입니다</h2>
         <form action="reservation_chart.jsp" method="get">
-            <select name="type">
-                <option value="history_no">예약번호</option>
-                <option value="user_name">예약자</option>
-                <option value="host_content_name">컨텐츠명</option>
-            </select>
-            
-            <input type="search" name="keyword" placeholder="검색어" required>&nbsp;
-            <input type="submit" value="검색">
-        </form>    
-    </div>  
-    <div id="board">
-        <table id="#boardList" width="800" border="3" bordercolor="lightgray">
-            <h3>(<%=host_id %>) 님의 예약자 관리</h3>
-            <tr heigh="30">
-                <td>예약번호</td>
-                <td>컨텐츠명</td>
-                <td>예약자</td>
-                <td>휴대전화 번호</td>
-                <td>예약티켓수량</td>
-                <td>예약 날짜</td>
-            </tr>
-            <tbody>    
+ <div class="row-empty"></div>
+     <!-- side_menu시작 -->
+       <div class="side">
+         
+          <div class="side_menu">
+              <ul>
+                <div style="margin: 0px 10px;">내 정보</div>
+                 <hr color="#F9896">
+                  <li>
+                      <a href="<%=request.getContextPath()%>/board/reservation_chart.jsp">예약차트</a>
+                  </li>
+                  <li>                     
+                      <a href="<%=request.getContextPath()%>/board/host_confirm_list.jsp">내 컨텐츠 리스트</a>
+                  </li>
+                  <hr color="#F9896">
+              </ul>
+          </div>
+          <!-- side_menu끝 -->
+       </div>
+       <!-- side끝 -->
+    	<div class="content">
+            <div class="row-empty"></div>
+        	<div class="row-empty2"></div>
+        <table class="notice_table" >
+        <thead>
+        	<tr>
+	        <th>예약번호</th>
+        	<th>컨텐츠명</th>
+        	<th>예약자 이름</th>
+        	<th>휴대전화 번호</th>
+        	<th>예약된 수량</th>
+        	<th>예약 날짜</th>
+	        </tr>
+        </thead>
+        
+        <tbody align="center">
             <%for(Reservation_Dto Rdto : list){%>
             <tr>
                <td><%=Rdto.getHistory_no() %></td>
@@ -120,25 +179,27 @@
                 <td><%=Rdto.getUser_phone()%></td>
                 <td><%=Rdto.getUser_qty() %></td>
                 <td><%=Rdto.getUser_class_date() %></td>
-            </tr>
-                <%} %>
-                
-                
-           </tbody>
-        </table>
+             </tr>      
+         <%} %>      
+        </tbody>
+      </table>
+      </div>
     </div>
-    <br>
-	<div class="row" align="center">
-		<!-- 네비게이터(navigator) -->
-		<jsp:include page="/template/navigator.jsp">
-			<jsp:param name="pno" value="<%=pno%>"/>
-			<jsp:param name="count" value="<%=count%>"/>
-			<jsp:param name="navsize" value="<%=navsize%>"/>
-			<jsp:param name="pagesize" value="<%=pagesize%>"/>
-		</jsp:include>
-	</div>
-    </div>
-</body>
-</html>
+    <div class="row-empty"></div>
+    <div class="row-empty"></div>
+    <hr color="#F9896">
+      
+      <div class="row">
+      <!-- 네비게이터(navigator) -->
+      <jsp:include page="/template/navigator.jsp">
+         <jsp:param name="pno" value="<%=pno%>"/>
+         <jsp:param name="count" value="<%=count%>"/>
+         <jsp:param name="navsize" value="<%=navsize%>"/>
+         <jsp:param name="pagesize" value="<%=pagesize%>"/>
+      </jsp:include>
+   </div>
+      
+      
+  </body>
 <jsp:include page="/template/host_footer.jsp"></jsp:include>
 
