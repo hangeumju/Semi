@@ -167,12 +167,21 @@ color:black;
 			<div class="gallary-item">
 				<a href="<%=request.getContextPath()%>/board/host_content_detail_view.jsp?host_content_no=<%=HCdto.getHost_content_no()%>">
 					<img src="./image/top5.png"></a>
+				<!-- 카테고리 -->
 				<div class="gallary-text-category">
 					<span><%=HCdto.getHost_content_category() %></span>
 				</div>
+				<!-- 컨텐츠 제목 -->
 				<div class="gallary-text-content">
-					<span><%=HCdto.getHost_content_name() %></span>
+					<span><%=HCdto.getHost_content_name() %>
+						<%if(HCdto.getHost_content_ticket() > 0){ %>
+							(예약 가능)	
+						<%} else{ %>
+							(마감)
+						<%} %>
+					</span>
 				</div>
+				<!-- 컨텐츠 가격 -->
 				<div class="gallary-text-cost">
 					<span><%=HCdto.getHost_content_cost() %>원</span>
 				</div>
