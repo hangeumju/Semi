@@ -33,11 +33,26 @@ window.alert("로그인 정보가 맞지 않습니다");
 background-color: rgba(0, 0, 0, 0.1);
 }
 
+.banner{
+max-width:100%;
+left:0;
+right:0;
+top:0;
+bottom:0;
+margin:auto;
+overflow:auto;
+position:fixed;
+filter:blur(2px);
+}
+
 
 </style>
 
 </head>
 <body onload="openModal()">
+
+<img class="banner" src="../image/hostloginimg.jpg">
+
 <section>
 <!-- 호스트 로그인/회원가입 모달화면 구현 -->
 			<form class="hostform" autocomplete="off"
