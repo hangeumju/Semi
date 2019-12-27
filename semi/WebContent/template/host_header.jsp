@@ -27,7 +27,7 @@
         <header>
         <div class="title">
         	<a href="<%=request.getContextPath()%>/host/host_submain.jsp">
-        		<img src="/semi/image/header.png" width="70%">
+        		<img src="/semi/image/header.png" width="60%">
         	</a>
        	</div>
      </header>
@@ -57,7 +57,7 @@
 	             </div>
 		            </li>
 	         <li class="dropdown">
-	             <a href="<%=context%>/board/notice.jsp" class="dropbtn">공지사항</a>
+	             <a href="<%=context%>/board/notice_host.jsp" class="dropbtn">공지사항</a>
               <div class="dropdown-content">
                   <a href="<%=context%>/board/notice.jsp">공지사항</a>
               </div>

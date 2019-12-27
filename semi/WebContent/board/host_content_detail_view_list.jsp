@@ -1,5 +1,3 @@
-<%@page import="beans.Host_Content_Photo_Dao"%>
-<%@page import="beans.Host_Content_Photo_Dto"%>
 <%@page import="java.util.Date"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="beans.Users_Get_Dto"%>
@@ -13,8 +11,7 @@
 <%@page import="beans.Host_Content_Dto"%>
 <%@page import="java.util.List"%>
 <%@page import="beans.Host_Content_Dao"%>
-
-<%@page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
     <!--     	자바 영역 시작입니다---------------------------------------------------------- -->
@@ -84,9 +81,6 @@
 	 	String time1 = format1.format(time);
 	 	
 // 	 	System.out.println(time1);
-		
-
-	
 	%>
  <!--     	자바 영역 끝입니다---------------------------------------------------------- -->
     
@@ -97,11 +91,7 @@
 		 	 float:left;
 		  	 width:50%
 		  }  
-		  
-		  .review_content{
-		  	width : 630px;
-		  }
-		  
+		 
 		  .float2
 		  
 		  .float1::after {
@@ -134,6 +124,102 @@
 		 	 display : block;
 		 	 
 		  }
+		     *{
+           box-sizing: border-box;
+       }
+       
+       #container, #footer, #header {
+        margin: 0 auto;
+        width: 400px;  
+    }       
+       .join_content{
+           width: 100%; 
+/*            border: 1px solid black; */
+       }
+       
+        .join_title {
+        margin: 19px 0 8px;
+        font-size: 14px;
+        font-weight: 700;
+/*         border: 1px solid black; */
+    }
+       .join_box *{
+           border: solid 1px darkgray;
+           padding: 30px;
+           width: 20%; 
+       }
+       .email_box *{
+           height: 32px;          
+       }
+       #email_id{
+           width: 220px;
+           border: solid 1px darkgray;
+       }
+       .join_btn{
+            font-size:1.5rem;
+            padding:0.5rem;
+            background-color: #F98967;
+            color:white;
+            border:none;
+            border-radius: 10px;
+        }       
+        
+             div{
+/*  		 border: 1px solid black;    */
+       }
+       .side{
+           width: 170px;
+           float: left;         
+       }
+       
+       .side .side_menu > ul > li > a {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 16px;
+            font-weight: 500;
+            color: black;
+            line-height: 40px;
+            display: block;
+            text-decoration: none;
+       }
+       
+       ul{
+           list-style: none;
+       }
+       .side .side_menu > ul > li:hover{
+            background-color: antiquewhite;
+            color: black;
+       }
+       .side .side_menu > ul > li{
+            padding: 0px 0px 0px 10px;
+           
+       }
+        .content{
+           float: left;
+           width: 1000px;
+           font-size: 16px;
+           font-weight: 500;
+           color: black;
+           line-height: 40px;content
+           display: block;
+           padding: 0px 20px 0px 0px;
+          
+       }
+         /* 여백 주기 */
+        .row-empty{
+            height: 30px;
+        }
+        #dd{
+        	margin: auto;
+        	width: 1200px;
+        }
+         /* .float끝나는 영역을 가상으로 생성하고 clear(가상선택자) */
+        #dd::after{
+            content:"";
+            display: block;
+            clear: both;
+        }
 	
     </style>
     <!--     	스타일 영역 끝입니다---------------------------------------------------------- -->
@@ -141,17 +227,70 @@
 	<!--    슬라이더를 불러옵니다 -->
    
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/deslider/1.5.1/style.css">
-  
+    <script type="text/javascript" src="<%=request.getContextPath()%>/js/slider.js"></script>
+    
     
     <!-- Content 날자 지정 API  -->
     <link rel="stylesheet" type="text/css" href="../css/datepicker.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
-    <script type="text/javascript"   src="<%=request.getContextPath()%>/js/datepicker.js"></script>
+    <script src="../js/datepicker.js"></script>
+    <script>
+        
+//반복문으로 사진넣는것도 해결해야 합니다!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        function loadSlider(){
+            var imgSources = [
+            {
+                link:"http://placehold.it/300x100?text=a",
+                caption:"테스트 제목1"
+            },
 
-    
-    <script>       
+            {
+                link:"http://placehold.it/300x100?text=b",
+                 caption:"테스트 제목1"
+            },
+            {
+                link:"http://placehold.it/300x100?text=c",
+                caption:"테스트 제목1"
+            }
+            ];
+            var containerId = '.deslider-container';
 
-    	/* 슬라이더 funtion 자리 */
+            var options = {
+                auto: {
+                    speed: 2000,//한장이 표시될 밀리초
+                    pauseOnHover: true,//hover 상태의 재생여부
+                },
+                fullScreen: true,
+                swipe: true,
+                pagination: true,
+                repeat: true
+            };
+
+            var myDeslider = new Deslider(imgSources, containerId, options);
+             }
+
+        	
+        	
+        	//티켓 창 플러스 1 시키는 명령어
+        	function plus(){
+        		var plus = document.querySelector("input[name=ticketing]");
+        		if(plus.value < <%=HCdto.getHost_content_ticket()%>){
+        		plus.value = parseInt(plus.value) + 1;
+        		}
+        		var total = document.querySelector(".total");
+        		total.innerText = plus.value*<%=HCdto.getHost_content_cost() %>;
+
+        	}
+        	
+        	//티켓 창 마이너스 1 시키는 명령어
+        	function minus(){
+        		var minus = document.querySelector("input[name=ticketing]");
+        		if(minus.value > 1){
+        		minus.value = parseInt(minus.value) - 1;
+        		}
+        		var total = document.querySelector(".total");
+        		total.innerText = minus.value*<%=HCdto.getHost_content_cost() %>;
+        	}
         	
         	
             function loadPicker(){
@@ -201,30 +340,28 @@
                     var picker = new Lightpick(options);
                 }
             	
-   
-			
-    	 	function addLoadEvent(func) {
-            	var oldonload = window.onload;
-               	 if(typeof window.onload != 'function') {
-                    window.onload = func;
-               	 } else {
-                    window.onload = function() {
-                        oldonload();
-                        func();
-                			}
-            			}	
+           	 	function addLoadEvent(func) {
+                	var oldonload = window.onload;
+                   	 if(typeof window.onload != 'function') {
+                        window.onload = func;
+                   	 } else {
+                        window.onload = function() {
+                            oldonload();
+                            func();
+                    			}
+                			}	
+            		}
 
-        		}
-    	 	
-//     	 		addLoadEvent(loadSlider);
-        		addLoadEvent(loadPicker);
-        		
+           	 		addLoadEvent(loadSlider);
+            		addLoadEvent(loadPicker);
+            	
+            	
             	//이 페이지에서 예약 실행
-
-
+            	
+//             	window::onload(){loadSlider();}
+//             	window::onload(){loadPicker();} 
+        		
             	//------------------------수정 하려고 할때---------------------------
-            	
-            	
             	function edit(){
                     
                     var choice = window.confirm("수정하시겠습니까?");
@@ -247,38 +384,24 @@
                     if(cho){
                     location.href = "<%=request.getContextPath()%>/board/host_content_list.jsp?category=<%=HCdto.getHost_content_category()%>";
                      }
-                }	           		
-				
+                }
     </script>
-    
-    
-    
     
     <!--     	스트립트 영역 끝입니다---------------------------------------------------------- -->
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/common.css">
-<jsp:include page="/template/header.jsp"></jsp:include>
-
-	<article class="w-70 row">
-		<div class="float1">
-			<div class="float2 main">
-			
-			
-			
-			
-				<!-- 이미지 슬라이더 영역 시작 -->
-			
-    			<div>
-    				<img src="<%=request.getContextPath()%>/board/download.do?no=<%=no%>" >
-    			</div>
-			
-				<!-- 이미지 슬라이더 영역 종료 -->
-
-
+<jsp:include page="/template/host_header.jsp"></jsp:include>
+   <div id="dd">
+			 <div class="join_content" align="center">
+          		 <div class="row_group">
+              		<div class="join_content" >
+				<!-- 이미지 슬라이더 영역 -->
+    			<div class="deslider-container"></div>
     			
     			<div>
     				<h2><%=HCdto.getHost_content_name() %></h2> 
     				
     			</div>
+    		
     			
     			<div><h4><%=HCdto.getHost_content_cost() %>원</h4></div>
     			<div><h3>호스트 아이디 <%=HCdto.getHost_id()%></h3></div>
@@ -300,48 +423,29 @@
     			
     			<div><%=dto.getReview_content() %></div>
     			<%} %>
-    			
+    			<br>
     			<!-- 댓글 작성칸이 표시될 자리 -->
-				<%if(host_id=="" || !isHost){ %>
-				<form action="users_review_regist.do" method="post">
-					<input type="hidden" name="content_original_no" value="<%=HCdto.getHost_content_no()%>">
-					<input type="hidden" name="review_writer"  value="<%=user_id%>">
-					<textarea class="review_content" name="review_content" rows="2" cols="103" required="required"></textarea>
-					<input type="submit" value="등록">
-				</form>
-				<%} %>
 			</div>
-			
-			<div class="float2 sub">
-				<%if(isUser) {%>
-				<div>남은 티켓 수량 : <%=HCdto.getHost_content_ticket()%></div>
-				<div>티켓수량 선택</div>
-				<form action="<%=request.getContextPath()%>/board/users_pay.jsp" method="get">
-					<input type="hidden" name="host_content_name" value="<%=HCdto.getHost_content_name() %>"><!--컨텐츠 제목 -->
-					<input type="hidden" name="host_name" value="<%=HIdto.getHost_name()%>"><!--호스트 이름 -->
-					<input type="hidden" name="host_phone" value="<%=HIdto.getHost_phone() %>"><!--호스트 폰번호 -->
-					<input type="hidden" name="host_content_no" value="<%=HCdto.getHost_content_no() %>"><!-- 호스트 컨텐트 넘버 -->
-					<input type="hidden" name="host_content_location" value="<%=HCdto.getHost_content_location() %>"><!--호스트 지역 -->
-					<input type="hidden" name="host_content_cost" value="<%=HCdto.getHost_content_cost() %>"> <!--호스트 컨텐츠 가격 -->
-					<input type="button" class="minus" value="-" onclick="minus();">
-					<input id="pay"  class="ticket_input" type="text" name="ticketing" value="1"> <!-- 티켓수 -->
-					<input type="button" value = "+" class= "plus" onclick="plus();">
-				 	<div class="total"><%=HCdto.getHost_content_cost() %> </div> 
-					<input id="callender" type="text" name="start_date" class="start_date" placeholder="날짜선택" required="required"> <!-- 날짜 -->
-    				<button class="form_button">참여합니다!</button>
-				</form>
-					<button onclick="list();">목록으로</button><br>
-					
-				<%}else if(host_id != null && isHost) {%>
-    				<button onclick="edit();">수정</button><br>
-    				<button onclick="del();">삭제</button><br>
+
+				<div class="row-empty" align="center">
+				<%if(host_id != null && isHost) {%>
+					<span class="join_box">
+    				<button onclick="edit();" class="join_btn">수정</button> <button onclick="del();" class="join_btn">삭제</button><br>
     			<%} else {%>
     				<button onclick="list();">목록으로</button><br>
     			<%} %>
+					</span>
+				</div>
 			</div>
-		</div>
-		
-		
-	</article>
-	
-<jsp:include page="/template/footer.jsp"></jsp:include>
+			</div>
+			</div>
+				</div>
+					</div>
+						</div>
+
+<div class="row-empty"></div>   
+<div class="row-empty"></div>
+<div class="row-empty"></div>
+		<hr color="#F98967">   
+    
+<jsp:include page="/template/host_footer.jsp"></jsp:include>

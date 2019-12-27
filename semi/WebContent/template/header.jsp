@@ -72,7 +72,7 @@ String hostlogin = request.getContextPath()+"/login/host_login.jsp";
 						<li class="main">|</li>
 						<li class="main" onclick="openHost();">호스트</li>
 						<li class="main">|</li>
-						<li class="main">고객센터</li>
+						<li class="main" onClick="location.href='<%=request.getContextPath()%>/board/notice.jsp'">공지사항</li>
 				</ul>
 			</div>
 
