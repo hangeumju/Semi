@@ -11,11 +11,9 @@
 
 <%
 // 컨텐츠 불러오기
-
 	Host_Content_Dao HCdao = new Host_Content_Dao();
 	String host_id = (String)request.getSession().getAttribute("host_id");
 	
-
 	
 	
 // 	페이지 크기
@@ -40,7 +38,6 @@
 	
 	System.out.println(count);
 	%>
-<jsp:include page="/template/host_header.jsp"></jsp:include>
 	<!-- 갤러리 4단 나누기 -->
 
 	
@@ -91,13 +88,11 @@
             word-break:break-all;
         }
         
-
         
-
     </style>
 	<!-- 갤러리 4단 나누기 종료-->
 
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/common.css">
+<jsp:include page="/template/host_header.jsp"></jsp:include>
 
 <article class="w-100">
 
