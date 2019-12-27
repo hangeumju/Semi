@@ -23,6 +23,7 @@ String context = request.getContextPath();
        }
        
        .side .side_menu > ul > li > a {
+       		width:140px;
             margin: 0;
             padding: 0;
             border: 0;
@@ -32,6 +33,7 @@ String context = request.getContextPath();
             line-height: 40px;
             display: block;
             text-decoration: none;
+            text-align: left; 
        }
        
        ul{
