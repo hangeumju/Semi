@@ -88,7 +88,7 @@
            font-size: 16px;
            font-weight: 500;
            color: black;
-           line-height: 40px;
+           line-height: 40px;content
            display: block;
            padding: 0px 20px 0px 0px;
           
@@ -244,10 +244,6 @@
 		    	<input class="block-item input-item" type="text" name="host_extra_addr" placeholder="상세주소">
 			</p>
 		</span>
-               </div> 
-               
-        <div class="join_row">
-             <h3 class="join_title">
                 <div>계좌번호</div>
                  </h3>
                   <span class="host_bank_account">
