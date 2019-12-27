@@ -209,8 +209,6 @@
     </div>
     <div class="row-empty"></div>
     <div class="row-empty"></div>
-    <hr color="#F9896">
-      
       <div class="row">
       <!-- 네비게이터(navigator) -->
       <jsp:include page="/template/navigator.jsp">
@@ -220,7 +218,8 @@
          <jsp:param name="pagesize" value="<%=pagesize%>"/>
       </jsp:include>
    </div>
-      
+    <div class="row-empty"></div>
+    <hr color="#F9896">
       
   </body>
 
