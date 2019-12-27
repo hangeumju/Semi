@@ -129,6 +129,7 @@ ul {
           <!-- side_menu끝 -->
        </div>
        
+       
        <!-- side끝 -->
            <section>
 			<div align="center">
