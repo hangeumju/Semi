@@ -1,3 +1,4 @@
+
 <%@page import="beans.Host_Content_Photo_Dto"%>
 <%@page import="beans.Host_Content_Photo_Dao"%>
 <%@page import="java.util.Date"%>
@@ -16,17 +17,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-    <!--        자바 영역 시작입니다---------------------------------------------------------- -->
-   <%
-      request.setCharacterEncoding("UTF-8");
-      Host_Content_Dao HCdao = new Host_Content_Dao();
-      //컨텐츠 번호를 받아서 no에 넣는다
-        int no = Integer.parseInt(request.getParameter("host_content_no"));
-      
-      String host_id = (String) session.getAttribute("host_id"); //호스트 아이디 받고
-      String user_id = (String) session.getAttribute("user_id"); //유저 아이디 받고
 
-//       int no = 20;
+
+    <!--     	자바 영역 시작입니다---------------------------------------------------------- -->
+	<%
+		request.setCharacterEncoding("UTF-8");
+		Host_Content_Dao HCdao = new Host_Content_Dao();
+		//컨텐츠 번호를 받아서 no에 넣는다
+  		int no = Integer.parseInt(request.getParameter("host_content_no"));
+		
+		String host_id = (String) session.getAttribute("host_id"); //호스트 아이디 받고
+		String user_id = (String) session.getAttribute("user_id"); //유저 아이디 받고
+
+// 		int no = 20;
+
 
       //받은 no를 이용해 단일컨텐츠를 불러오는 명령어를 불러온다
       Host_Content_Dto HCdto = HCdao.getOneContent(no);
@@ -92,7 +96,8 @@
 // 		  }
 //        System.out.println(time1);
    %>
- <!--        자바 영역 끝입니다---------------------------------------------------------- -->
+
+
     
 <!--        스타일 영역 시작입니다---------------------------------------------------------- -->
     <style>
@@ -142,22 +147,22 @@
     </style>
     <!--        스타일 영역 끝입니다---------------------------------------------------------- -->
    
-   <!--    슬라이더를 불러옵니다 -->
+
    
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/deslider/1.5.1/style.css">
-<%--     <script type="text/javascript" src="<%=request.getContextPath()%>/js/slider.js"></script> --%>
+
     
     
     <!-- Content 날자 지정 API  -->
     <link rel="stylesheet" type="text/css" href="../css/datepicker.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
     <script src="../js/datepicker.js"></script>
+
   
-    <script>
-        
+    <script>      
     
-// 반복문으로 사진넣는것도 해결해야 합니다!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-// 슬라이더 함수 삭제       
+
+		    // 슬라이더 함수 삭제       
            
            
            //티켓 창 플러스 1 시키는 명령어
@@ -168,6 +173,7 @@
               }
               var total = document.querySelector(".total");
               total.innerText = plus.value*<%=HCdto.getHost_content_cost() %>;
+       
 
            }
            
@@ -181,7 +187,45 @@
               total.innerText = minus.value*<%=HCdto.getHost_content_cost() %>;
            }
            
-           
+
+            var options = {
+                auto: {
+                    speed: 2000,//한장이 표시될 밀리초
+                    pauseOnHover: true,//hover 상태의 재생여부
+                },
+                fullScreen: true,
+                swipe: true,
+                pagination: true,
+                repeat: true
+            };
+
+            var myDeslider = new Deslider(imgSources, containerId, options);
+            }
+
+        	
+        	
+        	//티켓 창 플러스 1 시키는 명령어
+        	function plus(){
+        		var plus = document.querySelector("input[name=ticketing]");
+        		if(plus.value < <%=HCdto.getHost_content_ticket()%>){
+        		plus.value = parseInt(plus.value) + 1;
+        		}
+        		var total = document.querySelector(".total");
+        		total.innerText = plus.value*<%=HCdto.getHost_content_cost() %>;
+
+        	}
+        	
+        	//티켓 창 마이너스 1 시키는 명령어
+        	function minus(){
+        		var minus = document.querySelector("input[name=ticketing]");
+        		if(minus.value > 1){
+        		minus.value = parseInt(minus.value) - 1;
+        		}
+        		var total = document.querySelector(".total");
+        		total.innerText = minus.value*<%=HCdto.getHost_content_cost() %>;
+        	}
+        	
+        	
             function loadPicker(){
                var minDate;
                var maxDate;
@@ -228,6 +272,7 @@
                     };
                     var picker = new Lightpick(options);
                 }
+
                
             
             
@@ -244,16 +289,27 @@
                          }   
                   }
 
+            	
+           	 	function addLoadEvent(func) {
+                	var oldonload = window.onload;
+                   	 if(typeof window.onload != 'function') {
+                        window.onload = func;
+                   	 } else {
+                        window.onload = function() {
+                            oldonload();
+                            func();
+                    			}
+                			}	
+            		}
+ 
                   
-                  
-               //이 페이지에서 예약 실행               
-//                addLoadEvent(loadSlider); loadSlider 함수 삭제
+                //  이 페이지에서 예약 실행               
+				//  addLoadEvent(loadSlider); loadSlider 함수 삭제
                   addLoadEvent(loadPicker);         
-               
 
-              
-               //------------------------수정 하려고 할때---------------------------
-               function edit(){
+        		
+            	//------------------------수정 하려고 할때---------------------------
+            	function edit(){
                     
                     var choice = window.confirm("수정하시겠습니까?");
                    
@@ -277,10 +333,15 @@
                      }
                 }
     </script>
-    
-    <!--        스트립트 영역 끝입니다---------------------------------------------------------- -->
+    <!--     	스트립트 영역 끝입니다---------------------------------------------------------- -->
+
+
+
+
+
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/common.css">
 <jsp:include page="/template/header.jsp"></jsp:include>
+
 
    <article class="w-70 row">
       <div class="float1">
@@ -365,3 +426,5 @@
    </article>
    
 <jsp:include page="/template/footer.jsp"></jsp:include>
+
+
