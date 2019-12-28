@@ -159,7 +159,7 @@
     <script src="../js/datepicker.js"></script>
 
   
-    <script>      
+    <script>  
     
 
 		    // 슬라이더 함수 삭제       
@@ -199,9 +199,7 @@
                 repeat: true
             };
 
-            var myDeslider = new Deslider(imgSources, containerId, options);
-            }
-
+       
         	
         	
         	//티켓 창 플러스 1 시키는 명령어
@@ -226,86 +224,74 @@
         	}
         	
         	
-            function loadPicker(){
-               var minDate;
-               var maxDate;
-               
-               var startDate = moment("<%=time1%>");
-               var finishDate = moment("<%=HCdto.getHost_content_start_date().substring(0, 10)%>")
-//                console.log(startDate);
-//                console.log(startDate.isValid());
-//                console.log(finishDate);
-//                console.log(finishDate.isValid());
-//                console.log(startDate.diff(finishDate));//-나오면 startDate가 finishDate 이전이란 뜻
-               
-//                var duration = moment.duration(finishDate.diff(startDate));
-//                console.log(duration);
-//                console.log(duration.asDays());
-               //날짜 지정
-                if(startDate.diff(finishDate) > 0){
-                   minDate = moment(new Date()).add(0, 'days');
-                   maxDate = moment('<%=HCdto.getHost_content_last_date().substring(0, 10) %>');
-                }
-                else{
-                   minDate = moment('<%=HCdto.getHost_content_start_date().substring(0, 10) %>');
-                   maxDate = moment('<%=HCdto.getHost_content_last_date().substring(0, 10) %>');
-                }
-               
-               
-                var options = {
-                   //날짜가 입력될 첫 번째 칸 설정
-                   field:document.querySelector(".start_date"),
-                   //표시될 월의 개수를 설정
-                   numberOfMonths:1,
-                   //날짜 선택이 아닌 범위 선택으로 설정
-                   singleDate:true,
-                   //최초 선택일 이후로만 종료일을 선택하도록 설정
-                   selectForward:true,
-                   //날짜 구분자 설정
-                   seperator:'-',
-                       
-                   minDate : minDate,
-                   maxDate : maxDate,
-                     
-                   //날짜형식설정
-                    format:'YYYY-MM-DD'
-                    };
-                    var picker = new Lightpick(options);
-                }
-
-               
-            
-            
-//             window.onload
-                  function addLoadEvent(func) {
-                   var oldonload = window.onload;
-                       if(typeof window.onload != 'function') {
-                        window.onload = func;
-                       } else {
-                        window.onload = function() {
-                            oldonload();
-                            func();
-                             }
-                         }   
+        	 function loadPicker(){
+                 var minDate;
+                 var maxDate;
+                 
+                 var startDate = moment("<%=time1%>");
+                 var finishDate = moment("<%=HCdto.getHost_content_start_date().substring(0, 10)%>")
+//                  console.log(startDate);
+//                  console.log(startDate.isValid());
+//                  console.log(finishDate);
+//                  console.log(finishDate.isValid());
+//                  console.log(startDate.diff(finishDate));//-나오면 startDate가 finishDate 이전이란 뜻
+                 
+//                  var duration = moment.duration(finishDate.diff(startDate));
+//                  console.log(duration);
+//                  console.log(duration.asDays());
+                 //날짜 지정
+                  if(startDate.diff(finishDate) > 0){
+                     minDate = moment(new Date()).add(0, 'days');
+                     maxDate = moment('<%=HCdto.getHost_content_last_date().substring(0, 10) %>');
                   }
+                  else{
+                     minDate = moment('<%=HCdto.getHost_content_start_date().substring(0, 10) %>');
+                     maxDate = moment('<%=HCdto.getHost_content_last_date().substring(0, 10) %>');
+                  }
+                 
+                 
+                  var options = {
+                     //날짜가 입력될 첫 번째 칸 설정
+                     field:document.querySelector(".start_date"),
+                     //표시될 월의 개수를 설정
+                     numberOfMonths:1,
+                     //날짜 선택이 아닌 범위 선택으로 설정
+                     singleDate:true,
+                     //최초 선택일 이후로만 종료일을 선택하도록 설정
+                     selectForward:true,
+                     //날짜 구분자 설정
+                     seperator:'-',
+                         
+                     minDate : minDate,
+                     maxDate : maxDate,
+                       
+                     //날짜형식설정
+                      format:'YYYY-MM-DD'
+                      };
+                      var picker = new Lightpick(options);
+                  }
+                 
+                    function addLoadEvent(func) {
+                     var oldonload = window.onload;
+                         if(typeof window.onload != 'function') {
+                          window.onload = func;
+                         } else {
+                          window.onload = function() {
+                              oldonload();
+                              func();
+                               }
+                           }   
+                    }
 
-            	
-           	 	function addLoadEvent(func) {
-                	var oldonload = window.onload;
-                   	 if(typeof window.onload != 'function') {
-                        window.onload = func;
-                   	 } else {
-                        window.onload = function() {
-                            oldonload();
-                            func();
-                    			}
-                			}	
-            		}
- 
-                  
-                //  이 페이지에서 예약 실행               
-				//  addLoadEvent(loadSlider); loadSlider 함수 삭제
-                  addLoadEvent(loadPicker);         
+//                        addLoadEvent(loadSlider);
+                    addLoadEvent(loadPicker);
+                 
+                 
+                 //이 페이지에서 예약 실행
+                 
+//                  window::onload(){loadSlider();}
+//                  window::onload(){loadPicker();} 
+
 
         		
             	//------------------------수정 하려고 할때---------------------------
