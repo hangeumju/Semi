@@ -193,7 +193,11 @@
                 	탈퇴한 회원입니다
                 <%} %>
                 <td><%=Rdto.getUser_qty() %></td>
+
                 <td><%=Rdto.getUser_class_date()%></td>
+
+                <td><%=Rdto.getUser_class_datewithFormat()%></td>
+
              </tr>      
          <%} %>      
         </tbody>
