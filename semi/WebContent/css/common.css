@@ -5,7 +5,7 @@
 */
 * {
 	box-sizing: border-box;
-	font-family: binggrae;
+	font-family: NanumSquareR;
 }
 
 /*
@@ -17,16 +17,11 @@
 	font-family: binggrae;
 	src: url("../font/Binggrae.ttf");
 }
+ @font-face {
+		   font-family: NanumSquareR;
+		   src: url("../font/NanumSquareR.ttf");
+		}
 
-@font-face {
-	font-family: maple;
-	src: url("../font/Maplestory Light.ttf");
-}
-
-@font-face {
-	font-family: melona;
-	src: url("../font/BinggraeMelona.ttf");
-}
 
 /*
     모달화면 디자인
