@@ -51,9 +51,20 @@
 	int count = HCdao.getCount(type, keyword, category);
 	
 	%>
+<style>
+	.join_btn {
+		font-size: 13px;
+		padding: 4px;
+		background-color: #F98967;
+		color: white;
+		border: none;
+		border-radius: 5px;
+		padding: 6px;
+	}
+</style>	
 
 <jsp:include page="/template/header.jsp"></jsp:include>
-
+<hr color="#F98967">
 <section>
 <article>
 
@@ -63,8 +74,8 @@
                 <option value="host_content_name">컨텐츠명</option>
                 <option value="host_id">호스트아이디</option>
             </select>
-            <input type="search" name="keyword" placeholder="검색어" required>&nbsp;
-            <input type="submit" value="검색">
+            <input type="search" name="keyword" required>&nbsp;
+            <input class="join_btn" type="submit" value="검색">
         </form>    
     </div>  
      
@@ -72,16 +83,19 @@
          <%for(Host_Content_Dto dto : list){ %>
          <div class="gallary-item">
             <a href="<%=request.getContextPath()%>/board/host_content_detail_view.jsp?host_content_no=<%=dto.getHost_content_no()%>">
-               <img src="<%=request.getContextPath()%>/board/download1.do?Host_content_no=<%=dto.getHost_content_no()%>"></a>
+               <img style="height: 138px;" src="<%=request.getContextPath()%>/board/download1.do?Host_content_no=<%=dto.getHost_content_no()%>"></a>
             <!-- 카테고리 -->
             <div class="gallary-text-category">
                <span><%=dto.getHost_content_category() %></span>
             </div>
             <!-- 컨텐츠 제목 -->
             <div class="gallary-text-content">
+            <%System.out.println(dto.getHost_content_name()); %>
+            <%System.out.println(dto.getHost_content_ticket()); %>
                <span><%=dto.getHost_content_name() %>
                   <%if(dto.getHost_content_ticket() > 0){ %>
                      (예약 가능)   
+                     <%System.out.println(dto.getHost_content_ticket()); %>
                   <%} else{ %>
                      (마감)
                   <%} %>
@@ -108,5 +122,5 @@
 
 </article> 
 </section>
-    
+<hr color="#F98967">   
 <jsp:include page="/template/footer.jsp"></jsp:include> 
