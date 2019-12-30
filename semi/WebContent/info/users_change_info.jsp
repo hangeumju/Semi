@@ -68,15 +68,17 @@ ul {
 	padding: 0px 0px 0px 10px;
 }
 
+
 .content {
-	float: right;
-	width: 970px;
-	font-size: 16px;
-	font-weight: 500;
-	color: black;
-	line-height: 40px;
-	display: block;
-	padding: 0px 50px 0px 0px;
+    float: right;
+    width: 970px;
+    font-size: 16px;
+    font-weight: 500;
+    color: black;
+    line-height: 40px;
+    display: block;
+  	padding-left:60px;
+    margin-left: 25px;
 }
 
 /* .float끝나는 영역을 가상으로 생성하고 clear(가상선택자) */
@@ -96,7 +98,8 @@ ul {
 	background-color: #F98967;
 	color: white;
 	border: none;
-	border-radius: 10px;
+	border-radius: 5px;
+	padding: 5px;
 }
 
 .change_pw_btn {
@@ -109,6 +112,10 @@ ul {
 	line-height: 40px;
 	display: block;
 	text-decoration: none;
+}
+.change{
+	text-decoration: none;
+	color: #F98967;
 }
 </style>
 <!-- css style 끝 -->
@@ -151,15 +158,11 @@ ul {
 			<!-- side_menu끝 -->
 		</div>
 		<!-- side끝 -->
-</body>
 
 <section>
 
 	<form action="users_change_info.do" method="post">
 		<div class="content">
-			<div class="row-empty"></div>
-
-
 
 			<!-- 전화번호 수정 -->
 			<div class="ins_content">
@@ -185,8 +188,8 @@ ul {
 
 			<!-- 관심분야 수정 -->
 			<div class="ins_content">
-				<span>관심분야 </span> <br> <span> <select
-					class="block-item input-item" name="user_Interest">
+				<span>관심분야 </span> <br> <span> 
+				<select	class="block-item input-item" name="user_Interest">
 						<option value="" selected disabled hidden>관심분야</option>
 						<option>액티비티</option>
 						<option>배움</option>
@@ -202,18 +205,18 @@ ul {
 			<input class="join_btn" type="reset" value="지우기"> <input
 				class="join_btn" type="submit" value="수정하기">
 			<div class="change_pw_btn">
-				<h4>
-					<a href="users_change_pw.jsp">비밀번호 변경</a>
-				</h4>
+				<strong>
+					<a class="change" href="users_change_pw.jsp">비밀번호 변경</a>
+				</strong>
+				<div class="row-empty"></div>
 			</div>
 
-
-
-
 		</div>
-		</div>
-
 	</form>
+	
 </section>
+</div>
+</body>
 <hr color="#F9896">
+
 <jsp:include page="/template/footer.jsp"></jsp:include>

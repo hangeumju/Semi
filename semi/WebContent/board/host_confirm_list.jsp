@@ -127,7 +127,7 @@
            font-size: 16px;
            font-weight: 500;
            color: black;
-           line-height: 40px;
+/*            line-height: 40px; */
            display: block;
          padding: 0px 100px 0px 0px;
        }
@@ -145,7 +145,22 @@
             display: block;
             clear: both;
         }   
-        
+        /* 소희-상품 카테고리글꼴스타일       */
+		.gallary-text-category {
+			color: grey;
+			font-size: 10px;
+			padding: 5px;
+			text-decoration: none;
+		}
+		
+		/* 소희-상품명 글꼴스타일       */
+		.gallary-text-content {
+			color: black;
+			font-size: 14px;
+			opacity: "10";
+			padding: 5px;
+			text-decoration: none;
+		}
     </style>
    <!-- 갤러리 4단 나누기 종료-->
 
@@ -179,24 +194,31 @@
        <!-- side끝 -->
 <div class="content">
 <div class="row-empty"></div>
+
 <div class="gallary">
 
     <% for (Host_Content_Dto dto : list) {%> 
         <div class="gallary-item">
             <div class="gallary-image">
 
-
                 <a href="<%=request.getContextPath()%>/board/host_content_detail_view_list.jsp?host_content_no=<%=dto.getHost_content_no()%>">
 <!--                 Host_Content_Photo 사진들어갈 자리 -->
-                <img src="http://placeimg.com/480/480/animals">
+                <img style="height: 138px;" src="<%=request.getContextPath()%>/board/download1.do?Host_content_no=<%=dto.getHost_content_no()%>">
                 </a>                
             </div>            
             <div class="gallary-text">
-                <div> #<%=dto.getHost_content_category() %></div>   
-                <div><%=dto.getHost_content_name() %></div>
-                <div><%=dto.getHost_content_cost() %>원</div>   
-                <div><%=dto.getHost_content_view_count() %></div>   
-                <div><%=dto.getHost_content_approval() %></div>                                   
+	            <div class="gallary-text-category">
+	                <div><%=dto.getHost_content_category() %></div>	              
+	            </div>
+	            <div class="gallary-text-content">
+                	<span><%=dto.getHost_content_name() %></span>
+                </div>
+                <br>
+                <strong>
+	                <div><%=dto.getHost_content_cost() %>원</div>   
+                </strong>
+                <div>조회수 <%=dto.getHost_content_view_count() %></div>   
+                <div>승인 <%=dto.getHost_content_approval() %></div>                                   
             </div>
         </div>   
    <% } %>  

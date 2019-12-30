@@ -7,16 +7,30 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+
 
 // 컨텐츠 생성 다오 입니다
 // - host가 컨텐츠 (클래스) 생성시 사용하는 method 저장 해놓은 Dao 입니다
 public class Host_Content_Dao {
 	
 	//생성 통로입니다
+private static DataSource source;
+	
+	static {
+		try {
+			InitialContext ctx = new InitialContext();//[1]
+			source = (DataSource) ctx.lookup("java:comp/env/jdbc/oracle");
+		} 
+		catch (NamingException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public Connection getConnection() throws Exception {
-		Class.forName("oracle.jdbc.OracleDriver");
-		Connection con = DriverManager.getConnection("jdbc:oracle:thin:@www.sysout.co.kr:1521:xe", "kh22", "kh22");
-		return con;
+		return source.getConnection();
 	}
 	
 	
@@ -100,6 +114,7 @@ public class Host_Content_Dao {
 			HCdto.setHost_content_no(rs.getInt("host_content_no"));
 			HCdto.setHost_content_view_count(rs.getInt("host_content_view_count"));
 			HCdto.setHost_content_category(rs.getString("host_content_category"));
+			HCdto.setHost_content_ticket(rs.getInt("host_content_ticket"));
 			list.add(HCdto);
 		}
 		
@@ -140,6 +155,7 @@ public List<Host_Content_Dto> getList2(String host_id, int start, int finish) th
 			HCdto.setHost_content_view_count(rs.getInt("host_content_view_count"));
 			HCdto.setHost_content_category(rs.getString("host_content_category"));
 			HCdto.setHost_content_approval(rs.getString("host_content_approval"));
+			HCdto.setHost_content_ticket(rs.getInt("host_content_ticket"));
 			list.add(HCdto);
 		}
 		
@@ -356,8 +372,8 @@ public List<Host_Content_Dto> getList2(String host_id, int start, int finish) th
 	public boolean content_quantity_reduction(int ticketing, int host_content_no) throws Exception{
 		Connection con = getConnection();
 		String sql = "update host_content set "
-				+ "host_content_payment_count = host_content_payment_count + 1 "
-				+ ", host_content_ticket =  host_content_ticket - ? where host_content_no = ?";
+				+ " host_content_payment_count = host_content_payment_count + 1, "
+				+ " host_content_ticket =  host_content_ticket - ? where host_content_no = ?";
 		
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, ticketing);

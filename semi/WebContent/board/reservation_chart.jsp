@@ -179,8 +179,19 @@
             <tr>
                <td><%=Rdto.getHistory_no() %></td>
                <td><%=Rdto.getHost_content_name() %></td>
-                <td><%=Rdto.getUser_name()%></td>
-                <td><%=Rdto.getUser_phone()%></td>
+                <td>
+                <%if(Rdto.getUser_name()!=null){%>
+                	<%=Rdto.getUser_name()%>
+                <%} else {%>
+                	탈퇴한 회원입니다
+                <%} %>
+                </td>
+                <td>
+                <%if(Rdto.getUser_phone()!=null){%>
+                	<%=Rdto.getUser_phone()%>
+                <%} else {%>
+                	탈퇴한 회원입니다
+                <%} %>
                 <td><%=Rdto.getUser_qty() %></td>
                 <td><%=Rdto.getUser_class_date() %></td>
              </tr>      

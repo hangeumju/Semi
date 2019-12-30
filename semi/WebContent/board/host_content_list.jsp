@@ -17,7 +17,7 @@
 	List<Host_Content_Dto> list ;
 	
 // 	페이지 크기
-	int pagesize = 12;
+	int pagesize = 10;
 // 	네비게이터 크기
 	int navsize = 10;
 	
@@ -50,82 +50,23 @@
 	
 	int count = HCdao.getCount(type, keyword, category);
 	
-// 	System.out.println(count);
-// 	System.out.println(category);
-// 	System.out.println(pagesize);
-// 	System.out.println(start);
-// 	System.out.println(finish);
-	
 	%>
+<style>
+	.join_btn {
+		font-size: 13px;
+		padding: 4px;
+		background-color: #F98967;
+		color: white;
+		border: none;
+		border-radius: 5px;
+		padding: 6px;
+	}
+</style>	
 
-	<!-- 갤러리 4단 나누기 -->
-
-	
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-        
-        .gallary{
-            
-        }
-        .gallary::after{
-            content:"";
-            display: block;
-            clear: both;
-        }
-        
-        .gallary > .gallary-item{
-            float:left;
-            width:25% !important;
-            padding:10px;
-        }
-        
-        .gallary > .gallary-item > .gallary-image > img{
-            width:100%;
-            border-radius: 50%;
-            opacity: 0.5;
-        }
-        
-        .gallary > .gallary-item:hover{
-            
-        }
-        
-        .gallary > .gallary-item:hover > .gallary-image > img{
-            opacity: 1;
-        }
-        
-        .gallary > .gallary-item> .gallary-text > h4{
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;            
-        }
-        
-        .gallary > .gallary-item> .gallary-text > p {
-            word-break:break-all;
-        }
-        
-
-        
-        
-        /* 테스트용 스타일 */
-        .gallary, .gallary-text{
-            border:1px dotted black;
-        }
-        .gallary-item{
-            border:1px dotted red;
-        }
-        .gallary-image{
-            border:1px dotted blue;
-        }
-
-    </style>
-	<!-- 갤러리 4단 나누기 종료-->
-
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/common.css">
 <jsp:include page="/template/header.jsp"></jsp:include>
-
-<article class="w-60">
+<hr color="#F98967">
+<section>
+<article>
 
 <div id="searchForm">
         <form action="host_content_list.jsp" method="get">
@@ -133,37 +74,41 @@
                 <option value="host_content_name">컨텐츠명</option>
                 <option value="host_id">호스트아이디</option>
             </select>
-            <input type="search" name="keyword" placeholder="검색어" required>&nbsp;
-            <input type="submit" value="검색">
+            <input type="search" name="keyword" required>&nbsp;
+            <input class="join_btn" type="submit" value="검색">
         </form>    
     </div>  
-
-  <div class="gallary">
-
- 	<% for (Host_Content_Dto dto : list) {%> 
-        <div class="gallary-item">
-            <div class="gallary-image">
-       			<a href="<%=request.getContextPath()%>/board/host_content_detail_view.jsp?host_content_no=<%=dto.getHost_content_no()%>">
-                <img src="http://placeimg.com/480/480/animals">
-                </a>                
-            </div>            
-            <div class="gallary-text">
-                <h4><%=dto.getHost_content_name() %></h4>
-                <h4>
-                    <%=dto.getHost_content_cost() %>
-                </h4>
-                <h4>
-                	<%=dto.getHost_content_view_count() %>
-                </h4>
-                <h3>
-                	<%=dto.getHost_content_category() %>
-                </h3>
-                
+     
+     <div class="gallary">
+         <%for(Host_Content_Dto dto : list){ %>
+         <div class="gallary-item">
+            <a href="<%=request.getContextPath()%>/board/host_content_detail_view.jsp?host_content_no=<%=dto.getHost_content_no()%>">
+               <img style="height: 138px;" src="<%=request.getContextPath()%>/board/download1.do?Host_content_no=<%=dto.getHost_content_no()%>"></a>
+            <!-- 카테고리 -->
+            <div class="gallary-text-category">
+               <span><%=dto.getHost_content_category() %></span>
             </div>
-        </div>   
-	<% } %>  
-	
-     </div>  
+            <!-- 컨텐츠 제목 -->
+            <div class="gallary-text-content">
+            <%System.out.println(dto.getHost_content_name()); %>
+            <%System.out.println(dto.getHost_content_ticket()); %>
+               <span><%=dto.getHost_content_name() %>
+                  <%if(dto.getHost_content_ticket() > 0){ %>
+                     (예약 가능)   
+                     <%System.out.println(dto.getHost_content_ticket()); %>
+                  <%} else{ %>
+                     (마감)
+                  <%} %>
+               </span>
+            </div>
+            <!-- 컨텐츠 가격 -->
+            <div class="gallary-text-cost">
+               <span><%=dto.getHost_content_cost() %>원</span>
+            </div>
+         </div>
+         <%} %>
+      </div> 
+      
      <div class="row">
 		<!-- 네비게이터(navigator) -->
 		<jsp:include page="/template/list_navigator.jsp">
@@ -176,5 +121,6 @@
 	</div>             
 
 </article> 
-    
+</section>
+<hr color="#F98967">   
 <jsp:include page="/template/footer.jsp"></jsp:include> 

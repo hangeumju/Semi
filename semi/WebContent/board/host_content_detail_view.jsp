@@ -1,3 +1,5 @@
+<%@page import="beans.Host_Content_Photo_Dto"%>
+<%@page import="beans.Host_Content_Photo_Dao"%>
 <%@page import="java.util.Date"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="beans.Users_Get_Dto"%>
@@ -29,6 +31,9 @@
 		//받은 no를 이용해 단일컨텐츠를 불러오는 명령어를 불러온다
 		Host_Content_Dto HCdto = HCdao.getOneContent(no);
 		
+		//마지막 날짜 알아오기
+		String lastDay = HCdto.getHost_content_last_date();
+		
 		String id = HCdto.getHost_id();
 		
 		Host_Info_Dao HIdao = new Host_Info_Dao();
@@ -36,6 +41,12 @@
 		
 		Users_Info_Dao UIdao = new Users_Info_Dao();
 		Users_Get_Dto UGdto = UIdao.users_get(user_id);
+		
+		//상품 마감
+		boolean zero = HCdto.getHost_content_ticket() == 0;
+		
+		System.out.println(HCdto.getHost_content_ticket());
+		System.out.println(zero);
 		
 		 //조회수 증가 부분
 	 	
@@ -79,6 +90,15 @@
 	 	Date time = new Date();
 	 			
 	 	String time1 = format1.format(time);
+	 	
+		//      사진가지고 오는 Dto, Dao
+		Host_Content_Photo_Dao HCPdao = new Host_Content_Photo_Dao();
+// 		List Host_Cotent_Photo_no 불러오기 (3개)
+		List<Host_Content_Photo_Dto> HCPlist = HCPdao.host_content_photo_getPhoto3(no);	
+// 		  for (Host_Content_Photo_Dto dto1 : HCPlist) { 
+// 				System.out.println(dto1.getHost_content_photo_no());
+// 		  }
+	 	
 	 	
 // 	 	System.out.println(time1);
 	%>
@@ -204,7 +224,13 @@
 			text-align: center;
 			width: 35px;
 		}
-	
+	.class-photo{
+		text-align: center;
+	}
+	.class-photo img{
+		width: 500px;
+		height: 300px;		
+	}
     </style>
     <!--     	스타일 영역 끝입니다---------------------------------------------------------- -->
    
@@ -221,46 +247,7 @@
     <script>
         
 //반복문으로 사진넣는것도 해결해야 합니다!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        function loadSlider(){
-            var imgSources = [
-            {
-                link:"http://placehold.it/300x100?text=a",
-                caption:"테스트 제목1"
-            },
-
-            {
-                link:"http://placehold.it/300x100?text=b",
-                 caption:"테스트 제목1"
-            },
-            {
-                link:"http://placehold.it/300x100?text=c",
-                caption:"테스트 제목1"
-            },
-            {
-                link:"http://placehold.it/300x100?text=d",
-                caption:"테스트 제목1"
-            },
-            {
-                link:"http://placehold.it/300x100?text=e",
-                caption:"테스트 제목1"
-            }
-            ];
-            var containerId = '.deslider-container';
-
-            var options = {
-                auto: {
-                    speed: 2000,//한장이 표시될 밀리초
-                    pauseOnHover: true,//hover 상태의 재생여부
-                },
-                fullScreen: true,
-                swipe: true,
-                pagination: true,
-                repeat: true
-            };
-
-            var myDeslider = new Deslider(imgSources, containerId, options);
-             }
-
+       
         	
         	
         	//티켓 창 플러스 1 시키는 명령어
@@ -344,7 +331,7 @@
                 			}	
             		}
 
-           	 		addLoadEvent(loadSlider);
+           	 		
             		addLoadEvent(loadPicker);
             	
             	
@@ -383,11 +370,13 @@
 
 <jsp:include page="/template/header.jsp"></jsp:include>
 
+<section>
 <hr color="#F98967">
+<article>
+
 		<div class="dd">
 			<div class="myclass">
-				<!-- 이미지 슬라이더 영역 -->
-    			<div class="deslider-container"></div>
+			
     			
     			<section class="section2">
 	    			<div style="font-size: 22px;"><strong><%=HCdto.getHost_content_name() %></strong></div>    			
@@ -408,6 +397,19 @@
 	    			<%=HCdto.getHost_content_last_date().substring(0, 10) %>
 	    			</div >
 						<div class="row-empty"></div>
+						
+			 		<!-- 이미지 슬라이더 영역 시작-->
+					<!-- 파일명 3번 불러오는 코드 -->
+			           	 <% for (Host_Content_Photo_Dto dto : HCPlist) { %>              
+			 		<div class="class-photo">
+			             <img src="<%=request.getContextPath()%>/board/download.do?Host_content_photo_no=<%=dto.getHost_content_photo_no()%>">                    
+			 		</div>
+			 		<div class="row-empty"></div>
+			             <% } %>
+			        <!-- 이미지 슬라이더 영역 종료-->
+			        
+			        <div class="row-empty"></div>
+			        
 	    			<div style="text-align: center;"><%=HCdto.getHost_content_info() %></div>
     			</section>
     			
@@ -461,8 +463,9 @@
 			<div class="class-option">
 				옵션 선택
 			</div>
-			
+			<%if(!zero&&lastDay.compareTo(time1)>0) {%>
 				<%if(isUser) {%>
+				<form action="<%=request.getContextPath()%>/board/users_pay.jsp" method="get">
 				<div style="margin: 17px 0 17px 0; padding-left: 14px;">
 					<div style="font-size: 14px; margin-bottom: 5px;">신청기간</div>
 					<div>
@@ -481,7 +484,6 @@
 					<div style="font-size: 14px; margin: 15px 0 5px 0;">티켓수량 선택</div>
 				</div>
 				
-				<form action="<%=request.getContextPath()%>/board/users_pay.jsp" method="get">
 					<input type="hidden" name="host_content_name" value="<%=HCdto.getHost_content_name() %>"><!--컨텐츠 제목 -->
 					<input type="hidden" name="host_name" value="<%=HIdto.getHost_name()%>"><!--호스트 이름 -->
 					<input type="hidden" name="host_phone" value="<%=HIdto.getHost_phone() %>"><!--호스트 폰번호 -->
@@ -512,6 +514,10 @@
     			<%} else {%>
     				<button onclick="list();">목록으로</button><br>
     			<%} %>
+    		<%} else{%>
+    			<div>판매가 종료된 상품입니다</div><br>
+    			<button onclick="list();">목록으로</button><br>
+    		<%} %>
 			</div>
 			<!-- 구매옵션 영역 끝 -->
 			
@@ -519,5 +525,7 @@
 		<hr color="#F98967">
 		
 
-	
+</article>
+</section>
 <jsp:include page="/template/footer.jsp"></jsp:include>
+
