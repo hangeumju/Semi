@@ -31,7 +31,7 @@ public class Host_Content_Get_One_Photo_Servlet extends HttpServlet{
        
          
 //         [3]실제 파일을 읽어들인다
-         File target = new File("D:\\upload\\home", HCPdto.getHost_content_original_file());
+         File target = new File("D:\\4. JAVA\\upload\\home", HCPdto.getHost_content_original_file());
          byte[] data = FileUtils.readFileToByteArray(target);
          
 //         [4]읽어들인 파일 내용을 사용자에게 전송한다
