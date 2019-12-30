@@ -5,6 +5,13 @@
 	String user = (String)session.getAttribute("user_id");
 	String host = (String)session.getAttribute("host_id");
 %>
+<style>
+	div a{
+		text-decoration: none;
+		color: black;
+		font-weight: bold;
+	}
+</style>
     
 <footer class="row">
 		
