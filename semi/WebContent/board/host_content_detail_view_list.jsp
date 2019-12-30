@@ -218,50 +218,14 @@
     </style>
     <!--     	스타일 영역 끝입니다---------------------------------------------------------- -->
    
-	<!--    슬라이더를 불러옵니다 -->
-   
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/deslider/1.5.1/style.css">
-    <script type="text/javascript" src="<%=request.getContextPath()%>/js/slider.js"></script>
-    
-    
-    <!-- Content 날자 지정 API  -->
+	<!-- Content 날자 지정 API  -->
     <link rel="stylesheet" type="text/css" href="../css/datepicker.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
     <script src="../js/datepicker.js"></script>
     <script>
         
 //반복문으로 사진넣는것도 해결해야 합니다!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        function loadSlider(){
-            var imgSources = [
-            {
-                link:"http://placehold.it/300x100?text=a",
-                caption:"테스트 제목1"
-            },
-
-            {
-                link:"http://placehold.it/300x100?text=b",
-                 caption:"테스트 제목1"
-            },
-            {
-                link:"http://placehold.it/300x100?text=c",
-                caption:"테스트 제목1"
-            }
-            ];
-            var containerId = '.deslider-container';
-
-            var options = {
-                auto: {
-                    speed: 2000,//한장이 표시될 밀리초
-                    pauseOnHover: true,//hover 상태의 재생여부
-                },
-                fullScreen: true,
-                swipe: true,
-                pagination: true,
-                repeat: true
-            };
-
-            var myDeslider = new Deslider(imgSources, containerId, options);
-             }
+        
 
         	
         	
@@ -346,7 +310,7 @@
                 			}	
             		}
 
-           	 		addLoadEvent(loadSlider);
+           	 	
             		addLoadEvent(loadPicker);
             	
             	
