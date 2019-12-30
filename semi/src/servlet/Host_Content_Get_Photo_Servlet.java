@@ -23,11 +23,12 @@ public class Host_Content_Get_Photo_Servlet extends HttpServlet{
       try {
 //         계획:
 //         [1]파라미터를 받는다 (no)
-         int no = Integer.parseInt(req.getParameter("no"));
+         int Host_content_photo_no = Integer.parseInt(req.getParameter("Host_content_photo_no"));
          
 //         [2]no 에 대한 파일정보를 불러와야 한다(단일조회)
          Host_Content_Photo_Dao HCPdao = new Host_Content_Photo_Dao();
-         Host_Content_Photo_Dto HCPdto = HCPdao.host_content_photo_getPhoto1(no);
+         Host_Content_Photo_Dto HCPdto = HCPdao.host_content_photo_getPhoto3_3(Host_content_photo_no);
+       
          
 //         [3]실제 파일을 읽어들인다
          File target = new File("D:\\4. JAVA\\upload\\home", HCPdto.getHost_content_original_file());

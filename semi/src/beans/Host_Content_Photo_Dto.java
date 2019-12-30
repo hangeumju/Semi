@@ -7,9 +7,21 @@ public class Host_Content_Photo_Dto {
 	private String host_content_original_file;
 	private String host_content_edit_file;
 	
+
+	
+	
+
+	
+	
+
 	public Host_Content_Photo_Dto() {
 		super();
 	}
+
+
+
+
+
 
 	public int getHost_content_photo_no() {
 		return host_content_photo_no;
