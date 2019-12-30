@@ -1,5 +1,3 @@
-<%@page import="beans.Host_Content_Photo_Dto"%>
-<%@page import="beans.Host_Content_Photo_Dao"%>
 <%@page import="java.util.HashSet"%>
 <%@page import="java.util.Set"%>
 <%@page import="java.util.List"%>
@@ -12,7 +10,8 @@
 // 컨텐츠 불러오기
 
    Host_Content_Dao HCdao = new Host_Content_Dao();
-   String host_id = (String)request.getSession().getAttribute("host_id"); 
+   String host_id = (String)request.getSession().getAttribute("host_id");
+   
    
    
 //    페이지 크기
@@ -39,11 +38,6 @@
    
    /////////////절대경로 변수
    String context = request.getContextPath();
-   
-     
-   
-
-	
    %>
    <!-- 갤러리 4단 나누기 -->
 
