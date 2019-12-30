@@ -77,7 +77,7 @@
                         <td>공지</td>
                         <td><a href="notice_detail.jsp?no=<%=NBdto.getNotice_no() %>"><%=NBdto.getNotice_title() %></a></td>    
                         <td align="right"><%=NBdto.getNotice_writer() %></td>
-                        <td align="right" width="250"><%=NBdto.getNotice_date() %></td>
+                        <td align="right" width="250"><%=NBdto.getNotice_date_WithFormat()%></td>
                     </tr>
                 <%} %>
                 </tbody>
