@@ -234,7 +234,7 @@ String context = request.getContextPath();
       <div class="row-left">
          <p class="row-left">
          <span style="color: black; margin: 0 15px 0 0px;">카테고리</span>
-         <select class="block-item input-item" name="host_content_category">
+         <select class="block-item input-item" name="host_content_category" required>
             <option value="" selected disabled hidden >카테고리 선택</option>
             <option>액티비티</option>
             <option>배움</option>
