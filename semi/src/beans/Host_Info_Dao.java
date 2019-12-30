@@ -5,17 +5,29 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+
 import com.sun.crypto.provider.RSACipher;
 
 // host(판매자) 가입 및 로그인 관련 method 기능이 있는 Dao 입니다
 public class Host_Info_Dao {
 	
+private static DataSource source;
+	
+	static {
+		try {
+			InitialContext ctx = new InitialContext();//[1]
+			source = (DataSource) ctx.lookup("java:comp/env/jdbc/oracle");
+		} 
+		catch (NamingException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public Connection getConnection() throws Exception {
-		Class.forName("oracle.jdbc.OracleDriver");
-		Connection con = DriverManager.getConnection("jdbc:oracle:thin:@www.sysout.co.kr:1521:xe", "kh22", "kh22");
-
-
-		return con;
+		return source.getConnection();
 	}
 	
 		///////////////////////호스트용 회원가입(host_regist)

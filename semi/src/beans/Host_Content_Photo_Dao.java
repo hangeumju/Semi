@@ -7,12 +7,26 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+
 // host가 컨텐츠(클래스) 생성시 첨부하는 사진파일 3개 (Fix) 를 업로드를 처리하는 method 가 있는 Dao 입니다
 public class Host_Content_Photo_Dao {
+private static DataSource source;
+	
+	static {
+		try {
+			InitialContext ctx = new InitialContext();//[1]
+			source = (DataSource) ctx.lookup("java:comp/env/jdbc/oracle");
+		} 
+		catch (NamingException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public Connection getConnection() throws Exception {
-		Class.forName("oracle.jdbc.OracleDriver");
-		Connection con = DriverManager.getConnection("jdbc:oracle:thin:@www.sysout.co.kr:1521:xe", "kh22", "kh22");
-		return con;
+		return source.getConnection();
 	}
 	
 	//사진입력 메소드입니다

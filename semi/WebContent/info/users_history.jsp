@@ -200,13 +200,37 @@
          <%for(Users_Content_History_Dto UCHdto : list){%>
             <tr class="review_content_text">
                 <td width="150px" font-size="10px"><%=UCHdto.getUser_reservation_date_WithFormat() %></td>
-                <td width="180px"><%=UCHdto.getHost_content_name() %></td>
+                <td width="180px">
+                <%if(UCHdto.getHost_content_name()!=null){%>
+                	<%=UCHdto.getHost_content_name()%>
+                <%} else {%>
+                	탈퇴한 호스트의 글입니다
+                <%} %>
+                </td>
                 <td><%=UCHdto.getHost_content_cost() %></td>
                 <td><%=UCHdto.getUser_qty() %></td>
-                <td><%=UCHdto.getHost_name() %></td>
-                <td><%=UCHdto.getHost_phone() %></td>
+                <td>
+                <%if(UCHdto.getHost_name()!=null){%>
+                	<%=UCHdto.getHost_name()%>
+                <%} else {%>
+                	탈퇴한 호스트입니다
+                <%} %>
+                </td>
+                <td>
+                <%if(UCHdto.getHost_phone()!=null){%>
+                	<%=UCHdto.getHost_phone()%>
+                <%} else {%>
+                	탈퇴한 호스트입니다
+                <%} %>
+                </td>
                 <td width="150px"><%=UCHdto.getUser_class_date_WithFormat() %></td>
-                <td width="150px"><%=UCHdto.getHost_content_location() %></td>                       
+                <td width="150px">
+                <%if(UCHdto.getHost_content_location()!=null){%>
+                	<%=UCHdto.getHost_content_location()%>
+                <%} else {%>
+                	
+                <%} %>
+                </td>                       
             </tr>      
          <%} %>      
         </tbody>

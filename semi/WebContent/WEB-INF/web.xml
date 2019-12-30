@@ -4,10 +4,10 @@
 <!-- web.xml 파일 : 프로젝트의 운영 설정을 이곳에 재정의. 서버 설정보다 우선 적용 단 형식은 무조건 기존 xml이랑 
 	동일하게 설정해야 한다 -->
 
-<web-app version="4.0"
-	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee                       http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
+<web-app version="4.0" 
+xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee                       http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
 
 <!-- 	사용자의 요청정보를 UTF-8로 복원하는 필터 -->
 
