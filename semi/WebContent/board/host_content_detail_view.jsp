@@ -1,3 +1,5 @@
+<%@page import="beans.Host_Content_Photo_Dto"%>
+<%@page import="beans.Host_Content_Photo_Dao"%>
 <%@page import="java.util.Date"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="beans.Users_Get_Dto"%>
@@ -79,6 +81,15 @@
 	 	Date time = new Date();
 	 			
 	 	String time1 = format1.format(time);
+	 	
+		//      사진가지고 오는 Dto, Dao
+		Host_Content_Photo_Dao HCPdao = new Host_Content_Photo_Dao();
+// 		List Host_Cotent_Photo_no 불러오기 (3개)
+		List<Host_Content_Photo_Dto> HCPlist = HCPdao.host_content_photo_getPhoto3(no);	
+// 		  for (Host_Content_Photo_Dto dto1 : HCPlist) { 
+// 				System.out.println(dto1.getHost_content_photo_no());
+// 		  }
+	 	
 	 	
 // 	 	System.out.println(time1);
 	%>
@@ -344,11 +355,18 @@
 
 <jsp:include page="/template/header.jsp"></jsp:include>
 
+
 <hr color="#F98967">
 		<div class="dd">
 			<div class="myclass">
-				<!-- 이미지 슬라이더 영역 -->
-    			<div class="deslider-container"></div>
+			
+ 	<!-- 이미지 슬라이더 영역 시작-->
+			<!-- 파일명 3번 불러오는 코드 -->
+           	 <% for (Host_Content_Photo_Dto dto : HCPlist) { %>              
+             <img src="<%=request.getContextPath()%>/board/download.do?Host_content_photo_no=<%=dto.getHost_content_photo_no()%>">
+                    
+             <% } %>
+            <!-- 이미지 슬라이더 영역 종료-->
     			
     			<section class="section2">
 	    			<div style="font-size: 22px;"><strong><%=HCdto.getHost_content_name() %></strong></div>    			
@@ -482,3 +500,4 @@
 
 	
 <jsp:include page="/template/footer.jsp"></jsp:include>
+
