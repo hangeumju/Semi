@@ -221,46 +221,7 @@
     <script>
         
 //반복문으로 사진넣는것도 해결해야 합니다!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        function loadSlider(){
-            var imgSources = [
-            {
-                link:"http://placehold.it/300x100?text=a",
-                caption:"테스트 제목1"
-            },
-
-            {
-                link:"http://placehold.it/300x100?text=b",
-                 caption:"테스트 제목1"
-            },
-            {
-                link:"http://placehold.it/300x100?text=c",
-                caption:"테스트 제목1"
-            },
-            {
-                link:"http://placehold.it/300x100?text=d",
-                caption:"테스트 제목1"
-            },
-            {
-                link:"http://placehold.it/300x100?text=e",
-                caption:"테스트 제목1"
-            }
-            ];
-            var containerId = '.deslider-container';
-
-            var options = {
-                auto: {
-                    speed: 2000,//한장이 표시될 밀리초
-                    pauseOnHover: true,//hover 상태의 재생여부
-                },
-                fullScreen: true,
-                swipe: true,
-                pagination: true,
-                repeat: true
-            };
-
-            var myDeslider = new Deslider(imgSources, containerId, options);
-             }
-
+       
         	
         	
         	//티켓 창 플러스 1 시키는 명령어
@@ -344,7 +305,7 @@
                 			}	
             		}
 
-           	 		addLoadEvent(loadSlider);
+           	 		
             		addLoadEvent(loadPicker);
             	
             	
