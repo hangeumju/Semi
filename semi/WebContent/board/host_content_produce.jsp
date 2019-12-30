@@ -316,8 +316,8 @@ String context = request.getContextPath();
       <div class="row-empty"></div>
             
       <div class="row-left">         
-      <h4 style="color: black; font-size: 16px;  margin: 0 0 7px 0;">준비물 및 유의사항을 작성해주세요</h4>      
-         <textarea class="block-item input-item" rows="15" cols="100"  name="host_content_ect_info"></textarea>
+      <h4 style="color: black; font-size: 16px;  margin: 0 0 7px 0;">세부일정 및 포함사항 & 불포함사항을 작성해주세요</h4>      
+         <textarea class="block-item input-item" rows="15" cols="100"  name="host_content_ect_info" placeholder="(필수) 세부일정 & 포함(제공)사항 및 불포함(미제공)사항 "></textarea>
       </div>
       <div style ="height: 20px"></div>
 
@@ -328,8 +328,8 @@ String context = request.getContextPath();
          
          
       <div class="row-left">   
-      <h4 style="color: black; font-size: 16px;  margin: 0 0 7px 0;">추가사항을 작성해주세요</h4>         
-         <textarea class="block-item input-item" rows="15" cols="100"  name="host_content_QA" placeholder="(필수) 세부일정 & 포함사항 및 불포함사항 & 자주묻는질문에 대한 답변(Q&A)"></textarea>
+      <h4 style="color: black; font-size: 16px;  margin: 0 0 7px 0;">Q&A를 작성해주세요</h4>         
+         <textarea class="block-item input-item" rows="15" cols="100"  name="host_content_QA" placeholder="(필수) 회원님들이 자주묻는질문과 그에 대한 답변을 질문→답 형식으로 작성해주세요"></textarea>
       </div>
       <div style ="height: 10px"></div>
       
