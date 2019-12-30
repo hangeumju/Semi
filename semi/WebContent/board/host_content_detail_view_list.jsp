@@ -96,153 +96,125 @@
     
 <!--     	스타일 영역 시작입니다---------------------------------------------------------- -->
     <style>
-		  .float1.float2{
-		 	 border: 1px dotted black;
-		 	 float:left;
-		  	 width:50%
-		  }  
-		  
-		  .review_content{
-		  	width : 630px;
-		  }
-		  
-		  .float2
-		  
-		  .float1::after {
-            content: "";
-            display: block;
-            clear: both;
-       	  }
-       	  
-		   .float2.main{
-		  	width:75%;
-			/* 		  	글 안넘어가게 하는 명령어 */
-		  	word-break:break-all; 
-		 
-		  	margin-left: auto;
-            
-		  }
-		  
-		  .float2.sub{
-			width:300px;
-		  	position: fixed;
-		  	top: 45.5%;
-            right: 10.00%;
-            height : 237px;
-            /* 		  	글 안넘어가게 하는 명령어 */
-            word-break:break-all;
-		  }
-		  
-		  .form_button{
-		 	 width:300px;
-		 	 display : block;
-		 	 
-		  }
-		     *{
+		 *{
            box-sizing: border-box;
+           font-family:NanumSquareR;
        }
-       
-       #container, #footer, #header {
-        margin: 0 auto;
-        width: 400px;  
-    }       
-       .join_content{
-           width: 100%; 
-/*            border: 1px solid black; */
-       }
-       
-        .join_title {
-        margin: 19px 0 8px;
-        font-size: 14px;
-        font-weight: 700;
-/*         border: 1px solid black; */
-    }
-       .join_box *{
-           border: solid 1px darkgray;
-           padding: 30px;
-           width: 20%; 
-       }
-       .email_box *{
-           height: 32px;          
-       }
-       #email_id{
-           width: 220px;
-           border: solid 1px darkgray;
-       }
-       .join_btn{
-            font-size:1.5rem;
-            padding:0.5rem;
-            background-color: #F98967;
-            color:white;
-            border:none;
-            border-radius: 10px;
-        }       
-        
-             div{
-/*  		 border: 1px solid black;    */
-       }
-       .side{
-           width: 170px;
-           float: left;         
-       }
-       
-       .side .side_menu > ul > li > a {
-            margin: 0;
-            padding: 0;
-            border: 0;
-            font-size: 16px;
-            font-weight: 500;
-            color: black;
-            line-height: 40px;
-            display: block;
-            text-decoration: none;
-       }
-       
-       ul{
-           list-style: none;
-       }
-       .side .side_menu > ul > li:hover{
-            background-color: antiquewhite;
-            color: black;
-       }
-       .side .side_menu > ul > li{
-            padding: 0px 0px 0px 10px;
-           
-       }
-        .content{
-           float: left;
-           width: 1000px;
-           font-size: 16px;
-           font-weight: 500;
-           color: black;
-           line-height: 40px;content
-           display: block;
-           padding: 0px 20px 0px 0px;
-          
-       }
-         /* 여백 주기 */
+       		
+		  .myclass{
+		  	padding:20px;
+		 	 border-right: 1px solid rgb(238, 238, 238);
+		 	 float:left;
+		  	 width:70%;
+		  	 
+		  }  
+		  .myclass.gg{
+		  	 width:30%;	
+		  	 padding: 20px;
+		  	 border: none;
+		  	 
+		  } 
+		  .class-option {
+			    line-height: 14px;
+			    font-size: 14px;
+			    font-weight: bold;
+			    padding: 40px 0px 26px; 
+			    border-bottom: 1px solid rgb(238, 238, 238);
+			    }
+			.div222{
+				padding-top: 30px;
+			    padding-bottom: 30px;
+			    line-height: 1.8;
+			    font-size: 14px;
+			    border-bottom: 1px solid rgb(238, 238, 238);
+			}
+				
+	        .myclass p{
+	        	color: black;
+	        	 line-height: 1.8;
+				 font-size: 14px;
+	        }
+	        
+	        .review-reply{
+	        	border-bottom: 1px solid rgb(238, 238, 238);
+	        	padding: 15px 0 15px	 0;
+	        }
+		  
+       	  
+/* 		   .float2.main{ */
+/* 		  	width:75%; */
+/* 			/* 		  	글 안넘어가게 하는 명령어 */ */
+/* 		  	word-break:break-all;  */
+		 
+/* 		  	margin-left: auto; */
+            
+/* 		  } */
+		  
+/* 		  .float2.sub{ */
+/* 			width:300px; */
+/* 		  	position: fixed; */
+/* 		  	top: 45.5%; */
+/*             right: 10.00%; */
+/*             height : 237px; */
+/*             /* 		  	글 안넘어가게 하는 명령어 */ */
+/*             word-break:break-all; */
+/* 		  } */
+
+		 
+		    /* 여백 주기 */
         .row-empty{
-            height: 30px;
+            height: 80px;
         }
-        #dd{
-        	margin: auto;
-        	width: 1200px;
-        }
-         /* .float끝나는 영역을 가상으로 생성하고 clear(가상선택자) */
-        #dd::after{
+		  
+		  .dd{
+		  width: 1200px;
+		  }
+		  
+		   .dd::after{
             content:"";
             display: block;
             clear: both;
         }
-        
-        .section2{
-		padding-top: 30px;
-	    padding-bottom: 30px;
-	    line-height: 1.8;
-	    font-size: 14px;
-	    border-bottom: 1px solid rgb(238, 238, 238);
-			}
-	
+        .participate {
+        	 width:250px;
+            font-size:14px;
+            padding: 0px 13px;
+            background-color: #F98967;
+            color:white;
+            border:none;
+            border-radius: 5px;
+            height: 50px;
+		    line-height: 13px;
+		    margin-left: 40px;
+		}
+		.participate2 {
+        	margin-top :20px;
+        	margin-left: 10px;
+            font-size:14px;
+            padding: 0px 13px;
+            background-color: #F98967;
+            color:white;
+            border:none;
+            border-radius: 5px;
+            height: 20px;
+		    line-height: 20px;
+		    
+		}
+		
+		.total{
+			display: inline;
+		}
+		#pay{
+			text-align: center;
+			width: 35px;
+		}
+	.class-photo{
+		text-align: center;
+	}
+	.class-photo img{
+		width: 500px;
+		height: 300px;		
+	}
     </style>
     <!--     	스타일 영역 끝입니다---------------------------------------------------------- -->
    
@@ -410,67 +382,142 @@
     </script>
     
     <!--     	스트립트 영역 끝입니다---------------------------------------------------------- -->
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/common.css">
+
 <jsp:include page="/template/host_header.jsp"></jsp:include>
-   <div id="dd">
-   <div class="content"> 
-		<div id="container">
-			 <div class="join_content">
-          		 <div class="row_group">
-              		<div class="join_content" >
-			<!-- 이미지 슬라이더 영역 시작-->
-			<!-- 파일명 3번 불러오는 코드 -->
-           	 <% for (Host_Content_Photo_Dto dto : HCPlist) { %>              
-             <img src="<%=request.getContextPath()%>/board/download.do?Host_content_photo_no=<%=dto.getHost_content_photo_no()%>">
-                    
-             <% } %>
-            <!-- 이미지 슬라이더 영역 종료-->
+
+		<div class="dd">
+			<div class="myclass">			
     			
-    			<div>
-    				<h2><%=HCdto.getHost_content_name() %></h2> 
-    				
+    			<div class="div222">
+	    			<div style="font-size: 22px;"><strong><%=HCdto.getHost_content_name() %></strong></div>    			
+	    			<div><h4><%=HCdto.getHost_content_cost() %>원</h4></div>
     			</div>
-
-    			<div><h4><%=HCdto.getHost_content_cost() %>원</h4></div>
-    			<div><h3>호스트 아이디 <%=HCdto.getHost_id()%></h3></div>
-    			<div><h3>호스트 연락처 <%=HIdto.getHost_phone() %></h3></div>
     			
-    			<div><%=HCdto.getHost_content_info() %></div>
-    			<div>
-    			<%=HCdto.getHost_content_start_date().substring(0, 10) %>
-    			<%=HCdto.getHost_content_last_date().substring(0, 10) %>
-    			</div >
-    			<div><%=HCdto.getHost_content_location() %></div>
-    			<div><%=HCdto.getHost_content_ect_info() %></div>
-    			<div>QnA<%=HCdto.getHost_content_qa() %></div>
-    			<div> 리뷰 게시판 자리</div>
-    			<%for (Users_Review_Dto dto : list) {%>
+    			<div class="div222">
+    			<div style="font-size: 18px; margin-bottom: 20px;">호스트</div>
+	    			<div>호스트 아이디 <%=HCdto.getHost_id()%></div>
+	    			<div>호스트 연락처 <%=HIdto.getHost_phone() %></div>
+    			</div>
     			
-    			<div><%=dto.getReview_writer() %> (<%=dto.getReview_date().substring(0, 10) %>)</div>
+    			<div class="div222">
+    			<div style="font-size: 18px; margin-bottom: 20px;">컨텐츠 소개</div>
+    			<div style="font-size: 14px; margin-bottom: 5px;">신청기간</div>
+	    			<div>
+	    			<%=HCdto.getHost_content_start_date().substring(0, 10) %> ~ 
+	    			<%=HCdto.getHost_content_last_date().substring(0, 10) %>
+	    			</div >
+						<div class="row-empty"></div>
+						
+			 		<!-- 이미지 슬라이더 영역 시작-->
+					<!-- 파일명 3번 불러오는 코드 -->
+			           	 <% for (Host_Content_Photo_Dto dto : HCPlist) { %>              
+			 		<div class="class-photo">
+			             <img src="<%=request.getContextPath()%>/board/download.do?Host_content_photo_no=<%=dto.getHost_content_photo_no()%>">                    
+			 		</div>
+			 		<div class="row-empty"></div>
+			             <% } %>
+			        <!-- 이미지 슬라이더 영역 종료-->
+			        
+			        <div class="row-empty"></div>
+			        
+	    			<div style="text-align: center;"><%=HCdto.getHost_content_info() %></div>
+    			</div>
     			
-    			<div><%=dto.getReview_content() %></div>
-    			<%} %>
+    			<div class="div222">
+    			<div style="font-size: 18px; margin-bottom: 20px;">진행 장소</div>
+    				<div><%=HCdto.getHost_content_location() %></div>
+    			</div>
+    			
+    			<div class="div222">
+    			<div style="font-size: 18px; margin-bottom: 20px;">자주묻는 질문</div>
+    				<div>QnA<%=HCdto.getHost_content_qa() %></div>
+    			</div>
+    			
+    			<div class="div222">
+    			<div style="font-size: 18px; margin-bottom: 20px;">세부일정 & 준비사항</div>
+    				<div><%=HCdto.getHost_content_ect_info() %></div>
+    			</div>
+    			
+    			<div class="div222" style="border-bottom: none;">
+	    			<div style="font-size: 18px; margin-bottom: 3px;">이용 후기</div>
+	    			
+	    			<%for (Users_Review_Dto dto : list) {%>
+	    			
+	  			<div class="review-reply">
+	    			<div><strong><%=dto.getReview_writer() %></strong></div>
+	    			<div><%=dto.getReview_date().substring(0, 10) %> 작성</div>
+	    			<br>
+	    			<div><%=dto.getReview_content() %></div>
+				</div>
+	    			<%} %>
+    			</div>
+    			
 			</div>
-
-				<div class="row-empty">
-				<%if(host_id != null && isHost) {%>
-					<span class="join_box">
-    				<button onclick="edit();" class="join_btn">수정</button> <button onclick="del();" class="join_btn">삭제</button><br>
+			<!-- 컨텐츠 정보 영역 끝 -->
+			
+			<!-- 구매옵션 영역 시작 -->
+			<div class="myclass gg">
+			<div class="class-option">
+				호스트 전용
+			</div>
+			
+				<%if(isUser) {%>
+				<form action="<%=request.getContextPath()%>/board/users_pay.jsp" method="get">
+				<div style="margin: 17px 0 17px 0; padding-left: 14px;">
+					<div style="font-size: 14px; margin-bottom: 5px;">신청기간</div>
+					<div>
+		    			<%=HCdto.getHost_content_start_date().substring(0, 10) %> ~ 
+		    			<%=HCdto.getHost_content_last_date().substring(0, 10) %>
+		    		</div >
+		    			<div class="row-empty"></div>
+		    			
+				 	<div style="font-size: 14px; margin-bottom: 5px;">날짜 선택</div>
+					<input id="callender" type="text" name="start_date" class="start_date" required="required"> <!-- 날짜 -->
+					
+					<div style="font-size: 14px; margin: 20px 0 5px 0; border-top: 1px solid rgb(238, 238, 238); padding-top: 20px;">
+						남은 티켓 수량 : <%=HCdto.getHost_content_ticket()%>개
+					</div>
+					<div class="row-empty"></div>
+					<div style="font-size: 14px; margin: 15px 0 5px 0;">티켓수량 선택</div>
+				</div>
+				
+					<input type="hidden" name="host_content_name" value="<%=HCdto.getHost_content_name() %>"><!--컨텐츠 제목 -->
+					<input type="hidden" name="host_name" value="<%=HIdto.getHost_name()%>"><!--호스트 이름 -->
+					<input type="hidden" name="host_phone" value="<%=HIdto.getHost_phone() %>"><!--호스트 폰번호 -->
+					<input type="hidden" name="host_content_no" value="<%=HCdto.getHost_content_no() %>"><!-- 호스트 컨텐트 넘버 -->
+					<input type="hidden" name="host_content_location" value="<%=HCdto.getHost_content_location() %>"><!--호스트 지역 -->
+					<input type="hidden" name="host_content_cost" value="<%=HCdto.getHost_content_cost() %>"> <!--호스트 컨텐츠 가격 -->
+					
+					
+				 	<div style="padding-left: 14px;">
+						<input type="button" class="minus" value="-" onclick="minus();">
+						<input id="pay"  class="ticket_input" type="text" name="ticketing" value="1"> <!-- 티켓수 -->
+						<input type="button" value = "+" class= "plus" onclick="plus();">
+				 	</div>
+				 	<div class="row-empty"></div>
+					 <span style="margin-right: 10px; padding-left: 14px;">총</span><div class="total"><%=HCdto.getHost_content_cost() %></div><span>원</span>
+				 	
+    				<div class="row-empty"></div>
+    				<div class="row-empty"></div>
+    				
+    				<button class="participate">참여하기</button>
+				</form>
+				
+					<button class="participate" onclick="list();">목록으로</button><br>
+					
+				<%}else if(host_id != null && isHost) {%>
+					<div class="row-empty"></div>
+    				<button class="participate" onclick="edit();">수정</button>	
+    				<div class="row-empty"></div>
+    				<button class="participate" onclick="del();">삭제</button>
     			<%} else {%>
     				<button onclick="list();">목록으로</button><br>
     			<%} %>
-							</span>
-						</div>
-					</div>
-				</div>
 			</div>
+			<!-- 구매옵션 영역 끝 -->
+			
 		</div>
-	</div>
-</div>
+		<hr color="#F98967">
 
-<div class="row-empty"></div>   
-<div class="row-empty"></div>
-<div class="row-empty"></div>
-		<hr color="#F98967">   
     
 <jsp:include page="/template/host_footer.jsp"></jsp:include>

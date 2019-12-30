@@ -224,7 +224,13 @@
 			text-align: center;
 			width: 35px;
 		}
-	
+	.class-photo{
+		text-align: center;
+	}
+	.class-photo img{
+		width: 500px;
+		height: 300px;		
+	}
     </style>
     <!--     	스타일 영역 끝입니다---------------------------------------------------------- -->
    
@@ -369,13 +375,6 @@
 		<div class="dd">
 			<div class="myclass">
 			
- 	<!-- 이미지 슬라이더 영역 시작-->
-			<!-- 파일명 3번 불러오는 코드 -->
-           	 <% for (Host_Content_Photo_Dto dto : HCPlist) { %>              
-             <img src="<%=request.getContextPath()%>/board/download.do?Host_content_photo_no=<%=dto.getHost_content_photo_no()%>">
-                    
-             <% } %>
-            <!-- 이미지 슬라이더 영역 종료-->
     			
     			<section class="section2">
 	    			<div style="font-size: 22px;"><strong><%=HCdto.getHost_content_name() %></strong></div>    			
@@ -396,6 +395,19 @@
 	    			<%=HCdto.getHost_content_last_date().substring(0, 10) %>
 	    			</div >
 						<div class="row-empty"></div>
+						
+			 		<!-- 이미지 슬라이더 영역 시작-->
+					<!-- 파일명 3번 불러오는 코드 -->
+			           	 <% for (Host_Content_Photo_Dto dto : HCPlist) { %>              
+			 		<div class="class-photo">
+			             <img src="<%=request.getContextPath()%>/board/download.do?Host_content_photo_no=<%=dto.getHost_content_photo_no()%>">                    
+			 		</div>
+			 		<div class="row-empty"></div>
+			             <% } %>
+			        <!-- 이미지 슬라이더 영역 종료-->
+			        
+			        <div class="row-empty"></div>
+			        
 	    			<div style="text-align: center;"><%=HCdto.getHost_content_info() %></div>
     			</section>
     			
