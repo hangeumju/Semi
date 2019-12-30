@@ -26,7 +26,7 @@ public class Host_content_Produce_Servlet extends HttpServlet{
 		try {
 			req.setCharacterEncoding("utf-8");
 			
-			MultipartRequest mRequest = new MultipartRequest(req, "D:\\4. JAVA\\upload\\home", 10*1024*1024, "utf-8", new DefaultFileRenamePolicy());
+			MultipartRequest mRequest = new MultipartRequest(req, "D:\\upload\\home", 10*1024*1024, "utf-8", new DefaultFileRenamePolicy());
 //			
 			
 			ServletContext context = getServletContext(); //어플리케이션에 대한 정보를 ServletContext 객체가 갖게 됨. 
@@ -39,6 +39,11 @@ public class Host_content_Produce_Servlet extends HttpServlet{
 			Host_Content_Dao HCdao = new Host_Content_Dao();
 			Host_Content_Dto HCdto = new Host_Content_Dto();
 			Host_Content_Photo_Dao HCPdao = new Host_Content_Photo_Dao();
+			String host_post = mRequest.getParameter("host_post");
+			String host_basic_addr = mRequest.getParameter("host_basic_addr");
+			String host_extra_addr = mRequest.getParameter("host_extra_addr");
+			
+			String location = host_post +" "+ host_basic_addr +" "+ host_extra_addr;
 			
 			///board/host_content_list.jsp 에서 보내는 변수를 받는다
 			HCdto.setHost_id(mRequest.getParameter("host_id"));
@@ -49,7 +54,7 @@ public class Host_content_Produce_Servlet extends HttpServlet{
 			HCdto.setHost_content_info(mRequest.getParameter("host_content_info"));
 			HCdto.setHost_content_start_date(mRequest.getParameter("start_date"));
 			HCdto.setHost_content_last_date(mRequest.getParameter("last_date"));
-			HCdto.setHost_content_location(mRequest.getParameter("host_content_location"));
+			HCdto.setHost_content_location(location);
 			HCdto.setHost_content_ect_info(mRequest.getParameter("host_content_ect_info"));
 			HCdto.setHost_content_qa(mRequest.getParameter("host_content_qa"));
 			
