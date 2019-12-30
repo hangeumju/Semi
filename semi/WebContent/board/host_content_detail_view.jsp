@@ -336,8 +336,7 @@
          
            	<!-- 이미지 슬라이더 영역 시작-->
 			<!-- 파일명 3번 불러오는 코드 -->
-           	 <% for (Host_Content_Photo_Dto dto : HCPlist) { %>     
-           	   파일명 <%=dto.getHost_content_original_file() %>
+           	 <% for (Host_Content_Photo_Dto dto : HCPlist) { %>              
              <img src="<%=request.getContextPath()%>/board/download.do?Host_content_photo_no=<%=dto.getHost_content_photo_no()%>">
                     
              <% } %>

@@ -144,7 +144,7 @@
         <div class="gallary-item">
             <div class="gallary-image">
        			<a href="<%=request.getContextPath()%>/board/host_content_detail_view.jsp?host_content_no=<%=dto.getHost_content_no()%>">
-                <img src="http://placeimg.com/480/480/animals">
+                <img src="<%=request.getContextPath()%>/board/download1.do?Host_content_no=<%=dto.getHost_content_no()%>">
                 </a>                
             </div>            
             <div class="gallary-text">
