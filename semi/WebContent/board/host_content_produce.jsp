@@ -223,7 +223,7 @@ String context = request.getContextPath();
    <!-- host_id 는 hidden 으로 넘김 -->
    <!-- host_id 대신에 rlawldms 넣어놨으니 나중에 변경 -->
    <%-- <input  type="hidden" name= "host_id" value="<%=host_id%>">    --%>   
-   <input  type="hidden" name= "host_id" value="rlawldms">   
+   <input  type="hidden" name= "host_id" value="<%=host_id%>">   
 
    <div>       
       <h2>컨텐츠 만들기</h2>
