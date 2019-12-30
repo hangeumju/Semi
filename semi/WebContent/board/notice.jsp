@@ -3,6 +3,7 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<jsp:include page="/template/header.jsp"></jsp:include>
 
 <%
 	Notice_Board_Dao NBdao = new Notice_Board_Dao();	
@@ -44,7 +45,6 @@
 	List<Notice_Board_Dto> list = NBdao.notice_board_list(start, finish);
 %>
 
-<jsp:include page="/template/header.jsp"></jsp:include>
 <style>
         .notice_table {
             width: 100%;
@@ -59,11 +59,11 @@
             text-decoration: none;
             color: black;
        }
-</style>
+    </style>
+</head>
 
-<section>
-<article>
-
+<body>
+    <main>
     <hr color="#F98967">
     <div class="row-empty"></div>
     <div class="row-empty"></div>
@@ -98,9 +98,8 @@
         <div class="row-empty"></div>
         <div class="row-empty"></div>
         <hr color="#F98967">
-    
+    </main>
+</body>
 
-</article>
-</section>
 
 <jsp:include page="/template/footer.jsp"></jsp:include>

@@ -17,7 +17,7 @@ String hostlogin = request.getContextPath()+"/login/host_login.jsp";
 <title>Document</title>
 
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/common.css">
-
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/swiper.min.css">
 <script src="<%=request.getContextPath()%>/js/swiper.min.js"></script>
 <script>
 	<%if(request.getParameter("error") != null) {%>
