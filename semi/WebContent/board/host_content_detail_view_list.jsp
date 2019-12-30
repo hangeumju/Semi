@@ -1,5 +1,7 @@
-<%@page import="beans.Host_Content_Photo_Dao"%>
+<<<<<<< HEAD
 <%@page import="beans.Host_Content_Photo_Dto"%>
+<%@page import="beans.Host_Content_Photo_Dao"%>
+
 <%@page import="java.util.Date"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="beans.Users_Get_Dto"%>
@@ -28,6 +30,7 @@
       String user_id = (String) session.getAttribute("user_id"); //유저 아이디 받고
 
 //       int no = 20;
+
 
       //받은 no를 이용해 단일컨텐츠를 불러오는 명령어를 불러온다
       Host_Content_Dto HCdto = HCdao.getOneContent(no);
@@ -85,15 +88,17 @@
        
 //        System.out.println(time1);
       
-//       사진 불러오는 
-      Host_Content_Photo_Dao HCPdao = new Host_Content_Photo_Dao();
-      Host_Content_Photo_Dto HCPdto = new Host_Content_Photo_Dto();
-      HCPdto.setHost_content_no(no);
-      List<Host_Content_Photo_Dto> HCPlist = HCPdao.host_content_photo_getPhoto(HCPdto);
-   
+		//      사진가지고 오는 Dto, Dao
+		Host_Content_Photo_Dao HCPdao = new Host_Content_Photo_Dao();
+// 		List Host_Cotent_Photo_no 불러오기 (3개)
+		List<Host_Content_Photo_Dto> HCPlist = HCPdao.host_content_photo_getPhoto3(no);	
+// 		  for (Host_Content_Photo_Dto dto1 : HCPlist) { 
+// 				System.out.println(dto1.getHost_content_photo_no());
+// 		  }
 
    %>
  <!--        자바 영역 끝입니다---------------------------------------------------------- -->
+
     
 <!--        스타일 영역 시작입니다---------------------------------------------------------- -->
     <style>
@@ -256,6 +261,7 @@
             
     </script>
     
+
     
     
     
@@ -270,19 +276,13 @@
          
          
          
-            <!-- 이미지 슬라이더 영역 시작 -->
-         
-             <div>
-             <%--    <img src="<%=request.getContextPath()%>/board/download.do?no=<%=no%>" > --%>
-             <% for (Host_Content_Photo_Dto dto : HCPlist) {%>
-                <img src="<%=request.getContextPath()%>/board/download.do?no=<%=dto.getHost_content_no()%>">
-
-             <%System.out.println(dto.getHost_content_no()); %>
+        	<!-- 이미지 슬라이더 영역 시작-->
+			<!-- 파일명 3번 불러오는 코드 -->
+           	 <% for (Host_Content_Photo_Dto dto : HCPlist) { %>              
+             <img src="<%=request.getContextPath()%>/board/download.do?Host_content_photo_no=<%=dto.getHost_content_photo_no()%>">
+                    
              <% } %>
-             
-             </div>
-         
-            <!-- 이미지 슬라이더 영역 종료 -->
+            <!-- 이미지 슬라이더 영역 종료-->
 
 
              
