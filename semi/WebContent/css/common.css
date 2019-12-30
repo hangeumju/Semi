@@ -55,9 +55,6 @@
 
 
 /*반응형 갤러리 */
-* {
-	box-sizing: border-box;
-}
 
 .gallary::after {
 	content: "";
