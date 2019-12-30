@@ -37,10 +37,6 @@
 	        <li><a class="active" href="/semi/host/host_submain.jsp">Home</a></li>
 	         <li class="dropdown">
 	             <a href="<%=context%>/info/host_info.jsp" class="dropbtn">호스트 내정보</a>
-	             <div class="dropdown-content">
-	                 <a href="<%=context%>/info/host_change_info.jsp">정보수정</a>
-	                 <a href="<%=context%>/info/host_info.jsp">탈퇴</a>
-	             </div>
 	         </li>
 	         <li class="dropdown">
 	             <a href="javascript:void(0)" class="dropbtn">컨텐츠 관리</a>
