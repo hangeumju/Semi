@@ -332,7 +332,7 @@
 				function del(){
                     var cho = window.confirm("삭제하시겠습니까?");
                     if(cho){
-                    location.href = "<%=request.getContextPath()%>/board/host_content_delete.do?host_id=<%=HCdto.getHost_id()%>&no=<%=HCdto.getHost_content_no()%>";
+                    location.href = "<%=request.getContextPath()%>/board/host_content_delete.do?host_id=<%=HCdto.getHost_id()%>&host_content_no=<%=HCdto.getHost_content_no()%>";
                      }
                 }
             	
