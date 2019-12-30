@@ -60,6 +60,7 @@ private static DataSource source;
 		Rdto.setUser_reservation_date(rs.getString("user_reservation_date"));
 		Rdto.setUsers_history_id(rs.getString("users_history_id"));	
 		Rdto.setHost_content_name(rs.getString("host_content_name"));
+		Rdto.setUser_class_date(rs.getString("user_class_date"));
 		
 		list.add(Rdto);
 	}
