@@ -103,9 +103,9 @@ public class Reservation_Dto {
 		this.rn = rn;
 	}
 	
-	//최종 로그인 시간 변경
+	//예약차트 날짜 변환
 			public String getUser_class_datewithFormat() throws ParseException{
-				//[1]내가 가진 가입일을 날짜 형식으로 변환 (java.util.date)			
+				//[1]내가 가진 예약일을 날짜 형식으로 변환 (java.util.date)			
 				SimpleDateFormat read = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S");
 				Date date = read.parse(user_class_date);
 				//[2]변환한 형식을 다시 원하는 형식의 문자열로 변환
