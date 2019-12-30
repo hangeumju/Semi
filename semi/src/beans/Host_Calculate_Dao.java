@@ -5,13 +5,27 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+
 public class Host_Calculate_Dao {
 
-   public Connection getConnection() throws Exception {
-      Class.forName("oracle.jdbc.OracleDriver");
-      Connection con = DriverManager.getConnection("jdbc:oracle:thin:@www.sysout.co.kr:1521:xe", "kh22", "kh22");
-      return con;
-   }
+private static DataSource source;
+	
+	static {
+		try {
+			InitialContext ctx = new InitialContext();//[1]
+			source = (DataSource) ctx.lookup("java:comp/env/jdbc/oracle");
+		} 
+		catch (NamingException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public Connection getConnection() throws Exception {
+		return source.getConnection();
+	}
    
    
    //전체 금액 구하기
