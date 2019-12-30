@@ -12,10 +12,10 @@
 	int host_content_cost = Integer.parseInt(request.getParameter("host_content_cost"));//호스트 컨텐츠 가격
 	int ticketing = Integer.parseInt(request.getParameter("ticketing"));//유저가 구매하려는 티켓수
 	String start_date = request.getParameter("start_date");//유저가 원하는 날짜
-// 	System.out.println(host_content_name);
-// 	System.out.println(host_content_no);
-// 	System.out.println(host_name);
-// 	System.out.println(host_phone);
+	System.out.println(host_content_name);
+	System.out.println(host_content_no);
+	System.out.println(host_name);
+	System.out.println(host_phone);
 	
 	
 %>
@@ -152,7 +152,7 @@
         <hr>
         <div class="row-left">
             <div class="class_name">
-                클래스 이름이 들어갈 자리<%=host_content_name %>
+                클래스 명 : <%=host_content_name %>
             </div>
             <hr>
             <div>

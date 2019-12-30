@@ -90,9 +90,12 @@
             </div>
             <!-- 컨텐츠 제목 -->
             <div class="gallary-text-content">
+            <%System.out.println(dto.getHost_content_name()); %>
+            <%System.out.println(dto.getHost_content_ticket()); %>
                <span><%=dto.getHost_content_name() %>
                   <%if(dto.getHost_content_ticket() > 0){ %>
                      (예약 가능)   
+                     <%System.out.println(dto.getHost_content_ticket()); %>
                   <%} else{ %>
                      (마감)
                   <%} %>

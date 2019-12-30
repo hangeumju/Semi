@@ -353,7 +353,7 @@
 				function del(){
                     var cho = window.confirm("삭제하시겠습니까?");
                     if(cho){
-                    location.href = "<%=request.getContextPath()%>/board/host_content_delete.do?host_id=<%=HCdto.getHost_id()%>&no=<%=HCdto.getHost_content_no()%>";
+                    location.href = "<%=request.getContextPath()%>/board/host_content_delete.do?host_id=<%=host_id%>&host_content_no=<%=HCdto.getHost_content_no()%>";
                      }
                 }
             	
@@ -465,7 +465,7 @@
 			</div>
 			<%if(!zero&&lastDay.compareTo(time1)>0) {%>
 				<%if(isUser) {%>
-				<form action="<%=request.getContextPath()%>/board/users_pay.jsp" method="get">
+				<form action="<%=request.getContextPath()%>/board/users_pay.jsp" method="post">
 				<div style="margin: 17px 0 17px 0; padding-left: 14px;">
 					<div style="font-size: 14px; margin-bottom: 5px;">신청기간</div>
 					<div>

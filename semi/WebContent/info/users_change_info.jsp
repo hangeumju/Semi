@@ -188,8 +188,8 @@ ul {
 
 			<!-- 관심분야 수정 -->
 			<div class="ins_content">
-				<span>관심분야 </span> <br> <span> <select
-					class="block-item input-item" name="user_Interest">
+				<span>관심분야 </span> <br> <span> 
+				<select	class="block-item input-item" name="user_Interest">
 						<option value="" selected disabled hidden>관심분야</option>
 						<option>액티비티</option>
 						<option>배움</option>

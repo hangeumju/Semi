@@ -53,11 +53,11 @@ public class Users_pay_Servlet extends HttpServlet{
 			CHdto.setUser_class_date(start_date);;
 			CHdto.setHistory_no(seq);
 			
-
+			
+			System.out.println("dkdn");
 //			결제 카운트 증가 및 티켓 수량 감소
 			Host_Content_Dao HCdao = new Host_Content_Dao();
 			boolean result = HCdao.content_quantity_reduction(ticketing, host_content_no);
-			
 //			디티오에 받은 정보들로 결제 진행하기
 			if(result) {
 				CHdao.users_history_pay(CHdto);
@@ -74,6 +74,7 @@ public class Users_pay_Servlet extends HttpServlet{
 			e.printStackTrace();
 			resp.sendError(500);
 		}
+	
 	}
 
 }
