@@ -50,28 +50,7 @@
 	
 	int count = HCdao.getCount(type, keyword, category);
 	
-// 	System.out.println(count);
-// 	System.out.println(category);
-// 	System.out.println(pagesize);
-// 	System.out.println(start);
-// 	System.out.println(finish);
-	
 	%>
-
-	<!-- 갤러리 4단 나누기 -->
-
-	
-    <style>
-        .gallary > .gallary-item> .gallary-text > h4{
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;            
-        }
-        
-        .gallary > .gallary-item> .gallary-text > p {
-            word-break:break-all;
-        }
-    </style>
 
 <jsp:include page="/template/header.jsp"></jsp:include>
 

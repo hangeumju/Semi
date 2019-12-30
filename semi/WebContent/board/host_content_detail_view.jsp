@@ -370,8 +370,10 @@
 
 <jsp:include page="/template/header.jsp"></jsp:include>
 
-
+<section>
 <hr color="#F98967">
+<article>
+
 		<div class="dd">
 			<div class="myclass">
 			
@@ -523,6 +525,7 @@
 		<hr color="#F98967">
 		
 
-	
+</article>
+</section>
 <jsp:include page="/template/footer.jsp"></jsp:include>
 
