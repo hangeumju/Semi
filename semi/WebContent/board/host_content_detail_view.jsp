@@ -31,6 +31,7 @@
 		//받은 no를 이용해 단일컨텐츠를 불러오는 명령어를 불러온다
 		Host_Content_Dto HCdto = HCdao.getOneContent(no);
 		
+		//마지막 날짜 알아오기
 		String lastDay = HCdto.getHost_content_last_date();
 		
 		String id = HCdto.getHost_id();
@@ -40,6 +41,12 @@
 		
 		Users_Info_Dao UIdao = new Users_Info_Dao();
 		Users_Get_Dto UGdto = UIdao.users_get(user_id);
+		
+		//상품 마감
+		boolean zero = HCdto.getHost_content_ticket() == 0;
+		
+		System.out.println(HCdto.getHost_content_ticket());
+		System.out.println(zero);
 		
 		 //조회수 증가 부분
 	 	
@@ -442,7 +449,7 @@
 			<div class="class-option">
 				옵션 선택
 			</div>
-			<%if(lastDay.compareTo(time1)>0) {%>
+			<%if(!zero&&lastDay.compareTo(time1)>0) {%>
 				<%if(isUser) {%>
 				<form action="<%=request.getContextPath()%>/board/users_pay.jsp" method="get">
 				<div style="margin: 17px 0 17px 0; padding-left: 14px;">
@@ -494,7 +501,7 @@
     				<button onclick="list();">목록으로</button><br>
     			<%} %>
     		<%} else{%>
-    			판매가 종료된 상품입니다
+    			<div>판매가 종료된 상품입니다</div><br>
     			<button onclick="list();">목록으로</button><br>
     		<%} %>
 			</div>
