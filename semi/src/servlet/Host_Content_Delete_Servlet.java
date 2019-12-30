@@ -14,8 +14,9 @@ import beans.Host_Content_Dao;
 public class Host_Content_Delete_Servlet extends HttpServlet{
 	
 	
-	@Override
+
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
 		try {
 			req.setCharacterEncoding("UTF-8");
 			//삭제 기능입니다
@@ -26,6 +27,9 @@ public class Host_Content_Delete_Servlet extends HttpServlet{
 			System.out.println(no);
 			
 			HCdao.host_content_delete(host_id, no);
+			// 테스트
+			System.out.println(host_id);
+			System.out.println(no);
 			
 			resp.sendRedirect(req.getContextPath()+"/board/host_confirm_list.jsp");
 		}
