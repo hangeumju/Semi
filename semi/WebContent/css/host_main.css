@@ -21,9 +21,6 @@
         	margin-bottom: 30px;
         }
        
-        section {
-        	
-        }
         footer{
         	padding: 0;
         }
@@ -396,10 +393,7 @@ p {
         header {
            margin-bottom: 30px;
         }
-       
-        section {
-           
-        }
+
         footer{
            padding: 0;
         }
@@ -508,7 +502,7 @@ p {
         }
 
         section {
-            min-height: 750px;
+            padding: 2rem;
         }
 
         footer {
@@ -699,106 +693,3 @@ p {
            margin: 0 15px;
            color:silver;
         }
-
-        
-        /* 레이아웃 */
-current {
-   margin: auto;
-   width: 1000px;
-}
-
-.current .title {
-   margin-top: 20px;
-   margin-bottom: 20px;
-   padding: 10px;
-   text-align: center;
-}
-
-/* 경매 개요*/
-.current .intro {
-   display: flex;
-   flex-direction: row;
-   padding: 10px;
-   border-top: 1px solid gray;
-   border-bottom: 1px solid gray;
-   min-height: 100px;
-}
-
-.current .intro-name {
-   padding: 10px;
-   flex-grow: 1;
-   font-size: 25px;
-}
-
-.current .intro-sort {
-   flex-grow: 1;
-   padding: 10px;
-   font-size: 20px;
-   color: #c33234;
-   font-weight: bold;
-}
-
-.currentt .intro-sort-inner {
-   padding-top: 5px;
-   padding-bottom: 5px;
-}
-
-.current .intro-detail {
-   flex-grow: 10;
-   padding: 10px;
-   font-size: 20px;
-}
-
-.current .intro-detail-inner {
-   padding-top: 5px;
-   padding-bottom: 5px;
-}
-
-/* 검색창 */
-.current .search {
-   border-bottom: 2px solid gray;
-   margin-top: 25px;
-   margin-bottom: 25px;
-   min-height: 100px;
-}
-
-.current .search-type {
-   display: flex;
-   flex-direction: row;
-   margin-top: 10px;
-   margin-bottom: 10px;
-   font-size: 15px;
-}
-
-.current .search-type-text {
-   height: 30px;
-}
-
-.current .search-type-dt1, .current .search-type-dt2,
-   .current .search-type-dt4 {
-   flex-grow: 1;
-}
-
-.current .search-type-dt3 {
-   flex-grow: 7;
-}
-
-.current .search-btns {
-   margin-top: 10px;
-   margin-bottom: 10px;
-   text-align: center;
-}
-
-.current .search-btn {
-   padding-left: 15px;
-   padding-right: 15px;
-   padding-top: 5px;
-   padding-bottom: 5px;
-   background-color: #c33234;
-   border: 1px solid #c33234;
-   color: white;
-   cursor: pointer;
-}
-
-
-
