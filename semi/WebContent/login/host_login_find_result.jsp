@@ -21,4 +21,4 @@ host_id 파라미터를 받아서 결과를 화면에 표시--%>
 <h3><a href = "host_login_find.jsp">다시 입력하기</a></h3>
 <%} %>
 </div>
-<jsp:include page="/template/host_footer.jsp"></jsp:include>
+<jsp:include page="/template/footer.jsp"></jsp:include>

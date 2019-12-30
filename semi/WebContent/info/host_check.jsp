@@ -138,4 +138,4 @@
  
 </body>
 
-<jsp:include page="/template/host_footer.jsp"></jsp:include>
+<jsp:include page="/template/footer.jsp"></jsp:include>

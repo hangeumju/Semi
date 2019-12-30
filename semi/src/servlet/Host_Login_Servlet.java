@@ -22,12 +22,15 @@ public class Host_Login_Servlet extends HttpServlet{
 			Host_Info_Dao HIdao = new Host_Info_Dao();
 			boolean result = HIdao.host_login(host_id,host_pw);
 			
+			//최종 로그인 시간 변경
+			
 			String isHost = (String) req.getSession().getAttribute("user_id");
 			
 			if(result) {
 				req.getSession().setAttribute("host_id", host_id);
 				
 				if(isHost != null) {
+					HIdao.updatehost_lastlogin(host_id);
 					req.getSession().removeAttribute("user_id");
 				}
 

@@ -90,16 +90,12 @@
             </div>
             <!-- 컨텐츠 제목 -->
             <div class="gallary-text-content">
-            <%System.out.println(dto.getHost_content_name()); %>
-            <%System.out.println(dto.getHost_content_ticket()); %>
-               <span><%=dto.getHost_content_name() %>
+               <p><%=dto.getHost_content_name() %></p>
                   <%if(dto.getHost_content_ticket() > 0){ %>
-                     (예약 가능)   
-                     <%System.out.println(dto.getHost_content_ticket()); %>
+                     <span>(예약 가능)</span>
                   <%} else{ %>
-                     (마감)
+                     <span>(마감)</span>
                   <%} %>
-               </span>
             </div>
             <!-- 컨텐츠 가격 -->
             <div class="gallary-text-cost">
