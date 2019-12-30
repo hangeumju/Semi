@@ -522,6 +522,7 @@
 			</div>
 			
 				<%if(isUser) {%>
+				<form action="<%=request.getContextPath()%>/board/users_pay.jsp" method="get">
 				<div style="margin: 17px 0 17px 0; padding-left: 14px;">
 					<div style="font-size: 14px; margin-bottom: 5px;">신청기간</div>
 					<div>
@@ -540,7 +541,6 @@
 					<div style="font-size: 14px; margin: 15px 0 5px 0;">티켓수량 선택</div>
 				</div>
 				
-				<form action="<%=request.getContextPath()%>/board/users_pay.jsp" method="get">
 					<input type="hidden" name="host_content_name" value="<%=HCdto.getHost_content_name() %>"><!--컨텐츠 제목 -->
 					<input type="hidden" name="host_name" value="<%=HIdto.getHost_name()%>"><!--호스트 이름 -->
 					<input type="hidden" name="host_phone" value="<%=HIdto.getHost_phone() %>"><!--호스트 폰번호 -->
