@@ -546,7 +546,6 @@ color:black;
  --%>
 
 
-
 </section>
 <hr color="#F9896">
 <jsp:include page="/template/footer.jsp"></jsp:include>
