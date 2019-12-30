@@ -4,93 +4,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
 
-<jsp:include page="/template/header.jsp"></jsp:include>
 
 <%
 Host_Content_Dao HCdao = new Host_Content_Dao();
 List<Host_Content_Dto> HClist = HCdao.mainViewTop5();
 %>
 
-
-<style>
-
-/* 전체 글꼴 */
-@font-face {
-   font-family: NanumSquareR;
-   src: url("../font/NanumSquareR.ttf");
-}
-
-a{
-text-decoration:none;
-color:black;
-}
-
-.end{
-	color:red;
-	}
-
-.ing{
-	color:blue;
-	}
-
-.sohee-title {
-   color: white;
-   background-color: #F98967;
-   opacity: 100%;
-   padding: 10px;
-   font-size: 14px;
-   text-decoration:none;
-}
-
-/* 소희-카테고리 이미지 라운드로 */
-.gallary>.gallary-item> .category-image >a>img {
-   width: 100%;
-   border-radius: 50%;
-   text-decoration:none;
-}
-
-/* 소희-상품 이미지 라운드주기         */
-.gallary >.gallary-item > a > img {
-   border-radius: 3%;
-   text-decoration:none;
-}
-
-/* 소희-상품 카테고리글꼴스타일       */
-.gallary-text-category {
-   color: grey;
-   font-size: 10px;
-   padding: 5px;
-   text-decoration:none;
-}
-
-/* 소희-상품명 글꼴스타일       */
-.gallary-text-content {
-   color: black;
-   font-size: 14px;
-   opacity: "10";
-   padding: 5px;
-   text-decoration:none;
-}
-
-/* 소희-상품 가격 글꼴스타일       */
-.gallary-text-cost {
-   color: black;
-   font-size: "14px;
-   opacity: "10";
-   font-weight: bold;
-   padding: 5px;
-   border-radius: 10%;
-   text-decoration:none;
-}
-
-/* 소희-회색 테두리 ,필요하       */
-.gallary-border {
-   border: 1px solid grey;
-   text-decoration:none;
-}
-</style>
-
-
+<jsp:include page="/template/header.jsp"></jsp:include>
 <section>
 
 
@@ -104,9 +24,6 @@ color:black;
       <!-- 당일치기 TOP5 시작 -->
          <div class="sohee-title">당일치기 TOP 5!</div>
          <div class="row-empty"></div>
-         <h4 class="gallary-text-category">
-            <a href="#">전체보기</a>
-         </h4>
          
       <!-- TOP5 시작 -->
       
@@ -124,9 +41,9 @@ color:black;
             <div class="gallary-text-content">
                <span><%=HCdto.getHost_content_name() %>
                   <%if(HCdto.getHost_content_ticket() > 0){ %>
-                     <div class="ing">(예약 가능)</div>   
+                     (예약 가능)  
                   <%} else{ %>
-                     <div class="end">(마감)</div>
+                    (마감)
                   <%} %>
                </span>
             </div>
