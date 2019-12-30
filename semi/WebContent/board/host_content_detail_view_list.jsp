@@ -1,3 +1,5 @@
+<%@page import="beans.Host_Content_Photo_Dao"%>
+<%@page import="beans.Host_Content_Photo_Dto"%>
 <%@page import="java.util.Date"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="beans.Users_Get_Dto"%>
@@ -80,6 +82,14 @@
 	 			
 	 	String time1 = format1.format(time);
 	 	
+		//      사진가지고 오는 Dto, Dao
+		Host_Content_Photo_Dao HCPdao = new Host_Content_Photo_Dao();
+// 		List Host_Cotent_Photo_no 불러오기 (3개)
+		List<Host_Content_Photo_Dto> HCPlist = HCPdao.host_content_photo_getPhoto3(no);	
+// 		  for (Host_Content_Photo_Dto dto1 : HCPlist) { 
+// 				System.out.println(dto1.getHost_content_photo_no());
+// 		  }
+	 	
 // 	 	System.out.println(time1);
 	%>
  <!--     	자바 영역 끝입니다---------------------------------------------------------- -->
@@ -91,7 +101,11 @@
 		 	 float:left;
 		  	 width:50%
 		  }  
-		 
+		  
+		  .review_content{
+		  	width : 630px;
+		  }
+		  
 		  .float2
 		  
 		  .float1::after {
@@ -220,6 +234,14 @@
             display: block;
             clear: both;
         }
+        
+        .section2{
+		padding-top: 30px;
+	    padding-bottom: 30px;
+	    line-height: 1.8;
+	    font-size: 14px;
+	    border-bottom: 1px solid rgb(238, 238, 238);
+			}
 	
     </style>
     <!--     	스타일 영역 끝입니다---------------------------------------------------------- -->
@@ -391,18 +413,24 @@
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/common.css">
 <jsp:include page="/template/host_header.jsp"></jsp:include>
    <div id="dd">
-			 <div class="join_content" align="center">
+   <div class="content"> 
+		<div id="container">
+			 <div class="join_content">
           		 <div class="row_group">
               		<div class="join_content" >
-				<!-- 이미지 슬라이더 영역 -->
-    			<div class="deslider-container"></div>
+			<!-- 이미지 슬라이더 영역 시작-->
+			<!-- 파일명 3번 불러오는 코드 -->
+           	 <% for (Host_Content_Photo_Dto dto : HCPlist) { %>              
+             <img src="<%=request.getContextPath()%>/board/download.do?Host_content_photo_no=<%=dto.getHost_content_photo_no()%>">
+                    
+             <% } %>
+            <!-- 이미지 슬라이더 영역 종료-->
     			
     			<div>
     				<h2><%=HCdto.getHost_content_name() %></h2> 
     				
     			</div>
-    		
-    			
+
     			<div><h4><%=HCdto.getHost_content_cost() %>원</h4></div>
     			<div><h3>호스트 아이디 <%=HCdto.getHost_id()%></h3></div>
     			<div><h3>호스트 연락처 <%=HIdto.getHost_phone() %></h3></div>
@@ -410,7 +438,6 @@
     			<div><%=HCdto.getHost_content_info() %></div>
     			<div>
     			<%=HCdto.getHost_content_start_date().substring(0, 10) %>
-    			~
     			<%=HCdto.getHost_content_last_date().substring(0, 10) %>
     			</div >
     			<div><%=HCdto.getHost_content_location() %></div>
@@ -423,25 +450,23 @@
     			
     			<div><%=dto.getReview_content() %></div>
     			<%} %>
-    			<br>
-    			<!-- 댓글 작성칸이 표시될 자리 -->
 			</div>
 
-				<div class="row-empty" align="center">
+				<div class="row-empty">
 				<%if(host_id != null && isHost) {%>
 					<span class="join_box">
     				<button onclick="edit();" class="join_btn">수정</button> <button onclick="del();" class="join_btn">삭제</button><br>
     			<%} else {%>
     				<button onclick="list();">목록으로</button><br>
     			<%} %>
-					</span>
-				</div>
-			</div>
-			</div>
-			</div>
-				</div>
-					</div>
+							</span>
 						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
 <div class="row-empty"></div>   
 <div class="row-empty"></div>

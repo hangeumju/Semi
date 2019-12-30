@@ -188,7 +188,7 @@
 
                 <a href="<%=request.getContextPath()%>/board/host_content_detail_view_list.jsp?host_content_no=<%=dto.getHost_content_no()%>">
 <!--                 Host_Content_Photo 사진들어갈 자리 -->
-                <img src="http://placeimg.com/480/480/animals">
+                <img src="<%=request.getContextPath()%>/board/download1.do?Host_content_no=<%=dto.getHost_content_no()%>">
                 </a>                
             </div>            
             <div class="gallary-text">
