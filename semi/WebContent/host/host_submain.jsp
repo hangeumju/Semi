@@ -137,4 +137,4 @@
     <hr color="#F98967">  
 </body>
 <!--     공지사항 창입니다 아직 공지사항이 구현되지 않아 이곳도 미구현입니다 -->
-<jsp:include page="/template/host_footer.jsp"></jsp:include>
+<jsp:include page="/template/footer.jsp"></jsp:include>
