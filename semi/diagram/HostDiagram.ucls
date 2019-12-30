@@ -3,7 +3,7 @@
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="servlet.Host_Login_Servlet" project="semi" 
     file="/semi/src/servlet/Host_Login_Servlet.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="101" y="-43"/>    
+    <position height="-1" width="-1" x="367" y="66"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="false" protected="false" private="false" static="false"/>      
@@ -16,16 +16,16 @@
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="false" protected="false" private="false" static="false"/>      
-      <operations public="true" package="false" protected="false" private="false" static="false"/>    
+      <operations public="false" package="false" protected="false" private="false" static="false"/>    
     </display>  
   </class>  
   <class id="3" language="java" name="beans.Host_Info_Dto" project="semi" file="/semi/src/beans/Host_Info_Dto.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="746" y="272"/>    
+    <position height="-1" width="-1" x="800" y="183"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="false" protected="false" private="false" static="false"/>      
-      <operations public="true" package="false" protected="false" private="false" static="false"/>    
+      <operations public="false" package="false" protected="false" private="false" static="false"/>    
     </display>  
   </class>  
   <class id="4" language="java" name="servlet.Host_Change_Info_Servlet" project="semi" 
@@ -93,7 +93,7 @@
   </class>  
   <class id="11" language="java" name="servlet.Host_content_Produce_Servlet" project="semi" 
     file="/semi/src/servlet/Host_content_Produce_Servlet.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="115" y="1024"/>    
+    <position height="-1" width="-1" x="762" y="525"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="false" protected="false" private="false" static="false"/>      
@@ -102,7 +102,7 @@
   </class>  
   <class id="12" language="java" name="servlet.Host_Exit_Servlet" project="semi" 
     file="/semi/src/servlet/Host_Exit_Servlet.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="77" y="931"/>    
+    <position height="-1" width="-1" x="437" y="757"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="false" protected="false" private="false" static="false"/>      
@@ -111,7 +111,7 @@
   </class>  
   <class id="13" language="java" name="servlet.Host_Login_Find_Servlet" project="semi" 
     file="/semi/src/servlet/Host_Login_Find_Servlet.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="101" y="737"/>    
+    <position height="-1" width="-1" x="102" y="749"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="false" protected="false" private="false" static="false"/>      
@@ -120,7 +120,7 @@
   </class>  
   <class id="14" language="java" name="servlet.Host_Logout_Servlet" project="semi" 
     file="/semi/src/servlet/Host_Logout_Servlet.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="86" y="1127"/>    
+    <position height="-1" width="-1" x="527" y="66"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="false" protected="false" private="false" static="false"/>      
@@ -129,7 +129,7 @@
   </class>  
   <class id="15" language="java" name="servlet.Host_Regist_Servlet" project="semi" 
     file="/semi/src/servlet/Host_Regist_Servlet.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="86" y="836"/>    
+    <position height="-1" width="-1" x="281" y="752"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="false" protected="false" private="false" static="false"/>      
@@ -138,154 +138,154 @@
   </class>  
   <class id="16" language="java" name="beans.Content_History_Dao" project="semi" 
     file="/semi/src/beans/Content_History_Dao.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="122" y="1314"/>    
+    <position height="-1" width="-1" x="784" y="613"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="false" protected="false" private="false" static="false"/>      
-      <operations public="true" package="false" protected="false" private="false" static="false"/>    
+      <operations public="false" package="false" protected="false" private="false" static="false"/>    
     </display>  
   </class>  
   <class id="17" language="java" name="beans.Content_History_Dto" project="semi" 
     file="/semi/src/beans/Content_History_Dto.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="105" y="1580"/>    
+    <position height="-1" width="-1" x="790" y="768"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="false" protected="false" private="false" static="false"/>      
-      <operations public="true" package="false" protected="false" private="false" static="false"/>    
+      <operations public="false" package="false" protected="false" private="false" static="false"/>    
     </display>  
   </class>  
   <class id="18" language="java" name="beans.Host_Calculate_Dao" project="semi" 
     file="/semi/src/beans/Host_Calculate_Dao.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="441" y="-8"/>    
+    <position height="-1" width="-1" x="781" y="65"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="false" protected="false" private="false" static="false"/>      
-      <operations public="true" package="false" protected="false" private="false" static="false"/>    
+      <operations public="false" package="false" protected="false" private="false" static="false"/>    
     </display>  
   </class>  
   <class id="19" language="java" name="beans.Host_Content_Dao" project="semi" 
     file="/semi/src/beans/Host_Content_Dao.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="447" y="1434"/>    
+    <position height="-1" width="-1" x="596" y="768"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="false" protected="false" private="false" static="false"/>      
-      <operations public="true" package="false" protected="false" private="false" static="false"/>    
+      <operations public="false" package="false" protected="false" private="false" static="false"/>    
     </display>  
   </class>  
   <class id="20" language="java" name="beans.Host_Content_Dto" project="semi" 
     file="/semi/src/beans/Host_Content_Dto.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1013" y="1334"/>    
+    <position height="-1" width="-1" x="581" y="608"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="false" protected="false" private="false" static="false"/>      
-      <operations public="true" package="false" protected="false" private="false" static="false"/>    
+      <operations public="false" package="false" protected="false" private="false" static="false"/>    
     </display>  
   </class>  
   <class id="21" language="java" name="beans.Host_Content_Photo_Dao" project="semi" 
     file="/semi/src/beans/Host_Content_Photo_Dao.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="810" y="787"/>    
+    <position height="-1" width="-1" x="766" y="296"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="false" protected="false" private="false" static="false"/>      
-      <operations public="true" package="false" protected="false" private="false" static="false"/>    
+      <operations public="false" package="false" protected="false" private="false" static="false"/>    
     </display>  
   </class>  
   <class id="22" language="java" name="beans.Host_Content_Photo_Dto" project="semi" 
     file="/semi/src/beans/Host_Content_Photo_Dto.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="425" y="721"/>    
+    <position height="-1" width="-1" x="675" y="434"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="false" protected="false" private="false" static="false"/>      
-      <operations public="true" package="false" protected="false" private="false" static="false"/>    
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="false" package="false" protected="false" private="false" static="false"/>    
     </display>  
   </class>  
   <dependency id="23">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="20"/>  
-  </dependency>  
-  <dependency id="24">    
-    <end type="SOURCE" refId="13"/>    
-    <end type="TARGET" refId="2"/>  
-  </dependency>  
-  <dependency id="25">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="21"/>  
-  </dependency>  
-  <dependency id="26">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="3"/>  
-  </dependency>  
-  <dependency id="27">    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="19"/>  
-  </dependency>  
-  <dependency id="28">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="2"/>  
-  </dependency>  
-  <dependency id="29">    
-    <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="2"/>  
-  </dependency>  
-  <dependency id="30">    
-    <end type="SOURCE" refId="15"/>    
-    <end type="TARGET" refId="2"/>  
-  </dependency>  
-  <dependency id="31">    
-    <end type="SOURCE" refId="16"/>    
-    <end type="TARGET" refId="17"/>  
-  </dependency>  
-  <dependency id="32">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="2"/>  
-  </dependency>  
-  <dependency id="33">    
-    <end type="SOURCE" refId="15"/>    
-    <end type="TARGET" refId="3"/>  
-  </dependency>  
-  <dependency id="34">    
-    <end type="SOURCE" refId="9"/>    
-    <end type="TARGET" refId="21"/>  
-  </dependency>  
-  <dependency id="35">    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="19"/>  
-  </dependency>  
-  <dependency id="36">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="22"/>  
-  </dependency>  
-  <dependency id="37">    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="20"/>  
-  </dependency>  
-  <dependency id="38">    
     <end type="SOURCE" refId="12"/>    
     <end type="TARGET" refId="2"/>  
   </dependency>  
-  <dependency id="39">    
-    <end type="SOURCE" refId="19"/>    
-    <end type="TARGET" refId="20"/>  
-  </dependency>  
-  <dependency id="40">    
-    <end type="SOURCE" refId="21"/>    
-    <end type="TARGET" refId="22"/>  
-  </dependency>  
-  <dependency id="41">    
-    <end type="SOURCE" refId="9"/>    
-    <end type="TARGET" refId="22"/>  
-  </dependency>  
-  <dependency id="42">    
+  <dependency id="24">    
     <end type="SOURCE" refId="2"/>    
     <end type="TARGET" refId="3"/>  
   </dependency>  
-  <dependency id="43">    
+  <dependency id="25">    
+    <end type="SOURCE" refId="21"/>    
+    <end type="TARGET" refId="22"/>  
+  </dependency>  
+  <dependency id="26">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="17"/>  
+  </dependency>  
+  <dependency id="27">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="22"/>  
+  </dependency>  
+  <dependency id="28">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="22"/>  
+  </dependency>  
+  <dependency id="29">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="2"/>  
+  </dependency>  
+  <dependency id="30">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="2"/>  
+  </dependency>  
+  <dependency id="31">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="21"/>  
+  </dependency>  
+  <dependency id="32">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="2"/>  
+  </dependency>  
+  <dependency id="33">    
     <end type="SOURCE" refId="11"/>    
     <end type="TARGET" refId="19"/>  
   </dependency>  
-  <dependency id="44">    
-    <end type="SOURCE" refId="6"/>    
+  <dependency id="34">    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="20"/>  
+  </dependency>  
+  <dependency id="35">    
+    <end type="SOURCE" refId="1"/>    
     <end type="TARGET" refId="2"/>  
+  </dependency>  
+  <dependency id="36">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="20"/>  
+  </dependency>  
+  <dependency id="37">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="3"/>  
+  </dependency>  
+  <dependency id="38">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="21"/>  
+  </dependency>  
+  <dependency id="39">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="2"/>  
+  </dependency>  
+  <dependency id="40">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="3"/>  
+  </dependency>  
+  <dependency id="41">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="19"/>  
+  </dependency>  
+  <dependency id="42">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="2"/>  
+  </dependency>  
+  <dependency id="43">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="20"/>  
+  </dependency>  
+  <dependency id="44">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="19"/>  
   </dependency>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
