@@ -25,6 +25,14 @@ text-decoration:none;
 color:black;
 }
 
+.end{
+	color:red;
+	}
+
+.ing{
+	color:blue;
+	}
+
 .sohee-title {
    color: white;
    background-color: #F98967;
@@ -116,9 +124,9 @@ color:black;
             <div class="gallary-text-content">
                <span><%=HCdto.getHost_content_name() %>
                   <%if(HCdto.getHost_content_ticket() > 0){ %>
-                     (예약 가능)   
+                     <div class="ing">(예약 가능)</div>   
                   <%} else{ %>
-                     (마감)
+                     <div class="end">(마감)</div>
                   <%} %>
                </span>
             </div>
