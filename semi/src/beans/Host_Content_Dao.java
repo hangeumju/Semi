@@ -370,8 +370,8 @@ public List<Host_Content_Dto> getList2(String host_id, int start, int finish) th
 	public boolean content_quantity_reduction(int ticketing, int host_content_no) throws Exception{
 		Connection con = getConnection();
 		String sql = "update host_content set "
-				+ "host_content_payment_count = host_content_payment_count + 1 "
-				+ ", host_content_ticket =  host_content_ticket - ? where host_content_no = ?";
+				+ " host_content_payment_count = host_content_payment_count + 1, "
+				+ " host_content_ticket =  host_content_ticket - ? where host_content_no = ?";
 		
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, ticketing);
