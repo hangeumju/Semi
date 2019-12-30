@@ -25,7 +25,8 @@ public class Users_Change_Info_Servlet extends HttpServlet {
 			String user_phone = req.getParameter("user_phone");
 			String user_email_id = req.getParameter("user_email_id");
 			String user_email_domain = req.getParameter("user_email_domain");
-			String user_interest = req.getParameter("user_interest");
+			String user_interest = req.getParameter("user_Interest");
+			
 			
 			//처리
 			Users_Change_Info_Dto UCIdto = new Users_Change_Info_Dto();
