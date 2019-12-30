@@ -355,98 +355,18 @@
 
 <jsp:include page="/template/header.jsp"></jsp:include>
 
-<<<<<<< HEAD
 
-   <article class="w-70 row">
-      <div class="float1">
-         <div class="float2 main">
-         
-         
-           	<!-- 이미지 슬라이더 영역 시작-->
+<hr color="#F98967">
+		<div class="dd">
+			<div class="myclass">
+			
+ 	<!-- 이미지 슬라이더 영역 시작-->
 			<!-- 파일명 3번 불러오는 코드 -->
            	 <% for (Host_Content_Photo_Dto dto : HCPlist) { %>              
              <img src="<%=request.getContextPath()%>/board/download.do?Host_content_photo_no=<%=dto.getHost_content_photo_no()%>">
                     
              <% } %>
             <!-- 이미지 슬라이더 영역 종료-->
-             
-             <div>
-                <h2><%=HCdto.getHost_content_name() %></h2> 
-                
-             </div>
-             
-             <div><h4><%=HCdto.getHost_content_cost() %>원</h4></div>
-             <div><h3>호스트 아이디 <%=HCdto.getHost_id()%></h3></div>
-             <div><h3>호스트 연락처 <%=HIdto.getHost_phone() %></h3></div>
-             
-             <div><%=HCdto.getHost_content_info() %></div>
-             <div>
-             <%=HCdto.getHost_content_start_date().substring(0, 10) %>
-             <%=HCdto.getHost_content_last_date().substring(0, 10) %>
-             </div >
-             <div><%=HCdto.getHost_content_location() %></div>
-             <div><%=HCdto.getHost_content_ect_info() %></div>
-             <div>QnA<%=HCdto.getHost_content_qa() %></div>
-             <div> 리뷰 게시판 자리</div>
-             <%for (Users_Review_Dto dto : list) {%>
-             
-             <div><%=dto.getReview_writer() %> (<%=dto.getReview_date().substring(0, 10) %>)</div>
-             
-             <div><%=dto.getReview_content() %></div>
-             <%} %>
-             
-             <!-- 댓글 작성칸이 표시될 자리 -->
-            <%if(host_id=="" || !isHost){ %>
-            <form action="users_review_regist.do" method="post">
-               <input type="hidden" name="content_original_no" value="<%=HCdto.getHost_content_no()%>">
-               <input type="hidden" name="review_writer"  value="<%=user_id%>">
-               <textarea class="review_content" name="review_content" rows="2" cols="103" required="required"></textarea>
-               <input type="submit" value="등록">
-            </form>
-            <%} %>
-         </div>
-         
-         <div class="float2 sub">
-            <%if(isUser) {%>
-            <div>남은 티켓 수량 : <%=HCdto.getHost_content_ticket()%></div>
-            <div>티켓수량 선택</div>
-            <form action="<%=request.getContextPath()%>/board/users_pay.jsp" method="get">
-               <input type="hidden" name="host_content_name" value="<%=HCdto.getHost_content_name() %>"><!--컨텐츠 제목 -->
-               <input type="hidden" name="host_name" value="<%=HIdto.getHost_name()%>"><!--호스트 이름 -->
-               <input type="hidden" name="host_phone" value="<%=HIdto.getHost_phone() %>"><!--호스트 폰번호 -->
-               <input type="hidden" name="host_content_no" value="<%=HCdto.getHost_content_no() %>"><!-- 호스트 컨텐트 넘버 -->
-               <input type="hidden" name="host_content_location" value="<%=HCdto.getHost_content_location() %>"><!--호스트 지역 -->
-               <input type="hidden" name="host_content_cost" value="<%=HCdto.getHost_content_cost() %>"> <!--호스트 컨텐츠 가격 -->
-               <input type="button" class="minus" value="-" onclick="minus();">
-               <input id="pay"  class="ticket_input" type="text" name="ticketing" value="1"> <!-- 티켓수 -->
-               <input type="button" value = "+" class= "plus" onclick="plus();">
-                <div class="total"><%=HCdto.getHost_content_cost() %> </div> 
-               <input id="callender" type="text" name="start_date" class="start_date" placeholder="날짜선택" required="required"> <!-- 날짜 -->
-                <button class="form_button">참여합니다!</button>
-            </form>
-               <button onclick="list();">목록으로</button><br>
-               
-            <%}else if(host_id != null && isHost) {%>
-                <button onclick="edit();">수정</button><br>
-                <button onclick="del();">삭제</button><br>
-             <%} else {%>
-                <button onclick="list();">목록으로</button><br>
-             <%} %>
-         </div>
-      </div>
-      
-      
-   </article>
-   
-<jsp:include page="/template/footer.jsp"></jsp:include>
-
-
-=======
-<hr color="#F98967">
-		<div class="dd">
-			<div class="myclass">
-				<!-- 이미지 슬라이더 영역 -->
-    			<div class="deslider-container"></div>
     			
     			<section class="section2">
 	    			<div style="font-size: 22px;"><strong><%=HCdto.getHost_content_name() %></strong></div>    			
@@ -580,4 +500,4 @@
 
 	
 <jsp:include page="/template/footer.jsp"></jsp:include>
->>>>>>> refs/remotes/origin/master
+
