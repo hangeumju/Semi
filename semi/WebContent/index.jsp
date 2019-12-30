@@ -32,7 +32,7 @@ List<Host_Content_Dto> HClist = HCdao.mainViewTop5();
          <%for(Host_Content_Dto HCdto : HClist){ %>
          <div class="gallary-item">
             <a href="<%=request.getContextPath()%>/board/host_content_detail_view.jsp?host_content_no=<%=HCdto.getHost_content_no()%>">
-               <img src="<%=request.getContextPath()%>/board/download1.do?Host_content_no=<%=HCdto.getHost_content_no()%>"></a>
+               <img style="height: 138px;" src="<%=request.getContextPath()%>/board/download1.do?Host_content_no=<%=HCdto.getHost_content_no()%>"></a>
             <!-- 카테고리 -->
             <div class="gallary-text-category">
                <span><%=HCdto.getHost_content_category() %></span>
