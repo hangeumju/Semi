@@ -14,7 +14,7 @@ String hostlogin = request.getContextPath()+"/login/host_login.jsp";
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Document</title>
+<title>당일치기</title>
 
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/common.css">
 

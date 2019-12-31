@@ -11,6 +11,17 @@ Host_Content_Dao HCdao = new Host_Content_Dao();
 List<Host_Content_Dto> HClist = HCdao.mainViewTop5();
 %>
 
+<style>
+.res{
+		color : blue;
+	}
+	
+	.fin{
+		color : red;
+	}
+</style>
+
+
 <section>
 
 
@@ -41,9 +52,9 @@ List<Host_Content_Dto> HClist = HCdao.mainViewTop5();
             <div class="gallary-text-content">
                <span><%=HCdto.getHost_content_name() %>
                   <%if(HCdto.getHost_content_ticket() > 0){ %>
-                  (예약 가능)
+                	 <span class="res">(예약 가능)</span>
                   <%} else{ %>
-                  (마감)
+                	 <span class="fin">(마감)</span> 
                   <%} %>
                </span>
             </div>

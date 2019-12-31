@@ -61,6 +61,18 @@
 		border-radius: 5px;
 		padding: 6px;
 	}
+	
+	.gallary > .gallary-item{
+		height:260px;
+	}
+	
+	.res{
+		color : blue;
+	}
+	
+	.fin{
+		color : red;
+	}
 </style>	
 
 <jsp:include page="/template/header.jsp"></jsp:include>
@@ -92,9 +104,9 @@
             <div class="gallary-text-content">
                <p><%=dto.getHost_content_name() %></p>
                   <%if(dto.getHost_content_ticket() > 0){ %>
-                     <span>(예약 가능)</span>
+                     <span class="res">(예약 가능)</span>
                   <%} else{ %>
-                     <span>(마감)</span>
+                     <span class="fin">(마감)</span>
                   <%} %>
             </div>
             <!-- 컨텐츠 가격 -->
