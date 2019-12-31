@@ -12,7 +12,7 @@
   </class>  
   <class id="2" language="java" name="beans.Host_Info_Dao" project="semi" file="/semi/src/beans/Host_Info_Dao.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="445" y="230"/>    
+    <position height="-1" width="-1" x="429" y="326"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="false" protected="false" private="false" static="false"/>      
@@ -200,92 +200,92 @@
     </display>  
   </class>  
   <dependency id="23">    
-    <end type="SOURCE" refId="12"/>    
+    <end type="SOURCE" refId="5"/>    
     <end type="TARGET" refId="2"/>  
   </dependency>  
   <dependency id="24">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="3"/>  
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="21"/>  
   </dependency>  
   <dependency id="25">    
-    <end type="SOURCE" refId="21"/>    
-    <end type="TARGET" refId="22"/>  
-  </dependency>  
-  <dependency id="26">    
     <end type="SOURCE" refId="16"/>    
     <end type="TARGET" refId="17"/>  
   </dependency>  
+  <dependency id="26">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="2"/>  
+  </dependency>  
   <dependency id="27">    
-    <end type="SOURCE" refId="9"/>    
-    <end type="TARGET" refId="22"/>  
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="19"/>  
   </dependency>  
   <dependency id="28">    
     <end type="SOURCE" refId="11"/>    
     <end type="TARGET" refId="22"/>  
   </dependency>  
   <dependency id="29">    
-    <end type="SOURCE" refId="13"/>    
-    <end type="TARGET" refId="2"/>  
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="3"/>  
   </dependency>  
   <dependency id="30">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="2"/>  
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="22"/>  
   </dependency>  
   <dependency id="31">    
-    <end type="SOURCE" refId="9"/>    
-    <end type="TARGET" refId="21"/>  
-  </dependency>  
-  <dependency id="32">    
-    <end type="SOURCE" refId="6"/>    
+    <end type="SOURCE" refId="15"/>    
     <end type="TARGET" refId="2"/>  
   </dependency>  
-  <dependency id="33">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="19"/>  
+  <dependency id="32">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="20"/>  
   </dependency>  
-  <dependency id="34">    
+  <dependency id="33">    
     <end type="SOURCE" refId="19"/>    
     <end type="TARGET" refId="20"/>  
   </dependency>  
-  <dependency id="35">    
-    <end type="SOURCE" refId="1"/>    
+  <dependency id="34">    
+    <end type="SOURCE" refId="6"/>    
     <end type="TARGET" refId="2"/>  
   </dependency>  
-  <dependency id="36">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="20"/>  
-  </dependency>  
-  <dependency id="37">    
+  <dependency id="35">    
     <end type="SOURCE" refId="4"/>    
     <end type="TARGET" refId="3"/>  
   </dependency>  
-  <dependency id="38">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="21"/>  
-  </dependency>  
-  <dependency id="39">    
-    <end type="SOURCE" refId="15"/>    
-    <end type="TARGET" refId="2"/>  
-  </dependency>  
-  <dependency id="40">    
-    <end type="SOURCE" refId="15"/>    
-    <end type="TARGET" refId="3"/>  
-  </dependency>  
-  <dependency id="41">    
+  <dependency id="36">    
     <end type="SOURCE" refId="7"/>    
     <end type="TARGET" refId="19"/>  
   </dependency>  
-  <dependency id="42">    
+  <dependency id="37">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="19"/>  
+  </dependency>  
+  <dependency id="38">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="20"/>  
+  </dependency>  
+  <dependency id="39">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="21"/>  
+  </dependency>  
+  <dependency id="40">    
+    <end type="SOURCE" refId="21"/>    
+    <end type="TARGET" refId="22"/>  
+  </dependency>  
+  <dependency id="41">    
     <end type="SOURCE" refId="4"/>    
     <end type="TARGET" refId="2"/>  
   </dependency>  
+  <dependency id="42">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="2"/>  
+  </dependency>  
   <dependency id="43">    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="20"/>  
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="3"/>  
   </dependency>  
   <dependency id="44">    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="19"/>  
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="2"/>  
   </dependency>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
