@@ -58,7 +58,7 @@
 .gallary>.gallary-item {
 	float: left;
 	width: 20%;
-	padding: 10px;
+	padding: 5px;
 }
 
 .gallary>.gallary-item img {
@@ -105,7 +105,7 @@ a {
 }
 
 /* 소희-상품 카테고리글꼴스타일       */
-.gallary-text-category {
+.gallary-text-category span{
 	color: grey;
 	font-size: 10px;
 	padding: 5px;
@@ -113,19 +113,18 @@ a {
 }
 
 /* 소희-상품명 글꼴스타일       */
-.gallary-text-content {
+.gallary-text-content > p, span {
 	color: black;
 	font-size: 14px;
-	opacity: "10";
 	padding: 5px;
 	text-decoration: none;
+	overflow:hidden;
 }
 
 /* 소희-상품 가격 글꼴스타일       */
 .gallary-text-cost {
 	color: black;
-	font-size: "14px;
-	opacity: "10";
+	font-size: 14px;
 	font-weight: bold;
 	padding: 5px;
 	border-radius: 10%;
