@@ -45,8 +45,8 @@
 		//상품 마감
 		boolean zero = HCdto.getHost_content_ticket() == 0;
 		
-		System.out.println(HCdto.getHost_content_ticket());
-		System.out.println(zero);
+// 		System.out.println(HCdto.getHost_content_ticket());
+// 		System.out.println(zero);
 		
 		 //조회수 증가 부분
 	 	
@@ -101,6 +101,8 @@
 	 	
 	 	
 // 	 	System.out.println(time1);
+
+		
 	%>
  <!--     	자바 영역 끝입니다---------------------------------------------------------- -->
     
@@ -230,6 +232,10 @@
 	.class-photo img{
 		width: 500px;
 		height: 300px;		
+	}
+	
+	.fin{
+		color : red;
 	}
     </style>
     <!--     	스타일 영역 끝입니다---------------------------------------------------------- -->
@@ -432,9 +438,16 @@
 	    			<div style="font-size: 18px; margin-bottom: 3px;">이용 후기</div>
 	    			
 	    			<%for (Users_Review_Dto dto : list) {%>
-	    			
+	    			<%		String Review_writer = "";
+	    					if(dto.getReview_writer()==null){ 
+	    						Review_writer = "탈퇴한 회원입니다";   				
+	    					}
+	    					else{
+	    						Review_writer = dto.getReview_writer();
+	    					}
+	    			%>
 	  			<div class="review-reply">
-	    			<div><strong><%=dto.getReview_writer() %></strong></div>
+	    			<div><strong><%=Review_writer %></strong></div>
 	    			<div><%=dto.getReview_date().substring(0, 10) %> 작성</div>
 	    			<br>
 	    			<div><%=dto.getReview_content() %></div>
@@ -515,7 +528,7 @@
     				<button onclick="list();">목록으로</button><br>
     			<%} %>
     		<%} else{%>
-    			<div>판매가 종료된 상품입니다</div><br>
+    			<div class="fin">판매가 종료된 상품입니다</div><br>
     			<button onclick="list();">목록으로</button><br>
     		<%} %>
 			</div>

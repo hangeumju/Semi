@@ -33,9 +33,9 @@
     int pmonth = HCCdao.total_pay(host_id, month);
     int bmonth = HCCdao.before_total_pay(host_id, beforeMonth);
     
-    System.out.println(total);
-    System.out.println(pmonth);
-    System.out.println(bmonth);
+//     System.out.println(total);
+//     System.out.println(pmonth);
+//     System.out.println(bmonth);
     %>
     
 	<style>     
