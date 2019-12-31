@@ -1,4 +1,6 @@
 
+<%@page import="beans.Host_Yearly_Dto"%>
+<%@page import="java.util.List"%>
 <%@page import="java.util.Date"%>
 <%@page import="beans.Host_Calculate_Dao"%>
 <%@page import="java.text.SimpleDateFormat"%>
@@ -64,6 +66,11 @@
   	int secondHalf = HCCdao.second(host_id, lastYear);
   	System.out.println(total);
   	System.out.println((int)(total*0.05));
+  	
+  	
+  	//연도별 구하기
+  	List<Host_Yearly_Dto> list = HCCdao.yearly(host_id);
+  	
     %>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/host_main.css">
 	<style>   
@@ -206,6 +213,24 @@
 	</tr>
 	
 	 </tbody>
+		</table>
+		
+		<br><br><br>
+		<table>
+			<thead>
+				<tr>
+					<th>연도</th>
+					<th>총금액</th>
+				</tr>
+			</thead>
+			<tbody>
+				<%for(Host_Yearly_Dto dto : list) {%>
+				<tr>
+					<td><%=dto.getYear() %>년</td>
+					<td><%=dto.getTotal_payment() %>원</td>
+				</tr>	
+				<%} %>
+			</tbody>
 		</table>
       </div>
     </div>

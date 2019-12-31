@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -202,5 +204,32 @@ private static DataSource source;
           
           con.close();
           return total_pay;
+       }
+      
+    //연도별 총 금액
+      public List<Host_Yearly_Dto> yearly(String host_id) throws Exception{
+    	  Connection con = getConnection();
+          
+          String sql = " select sum(host_content_cost * user_qty) total_payment, extract(year from user_reservation_date) year from ("
+                  + " select host_id, host_content_no, host_content_cost  from host_content where host_id = ? " + 
+                  " ) HC " + 
+                  " inner join content_history CH on HC.host_content_no = CH.host_history_no "+
+                  " group by extract(year from user_reservation_date) ";
+             
+          PreparedStatement ps = con.prepareStatement(sql);
+          ps.setString(1, host_id);
+          
+          ResultSet rs = ps.executeQuery();
+          List<Host_Yearly_Dto> list = new ArrayList<Host_Yearly_Dto>();
+         
+          while(rs.next()) {
+        	  Host_Yearly_Dto dto = new Host_Yearly_Dto();
+        	  dto.setTotal_payment(rs.getInt("total_payment"));
+        	  dto.setYear(rs.getString("year"));
+        	  list.add(dto);
+          }
+          
+          con.close();
+          return list;
        }
 }
