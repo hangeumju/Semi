@@ -4,6 +4,7 @@
 -------------------------------------------------------
 
 
+
 -------------------------------------------------------
 -- host table 생성 : host
 -------------------------------------------------------
@@ -33,6 +34,12 @@ create sequence host_no_seq;
 
 
 ------------------------------------------------------------------------------
+
+
+
+
+
+
 
 -------------------------------------------------------
 -- users table 생성 :  users
@@ -64,6 +71,13 @@ create sequence Users_no_seq;
 
 -------------------------------------------------------
 
+
+
+
+
+
+
+
 -------------------------------------------------------
 -- Content table 생성 :  host_content
 -------------------------------------------------------
@@ -76,7 +90,7 @@ host_id CONSTRAINT fk_hcontent_host REFERENCES host(host_id) on delete CASCADE,
 host_content_category varchar2(21) not null check (host_content_category in ('액티비티', '배움', '건강/뷰티', '모임', '여행')),
 host_content_cost number not null check ( host_content_cost > 0),
 host_content_name varchar2(100),
-host_content_ticket number not null check (host_content_ticket > 0),
+host_content_ticket number not null check (host_content_ticket >= 0),
 host_content_info varchar2(4000),
 host_content_start_date date,
 host_content_last_date date,
@@ -89,6 +103,19 @@ host_content_view_count number default 0,
 host_content_payment_count number default 0
 );
 
+-- 제약조건 삭제 
+alter table host_content drop CONSTRAINT SYS_C0016072;
+-- 제약조건 추가
+alter table host_content add CONSTRAINT host_content_ticket check (host_content_ticket >= 0);
+commit;
+
+-- 설정 변경 
+alter table host_content MODIFy(host_content_location varchar2(100));
+
+
+-- 테이블 안 데이터만 삭제
+delete from host_content;
+commit;
 
 -- 시퀀스 생성
 drop sequence host_content_no_seq;
@@ -98,9 +125,12 @@ create sequence host_content_no_seq;
 select * from host_content;
 
 ----------------------------------------------------------------------------
+
+
+----------------------------------------------------------------------------
 -- 댓글에 필요한 groupno, superno, depth 추가 및 속성 변경
 ----------------------------------------------------------------------------
---- 테이블 구조 변경 시작
+-- host_content 테이블 구조 변경 시작
 ----------------------------------------------------------------------------
 alter table host_content add (
 groupno number,
@@ -134,6 +164,9 @@ order siblings by groupno desc, no asc;
 ---------------------------------------------------------
 
 
+
+
+
 -------------------------------------------------------
 -- 사진 업로드 테이블 : host_content_photo
 -------------------------------------------------------
@@ -147,14 +180,21 @@ host_content_original_file varchar2(260),
 host_content_edit_file varchar2(260)
 );
 
+-- 데이터 삭제
+delete from host_content_photo;
+commit;
+
 -- 시퀀스 생성
 drop sequence host_content_photo_seq;
 create sequence host_content_photo_seq;
+
+-----------------------------------------------------------------------------------------
 
 
 
 -------------------------------------------------------------------------------
 -- 결제 내역, 이용 내역 테이블 생성 : content_history
+-------------------------------------------------------------------------------
 
 -- host에게는 결제정보 (User의 아이디, 이름, 전화번호를 제공하는 것이 목적)
 -- user에게는 이용정보 (Host의 0이름, 전화번호, 로케이션, 컨텐츠 정보를 제공하는 것이 목적)
@@ -171,6 +211,13 @@ users_history_id  CONSTRAINT fk_history_user_id REFERENCES users(user_id) on del
 user_qty number,
 user_reservation_date date
 );
+
+-- 데이터 삭제
+delete from content_history;
+commit;
+
+
+
 
 -- 시퀀스 생성
 drop sequence content_history_seq;
@@ -226,6 +273,7 @@ insert into content_history values (content_history_seq.nextval, 44, 11, 'dddddd
 
 commit;
 
+-------------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------------
 -- 뷰 생성 (가상의 테이블 생성)
@@ -244,15 +292,40 @@ commit;
 
 drop view content_history_to_host;
 
+-- 왜 안되는지 확인
 create view content_history_to_host as
-select history_no, user_name, user_phone, user_qty, user_reservation_date, users_history_id, host_content_name, 
+select history_no, user_name, user_phone, user_qty, user_reservation_date, users_history_id, B.host_content_name, B.host_id, 
 host_history_no, user_class_date, A.groupno, A.superno, A.depth from
-    (select CH.*, U.* from content_history CH left outer join users U
+    (select CH.*, U.* from content_history CH right outer join users U
     on CH.users_history_no = U.user_no)A
-    left outer join host_content B  on  B.host_content_no = A.history_no
+    left outer join host_content B  on  A.history_no = B.host_content_no
     order by user_reservation_date desc;
     
 select * from content_history_to_host;
+
+desc users;
+desc host_content;
+desc content_history;
+
+select * from users;
+select * from host_content;
+select * from content_history;
+
+
+
+-- 특정 판매자의 예약내역
+-- 판매자 + 예약내역 + 사용자 where 판매자 = ?
+create view content_history_to_host as
+select 
+ history_no, user_name, user_phone, user_qty, user_reservation_date, users_history_id, host_content_name, host_id, 
+host_history_no, user_class_date, CH.groupno, CH.superno, CH.depth
+from 
+    content_history CH 
+        inner join host_content HC on CH.host_history_no = HC.host_content_no
+        inner join users USR on CH.users_history_no = USR.user_no;
+
+
+
 
 -- host 이용 테이블 검색 조건 작성
 -- 내 컨텐츠에 예약한 user 정보 페이지
@@ -260,9 +333,15 @@ select * from content_history_to_host;
 -- 예약번호 기준
 select * from content_history_to_host where history_no ='4' order by history_no desc ;
 -- 예약자 기준
-select * from content_history_to_host where user_name ='한금주' order by history_no desc ;
+select * from content_history_to_host where user_name ='김지은' order by history_no desc ;
 -- 컨텐츠 번호 기준
 select * from content_history_to_host where host_history_no ='45' order by history_no desc ;
+
+
+
+-- 컨텐츠 호스트아이디 기준
+select * from content_history_to_host where host_id ='gksrmawn' order by history_no desc ;
+
 
 ----------------------------------------------------------------------------------------------------------
 -- user에게는 이용정보 (Host의 0이름, 전화번호, 로케이션, 컨텐츠 정보를 제공하는 것이 목적)
@@ -275,8 +354,8 @@ create view content_history_to_users as
 select host_name, host_phone, host_content_name, host_content_cost, host_content_location, user_reservation_date, 
 user_qty,users_history_id, user_class_date, B.groupno, B.superno, B.depth  from 
     (select H.host_name, H.host_phone, HC.host_content_name, HC.host_content_cost, HC.host_content_location, HC.host_content_no from 
-    host H inner join host_content HC on H.host_id = HC.host_id) A
-    inner join content_history B on A.host_content_no = B.host_history_no
+    host H right outer join host_content HC on H.host_id = HC.host_id) A
+    right outer join content_history B on A.host_content_no = B.host_history_no
     order by user_reservation_date desc;
  
 
@@ -312,6 +391,10 @@ review_content varchar2(1000) not null,
 review_date date default sysdate
 ); 
 
+-- 데이터 삭제
+delete from user_review;
+commit;
+
 -- review_title 컬럼 삭제
 alter table user_review drop COLUMN review_title;
 
@@ -335,6 +418,7 @@ create sequence user_review_seq;
 select * from user_review;
 select * from user_review where review_writer = 'dksthgml';
 
+------------------------------------------------------------------------------------
 
 
 
@@ -354,6 +438,10 @@ notice_content varchar2(4000),
 notice_date date default sysdate
 );
 
+-- 데이터 삭제
+delete from notice;
+commit;
+
 -- 시퀀스 생성
 drop sequence notice_seq;
 create sequence notice_seq;
@@ -368,7 +456,7 @@ select * from notice;
 ----------------------------------------------------------------------------
 -- 댓글에 필요한 groupno, superno, depth 추가 및 속성 변경
 ----------------------------------------------------------------------------
---- 테이블 구조 변경 시작
+--- notice 테이블 구조 변경 시작
 ----------------------------------------------------------------------------
 alter table notice add (
 groupno number,
@@ -400,5 +488,100 @@ order siblings by groupno desc, no asc;
 
 ---------------------------------------------------------
 ---------------------------------------------------------
+
+
+
+
+
+
+
+
+-- host_content_list 최신순으로 불러오기
+select * from host_content order by host_content_no desc;
+-- host_content_list 중에 승인만 불러오 보여주기
+select * from host_content where host_content_category = '액티비티' and host_content_approval='보류' order by host_content_no desc;
+
+
+select * from host_content where host_content_approval = '보류';
+-- 컨텐츠 승인 쿼리문 컨텐츠 넘버 기입
+update host_content set host_content_approval='승인' where host_content_no = 1;
+commit;
+update host_content set host_content_approval='승인';
+---------------------------------------------------------
+
+
+
+
+
+
+
+
+-- 컨텐츠 정선에 대한 내용 수정
+update host_content set host_content_cost = 16000, host_content_payment_count = 35 where host_content_no = 20;
+commit;
+
+---------------------------------------------------------
+-- 정산
+---------------------------------------------------------
+-- user 에게는 사용 금액전체
+-- host 에게는 content 별 가격 표시
+-- 월별로 총 토탈 금액 표시
+---------------------------------------------------------
+
+-- user 가 결제한 모든 금액 (유저가 결제한 모든 금액 : 내이름  검색)
+    select sum(user_pay_total) from (
+    select users_history_id, (host_content_cost * user_qty)user_pay_total from content_history_to_users where users_history_id = 'qkrtjddo'
+    );
+-- 서브쿼리 확인
+    select users_history_id, (host_content_cost * user_qty)user_pay_total from content_history_to_users where users_history_id = 'qkrtjddo';
+
+
+---------------------------------------------------------------------------------------
+
+
+
+-- host_content 결제된 모든 금액 (host_id 별 총 금액 : 나의 호스트 기준  이름으로 검색 )    
+-- content + content_history 에서 확인 가능한 정보 join (host_content_cost * user_qty)
+    select sum(host_content_cost * user_qty) total_payment from (
+      select host_id, host_content_no, host_content_cost  from host_content where host_id = 'rlawldms'
+      ) HC 
+      inner join content_history CH on HC.host_content_no = CH.host_history_no;    
+-- 서브쿼리 확인용
+    select host_id, host_content_no, host_content_cost  from host_content where host_id = 'rlawldms';
+
+
+
+
+-- host_content 결제된 모든 금액 (host_id 별 + 구간 검색 : 월별) 
+      select sum(host_content_cost * user_qty) total_payment from (
+      select host_id, host_content_no, host_content_cost  from host_content where host_id = 'rlawldms'
+      ) HC 
+      inner join content_history CH on HC.host_content_no = CH.host_history_no
+      where extract(MONTH from CH.user_reservation_date) between 11 and 12;
+  
+  
+-- 전원, 현월 매출 검색
+      select sum(host_content_cost * user_qty) total_payment from (
+      select host_id, host_content_no, host_content_cost from host_content where host_id = 'rlawldms'
+      ) HC inner join content_history CH on HC.host_content_no = CH.host_history_no
+      where user_reservation_date like '19/12/%';
+      
+      
+  
+-- 전월 매출 구해요기 30 일전 
+select sysdate - 31 from dual;
+-- 월만 구해요기
+select to_char(sysdate-31, 'MM') from dual;
+-- 한달 전 날짜 
+select to_char(add_months(sysdate, -1), 'MM') from dual;
+
+-- 전월 매출 구해요기 오늘
+select sysdate from dual;
+-- 월만 구해오기
+select to_char(sysdate, 'MM') from dual;
+ 
+----------------------------------------------------------
+
+
 
 
