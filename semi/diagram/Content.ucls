@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.3" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="beans.Host_Content_Dao" project="semi" 
+    file="/semi/src/beans/Host_Content_Dao.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="53" width="274" x="48" y="55"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="beans.Host_Content_Dto" project="semi" 
+    file="/semi/src/beans/Host_Content_Dto.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="53" width="275" x="47" y="121"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="beans.Host_Content_Photo_Dao" project="semi" 
+    file="/semi/src/beans/Host_Content_Photo_Dao.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="53" width="272" x="50" y="258"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="beans.Host_Content_Photo_Dto" project="semi" 
+    file="/semi/src/beans/Host_Content_Photo_Dto.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="53" width="275" x="49" y="189"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="servlet.Host_Content_Delete_Servlet" project="semi" 
+    file="/semi/src/servlet/Host_Content_Delete_Servlet.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="53" width="291" x="528" y="192"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="servlet.Host_Content_Edit_Servlet" project="semi" 
+    file="/semi/src/servlet/Host_Content_Edit_Servlet.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="53" width="291" x="529" y="265"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="servlet.Host_Content_Get_One_Photo_Servlet" project="semi" 
+    file="/semi/src/servlet/Host_Content_Get_One_Photo_Servlet.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="53" width="284" x="531" y="407"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="servlet.Host_Content_Get_Photo_Servlet" project="semi" 
+    file="/semi/src/servlet/Host_Content_Get_Photo_Servlet.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="53" width="284" x="526" y="119"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="servlet.Host_content_Produce_Servlet" project="semi" 
+    file="/semi/src/servlet/Host_content_Produce_Servlet.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="53" width="288" x="532" y="333"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="beans.Content_History_Dto" project="semi" 
+    file="/semi/src/beans/Content_History_Dto.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="53" width="271" x="53" y="520"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="beans.Users_Content_History_Dao" project="semi" 
+    file="/semi/src/beans/Users_Content_History_Dao.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="53" width="275" x="50" y="319"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="beans.Content_History_Dao" project="semi" 
+    file="/semi/src/beans/Content_History_Dao.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="53" width="274" x="50" y="450"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="beans.Users_Content_History_Dto" project="semi" 
+    file="/semi/src/beans/Users_Content_History_Dto.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="53" width="278" x="48" y="384"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="servlet.Users_Review_Regist_Servlet" project="semi" 
+    file="/semi/src/servlet/Users_Review_Regist_Servlet.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="53" width="288" x="530" y="483"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>
