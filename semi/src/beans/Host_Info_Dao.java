@@ -223,15 +223,15 @@ private static DataSource source;
 		}
 		
 		//최종 로그인 날짜 시간 변경
-		public void updatehost_lastlogin(String host_id) throws Exception {
-			Connection con = getConnection();
-			String sql = "update host set host_lastlogin = sysdate where host_id=?";
-			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setString(1, host_id);
-			ps.execute();
-			con.close();
+	      public void updatehost_lastlogin(String host_id) throws Exception {
+	         Connection con = getConnection();
+	         String sql = "update host set host_lastlogin = sysdate where host_id=?";
+	         PreparedStatement ps = con.prepareStatement(sql);
+	         ps.setString(1, host_id);
+	         ps.execute();
+	         con.close();
 
-			}
+	         }
 		
 }
 
