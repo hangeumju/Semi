@@ -34,7 +34,7 @@
    List<Host_Content_Dto> list = HCdao.getList2(host_id, start, finish);
    int count = HCdao.getCount(host_id);
    
-   System.out.println(count);
+//    System.out.println(count);
    
    /////////////절대경로 변수
    String context = request.getContextPath();

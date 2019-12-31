@@ -24,7 +24,7 @@ public class Host_Login_Servlet extends HttpServlet{
 			
 			//최종 로그인 시간 변경
 			
-			String isHost = (String) req.getSession().getAttribute("user_id");
+			String isHost = (String) req.getSession().getAttribute("host_id");
 			
 			if(result) {
 				req.getSession().setAttribute("host_id", host_id);
