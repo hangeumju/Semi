@@ -149,7 +149,17 @@
        	height: 25px;
        }
        
-
+		.total-money{
+             float: right;
+       }
+       .total-money  .money{
+           color: green;
+       }
+      .money{
+         font-size:20px;
+         font-weight: bold;
+      }
+		
        
     </style>
 <body>
@@ -176,10 +186,8 @@
           <!-- side_menu끝 -->
        </div>
        <!-- side끝 -->
-		<div class="content">
-            <div class="row-empty"></div>
-        	<div class="row-empty2"></div>
-        	<div><%=total  %></div>
+		<div class="content">           
+             <h3 class="total-money">총 금액 : <span class="money"><%=total  %></span>원</h3>    
         <table class="notice_table" >
         <thead>
         	<tr>
