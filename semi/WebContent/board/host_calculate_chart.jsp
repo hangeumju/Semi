@@ -17,9 +17,33 @@
 	Date time = new Date();
 	String month = format1.format(time).substring(2, 7);
 	
-// 	System.out.println(beforeMonth);
-// 	System.out.println(time1);
+	//작년 구하기
+	int beforeYear = Integer.parseInt(format1.format(time).substring(2, 4))-1;
+	String lastYear = Integer.toString(beforeYear);
 	
+	int thisYear = Integer.parseInt(format1.format(time).substring(2, 4));
+	String toYear = Integer.toString(thisYear);
+	
+// 	int test = Integer.parseInt(format1.format(time).substring(5, 7));
+	
+// 	boolean test1 = test > 6;
+	
+// 	String firstHalf = "";
+// 	String secondHalf = "";
+// 	if(test1){
+// 		secondHalf = format1.format(time).substring(2, 7);
+// 	}
+// 	else{
+// 		firstHalf = format1.format(time).substring(2, 7);
+// 	}
+	
+// 	if(secondHalf != null && secondHalf != ""){
+// 		int 
+// 	}
+	
+	
+	
+
     String host_id = (String)request.getSession().getAttribute("host_id");
     
     Host_Calculate_Dao HCCdao = new Host_Calculate_Dao();
@@ -28,6 +52,18 @@
     int pmonth = HCCdao.total_pay(host_id, month);
     int bmonth = HCCdao.before_total_pay(host_id, beforeMonth);
     
+    int ptoyear = HCCdao.pYear_total_pay(host_id, toYear);
+    
+    //전년도 총 금액 구하기
+    int plastYear = HCCdao.plastYear_total_pay(host_id, lastYear);
+   
+ 	 //상반기
+  	int	firstHalf = HCCdao.first(host_id, lastYear);
+  	
+  	//하반기
+  	int secondHalf = HCCdao.second(host_id, lastYear);
+  	System.out.println(total);
+  	System.out.println((int)(total*0.05));
     %>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/host_main.css">
 	<style>   
@@ -136,10 +172,12 @@
 		<div class="content">
             <div class="row-empty"></div>
         	<div class="row-empty2"></div>
+        	<div><%=total  %></div>
         <table class="notice_table" >
         <thead>
         	<tr>
-	        <th>총금액</th>
+        	<th>금년 총금액</th>
+	        <th>금년 수수료 제외 총금액</th>
         	<th>당월 금액</th>
         	<th>전월 금액</th>
 	        </tr>
@@ -147,10 +185,26 @@
         
         <tbody align="center">
     <tr>
-        <td><%=total %>원</td>
+        <td><%=ptoyear %>원</td>
+        <td><%=ptoyear-(int)(ptoyear*0.05)  %>원</td>
 		<td><%=pmonth %>원</td>
 		<td><%=bmonth %>원</td>
 	</tr>
+	
+	<tr>
+        <th>전년도 총금액</th>
+        <th>전년도 수수료 제외 총금액</th>
+		<th>전년도 상반기</th>
+		<th>전년도 하반기</th>
+	</tr>
+	
+	<tr>
+        <td><%=plastYear %>원</td>
+        <td><%=plastYear - (int)(plastYear*0.05) %>원</td>
+		<td><%=firstHalf %>원</td>
+		<td><%=secondHalf %>원</td>
+	</tr>
+	
 	 </tbody>
 		</table>
       </div>
@@ -159,4 +213,3 @@
     <div class="row-empty"></div>
 </body>
 <jsp:include page="/template/footer.jsp"></jsp:include>
-  
