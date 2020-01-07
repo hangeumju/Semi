@@ -88,13 +88,15 @@
     .row-right {
         text-align: right;
     }
+    
+   
 
 /*
 	Title 스타일 : 제목에는 그라데이션 추가
 */
 	.title{
 	background: rgb(24,222,137);
-	background-image: linear-gradient(277deg, rgb(98, 201, 255), rgb(51, 151, 255));
+	background: linear-gradient(93deg, rgba(249,137,103,1) 0%, rgba(252,158,129,1) 47%, rgba(251,199,183,1) 100%);
 	color:white;
 	text-align:left;
     padding: 0rem 1.5rem 0rem 1.5rem;
@@ -120,7 +122,7 @@
     width: 290px;
     height: 50px;
     line-height: normal;
-    background-color: rgb(51, 151, 255);
+    background-color: #F98967;
     text-align: center;
     cursor: pointer;
     color: white;
@@ -131,6 +133,7 @@
     border-width: 1px;    
     }
     
+  
     
 
 </style>
@@ -143,12 +146,12 @@
         </div>
         <hr>
         <div class="row-left">
-            선택한 내역
+            선택한 클래스내역
         </div>
         <hr>
         <div class="row-left">
             <div class="class_name">
-                클래스 명 : <%=host_content_name %>
+                <%=host_content_name %>
             </div>
             <hr>
             <div>
@@ -173,7 +176,7 @@
             <div class="row-right"><%=host_content_cost * ticketing %>원</div>
         </div>
         <br>
-        <div class="row-left">결제수단</div>
+        <div class="row-left" >결제수단</div>
         <hr>
        
         <button class="btn_style1">체크/신용카드</button>
@@ -192,7 +195,7 @@
 			<input type="hidden" name="host_content_cost" value="<%=host_content_cost %>"> <!--호스트 컨텐츠 가격 -->
         	<input type="hidden" name="ticketing" value="<%=ticketing %>">
         	<input type="hidden" name="start_date" value="<%=start_date %>">
-        <div class="row">
+        <div>
             <input type="checkbox">개인정보 제 3자 제공 동의, 결제 대행 서비스 이용 약관 등 모든 약관에 동의합니다.
         </div><br>
         <div>

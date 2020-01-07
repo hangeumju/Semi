@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.3" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="beans.Host_Info_Dao" project="semi" file="/semi/src/beans/Host_Info_Dao.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="57" width="300" x="8" y="223"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="false" protected="true" private="false" static="false"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="beans.Host_Info_Dto" project="semi" file="/semi/src/beans/Host_Info_Dto.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="53" width="302" x="9" y="290"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="false" protected="true" private="false" static="false"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="servlet.Host_Login_Servlet" project="semi" 
+    file="/semi/src/servlet/Host_Login_Servlet.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="104" width="291" x="421" y="27"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="false" protected="true" private="false" static="false"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="servlet.Host_Login_Find_Servlet" project="semi" 
+    file="/semi/src/servlet/Host_Login_Find_Servlet.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="569" y="340"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="false" protected="true" private="false" static="false"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="servlet.Host_Logout_Servlet" project="semi" 
+    file="/semi/src/servlet/Host_Logout_Servlet.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="571" y="486"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="false" protected="true" private="false" static="false"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="servlet.Host_Regist_Servlet" project="semi" 
+    file="/semi/src/servlet/Host_Regist_Servlet.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="567" y="212"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="false" protected="true" private="false" static="false"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="servlet.Host_Exit_Servlet" project="semi" 
+    file="/semi/src/servlet/Host_Exit_Servlet.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="890" y="486"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="false" protected="true" private="false" static="false"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="servlet.Host_Change_Info_Servlet" project="semi" 
+    file="/semi/src/servlet/Host_Change_Info_Servlet.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="101" width="291" x="738" y="27"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="false" protected="true" private="false" static="false"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="servlet.Host_Change_PW_Servlet" project="semi" 
+    file="/semi/src/servlet/Host_Change_PW_Servlet.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="887" y="341"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="false" protected="true" private="false" static="false"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="servlet.Host_Check_Servlet" project="semi" 
+    file="/semi/src/servlet/Host_Check_Servlet.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="96" width="288" x="734" y="166"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="false" protected="true" private="false" static="false"/>    
+    </display>  
+  </class>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="false" protected="false" private="false" static="false"/>    
+    <operations public="true" package="false" protected="true" private="false" static="false"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

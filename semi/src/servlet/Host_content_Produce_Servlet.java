@@ -26,8 +26,9 @@ public class Host_content_Produce_Servlet extends HttpServlet{
 		try {
 			req.setCharacterEncoding("utf-8");
 			
+
 			MultipartRequest mRequest = new MultipartRequest(req, "D:\\upload\\kh2\\home", 10*1024*1024, "utf-8", new DefaultFileRenamePolicy());
-//			
+
 			
 			ServletContext context = getServletContext(); //어플리케이션에 대한 정보를 ServletContext 객체가 갖게 됨. 
 			String saveDir = context.getRealPath(req.getContextPath()+"/image"); //절대경로를 가져옴

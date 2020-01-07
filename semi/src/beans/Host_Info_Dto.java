@@ -197,20 +197,20 @@ public class Host_Info_Dto {
 		}
 		
 		//최종 로그인 시간 변경
-		public String getHost_lastloginwithFormat() throws ParseException{
-			if(host_lastlogin == null) {
-				return "";
-			}
-			else {
-				//최종 로그인 날짜를 형식으로 변환
-				SimpleDateFormat read = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S");
-				Date date = read.parse(host_lastlogin);
-				//변환한 형식을 다시 원하는 형식의 문자열로 변환
-				SimpleDateFormat write = new SimpleDateFormat("y년 M월 d일 E요일 HH시 mm분 ss초");
-				String time = write.format(date);
-				return time;
-			}
-		}
+	      public String getHost_lastloginwithFormat() throws ParseException{
+	         if(host_lastlogin == null) {
+	            return "";
+	         }
+	         else {
+	            //최종 로그인 날짜를 형식으로 변환
+	            SimpleDateFormat read = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S");
+	            Date date = read.parse(host_lastlogin);
+	            //변환한 형식을 다시 원하는 형식의 문자열로 변환
+	            SimpleDateFormat write = new SimpleDateFormat("y년 M월 d일 E요일 HH시 mm분 ss초");
+	            String time = write.format(date);
+	            return time;
+	         }
+	      }
 }
 
 

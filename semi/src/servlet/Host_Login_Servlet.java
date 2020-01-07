@@ -47,5 +47,4 @@ public class Host_Login_Servlet extends HttpServlet{
 			resp.sendError(500);
 		}
 	}
-
 }
