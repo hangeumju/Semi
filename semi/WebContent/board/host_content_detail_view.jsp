@@ -45,8 +45,6 @@
 		//상품 마감
 		boolean zero = HCdto.getHost_content_ticket() == 0;
 		
-// 		System.out.println(HCdto.getHost_content_ticket());
-// 		System.out.println(zero);
 		
 		 //조회수 증가 부분
 	 	
@@ -96,11 +94,9 @@
 // 		List Host_Cotent_Photo_no 불러오기 (3개)
 		List<Host_Content_Photo_Dto> HCPlist = HCPdao.host_content_photo_getPhoto3(no);	
 // 		  for (Host_Content_Photo_Dto dto1 : HCPlist) { 
-// 				System.out.println(dto1.getHost_content_photo_no());
 // 		  }
 	 	
 	 	
-// 	 	System.out.println(time1);
 
 		
 	%>

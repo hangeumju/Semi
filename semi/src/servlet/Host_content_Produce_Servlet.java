@@ -26,7 +26,7 @@ public class Host_content_Produce_Servlet extends HttpServlet{
 		try {
 			req.setCharacterEncoding("utf-8");
 			
-			MultipartRequest mRequest = new MultipartRequest(req, "D:\\upload\\home", 10*1024*1024, "utf-8", new DefaultFileRenamePolicy());
+			MultipartRequest mRequest = new MultipartRequest(req, "D:\\upload\\kh2\\home", 10*1024*1024, "utf-8", new DefaultFileRenamePolicy());
 //			
 			
 			ServletContext context = getServletContext(); //어플리케이션에 대한 정보를 ServletContext 객체가 갖게 됨. 
@@ -71,9 +71,6 @@ public class Host_content_Produce_Servlet extends HttpServlet{
 			HCPdto.setHost_content_no(no);
 			HCPdto.setHost_content_original_file(mRequest.getOriginalFileName("host_content_file"+i));
 			HCPdto.setHost_content_edit_file(mRequest.getFilesystemName("host_content_file"+i));
-//			System.out.println(file);
-//			System.out.println(mRequest.getOriginalFileName("file"));
-//			System.out.println(mRequest.getFilesystemName("file"));
 			//파일다오를 통해 입력받은 컨텐츠를 생성한다 이걸 3번한다
 			HCPdao.host_content_photo_insert(HCPdto);
 			}

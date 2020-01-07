@@ -24,7 +24,6 @@
 		
 	int finish = pno * pagesize;
 	int start = finish - (pagesize - 1);
-	//	System.out.println("start = " + start + " , finish = " + finish);
 	
 //**************************************************************************************
 // 		하단 네비게이터 계산하기

@@ -64,7 +64,6 @@ private static DataSource source;
 			HCPdto.setHost_content_no(rs.getInt("host_content_no"));
 			HCPdto.setHost_content_original_file(rs.getString("host_content_original_file"));
 			HCPdto.setHost_content_edit_file(rs.getString("host_content_edit_file"));
-//			System.out.println(rs.getInt("host_content_photo_no"));
 			list.add(HCPdto);
 		}
 		con.close();
@@ -122,8 +121,6 @@ private static DataSource source;
 				HCPdto.setHost_content_no(rs.getInt("host_content_no"));
 				HCPdto.setHost_content_original_file(rs.getString("host_content_original_file"));
 				HCPdto.setHost_content_edit_file(rs.getString("host_content_edit_file"));
-//				사진번호 확인
-//				System.out.println(rs.getInt("host_content_photo_no")); 
 				list.add(HCPdto);
 			}		
 		con.close();

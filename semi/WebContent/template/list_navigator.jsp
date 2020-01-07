@@ -22,13 +22,6 @@
 		finishBlock = pagecount;
 	}
 	
-// 	System.out.println(category);
-// 	System.out.println(pno);
-// 	System.out.println(count);
-// 	System.out.println(navsize);
-// 	System.out.println(pagesize);
-// 	System.out.println(type);
-// 	System.out.println(keyword);
 %>
  
 <h4>

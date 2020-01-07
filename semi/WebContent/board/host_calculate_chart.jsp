@@ -64,8 +64,6 @@
   	
   	//하반기
   	int secondHalf = HCCdao.second(host_id, lastYear);
-  	System.out.println(total);
-  	System.out.println((int)(total*0.05));
   	
   	
   	//연도별 구하기
@@ -223,7 +221,7 @@
 	 </tbody>
 		</table>
 		
-		<br><br><br>
+		<br>
 		<table>
 			<thead>
 				<tr>

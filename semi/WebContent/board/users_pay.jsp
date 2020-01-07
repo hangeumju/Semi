@@ -12,10 +12,6 @@
 	int host_content_cost = Integer.parseInt(request.getParameter("host_content_cost"));//호스트 컨텐츠 가격
 	int ticketing = Integer.parseInt(request.getParameter("ticketing"));//유저가 구매하려는 티켓수
 	String start_date = request.getParameter("start_date");//유저가 원하는 날짜
-// 	System.out.println(host_content_name);
-// 	System.out.println(host_content_no);
-// 	System.out.println(host_name);
-// 	System.out.println(host_phone);
 	
 	
 %>

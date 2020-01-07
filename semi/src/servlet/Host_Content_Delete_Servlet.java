@@ -23,13 +23,8 @@ public class Host_Content_Delete_Servlet extends HttpServlet{
 			Host_Content_Dao HCdao = new Host_Content_Dao();
 			String host_id = req.getParameter("host_id"); //아이디를 받고
 			int no = Integer.parseInt(req.getParameter("host_content_no")); //번호를 받아 지웁니다
-//			System.out.println(host_id);
-//			System.out.println(no);
 			
 			HCdao.host_content_delete(host_id, no);
-			// 테스트
-//			System.out.println(host_id);
-//			System.out.println(no);
 			
 			resp.sendRedirect(req.getContextPath()+"/board/host_confirm_list.jsp");
 		}

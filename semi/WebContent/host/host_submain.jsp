@@ -24,8 +24,6 @@
 	Date time = new Date();
 	String month = format1.format(time).substring(2, 7);
 	
-// 	System.out.println(beforeMonth);
-// 	System.out.println(time1);
 	
     Host_Calculate_Dao HCCdao = new Host_Calculate_Dao();
     
@@ -33,9 +31,6 @@
     int pmonth = HCCdao.total_pay(host_id, month);
     int bmonth = HCCdao.before_total_pay(host_id, beforeMonth);
     
-//     System.out.println(total);
-//     System.out.println(pmonth);
-//     System.out.println(bmonth);
     %>
     
 	<style>     
